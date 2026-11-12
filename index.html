@@ -260,9 +260,9 @@ const read=document.createElement("button");read.className="btn dark";read.textC
 read.onclick=()=>openReader(b.id);
 const fav=document.createElement("button");fav.className="btn favorite";
 fav.textContent=saved.includes(b.id)?"♥":"♡";
-fav.title="Save to My Library";
 fav.onclick=()=>toggleSaved(b.id);
-actions.append(read,fav);
+fav.title="Save to My Library";
+  actions.append(read,fav);
 info.append(h,p,actions);
 card.append(cover,info);
 return card;
