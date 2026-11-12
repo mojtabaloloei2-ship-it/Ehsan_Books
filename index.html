@@ -174,58 +174,59 @@ nav{justify-content:center;gap:13px}
 </header>
 
 <div class="hero" id="home">
-<div class="eyebrow">YOUR GLOBAL DIGITAL LIBRARY</div>
-<h1>Knowledge Without Borders</h1>
-<p>Discover great books. Learn new ideas. Build a better future.</p>
+<div class="eyebrow">کتابخانه دیجیتال جهانی احسان </div>
+<h1>دانش، بدون مرز</h1>
+<p>کتاب‌های ارزشمند را کشف کنید، ایده‌های تازه بیاموزید و آینده‌ای بهتر بسازید.</p>
 <div class="search">
-<input id="search" placeholder="Search books, authors or topics..." oninput="renderBooks()">
+<input id="search" placeholder="جست‌وجوی کتاب، نویسنده یا موضوع..." oninput="renderBooks()">
 </div>
-<button class="btn gold" onclick="document.getElementById('library').scrollIntoView({behavior:'smooth'})">Explore Books →</button>
+<button class="btn gold" onclick="document.getElementById('library').scrollIntoView({behavior:'smooth'})">مشاهده کتاب‌ها ←</button>
 </div>
 
 <main>
 <section id="categories">
 <div class="section-head">
-<h2>Explore Categories</h2>
-<span class="muted">Find your next inspiration</span>
+
+<h2>دسته‌بندی کتاب‌ها</h2>  
+<span class="muted">موضوع مورد علاقه خود را انتخاب کنید</span>
 </div>
 <div class="categories">
-<div class="category active" onclick="setCategory('All',this)">🌐 All Books</div>
-<div class="category" onclick="setCategory('Business',this)">💼 Business</div>
-<div class="category" onclick="setCategory('Psychology',this)">🧠 Psychology</div>
-<div class="category" onclick="setCategory('Technology',this)">🤖 Technology</div>
-<div class="category" onclick="setCategory('Finance',this)">💰 Finance</div>
-<div class="category" onclick="setCategory('Growth',this)">🌱 Personal Growth</div>
+<div class="category active" onclick="setCategory('All',this)">🌐 همه کتاب‌ها</div>
+<div class="category" onclick="setCategory('Business',this)">💼 کسب‌وکار</div>
+<div class="category" onclick="setCategory('Psychology',this)">🧠 روان‌شناسی</div>
+<div class="category" onclick="setCategory('Technology',this)">🤖 فناوری</div> 
+<div class="category" onclick="setCategory('Finance',this)">💰 مالی و سرمایه‌گذاری</div>
+<div class="category" onclick="setCategory('Growth',this)">🌱 رشد فردی</div>
 </div>
 </section>
 
 <section id="library">
 <div class="section-head">
 <div>
-<h2>Featured Books</h2>
-<p class="muted">Explore knowledge, one page at a time.</p>
-</div>
-<span class="tag">FREE SUMMARIES</span>
+<h2>کتاب‌های منتخب</h2>
+<p class="muted">هر بار با ورق زدن یک صفحه، دانشتان را گسترش دهید.</p>
+
+<span class="tag">خلاصه‌های رایگان</span>
 </div>
 <div class="books" id="books"></div>
 </section>
 
 <section id="mybooks">
 <div class="library-box">
-<h2>📚 My Personal Library</h2>
-<p>Save your favorite books and return to your reading anytime on this device.</p>
-<p id="savedCount">0 saved books</p>
-<button class="btn gold" onclick="showSaved()">View My Books</button>
+<h2>📚 کتابخانه شخصی من</h2>
+<p>کتاب‌های مورد علاقه خود را ذخیره کنید و هر زمان در همین دستگاه به مطالعه ادامه دهید.</p>
+<p id="savedCount">۰ کتاب ذخیره‌شده</p>
+<button class="btn gold" onclick="showSaved()">مشاهده کتاب‌های من</button>
 </div>
 <div id="savedBooks" class="books"></div>
 </section>
 
 <section id="about">
-<h2>About EHSAN BOOKS</h2>
+<h2>درباره EHSAN BOOKS</h2>
 <p class="muted" style="line-height:2">
-EHSAN BOOKS is a digital knowledge platform created to make learning
-accessible to readers around the world. Discover ideas, explore subjects
-and develop your knowledge every day.
+EHSAN BOOKS یک پلتفرم دیجیتال برای دسترسی آسان به دانش و مطالعه است.
+در اینجا می‌توانید کتاب‌های ارزشمند را کشف کنید، موضوعات گوناگون را
+بشناسید و هر روز دانش خود را گسترش دهید.
 </p>
 </section>
 </main>
@@ -233,19 +234,19 @@ and develop your knowledge every day.
 <div class="reader" id="reader">
 <div class="reader-content">
 <button class="btn dark" onclick="closeReader()">← Back to Library</button>
-<h2 id="readerTitle"></h2>
-<span class="tag">BOOK SUMMARY</span>
+<button class="btn dark" onclick="closeReader()">← بازگشت به کتابخانه</button>
+<span class="tag">خلاصه کتاب</span>
 <p id="readerText"></p>
-<p class="muted">This is an introductory summary. It is not the complete book.</p>
-<button class="btn teal" onclick="saveCurrent()">＋ Add to My Library</button>
-<button class="btn dark" onclick="closeReader()">Close</button>
+<p class="muted">این یک خلاصه مقدماتی است و نسخه کامل کتاب نیست.</p>
+<button class="btn teal" onclick="saveCurrent()">＋ افزودن به کتابخانه من</button>
+<button class="btn dark" onclick="closeReader()">بستن</button>
 </div>
 </div>
 
 <footer>
 <div class="logo">EHSAN <span>BOOKS</span></div>
-<p>Knowledge Without Borders</p>
-<p>© 2026 EHSAN BOOKS. All rights reserved.</p>
+<p>دانش، بدون مرز</p>
+<p>© ۲۰۲۶ EHSAN BOOKS. تمامی حقوق محفوظ است.</p>
 </footer>
 
 <script>
