@@ -271,7 +271,7 @@ const filtered=books.filter(b=>
 );
 const area=document.getElementById("books");
 area.innerHTML="";
-if(!filtered.length){area.innerHTML='<div class="empty">No books found. Try another search.</div>';return;}
+if(!filtered.length){area.innerHTML='<div class="empty">کتابی پیدا نشد. عبارت دیگری را جست‌وجو کنید.</div>';return;}
 filtered.forEach(b=>area.appendChild(createCard(b)));
 }
 function createCard(b){
@@ -287,18 +287,18 @@ cover.append(title,author);
 const info=document.createElement("div");
 info.className="book-info";
 const h=document.createElement("h3");h.textContent=b.title;
-const p=document.createElement("p");p.textContent=b.category+" · "+b.author;
+const p=document.createElement("p");p.textContent=({"Growth":"رشد فردی","Business":"کسب‌وکار","Psychology":"روان‌شناسی","Technology":"فناوری","Finance":"مالی و سرمایه‌گذاری"}[b.category]||b.category)+" · "+b.author;
 const actions=document.createElement("div");actions.className="book-actions";
-const read=document.createElement("button");read.className="btn dark";read.textContent="Read Summary";
+const read=document.createElement("button");read.className="btn dark";read.textContent="مطالعه خلاصه";
 read.onclick=()=>openReader(b.id);
 const full=document.createElement("button");
 full.className="btn";
-full.textContent="Get Full Book";
-full.onclick=()=>alert("Full book edition coming soon. Stay tuned!");
+full.textContent="دریافت نسخه کامل کتاب";
+full.onclick=()=>alert("نسخه کامل این کتاب به‌زودی در دسترس قرار می‌گیرد.");
   const fav=document.createElement("button");fav.className="btn favorite";
 fav.textContent=saved.includes(b.id)?"♥":"♡";
 fav.onclick=()=>toggleSaved(b.id);
-fav.title="Save to My Library";
+fav.title="ذخیره در کتابخانه من";
   actions.append(read,full,fav);
 info.append(h,p,actions);
 card.append(cover,info);
@@ -323,12 +323,12 @@ localStorage.setItem("ehsan_saved_books",JSON.stringify(saved));
 renderBooks();updateCount();showSaved();
 }
 function saveCurrent(){if(currentBook&&!saved.includes(currentBook.id))toggleSaved(currentBook.id);}
-function updateCount(){document.getElementById("savedCount").textContent=saved.length+" saved books";}
+function updateCount(){document.getElementById("savedCount").textContent=saved.length+" کتاب ذخیره‌شده";}
 function showSaved(){
 const area=document.getElementById("savedBooks");
 area.innerHTML="";
 const list=books.filter(b=>saved.includes(b.id));
-if(!list.length){area.innerHTML='<div class="empty">Your personal library is empty. Save a book to see it here.</div>';return;}
+if(!list.length){area.innerHTML='<div class="empty">کتابخانه شخصی شما خالی است. برای مشاهده کتاب‌ها، آن‌ها را ذخیره کنید.</div>';return;}
 list.forEach(b=>area.appendChild(createCard(b)));
 }
 renderBooks();updateCount();
