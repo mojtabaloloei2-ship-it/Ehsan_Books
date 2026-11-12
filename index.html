@@ -4,187 +4,297 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#0b1830">
-<title>EHSAN BOOKS | Knowledge Without Borders</title>
+<meta name="theme-color" content="#091629">
+<title>EHSAN BOOKS | Digital Library</title>
 <style>
 :root{
---navy:#0b1830;
---navy2:#142844;
---gold:#d8b66b;
---turquoise:#35c6bd;
---white:#f8fafc;
---muted:#aab8ca;
+--navy:#091629;
+--navy2:#122b46;
+--gold:#d9b66c;
+--teal:#36c8bd;
+--bg:#f4f7fa;
+--muted:#718096;
 }
 *{box-sizing:border-box}
-body{
-margin:0;background:#f3f5f8;color:#18263a;
-font-family:Arial,sans-serif;
-}
+body{margin:0;background:var(--bg);color:#18283b;font-family:Arial,sans-serif}
 header{
-background:var(--navy);color:white;
-padding:22px 7%;
-display:flex;justify-content:space-between;
-align-items:center;flex-wrap:wrap;gap:15px;
+background:var(--navy);color:white;padding:18px 6%;
+display:flex;justify-content:space-between;align-items:center;
+flex-wrap:wrap;gap:15px
 }
-.logo{font-size:25px;font-weight:bold;color:var(--gold)}
+.logo{font-size:25px;font-weight:800;letter-spacing:1px;color:var(--gold)}
 .logo span{color:white}
-nav a{color:white;text-decoration:none;margin:0 9px;font-size:14px}
+nav{display:flex;gap:20px;flex-wrap:wrap}
+nav a{color:white;text-decoration:none;font-size:14px}
+nav a:hover{color:var(--gold)}
 .hero{
-background:linear-gradient(120deg,#0b1830,#193a59);
-color:white;padding:75px 7%;text-align:center;
+background:linear-gradient(125deg,#091629,#183b57);
+color:white;text-align:center;padding:75px 6% 65px;
 }
-.hero h1{font-size:42px;margin:10px}
-.hero p{color:#d4deeb;font-size:17px}
-.hero button,.primary{
-background:var(--gold);color:#10203a;
-border:0;border-radius:8px;padding:13px 25px;
-font-weight:bold;cursor:pointer;margin:8px;
-}
-.search{max-width:650px;margin:28px auto 0}
+.eyebrow{color:var(--gold);letter-spacing:3px;font-size:12px;font-weight:bold}
+.hero h1{font-size:clamp(32px,6vw,54px);margin:18px 0}
+.hero p{color:#c4d1df;line-height:1.8}
+.search{max-width:580px;margin:28px auto;display:flex}
 .search input{
-width:100%;padding:15px;border:0;border-radius:9px;
-font-size:16px;
+width:100%;padding:16px;border:0;border-radius:9px;
+font-size:15px;outline:none
 }
-section{padding:45px 7%}
-.section-title{font-size:25px;color:var(--navy)}
-.categories,.books{
-display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));
-gap:18px;margin-top:22px;
+.btn{
+border:0;border-radius:8px;padding:12px 19px;
+cursor:pointer;font-weight:bold
 }
-.category,.book{
-background:white;padding:22px;border-radius:13px;
-box-shadow:0 3px 15px #152b4410;
+.gold{background:var(--gold);color:#102039}
+.dark{background:var(--navy);color:white}
+.teal{background:var(--teal);color:#092333}
+main{max-width:1250px;margin:auto;padding:0 5%}
+section{padding:42px 0}
+.section-head{
+display:flex;justify-content:space-between;
+align-items:center;flex-wrap:wrap;gap:10px
 }
-.category{text-align:center;font-weight:bold}
-.book{padding:0;overflow:hidden}
+h2{font-size:25px;color:var(--navy)}
+.muted{color:var(--muted);font-size:14px}
+.categories{
+display:grid;grid-template-columns:repeat(auto-fit,minmax(135px,1fr));
+gap:12px;margin-top:20px
+}
+.category{
+background:white;border:1px solid #e6ebf0;
+padding:18px 10px;border-radius:12px;text-align:center;
+cursor:pointer;font-weight:bold;color:var(--navy)
+}
+.category:hover,.category.active{
+background:var(--navy);color:white
+}
+.books{
+display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
+gap:22px;margin-top:22px
+}
+.book{
+background:white;border-radius:13px;overflow:hidden;
+box-shadow:0 5px 20px #0b1c3010;transition:.2s
+}
+.book:hover{transform:translateY(-4px)}
 .cover{
-height:155px;background:linear-gradient(135deg,#122b48,#28636c);
-display:flex;align-items:center;justify-content:center;
-font-size:46px;color:var(--gold);
+height:210px;display:flex;align-items:center;
+justify-content:center;position:relative;color:white;
+text-align:center;padding:20px
 }
+.cover strong{font-size:22px;line-height:1.4;max-width:180px}
+.cover small{position:absolute;bottom:15px;color:#fff9}
+.c1{background:linear-gradient(145deg,#142b47,#287d83)}
+.c2{background:linear-gradient(145deg,#382b53,#9a7255)}
+.c3{background:linear-gradient(145deg,#123d4b,#367b78)}
+.c4{background:linear-gradient(145deg,#263b68,#a27c47)}
+.c5{background:linear-gradient(145deg,#29384b,#777e9a)}
+.c6{background:linear-gradient(145deg,#563e35,#bd9261)}
 .book-info{padding:17px}
-.book-info h3{margin:5px 0}
-.book-info p{color:#68778a;font-size:13px}
-.book button{
-border:0;background:var(--navy);color:white;
-padding:10px 15px;border-radius:7px;cursor:pointer;
+.book-info h3{margin:5px 0 9px;color:var(--navy)}
+.book-info p{font-size:13px;color:var(--muted);line-height:1.6}
+.book-actions{display:flex;gap:8px;align-items:center;margin-top:13px}
+.book-actions button{flex:1}
+.favorite{background:#f1f3f6;color:#b08c43;font-size:19px}
+.tag{
+display:inline-block;background:#e8f6f4;color:#137d76;
+padding:5px 9px;border-radius:20px;font-size:11px
 }
-.panel{
-display:none;background:white;padding:25px;
-border-radius:12px;margin-top:20px;line-height:1.9;
+.empty{text-align:center;padding:35px;color:var(--muted)}
+.library-box{
+background:linear-gradient(110deg,#0b1c32,#1b4558);
+color:white;border-radius:16px;padding:30px
 }
+.library-box h2{color:var(--gold)}
+.reader{
+display:none;position:fixed;inset:0;background:#06101de8;
+z-index:10;overflow:auto;padding:25px
+}
+.reader-content{
+max-width:720px;background:white;border-radius:15px;
+margin:30px auto;padding:30px;line-height:1.9
+}
+.reader-content h2{color:var(--navy)}
+.reader-content p{white-space:pre-line}
 footer{
-background:var(--navy);color:white;
-padding:35px 7%;text-align:center;
+background:var(--navy);color:white;text-align:center;
+padding:35px 15px;margin-top:40px
 }
-small{color:var(--muted)}
+footer p{color:#aab8ca;font-size:13px}
+button:hover{filter:brightness(.94)}
 @media(max-width:600px){
-.hero h1{font-size:30px}
 header{justify-content:center}
-nav{line-height:2.3;text-align:center}
+nav{justify-content:center;gap:13px}
+.hero{padding:55px 5%}
+.cover{height:180px}
 }
 </style>
 </head>
 <body>
+
 <header>
 <div class="logo">EHSAN <span>BOOKS</span></div>
 <nav>
 <a href="#home">Home</a>
-<a href="#library">Library</a>
 <a href="#categories">Categories</a>
+<a href="#library">Library</a>
+<a href="#mybooks">My Books</a>
 <a href="#about">About</a>
 </nav>
 </header>
 
 <div class="hero" id="home">
-<p style="color:#d8b66b">WELCOME TO EHSAN BOOKS</p>
+<div class="eyebrow">YOUR GLOBAL DIGITAL LIBRARY</div>
 <h1>Knowledge Without Borders</h1>
-<p>Discover books. Explore ideas. Transform your world.</p>
+<p>Discover great books. Learn new ideas. Build a better future.</p>
 <div class="search">
-<input id="search" placeholder="Search books and topics..." oninput="searchBooks()">
+<input id="search" placeholder="Search books, authors or topics..." oninput="renderBooks()">
 </div>
-<button onclick="document.getElementById('library').scrollIntoView({behavior:'smooth'})">Explore Library</button>
+<button class="btn gold" onclick="document.getElementById('library').scrollIntoView({behavior:'smooth'})">Explore Books →</button>
 </div>
 
+<main>
 <section id="categories">
-<h2 class="section-title">Explore Categories</h2>
+<div class="section-head">
+<h2>Explore Categories</h2>
+<span class="muted">Find your next inspiration</span>
+</div>
 <div class="categories">
-<div class="category">📚 Business</div>
-<div class="category">🧠 Psychology</div>
-<div class="category">💻 Technology & AI</div>
-<div class="category">🌍 History</div>
-<div class="category">💰 Finance</div>
-<div class="category">🌱 Personal Growth</div>
+<div class="category active" onclick="setCategory('All',this)">🌐 All Books</div>
+<div class="category" onclick="setCategory('Business',this)">💼 Business</div>
+<div class="category" onclick="setCategory('Psychology',this)">🧠 Psychology</div>
+<div class="category" onclick="setCategory('Technology',this)">🤖 Technology</div>
+<div class="category" onclick="setCategory('Finance',this)">💰 Finance</div>
+<div class="category" onclick="setCategory('Growth',this)">🌱 Personal Growth</div>
 </div>
 </section>
 
 <section id="library">
-<h2 class="section-title">Featured Library</h2>
-<p>Explore knowledge and discover your next great idea.</p>
-<div class="books" id="books">
-<div class="book" data-search="atomic habits personal growth">
-<div class="cover">📘</div>
-<div class="book-info">
-<h3>Atomic Habits</h3>
-<p>Personal Growth · Free sample summary</p>
-<button onclick="readBook('Atomic Habits','Small habits can create remarkable results. Focus on improving one percent every day. Build systems instead of relying only on motivation.')">Read Summary</button>
-</div></div>
-<div class="book" data-search="think grow rich finance business">
-<div class="cover">📗</div>
-<div class="book-info">
-<h3>Think and Grow Rich</h3>
-<p>Business · Free sample summary</p>
-<button onclick="readBook('Think and Grow Rich','Clear goals, persistence, planning and disciplined action are important principles for pursuing success.')">Read Summary</button>
-</div></div>
-<div class="book" data-search="psychology influence">
-<div class="cover">📙</div>
-<div class="book-info">
-<h3>Psychology of Influence</h3>
-<p>Psychology · Learning</p>
-<button onclick="readBook('Psychology of Influence','Understanding human behavior helps us communicate more effectively and make thoughtful decisions.')">Read Summary</button>
-</div></div>
-<div class="book" data-search="technology artificial intelligence">
-<div class="cover">📕</div>
-<div class="book-info">
-<h3>Artificial Intelligence</h3>
-<p>Technology · Learning</p>
-<button onclick="readBook('Artificial Intelligence','Artificial intelligence helps computers perform tasks such as learning, language processing and pattern recognition.')">Read Summary</button>
-</div></div>
+<div class="section-head">
+<div>
+<h2>Featured Books</h2>
+<p class="muted">Explore knowledge, one page at a time.</p>
 </div>
-<div class="panel" id="reader">
-<h2 id="readerTitle"></h2>
-<p id="readerText"></p>
-<button class="primary" onclick="closeReader()">Close</button>
+<span class="tag">FREE SUMMARIES</span>
 </div>
+<div class="books" id="books"></div>
+</section>
+
+<section id="mybooks">
+<div class="library-box">
+<h2>📚 My Personal Library</h2>
+<p>Save your favorite books and return to your reading anytime on this device.</p>
+<p id="savedCount">0 saved books</p>
+<button class="btn gold" onclick="showSaved()">View My Books</button>
+</div>
+<div id="savedBooks" class="books"></div>
 </section>
 
 <section id="about">
-<h2 class="section-title">About EHSAN BOOKS</h2>
-<p>Our mission is to make knowledge accessible to everyone through reading, learning and technology.</p>
+<h2>About EHSAN BOOKS</h2>
+<p class="muted" style="line-height:2">
+EHSAN BOOKS is a digital knowledge platform created to make learning
+accessible to readers around the world. Discover ideas, explore subjects
+and develop your knowledge every day.
+</p>
 </section>
+</main>
+
+<div class="reader" id="reader">
+<div class="reader-content">
+<button class="btn dark" onclick="closeReader()">← Back to Library</button>
+<h2 id="readerTitle"></h2>
+<span class="tag">BOOK SUMMARY</span>
+<p id="readerText"></p>
+<p class="muted">This is an introductory summary. It is not the complete book.</p>
+<button class="btn teal" onclick="saveCurrent()">＋ Add to My Library</button>
+<button class="btn dark" onclick="closeReader()">Close</button>
+</div>
+</div>
 
 <footer>
 <div class="logo">EHSAN <span>BOOKS</span></div>
 <p>Knowledge Without Borders</p>
-<small>© 2026 EHSAN BOOKS. All rights reserved.</small>
+<p>© 2026 EHSAN BOOKS. All rights reserved.</p>
 </footer>
 
 <script>
-function readBook(title,text){
-document.getElementById('readerTitle').textContent=title;
-document.getElementById('readerText').textContent=text;
-document.getElementById('reader').style.display='block';
-document.getElementById('reader').scrollIntoView({behavior:'smooth'});
+const books=[
+{id:1,title:"Atomic Habits",category:"Growth",author:"James Clear",cover:"c1",summary:"Small habits can create remarkable results over time.\\n\\nThe central idea is that lasting improvement comes from consistent small actions rather than dramatic changes. Build helpful routines, make good habits easier to perform, and review your progress regularly.\\n\\nA practical lesson: focus on becoming a little better each day."},
+{id:2,title:"Think and Grow Rich",category:"Business",author:"Napoleon Hill",cover:"c2",summary:"This classic explores goal setting, persistence and organized planning.\\n\\nA clear purpose can help direct your effort. Progress also requires learning, patience and taking practical action.\\n\\nA useful lesson: turn your goals into specific plans and review them consistently."},
+{id:3,title:"The Psychology of Money",category:"Finance",author:"Morgan Housel",cover:"c3",summary:"Financial decisions are influenced by personal experiences, emotions and behavior.\\n\\nBuilding wealth often requires patience, saving consistently and understanding risk.\\n\\nA useful lesson: financial success is not only about knowledge; behavior matters too."},
+{id:4,title:"Deep Work",category:"Growth",author:"Cal Newport",cover:"c4",summary:"Focused work helps people produce valuable results and learn difficult skills.\\n\\nReduce distractions, set aside dedicated time for important tasks and create routines that protect your attention.\\n\\nA useful lesson: give your most important work your full attention."},
+{id:5,title:"The Power of Now",category:"Psychology",author:"Eckhart Tolle",cover:"c5",summary:"This book explores awareness and attention to the present moment.\\n\\nIt encourages readers to observe thoughts and feelings without automatically reacting to them.\\n\\nA useful lesson: pause, pay attention and respond thoughtfully."},
+{id:6,title:"Artificial Intelligence",category:"Technology",author:"EHSAN BOOKS",cover:"c6",summary:"Artificial intelligence is a field of computing focused on systems that perform tasks involving language, patterns and decision support.\\n\\nAI can help people research, organize information and solve problems, but its results should be checked carefully.\\n\\nA useful lesson: use technology thoughtfully and keep human judgment involved."}
+];
+
+let category="All";
+let currentBook=null;
+let saved=JSON.parse(localStorage.getItem("ehsan_saved_books")||"[]");
+
+function renderBooks(){
+const q=document.getElementById("search").value.toLowerCase();
+const filtered=books.filter(b=>
+(category==="All"||b.category===category)&&
+(b.title.toLowerCase().includes(q)||b.category.toLowerCase().includes(q)||b.author.toLowerCase().includes(q))
+);
+const area=document.getElementById("books");
+area.innerHTML="";
+if(!filtered.length){area.innerHTML='<div class="empty">No books found. Try another search.</div>';return;}
+filtered.forEach(b=>area.appendChild(createCard(b)));
 }
-function closeReader(){
-document.getElementById('reader').style.display='none';
+function createCard(b){
+const card=document.createElement("div");
+card.className="book";
+const cover=document.createElement("div");
+cover.className="cover "+b.cover;
+const title=document.createElement("strong");
+title.textContent=b.title;
+const author=document.createElement("small");
+author.textContent=b.author;
+cover.append(title,author);
+const info=document.createElement("div");
+info.className="book-info";
+const h=document.createElement("h3");h.textContent=b.title;
+const p=document.createElement("p");p.textContent=b.category+" · "+b.author;
+const actions=document.createElement("div");actions.className="book-actions";
+const read=document.createElement("button");read.className="btn dark";read.textContent="Read Summary";
+read.onclick=()=>openReader(b.id);
+const fav=document.createElement("button");fav.className="btn favorite";
+fav.textContent=saved.includes(b.id)?"♥":"♡";
+fav.title="Save to My Library";
+fav.onclick=()=>toggleSaved(b.id);
+actions.append(read,fav);
+info.append(h,p,actions);
+card.append(cover,info);
+return card;
 }
-function searchBooks(){
-let q=document.getElementById('search').value.toLowerCase();
-document.querySelectorAll('.book').forEach(function(book){
-book.style.display=book.dataset.search.includes(q)?'block':'none';
-});
+function setCategory(value,el){
+category=value;
+document.querySelectorAll(".category").forEach(c=>c.classList.remove("active"));
+el.classList.add("active");
+renderBooks();
 }
+function openReader(id){
+currentBook=books.find(b=>b.id===id);
+document.getElementById("readerTitle").textContent=currentBook.title;
+document.getElementById("readerText").textContent=currentBook.summary;
+document.getElementById("reader").style.display="block";
+}
+function closeReader(){document.getElementById("reader").style.display="none";}
+function toggleSaved(id){
+saved=saved.includes(id)?saved.filter(x=>x!==id):[...saved,id];
+localStorage.setItem("ehsan_saved_books",JSON.stringify(saved));
+renderBooks();updateCount();showSaved();
+}
+function saveCurrent(){if(currentBook&&!saved.includes(currentBook.id))toggleSaved(currentBook.id);}
+function updateCount(){document.getElementById("savedCount").textContent=saved.length+" saved books";}
+function showSaved(){
+const area=document.getElementById("savedBooks");
+area.innerHTML="";
+const list=books.filter(b=>saved.includes(b.id));
+if(!list.length){area.innerHTML='<div class="empty">Your personal library is empty. Save a book to see it here.</div>';return;}
+list.forEach(b=>area.appendChild(createCard(b)));
+}
+renderBooks();updateCount();
 </script>
 </body>
 </html>
