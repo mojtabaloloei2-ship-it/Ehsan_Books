@@ -230,11 +230,11 @@ EHSAN BOOKS یک پلتفرم دیجیتال برای دسترسی آسان به
 </main>
 
 <div class="reader" id="reader">
+  <p id="readerAuthor" style="color:#55d6c2;font-size:16px;margin-bottom:18px;font-weight:bold;"></p> 
 <div class="reader-content">
 
 <button class="btn dark" onclick="closeReader()">← بازگشت به کتابخانه</button>
 <span class="tag">خلاصه کتاب</span>
-<p id="readerText"></p>
 <p class="muted">این یک خلاصه مقدماتی است و نسخه کامل کتاب نیست.</p>
 <button class="btn teal" onclick="saveCurrent()">＋ افزودن به کتابخانه من</button>
 <button class="btn dark" onclick="closeReader()">بستن</button>
@@ -311,6 +311,7 @@ renderBooks();
 function openReader(id){
 currentBook=books.find(b=>b.id===id);
 document.getElementById("readerTitle").textContent=currentBook.title;
+ document.getElementById("readerAuthor").textContent="نویسنده: "+currentBook.author; 
 document.getElementById("readerText").textContent=currentBook.summary;
 document.getElementById("reader").style.display="block";
 }
