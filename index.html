@@ -1,160 +1,68 @@
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fa" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#091629">
-<title>EHSAN BOOKS | Digital Library</title>
+<title>EHSAN BOOKS | کتابخانه دیجیتال احسان</title>
 <style>
-:root{
---navy:#091629;
---navy2:#122b46;
---gold:#d9b66c;
---teal:#36c8bd;
---bg:#f4f7fa;
---muted:#718096;
-}
+:root{--navy:#091629;--gold:#d9b66c;--teal:#36c8bd;--bg:#f4f7fa;--muted:#718096}
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:#18283b;font-family:Arial,sans-serif}
-header{
-background:var(--navy);color:white;padding:18px 6%;
-display:flex;justify-content:space-between;align-items:center;
-flex-wrap:wrap;gap:15px
-}
-.logo{font-size:25px;font-weight:800;letter-spacing:1px;color:var(--gold)}
+body{margin:0;background:var(--bg);color:#18283b;font-family:Tahoma,Arial,sans-serif}
+header{background:var(--navy);color:white;padding:18px 5%;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:15px}
+.logo{font-size:24px;font-weight:bold;color:var(--gold)}
 .logo span{color:white}
-nav{display:flex;gap:20px;flex-wrap:wrap}
-nav a{color:white;text-decoration:none;font-size:14px}
-nav a:hover{color:var(--gold)}
-.hero{
-background:linear-gradient(125deg,#091629,#183b57);
-color:white;text-align:center;padding:75px 6% 65px;
-}
-.eyebrow{color:var(--gold);letter-spacing:3px;font-size:12px;font-weight:bold}
-.hero h1{font-size:clamp(32px,6vw,54px);margin:18px 0}
-.hero p{color:#c4d1df;line-height:1.8}
-.search{max-width:580px;margin:28px auto;display:flex}
-.search input{
-width:100%;padding:16px;border:0;border-radius:9px;
-font-size:15px;outline:none
-}
-.btn{
-border:0;border-radius:8px;padding:12px 19px;
-cursor:pointer;font-weight:bold
-}
+nav{display:flex;gap:14px;flex-wrap:wrap}
+nav a{color:white;text-decoration:none;font-size:13px}
+.hero{background:linear-gradient(125deg,#091629,#183b57);color:white;text-align:center;padding:55px 5%}
+.hero h1{font-size:clamp(30px,6vw,48px)}
+.hero p{color:#c4d1df;line-height:2}
+.search{max-width:550px;margin:25px auto}
+.search input{width:100%;padding:15px;border:0;border-radius:9px;font-size:15px}
+.btn{border:0;border-radius:8px;padding:11px 15px;cursor:pointer;font-weight:bold;font-family:inherit}
 .gold{background:var(--gold);color:#102039}
 .dark{background:var(--navy);color:white}
 .teal{background:var(--teal);color:#092333}
-main{max-width:1250px;margin:auto;padding:0 5%}
-section{padding:42px 0}
-.section-head{
-display:flex;justify-content:space-between;
-align-items:center;flex-wrap:wrap;gap:10px
-}
-h2{font-size:25px;color:var(--navy)}
-.muted{color:var(--muted);font-size:14px}
-.categories{
-display:grid;grid-template-columns:repeat(auto-fit,minmax(135px,1fr));
-gap:12px;margin-top:20px
-}
-.category{
-background:white;border:1px solid #e6ebf0;
-padding:18px 10px;border-radius:12px;text-align:center;
-cursor:pointer;font-weight:bold;color:var(--navy)
-}
-.category:hover,.category.active{
-background:var(--navy);color:white
-}
-.books{
-display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
-gap:22px;margin-top:22px
-}
-.book{
-background:white;border-radius:13px;overflow:hidden;
-box-shadow:0 5px 20px #0b1c3010;transition:.2s
-}
-.book:hover{transform:translateY(-4px)}
-.cover{
-height:210px;display:flex;align-items:center;
-justify-content:center;position:relative;color:white;
-text-align:center;padding:20px
-}
-.cover strong{font-size:22px;line-height:1.4;max-width:180px}
-.cover small{position:absolute;bottom:15px;color:#fff9}
+main{max-width:1200px;margin:auto;padding:0 5%}
+section{padding:30px 0}
+h2{color:var(--navy)}
+.muted{color:var(--muted);font-size:14px;line-height:2}
+.categories{display:grid;grid-template-columns:repeat(auto-fit,minmax(125px,1fr));gap:12px;margin-top:18px}
+.category{background:white;border:1px solid #e6ebf0;padding:15px 8px;border-radius:12px;text-align:center;cursor:pointer;font-weight:bold}
+.category.active{background:var(--navy);color:white}
+.books{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:18px;margin-top:20px}
+.book{background:white;border-radius:13px;overflow:hidden;box-shadow:0 5px 20px #0b1c3010}
+.cover{height:180px;display:flex;flex-direction:column;align-items:center;justify-content:center;color:white;text-align:center;padding:18px}
+.cover strong{font-size:21px;line-height:1.8}
+.cover small{margin-top:8px}
 .c1{background:linear-gradient(145deg,#142b47,#287d83)}
 .c2{background:linear-gradient(145deg,#382b53,#9a7255)}
 .c3{background:linear-gradient(145deg,#123d4b,#367b78)}
 .c4{background:linear-gradient(145deg,#263b68,#a27c47)}
 .c5{background:linear-gradient(145deg,#29384b,#777e9a)}
 .c6{background:linear-gradient(145deg,#563e35,#bd9261)}
-.book-info{padding:17px}
-.book-info h3{margin:5px 0 9px;color:var(--navy)}
-.book-info p{font-size:13px;color:var(--muted);line-height:1.6}
-.book-actions{display:flex;gap:8px;align-items:center;margin-top:13px}
-.book-actions button{flex:1}
-.favorite{background:#f1f3f6;color:#b08c43;font-size:19px}
-.tag{
-display:inline-block;background:#e8f6f4;color:#137d76;
-padding:5px 9px;border-radius:20px;font-size:11px
-}
-.empty{text-align:center;padding:35px;color:var(--muted)}
-.library-box{
-background:linear-gradient(110deg,#0b1c32,#1b4558);
-color:white;border-radius:16px;padding:30px
-}
+.book-info{padding:15px}
+.book-info h3{color:var(--navy)}
+.book-info p{font-size:13px;color:var(--muted);line-height:1.8}
+.book-actions{display:flex;gap:6px;margin-top:12px}
+.book-actions button{flex:1;font-size:12px;padding:10px 5px}
+.favorite{background:#f1f3f6;color:#b08c43;font-size:19px!important}
+.empty{text-align:center;padding:25px;color:var(--muted);grid-column:1/-1}
+.library-box{background:linear-gradient(110deg,#0b1c32,#1b4558);color:white;border-radius:15px;padding:25px}
 .library-box h2{color:var(--gold)}
-.reader{
-display:none;position:fixed;inset:0;background:#06101de8;
-z-index:10;overflow:auto;padding:25px
-}
-.reader-content{
-max-width:720px;background:white;border-radius:15px;
-margin:30px auto;padding:30px;line-height:1.9
-}
-.reader-content h2{color:var(--navy)}
+.reader{display:none;position:fixed;inset:0;background:#06101de8;z-index:10;overflow:auto;padding:15px}
+.reader-content{max-width:720px;background:white;border-radius:15px;margin:25px auto;padding:25px;line-height:2}
 .reader-content p{white-space:pre-line}
-footer{
-background:var(--navy);color:white;text-align:center;
-padding:35px 15px;margin-top:40px
-}
-footer p{color:#aab8ca;font-size:13px}
-button:hover{filter:brightness(.94)}
-@media(max-width:600px){
-header{justify-content:center}
-nav{justify-content:center;gap:13px}
-.hero{padding:55px 5%}
-.cover{height:180px}
-}
+.tag{display:inline-block;background:#e8f6f4;color:#137d76;padding:5px 10px;border-radius:20px;font-size:12px}
+.ai-box{background:#0b1830;color:white;border-radius:16px;padding:25px;line-height:2}
+.ai-box h2{color:#f2d58a}
+.ai-box h3{color:#55d6c2}
+footer{background:var(--navy);color:white;text-align:center;padding:30px;margin-top:30px}
+@media(max-width:600px){header{justify-content:center}nav{justify-content:center}.hero{padding:40px 5%}}
 </style>
 </head>
-
-<section id="ai-book-summary" dir="rtl" style="max-width:900px;margin:40px auto;padding:28px;background:#0b1830;color:#fff;border-radius:18px;font-family:Tahoma,sans-serif;line-height:2.2;text-align:right;">
-  <div style="color:#55d6c2;font-weight:bold;">EHSAN BOOKS | خلاصه رایگان</div>
-  <h2 style="color:#f2d58a;">هوش مصنوعی به زبان ساده</h2>
-  <h3>راهنمای کاربردی برای همه</h3>
-  <p>این کتاب برای آشنایی ساده و کاربردی با هوش مصنوعی نوشته شده است؛ از مفاهیم اولیه تا استفاده از ابزارهای هوشمند در زندگی و کسب‌وکار.</p>
-  <hr style="border-color:#496078;">
-  <h3 style="color:#55d6c2;">فصل اول: هوش مصنوعی چیست؟</h3>
-  <p>هوش مصنوعی به فناوری‌هایی گفته می‌شود که می‌توانند بعضی کارهای نیازمند توانایی انسانی، مانند فهم زبان، تشخیص تصویر، تحلیل اطلاعات و تولید محتوا را انجام دهند.</p>
-  <h3 style="color:#55d6c2;">فصل دوم: چگونه کار می‌کند؟</h3>
-  <p>بسیاری از سیستم‌های هوش مصنوعی با بررسی داده‌ها و شناسایی الگوها آموزش می‌بینند. آن‌ها بر اساس آموخته‌های خود پاسخ تولید می‌کنند، اما ممکن است اشتباه کنند.</p>
-  <h3 style="color:#55d6c2;">فصل سوم: کاربرد در زندگی روزمره</h3>
-  <p>ترجمه، یادگیری، برنامه‌ریزی، نوشتن، جست‌وجو و کمک به بررسی مشکلات فنی از کاربردهای هوش مصنوعی هستند.</p>
-  <h3 style="color:#55d6c2;">فصل چهارم: کاربرد در کسب‌وکار</h3>
-  <p>هوش مصنوعی می‌تواند در پاسخ‌گویی به مشتریان، تولید محتوا، تحلیل فروش و مدیریت اطلاعات به کسب‌وکارها کمک کند.</p>
-  <h3 style="color:#55d6c2;">فصل پنجم: گفت‌وگوی مؤثر با هوش مصنوعی</h3>
-  <p>برای گرفتن پاسخ بهتر، سؤال خود را روشن مطرح کنید، زمینه و هدف را توضیح دهید و مشخص کنید پاسخ را در چه قالبی می‌خواهید.</p>
-  <h3 style="color:#55d6c2;">فصل ششم: خطاها، امنیت و استفاده مسئولانه</h3>
-  <p>پاسخ هوش مصنوعی همیشه درست نیست. اطلاعات مهم را بررسی کنید و رمزها یا اطلاعات بانکی خود را در ابزارهای ناشناس وارد نکنید.</p>
-  <h3 style="color:#55d6c2;">فصل هفتم: آینده هوش مصنوعی</h3>
-  <p>هوش مصنوعی در آموزش، پزشکی، صنعت و حمل‌ونقل نقش بیشتری خواهد داشت؛ اما تفکر انتقادی، خلاقیت و قضاوت انسانی همچنان اهمیت دارند.</p>
-  <hr style="border-color:#496078;">
-  <p style="color:#f2d58a;font-weight:bold;">پیام اصلی کتاب</p>
-  <p>هوش مصنوعی ابزاری برای یادگیری و بهتر کار کردن است، نه جایگزین کامل قضاوت انسان.</p>
-  <p style="color:#55d6c2;">نسخه کامل کتاب در حال آماده‌سازی است و هنوز برای خرید یا دانلود عرضه نشده است.</p>
-  <div style="text-align:center;margin-top:20px;font-weight:bold;">EHSAN BOOKS</div>
-</section>
-  <body>
+<body>
 
 <header>
 <div class="logo">EHSAN <span>BOOKS</span></div>
@@ -163,116 +71,119 @@ nav{justify-content:center;gap:13px}
 <a href="#categories">دسته‌بندی‌ها</a>
 <a href="#library">کتابخانه</a>
 <a href="#mybooks">کتاب‌های من</a>
-<a href="ai-guide.html">آموزش هوش مصنوعی</a>
-<a href="about.html">درباره ما</a>
-<a href="contact.html">تماس با ما</a>
-<a href="terms.html">قوانین</a>
-<a href="copyright.html">حقوق نشر</a>
-<a href="publishers.html">همکاری با ناشران</a>
+<a href="#ai">هوش مصنوعی</a>
+<a href="#about">درباره ما</a>
 </nav>
 </header>
 
 <div class="hero" id="home">
-<div class="eyebrow">کتابخانه دیجیتال جهانی احسان </div>
+<div style="color:#d9b66c">کتابخانه دیجیتال احسان</div>
 <h1>دانش، بدون مرز</h1>
-<p>کتاب‌های ارزشمند را کشف کنید، ایده‌های تازه بیاموزید و آینده‌ای بهتر بسازید.</p>
+<p>کتاب‌های ارزشمند را کشف کنید و هر روز دانش خود را گسترش دهید.</p>
 <div class="search">
-<input id="search" placeholder="جست‌وجوی کتاب، نویسنده یا موضوع..." oninput="renderBooks()">
+<input id="search" placeholder="جست‌وجوی کتاب یا نویسنده..." oninput="renderBooks()">
 </div>
-<button class="btn gold" onclick="document.getElementById('library').scrollIntoView({behavior:'smooth'})">مشاهده کتاب‌ها ←</button>
+<button class="btn gold" onclick="document.getElementById('library').scrollIntoView({behavior:'smooth'})">مشاهده کتاب‌ها</button>
 </div>
 
 <main>
 <section id="categories">
-<div class="section-head">
-
-<h2>دسته‌بندی کتاب‌ها</h2>  
-<span class="muted">موضوع مورد علاقه خود را انتخاب کنید</span>
-</div>
+<h2>دسته‌بندی کتاب‌ها</h2>
 <div class="categories">
-<div class="category active" onclick="setCategory('All',this)">🌐 همه کتاب‌ها</div>
-<div class="category" onclick="setCategory('Business',this)">💼 کسب‌وکار</div>
-<div class="category" onclick="setCategory('Psychology',this)">🧠 روان‌شناسی</div>
-<div class="category" onclick="setCategory('Technology',this)">🤖 فناوری</div> 
-<div class="category" onclick="setCategory('Finance',this)">💰 مالی و سرمایه‌گذاری</div>
-<div class="category" onclick="setCategory('Growth',this)">🌱 رشد فردی</div>
+<div class="category active" onclick="setCategory('All',this)">همه کتاب‌ها</div>
+<div class="category" onclick="setCategory('Business',this)">کسب‌وکار</div>
+<div class="category" onclick="setCategory('Psychology',this)">روان‌شناسی</div>
+<div class="category" onclick="setCategory('Technology',this)">فناوری</div>
+<div class="category" onclick="setCategory('Finance',this)">مالی</div>
+<div class="category" onclick="setCategory('Growth',this)">رشد فردی</div>
 </div>
 </section>
-<h2>کتاب های پیشنهای EHSAN</h2>
-<div class="section-head">
-<div>
-<h2>کتاب‌های منتخب</h2>
-<p class="muted">هر بار با ورق زدن یک صفحه، دانشتان را گسترش دهید.</p>
-<h2 id="readerTitle" style="color:#f2d58a;font-size:28px;margin:18px 0;text-align:right;"></h2>
-<span class="tag">خلاصه‌های رایگان</span>
-</div>
+
+<section id="library">
+<h2>کتاب‌های منتخب EHSAN</h2>
+<p class="muted">کتاب را انتخاب کنید و روی مطالعه خلاصه بزنید.</p>
 <div class="books" id="books"></div>
 </section>
 
 <section id="mybooks">
 <div class="library-box">
 <h2>📚 کتابخانه شخصی من</h2>
-<p>کتاب‌های مورد علاقه خود را ذخیره کنید و هر زمان در همین دستگاه به مطالعه ادامه دهید.</p>
+<p>کتاب‌های مورد علاقه خود را ذخیره کنید.</p>
 <p id="savedCount">۰ کتاب ذخیره‌شده</p>
 <button class="btn gold" onclick="showSaved()">مشاهده کتاب‌های من</button>
 </div>
 <div id="savedBooks" class="books"></div>
 </section>
 
+<section id="ai">
+<div class="ai-box">
+<h2>هوش مصنوعی به زبان ساده</h2>
+<h3>هوش مصنوعی چیست؟</h3>
+<p>هوش مصنوعی فناوری‌ای است که می‌تواند کارهایی مانند فهم زبان، تشخیص تصویر، تحلیل اطلاعات و تولید محتوا را انجام دهد.</p>
+<h3>کاربردهای هوش مصنوعی</h3>
+<p>یادگیری، ترجمه، برنامه‌ریزی، نوشتن و کمک به کسب‌وکار از کاربردهای آن هستند.</p>
+<h3>استفاده مسئولانه</h3>
+<p>پاسخ هوش مصنوعی همیشه درست نیست. اطلاعات مهم را بررسی کنید و اطلاعات محرمانه خود را در ابزارهای ناشناس وارد نکنید.</p>
+</div>
+</section>
+
 <section id="about">
 <h2>درباره EHSAN BOOKS</h2>
-<p class="muted" style="line-height:2">
-EHSAN BOOKS یک پلتفرم دیجیتال برای دسترسی آسان به دانش و مطالعه است.
-در اینجا می‌توانید کتاب‌های ارزشمند را کشف کنید، موضوعات گوناگون را
-بشناسید و هر روز دانش خود را گسترش دهید.
-</p>
+<p class="muted">EHSAN BOOKS پلتفرمی برای کشف کتاب، یادگیری و گسترش دانش است.</p>
 </section>
 </main>
 
 <div class="reader" id="reader">
-  <p id="readerAuthor" style="color:#55d6c2;font-size:16px;margin-bottom:18px;font-weight:bold;"></p> 
 <div class="reader-content">
-<div class="reader" id="reader">
-  <div class="reader-content">
-    <h2 id="readerTitle"></h2>
-    <p id="readerAuthor" style="color:#159e91;font-weight:bold;"></p>
-    <span class="tag">خلاصه کتاب</span>
-    <p id="readerText"></p>
-    <p class="muted">این یک خلاصه مقدماتی است و نسخه کامل کتاب نیست.</p>
-    <button class="btn teal" onclick="saveCurrent()">＋ افزودن به کتابخانه من</button>
-    <button class="btn dark" onclick="closeReader()">بازگشت به کتابخانه</button>
-  </div>
+<h2 id="readerTitle"></h2>
+<p id="readerAuthor" style="color:#159e91;font-weight:bold"></p>
+<span class="tag">خلاصه کتاب</span>
+<p id="readerText"></p>
+<p class="muted">این یک خلاصه مقدماتی است و نسخه کامل کتاب نیست.</p>
+<button class="btn teal" onclick="saveCurrent()">افزودن به کتابخانه من</button>
+<button class="btn dark" onclick="closeReader()">بازگشت به کتابخانه</button>
+</div>
 </div>
 
 <footer>
 <div class="logo">EHSAN <span>BOOKS</span></div>
 <p>دانش، بدون مرز</p>
-<p>© ۲۰۲۶ EHSAN BOOKS. تمامی حقوق محفوظ است.</p>
+<p>© ۲۰۲۶ EHSAN BOOKS</p>
 </footer>
-{id:1,title:"عادتهای اتمی",category:"Growth",author:"جیمز کلیر",cover:"c1",summary:"مقدمه: تغییرات بزرگ از عادت‌های کوچک آغاز می‌شوند. جیمز کلیر توضیح می‌دهد که موفقیت پایدار نتیجه تصمیم‌های کوچک و تکرارشونده است.\n\n۱. قدرت عادت‌های کوچک: هر روز کمی بهتر شوید تا در طول زمان پیشرفت کنید.\n\n۲. هویت و عادت: به‌جای تمرکز صرف بر هدف، روی تبدیل شدن به فردی که آن هدف را دنبال می‌کند تمرکز کنید.\n\n۳. چهار قانون ساخت عادت: عادت را آشکار، جذاب، آسان و رضایت‌بخش کنید.\n\n۴. ترک عادت بد: آن را نامشخص، غیرجذاب، دشوار و ناخوشایند کنید.\n\n۵. نتیجه عملی: برنامه مشخص داشته باشید، محیط خود را تغییر دهید و پیشرفتتان را ثبت کنید.\n\nپیام اصلی: موفقیت حاصل تکرار رفتارهای کوچک و درست در طول زمان است."},
-  
-{id:2,title:"بیندیشید و ثروتمند شوید",category:"Business",author:"ناپلئون هیل",cover:"c2",summary:"این کتاب کلاسیک درباره تعیین هدف، پشتکار و برنامه‌ریزی منظم است.\\n\\nداشتن هدفی روشن می‌تواند مسیر تلاش شما را مشخص کند. برای پیشرفت، یادگیری، صبر و اقدام عملی نیز ضروری است.\\n\\nدرس کاربردی کتاب: هدف‌های خود را به برنامه‌های مشخص تبدیل کنید و به‌طور منظم میزان پیشرفتتان را بررسی کنید."},
-{id:3,title:"روان شناسی پول",category:"Finance",author:"مورگان هاوزل",cover:"c3",summary:"تصمیم‌های مالی ما تحت تأثیر تجربه‌های شخصی، احساسات و رفتارمان قرار دارند.\\n\\nثروت‌سازی معمولاً به صبر، پس‌انداز منظم و شناخت درست ریسک نیاز دارد.\\n\\nدرس مهم کتاب: موفقیت مالی فقط به دانش وابسته نیست؛ رفتار و عادت‌های ما نیز نقش مهمی دارند."},
-{id:4,title:"کار عمیق",category:"Growth",author:"کال نیوپورت",cover:"c4",summary:"کار متمرکز به افراد کمک می‌کند نتایج ارزشمندی تولید کنند و مهارت‌های دشوار را بهتر بیاموزند.\\n\\nحواس‌پرتی‌ها را کاهش دهید، برای کارهای مهم زمان مشخصی کنار بگذارید و عادت‌هایی بسازید که از تمرکز شما محافظت کنند.\\n\\nدرس مهم کتاب: مهم‌ترین کارهایتان را با تمام توجه و تمرکز انجام دهید."},
-{id:5,title:"نیروی حال",category:"Psychology",author:"اکهارت تول",cover:"c5",summary:"این کتاب درباره آگاهی و توجه به لحظه اکنون است.\\n\\nکتاب به ما یادآوری می‌کند که افکار و احساسات خود را مشاهده کنیم و بدون واکنش عجولانه، آگاهانه تصمیم بگیریم.\\n\\nدرس مهم کتاب: مکث کنید، به لحظه حال توجه کنید و سنجیده پاسخ دهید."},
-{id:6,title: "هوش مصنوعی",category:"Technology",author:"EHSAN BOOKS",cover:"c6",summary:"هوش مصنوعی شاخه‌ای از فناوری رایانه است که بر ساخت سامانه‌هایی تمرکز دارد که می‌توانند کارهایی مانند پردازش زبان، شناسایی الگوها و کمک به تصمیم‌گیری را انجام دهند.\\n\\nهوش مصنوعی می‌تواند در پژوهش، سازمان‌دهی اطلاعات و حل مسائل کمک کند؛ اما پاسخ‌های آن همیشه درست نیست و باید بررسی شوند.\\n\\nدرس مهم کتاب: از فناوری هوشمند آگاهانه استفاده کنید و قضاوت انسانی را در تصمیم‌های مهم حفظ کنید."}
+
+<script>
+const books = [
+{id:1,title:"عادت‌های اتمی",category:"Growth",author:"جیمز کلیر",cover:"c1",summary:"مقدمه: تغییرات بزرگ از عادت‌های کوچک آغاز می‌شوند.\n\n۱. قدرت عادت‌های کوچک: هر روز کمی بهتر شوید تا در طول زمان پیشرفت کنید.\n\n۲. هویت و عادت: به‌جای تمرکز صرف بر هدف، روی تبدیل شدن به فردی که آن هدف را دنبال می‌کند تمرکز کنید.\n\n۳. چهار قانون ساخت عادت: عادت را آشکار، جذاب، آسان و رضایت‌بخش کنید.\n\n۴. ترک عادت بد: آن را نامشخص، غیرجذاب، دشوار و ناخوشایند کنید.\n\n۵. نتیجه عملی: برنامه مشخص داشته باشید، محیط خود را تغییر دهید و پیشرفتتان را ثبت کنید.\n\nپیام اصلی: موفقیت حاصل تکرار رفتارهای کوچک و درست در طول زمان است."},
+{id:2,title:"بیندیشید و ثروتمند شوید",category:"Business",author:"ناپلئون هیل",cover:"c2",summary:"این کتاب درباره تعیین هدف، پشتکار و برنامه‌ریزی منظم است.\n\nداشتن هدفی روشن می‌تواند مسیر تلاش شما را مشخص کند. برای پیشرفت، یادگیری، صبر و اقدام عملی نیز ضروری است.\n\nدرس کاربردی کتاب: هدف‌های خود را به برنامه‌های مشخص تبدیل کنید و میزان پیشرفتتان را بررسی کنید."},
+{id:3,title:"روان‌شناسی پول",category:"Finance",author:"مورگان هاوزل",cover:"c3",summary:"تصمیم‌های مالی ما تحت تأثیر تجربه‌های شخصی، احساسات و رفتارمان قرار دارند.\n\nثروت‌سازی معمولاً به صبر، پس‌انداز منظم و شناخت درست ریسک نیاز دارد.\n\nدرس مهم کتاب: موفقیت مالی فقط به دانش وابسته نیست؛ رفتار و عادت‌های ما نیز نقش مهمی دارند."},
+{id:4,title:"کار عمیق",category:"Growth",author:"کال نیوپورت",cover:"c4",summary:"کار متمرکز به افراد کمک می‌کند نتایج ارزشمندی تولید کنند و مهارت‌های دشوار را بهتر بیاموزند.\n\nحواس‌پرتی‌ها را کاهش دهید و برای کارهای مهم زمان مشخصی کنار بگذارید.\n\nدرس مهم کتاب: مهم‌ترین کارهایتان را با تمام توجه و تمرکز انجام دهید."},
+{id:5,title:"نیروی حال",category:"Psychology",author:"اکهارت تول",cover:"c5",summary:"این کتاب درباره آگاهی و توجه به لحظه اکنون است.\n\nافکار و احساسات خود را مشاهده کنید و بدون واکنش عجولانه، آگاهانه تصمیم بگیرید.\n\nدرس مهم کتاب: مکث کنید، به لحظه حال توجه کنید و سنجیده پاسخ دهید."},
+{id:6,title:"هوش مصنوعی",category:"Technology",author:"EHSAN BOOKS",cover:"c6",summary:"هوش مصنوعی شاخه‌ای از فناوری رایانه است که بر ساخت سامانه‌هایی تمرکز دارد که می‌توانند کارهایی مانند پردازش زبان، شناسایی الگوها و کمک به تصمیم‌گیری را انجام دهند.\n\nهوش مصنوعی می‌تواند در پژوهش، سازمان‌دهی اطلاعات و حل مسائل کمک کند؛ اما پاسخ‌های آن همیشه درست نیست و باید بررسی شوند.\n\nدرس مهم کتاب: از فناوری هوشمند آگاهانه استفاده کنید و قضاوت انسانی را در تصمیم‌های مهم حفظ کنید."}
 ];
 
 let category="All";
 let currentBook=null;
-let saved=JSON.parse(localStorage.getItem("ehsan_saved_books")||"[]");
+let saved=[];
+try{
+saved=JSON.parse(localStorage.getItem("ehsan_saved_books")||"[]");
+if(!Array.isArray(saved))saved=[];
+}catch(e){saved=[];}
 
 function renderBooks(){
-const q=document.getElementById("search").value.toLowerCase();
+const q=document.getElementById("search").value.trim().toLowerCase();
 const filtered=books.filter(b=>
 (category==="All"||b.category===category)&&
 (b.title.toLowerCase().includes(q)||b.category.toLowerCase().includes(q)||b.author.toLowerCase().includes(q))
 );
 const area=document.getElementById("books");
 area.innerHTML="";
-if(!filtered.length){area.innerHTML='<div class="empty">کتابی پیدا نشد. عبارت دیگری را جست‌وجو کنید.</div>';return;}
+if(!filtered.length){
+area.innerHTML='<div class="empty">کتابی پیدا نشد.</div>';
+return;
+}
 filtered.forEach(b=>area.appendChild(createCard(b)));
 }
+
 function createCard(b){
 const card=document.createElement("div");
 card.className="book";
@@ -283,55 +194,84 @@ title.textContent=b.title;
 const author=document.createElement("small");
 author.textContent=b.author;
 cover.append(title,author);
+
 const info=document.createElement("div");
 info.className="book-info";
-const h=document.createElement("h3");h.textContent=b.title;
-const p=document.createElement("p");p.textContent=({"Growth":"رشد فردی","Business":"کسب‌وکار","Psychology":"روان‌شناسی","Technology":"فناوری","Finance":"مالی و سرمایه‌گذاری"}[b.category]||b.category)+" · "+b.author;
-const actions=document.createElement("div");actions.className="book-actions";
-const read=document.createElement("button");read.className="btn dark";read.textContent="مطالعه خلاصه";
+const h=document.createElement("h3");
+h.textContent=b.title;
+const p=document.createElement("p");
+p.textContent=b.author;
+
+const actions=document.createElement("div");
+actions.className="book-actions";
+const read=document.createElement("button");
+read.className="btn dark";
+read.textContent="مطالعه خلاصه";
 read.onclick=()=>openReader(b.id);
-const full=document.createElement("button");
-full.className="btn";
-full.textContent="دریافت نسخه کامل کتاب";
-full.onclick=()=>alert("نسخه کامل این کتاب به‌زودی در دسترس قرار می‌گیرد.");
-  const fav=document.createElement("button");fav.className="btn favorite";
+
+const fav=document.createElement("button");
+fav.className="btn favorite";
 fav.textContent=saved.includes(b.id)?"♥":"♡";
 fav.onclick=()=>toggleSaved(b.id);
-fav.title="ذخیره در کتابخانه من";
-  actions.append(read,full,fav);
+
+actions.append(read,fav);
 info.append(h,p,actions);
 card.append(cover,info);
 return card;
 }
+
 function setCategory(value,el){
 category=value;
 document.querySelectorAll(".category").forEach(c=>c.classList.remove("active"));
 el.classList.add("active");
 renderBooks();
 }
+
 function openReader(id){
 currentBook=books.find(b=>b.id===id);
+if(!currentBook)return;
 document.getElementById("readerTitle").textContent=currentBook.title;
- document.getElementById("readerAuthor").textContent="نویسنده: "+currentBook.author; 
+document.getElementById("readerAuthor").textContent="نویسنده: "+currentBook.author;
 document.getElementById("readerText").textContent=currentBook.summary;
 document.getElementById("reader").style.display="block";
 }
-function closeReader(){document.getElementById("reader").style.display="none";}
+
+function closeReader(){
+document.getElementById("reader").style.display="none";
+}
+
 function toggleSaved(id){
 saved=saved.includes(id)?saved.filter(x=>x!==id):[...saved,id];
-localStorage.setItem("ehsan_saved_books",JSON.stringify(saved));
-renderBooks();updateCount();showSaved();
+try{localStorage.setItem("ehsan_saved_books",JSON.stringify(saved));}catch(e){}
+renderBooks();
+updateCount();
+showSaved();
 }
-function saveCurrent(){if(currentBook&&!saved.includes(currentBook.id))toggleSaved(currentBook.id);}
-function updateCount(){document.getElementById("savedCount").textContent=saved.length+" کتاب ذخیره‌شده";}
+
+function saveCurrent(){
+if(currentBook&&!saved.includes(currentBook.id)){
+toggleSaved(currentBook.id);
+}
+}
+
+function updateCount(){
+document.getElementById("savedCount").textContent=saved.length+" کتاب ذخیره‌شده";
+}
+
 function showSaved(){
 const area=document.getElementById("savedBooks");
 area.innerHTML="";
 const list=books.filter(b=>saved.includes(b.id));
-if(!list.length){area.innerHTML='<div class="empty">کتابخانه شخصی شما خالی است. برای مشاهده کتاب‌ها، آن‌ها را ذخیره کنید.</div>';return;}
+if(!list.length){
+area.innerHTML='<div class="empty">کتابخانه شخصی شما خالی است.</div>';
+return;
+}
 list.forEach(b=>area.appendChild(createCard(b)));
 }
-renderBooks();updateCount();
+
+renderBooks();
+updateCount();
+showSaved();
 </script>
 </body>
 </html>
