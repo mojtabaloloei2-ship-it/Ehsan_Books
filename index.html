@@ -308,14 +308,23 @@ document.querySelector(".hero p").textContent=
 english?"Discover valuable books and expand your knowledge every day.":"کتاب‌های ارزشمند را کشف کنید و هر روز دانش خود را گسترش دهید.";
 document.getElementById("readerTag").textContent=
 english?"Book Summary":"خلاصه کتاب";
-document.querySelector("#search").placeholder=
+document.getElementById("readerNote").textContent=
+english?"This is an introductory summary, not the full book.":"این یک خلاصه مقدماتی است و نسخه کامل کتاب نیست.";
+  document.querySelector("#search").placeholder=
 english?"Search books or authors...":"جست‌وجوی کتاب یا نویسنده...";
-
 document.querySelector("button[onclick='changeLanguage()']").textContent=
 english?"English | فارسی":"فارسی | English";
+english?"English | فارسی":"فارسی | English";
+
+document.querySelector("button[onclick='saveCurrent()']").textContent=
+english?"Add to My Library":"افزودن به کتابخانه من";
+
+document.querySelector("button[onclick='closeReader()']").textContent=
+english?"Back to Library":"بازگشت به کتابخانه";
+
 renderBooks();
 updateCount();
-showSaved();
+showSaved();  
 
 }
 
