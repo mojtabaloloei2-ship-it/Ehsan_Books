@@ -238,7 +238,14 @@ document.getElementById("readerTitle").textContent=currentBook.title;
 document.getElementById("readerAuthor").textContent=
 document.documentElement.lang==="en"?"Author: "+currentBook.author:"نویسنده: "+currentBook.author;
 document.getElementById("readerText").textContent=currentBook.summary;
-document.getElementById("reader").style.display="block";
+const english=document.documentElement.lang==="en";
+
+document.querySelector("button[onclick='saveCurrent()']").textContent=
+english?"Add to My Library":"افزودن به کتابخانه من";
+
+document.querySelector("button[onclick='closeReader()']").textContent=
+english?"Back to Library":"بازگشت به کتابخانه";
+  document.getElementById("reader").style.display="block";
 }
 
 function closeReader(){
