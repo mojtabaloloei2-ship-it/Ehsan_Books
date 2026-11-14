@@ -163,14 +163,72 @@ const books = [
 {id:6,title:"هوش مصنوعی",category:"Technology",author:"EHSAN BOOKS",cover:"c6",summary:"هوش مصنوعی شاخه‌ای از فناوری رایانه است که بر ساخت سامانه‌هایی تمرکز دارد که می‌توانند کارهایی مانند پردازش زبان، شناسایی الگوها و کمک به تصمیم‌گیری را انجام دهند.\n\nهوش مصنوعی می‌تواند در پژوهش، سازمان‌دهی اطلاعات و حل مسائل کمک کند؛ اما پاسخ‌های آن همیشه درست نیست و باید بررسی شوند.\n\nدرس مهم کتاب: از فناوری هوشمند آگاهانه استفاده کنید و قضاوت انسانی را در تصمیم‌های مهم حفظ کنید."}
 ];
 
+
 const bookEnglish = {
-1:{title:"Atomic Habits",author:"James Clear"},
-2:{title:"Think and Grow Rich",author:"Napoleon Hill"},
-3:{title:"The Psychology of Money",author:"Morgan Housel"},
-4:{title:"Deep Work",author:"Cal Newport"},
-5:{title:"The Power of Now",author:"Eckhart Tolle"},
-6:{title:"Artificial Intelligence",author:"EHSAN BOOKS"}
+1:{
+title:"Atomic Habits",
+author:"James Clear",
+summary:`Introduction: Big changes begin with small habits.
+
+1. The Power of Small Habits: Improve a little every day to achieve significant progress over time.
+
+2. Identity and Habits: Focus not only on your goals, but also on becoming the person who achieves them.
+
+3. Four Laws of Habit Building: Make habits obvious, attractive, easy, and satisfying.
+
+4. Breaking Bad Habits: Make them invisible, unattractive, difficult, and unsatisfying.
+
+5. Practical Results: Create a clear plan, change your environment, and track your progress.
+
+Main Message: Success comes from repeating small, positive behaviors over time.`
+},
+2:{
+title:"Think and Grow Rich",
+author:"Napoleon Hill",
+summary:`This book focuses on setting goals, persistence, and organized planning.
+
+Having a clear goal can guide your efforts. Learning, patience, and practical action are also essential for progress.
+
+Practical Lesson: Turn your goals into specific plans and regularly review your progress.`
+},
+3:{
+title:"The Psychology of Money",
+author:"Morgan Housel",
+summary:`Our financial decisions are influenced by personal experiences, emotions, and behavior.
+
+Building wealth usually requires patience, regular saving, and a proper understanding of risk.
+
+Key Lesson: Financial success depends not only on knowledge, but also on our behavior and habits.`
+},
+4:{
+title:"Deep Work",
+author:"Cal Newport",
+summary:`Focused work helps people produce valuable results and learn difficult skills more effectively.
+
+Reduce distractions and set aside specific times for important tasks.
+
+Key Lesson: Do your most important work with complete attention and concentration.`
+},
+5:{
+title:"The Power of Now",
+author:"Eckhart Tolle",
+summary:`This book explores awareness and paying attention to the present moment.
+
+Observe your thoughts and feelings and make conscious decisions without reacting impulsively.
+
+Key Lesson: Pause, focus on the present, and respond thoughtfully.`
+},
+6:{
+title:"Artificial Intelligence",
+author:"EHSAN BOOKS",
+summary:`Artificial Intelligence is a field of computer technology focused on building systems that can perform tasks such as language processing, pattern recognition, and decision support.
+
+AI can help with research, organizing information, and solving problems. However, its answers are not always correct and should be checked.
+
+Key Lesson: Use intelligent technology wisely and preserve human judgment in important decisions.`
+  }
 };
+
 
 let category="All";
 let currentBook=null;
@@ -262,7 +320,8 @@ document.getElementById("readerTitle").textContent=translated.title;
 document.getElementById("readerAuthor").textContent=
 english?"Author: "+translated.author:"نویسنده: "+translated.author;
 
-document.getElementById("readerText").textContent=currentBook.summary;
+document.getElementById("readerText").textContent=
+english?translated.summary:currentBook.summary;
 
 document.querySelector("button[onclick='saveCurrent()']").textContent=
 english?"Add to My Library":"افزودن به کتابخانه من";
