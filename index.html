@@ -307,17 +307,13 @@ english?"English | فارسی":"فارسی | English";
 
 document.title=english?"EHSAN BOOKS | Digital Library":"EHSAN BOOKS | کتابخانه دیجیتال احسان";
 }
+document.title=english?"EHSAN BOOKS | Digital Library":"EHSAN BOOKS | کتابخانه دیجیتال احسان";
+}
+</script>
+</body>
+</html>
 
-const html=document.documentElement;
-if(html.lang==="fa"){
-html.lang="en";
-html.dir="ltr";
-document.querySelector(".logo").innerHTML='EHSAN <span>BOOKS</span>';
-document.querySelector("button[onclick='changeLanguage()']").textContent="English | فارسی";
-}else{
-html.lang="fa";
-html.dir="rtl";
-document.querySelector("button[onclick='changeLanguage()']").textContent="فارسی | English";
+
 }
 }
 </script>
