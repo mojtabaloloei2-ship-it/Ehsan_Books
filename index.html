@@ -208,7 +208,7 @@ const actions=document.createElement("div");
 actions.className="book-actions";
 const read=document.createElement("button");
 read.className="btn dark";
-read.textContent="مطالعه خلاصه";
+read.textContent=document.documentElement.lang==="en"?"Read Summary":"مطالعه خلاصه";
 read.onclick=()=>openReader(b.id);
 
 const fav=document.createElement("button");
@@ -233,7 +233,8 @@ function openReader(id){
 currentBook=books.find(b=>b.id===id);
 if(!currentBook)return;
 document.getElementById("readerTitle").textContent=currentBook.title;
-document.getElementById("readerAuthor").textContent="نویسنده: "+currentBook.author;
+document.getElementById("readerAuthor").textContent=
+document.documentElement.lang==="en"?"Author: "+currentBook.author:"نویسنده: "+currentBook.author;
 document.getElementById("readerText").textContent=currentBook.summary;
 document.getElementById("reader").style.display="block";
 }
@@ -257,7 +258,10 @@ toggleSaved(currentBook.id);
 }
 
 function updateCount(){
-document.getElementById("savedCount").textContent=saved.length+" کتاب ذخیره‌شده";
+document.getElementById("savedCount").textContent=
+document.documentElement.lang==="en"
+?saved.length+" saved books"
+:saved.length+" کتاب ذخیره‌شده";
 }
 
 function showSaved(){
@@ -265,7 +269,9 @@ const area=document.getElementById("savedBooks");
 area.innerHTML="";
 const list=books.filter(b=>saved.includes(b.id));
 if(!list.length){
-area.innerHTML='<div class="empty">کتابخانه شخصی شما خالی است.</div>';
+area.innerHTML=document.documentElement.lang==="en"
+?'<div class="empty">Your personal library is empty.</div>'
+:'<div class="empty">کتابخانه شخصی شما خالی است.</div>';
 return;
 }
 list.forEach(b=>area.appendChild(createCard(b)));
@@ -304,8 +310,10 @@ english?"Search books or authors...":"جست‌وجوی کتاب یا نویسن
 
 document.querySelector("button[onclick='changeLanguage()']").textContent=
 english?"English | فارسی":"فارسی | English";
+renderBooks();
+updateCount();
+showSaved();
 
-document.title=english?"EHSAN BOOKS | Digital Library":"EHSAN BOOKS | کتابخانه دیجیتال احسان";
 }
 
 </script>
