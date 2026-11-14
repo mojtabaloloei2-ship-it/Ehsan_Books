@@ -286,6 +286,9 @@ return;
 list.forEach(b=>area.appendChild(createCard(b)));
 }
 
+
+document.querySelector("#library p").textContent=
+english?"Select a book and click Read Summary.":"کتاب را انتخاب کنید و روی مطالعه خلاصه بزنید.";
 renderBooks();
 updateCount();
 showSaved();
@@ -320,15 +323,28 @@ english?"This is an introductory summary, not the full book.":"این یک خل�
   document.querySelector("#search").placeholder=
 english?"Search books or authors...":"جست‌وجوی کتاب یا نویسنده...";
 document.querySelector("button[onclick='changeLanguage()']").textContent=
-english?"English | فارسی":"فارسی | English";
-english?"English | فارسی":"فارسی | English";
 
 document.querySelector("button[onclick='saveCurrent()']").textContent=
 english?"Add to My Library":"افزودن به کتابخانه من";
 
 document.querySelector("button[onclick='closeReader()']").textContent=
 english?"Back to Library":"بازگشت به کتابخانه";
+const categoryTitles=document.querySelectorAll(".category");
+const faCategories=["همه کتاب‌ها","کسب‌وکار","روان‌شناسی","فناوری","مالی","رشد فردی"];
+const enCategories=["All Books","Business","Psychology","Technology","Finance","Personal Growth"];
 
+categoryTitles.forEach((item,i)=>{
+item.textContent=english?enCategories[i]:faCategories[i];
+});
+
+document.querySelector("#categories h2").textContent=
+english?"Book Categories":"دسته‌بندی کتاب‌ها";
+
+document.querySelector("#library h2").textContent=
+english?"EHSAN Featured Books":"کتاب‌های منتخب EHSAN";
+
+document.querySelector("#library p").textContent=
+english?"Select a book and click Read Summary.":"کتاب را انتخاب کنید و روی مطالعه خلاصه بزنید.";
 renderBooks();
 updateCount();
 showSaved();  
