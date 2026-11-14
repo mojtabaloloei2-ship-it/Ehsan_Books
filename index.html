@@ -274,7 +274,40 @@ list.forEach(b=>area.appendChild(createCard(b)));
 renderBooks();
 updateCount();
 showSaved();
+
 function changeLanguage(){
+const html=document.documentElement;
+const english=html.lang==="fa";
+
+html.lang=english?"en":"fa";
+html.dir=english?"ltr":"rtl";
+
+const nav=document.querySelectorAll("nav a");
+const faNav=["خانه","دسته‌بندی‌ها","کتابخانه","کتاب‌های من","هوش مصنوعی","درباره ما"];
+const enNav=["Home","Categories","Library","My Books","AI","About Us"];
+
+nav.forEach((item,i)=>{
+item.textContent=english?enNav[i]:faNav[i];
+});
+
+document.querySelector(".hero > div").textContent=
+english?"EHSAN Digital Library":"کتابخانه دیجیتال احسان";
+
+document.querySelector(".hero h1").textContent=
+english?"Knowledge Without Borders":"دانش، بدون مرز";
+
+document.querySelector(".hero p").textContent=
+english?"Discover valuable books and expand your knowledge every day.":"کتاب‌های ارزشمند را کشف کنید و هر روز دانش خود را گسترش دهید.";
+
+document.querySelector("#search").placeholder=
+english?"Search books or authors...":"جست‌وجوی کتاب یا نویسنده...";
+
+document.querySelector("button[onclick='changeLanguage()']").textContent=
+english?"English | فارسی":"فارسی | English";
+
+document.title=english?"EHSAN BOOKS | Digital Library":"EHSAN BOOKS | کتابخانه دیجیتال احسان";
+}
+
 const html=document.documentElement;
 if(html.lang==="fa"){
 html.lang="en";
