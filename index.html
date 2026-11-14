@@ -369,17 +369,6 @@ return;
 }
 list.forEach(b=>area.appendChild(createCard(b)));
 }
-
-
-document.querySelector("#library p").textContent=
-english?"Select a book and click Read Summary.":"کتاب را انتخاب کنید و روی مطالعه خلاصه بزنید.";
-renderBooks();
-updateCount();
-showSaved();
-
-
-
-
 document.querySelector("#library h2").textContent=
 
 function changeLanguage(){
@@ -444,6 +433,65 @@ const enParagraphs=[
 "Artificial Intelligence is a technology that can perform tasks such as understanding language, recognizing images, analyzing information, and creating content.",
 "Learning, translation, planning, writing, and business support are among its applications.",
 "AI answers are not always correct. Verify important information and never share confidential data with unknown tools."
+];function changeLanguage(){
+const html=document.documentElement;
+const english=html.lang==="fa";
+html.lang=english?"en":"fa";
+html.dir=english?"ltr":"rtl";
+
+function setText(selector,fa,en){
+const el=document.querySelector(selector);
+if(el) el.textContent=english?en:fa;
+}
+function setPlaceholder(selector,fa,en){
+const el=document.querySelector(selector);
+if(el) el.placeholder=english?en:fa;
+}
+
+const nav=document.querySelectorAll("nav a");
+const faNav=["خانه","دسته‌بندی‌ها","کتابخانه","کتاب‌های من","هوش مصنوعی","درباره ما"];
+const enNav=["Home","Categories","Library","My Books","AI","About Us"];
+nav.forEach((item,i)=>{
+if(faNav[i] && enNav[i]) item.textContent=english?enNav[i]:faNav[i];
+});
+
+setText(".hero > div","کتابخانه دیجیتال احسان","EHSAN Digital Library");
+setText(".hero h1","دانش، بدون مرز","Knowledge Without Borders");
+setText(".hero p","کتاب‌های ارزشمند را کشف کنید و هر روز دانش خود را گسترش دهید.","Discover valuable books and expand your knowledge every day.");
+setText(".hero button","مشاهده کتاب‌ها","View Books");
+setPlaceholder("#search","جست‌وجوی کتاب یا نویسنده...","Search books or authors...");
+setText("#categories h2","دسته‌بندی کتاب‌ها","Book Categories");
+
+const faCategories=["همه کتاب‌ها","کسب‌وکار","روان‌شناسی","فناوری","مالی","رشد فردی"];
+const enCategories=["All Books","Business","Psychology","Technology","Finance","Personal Growth"];
+document.querySelectorAll(".category").forEach((item,i)=>{
+if(faCategories[i] && enCategories[i]) item.textContent=english?enCategories[i]:faCategories[i];
+});
+
+setText("#library h2","کتاب‌های منتخب EHSAN","EHSAN Featured Books");
+setText("#library p","کتاب را انتخاب کنید و روی مطالعه خلاصه بزنید.","Select a book and click Read Summary.");
+setText("#mybooks h2","📚 کتابخانه شخصی من","📚 My Personal Library");
+setText("#mybooks .library-box p","کتاب‌های مورد علاقه خود را ذخیره کنید.","Save your favorite books.");
+setText("#mybooks button","مشاهده کتاب‌های من","View My Books");
+
+const ai=document.querySelector("#ai .ai-box");
+if(ai){
+const headings=ai.querySelectorAll("h2,h3");
+const faHeadings=["هوش مصنوعی به زبان ساده","هوش مصنوعی چیست؟","کاربردهای هوش مصنوعی","استفاده مسئولانه"];
+const enHeadings=["Artificial Intelligence Made Simple","What Is Artificial Intelligence?","Applications of AI","Responsible Use"];
+headings.forEach((item,i)=>{
+if(faHeadings[i] && enHeadings[i]) item.textContent=english?enHeadings[i]:faHeadings[i];
+});
+const paragraphs=ai.querySelectorAll("p");
+const faParagraphs=[
+"هوش مصنوعی فناوری‌ای است که می‌تواند کارهایی مانند فهم زبان، تشخیص تصویر، تحلیل اطلاعات و تولید محتوا را انجام دهد.",
+"یادگیری، ترجمه، برنامه‌ریزی، نوشتن و کمک به کسب‌وکار از کاربردهای آن هستند.",
+"پاسخ هوش مصنوعی همیشه درست نیست. اطلاعات مهم را بررسی کنید و اطلاعات محرمانه خود را در ابزارهای ناشناس وارد نکنید."
+];
+const enParagraphs=[
+"Artificial Intelligence is a technology that can perform tasks such as understanding language, recognizing images, analyzing information, and creating content.",
+"Learning, translation, planning, writing, and business support are among its applications.",
+"AI answers are not always correct. Verify important information and never share confidential data with unknown tools."
 ];
 paragraphs.forEach((item,i)=>{
 if(faParagraphs[i] && enParagraphs[i]) item.textContent=english?enParagraphs[i]:faParagraphs[i];
@@ -452,61 +500,20 @@ if(faParagraphs[i] && enParagraphs[i]) item.textContent=english?enParagraphs[i]:
 
 setText("#about h2","درباره EHSAN BOOKS","About EHSAN BOOKS");
 setText("#about p","EHSAN BOOKS پلتفرمی برای کشف کتاب، یادگیری و گسترش دانش است.","EHSAN BOOKS is a platform for discovering books, learning, and expanding knowledge.");
-
 setText("#readerTag","خلاصه کتاب","Book Summary");
 setText("#readerNote","این یک خلاصه مقدماتی است و نسخه کامل کتاب نیست.","This is an introductory summary, not the full book.");
-setText("button[onclick='changeLanguage()']","English | فارسی","فارسی | English");
+setText("button[onclick='changeLanguage()']","فارسی | English","English | فارسی");
 setText("button[onclick='saveCurrent()']","افزودن به کتابخانه من","Add to My Library");
 setText("button[onclick='closeReader()']","بازگشت به کتابخانه","Back to Library");
 
-if(typeof renderBooks==="function") renderBooks();
-if(typeof updateCount==="function") updateCount();
-if(typeof showSaved==="function") showSaved();
-}
-
-document.querySelector(".hero > div").textContent=
-english?"EHSAN Digital Library":"کتابخانه دیجیتال احسان";
-
-document.querySelector(".hero h1").textContent=
-english?"Knowledge Without Borders":"دانش، بدون مرز";
-
-document.querySelector(".hero p").textContent=
-english?"Discover valuable books and expand your knowledge every day.":"کتاب‌های ارزشمند را کشف کنید و هر روز دانش خود را گسترش دهید.";
-document.getElementById("readerTag").textContent=
-english?"Book Summary":"خلاصه کتاب";
-document.getElementById("readerNote").textContent=
-english?"This is an introductory summary, not the full book.":"این یک خلاصه مقدماتی است و نسخه کامل کتاب نیست.";
-  document.querySelector("#search").placeholder=
-english?"Search books or authors...":"جست‌وجوی کتاب یا نویسنده...";
-document.querySelector("button[onclick='changeLanguage()']").textContent=
-
-document.querySelector("button[onclick='saveCurrent()']").textContent=
-english?"Add to My Library":"افزودن به کتابخانه من";
-
-document.querySelector("button[onclick='closeReader()']").textContent=
-english?"Back to Library":"بازگشت به کتابخانه";
-const categoryTitles=document.querySelectorAll(".category");
-const faCategories=["همه کتاب‌ها","کسب‌وکار","روان‌شناسی","فناوری","مالی","رشد فردی"];
-const enCategories=["All Books","Business","Psychology","Technology","Finance","Personal Growth"];
-
-categoryTitles.forEach((item,i)=>{
-item.textContent=english?enCategories[i]:faCategories[i];
-});
-
-document.querySelector("#categories h2").textContent=
-english?"Book Categories":"دسته‌بندی کتاب‌ها";
-
-document.querySelector("#library h2").textContent=
-english?"EHSAN Featured Books":"کتاب‌های منتخب EHSAN";
-
-document.querySelector("#library p").textContent=
-english?"Select a book and click Read Summary.":"کتاب را انتخاب کنید و روی مطالعه خلاصه بزنید.";
 renderBooks();
 updateCount();
-showSaved();  
-
+showSaved();
 }
 
+renderBooks();
+updateCount();
+showSaved();
 </script>
 </body>
 </html>
