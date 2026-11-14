@@ -180,7 +180,9 @@ const filtered=books.filter(b=>
 const area=document.getElementById("books");
 area.innerHTML="";
 if(!filtered.length){
-area.innerHTML='<div class="empty">کتابی پیدا نشد.</div>';
+area.innerHTML=document.documentElement.lang==="en"
+?'<div class="empty">No books found.</div>'
+:'<div class="empty">کتابی پیدا نشد.</div>';
 return;
 }
 filtered.forEach(b=>area.appendChild(createCard(b)));
