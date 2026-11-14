@@ -139,9 +139,9 @@ footer{background:var(--navy);color:white;text-align:center;padding:30px;margin-
 <div class="reader-content">
 <h2 id="readerTitle"></h2>
 <p id="readerAuthor" style="color:#159e91;font-weight:bold"></p>
-<span class="tag">خلاصه کتاب</span>
+<span class="tag" id="readerTag">خلاصه کتاب</span>
 <p id="readerText"></p>
-<p class="muted">این یک خلاصه مقدماتی است و نسخه کامل کتاب نیست.</p>
+  <p class="muted" id="readerNote">این یک خلاصه مقدماتی است و نسخه کامل کتاب نیست.</p>
 <button class="btn teal" onclick="saveCurrent()">افزودن به کتابخانه من</button>
 <button class="btn dark" onclick="closeReader()">بازگشت به کتابخانه</button>
 </div>
@@ -306,7 +306,8 @@ english?"Knowledge Without Borders":"دانش، بدون مرز";
 
 document.querySelector(".hero p").textContent=
 english?"Discover valuable books and expand your knowledge every day.":"کتاب‌های ارزشمند را کشف کنید و هر روز دانش خود را گسترش دهید.";
-
+document.getElementById("readerTag").textContent=
+english?"Book Summary":"خلاصه کتاب";
 document.querySelector("#search").placeholder=
 english?"Search books or authors...":"جست‌وجوی کتاب یا نویسنده...";
 
