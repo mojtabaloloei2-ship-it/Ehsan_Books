@@ -163,6 +163,15 @@ const books = [
 {id:6,title:"هوش مصنوعی",category:"Technology",author:"EHSAN BOOKS",cover:"c6",summary:"هوش مصنوعی شاخه‌ای از فناوری رایانه است که بر ساخت سامانه‌هایی تمرکز دارد که می‌توانند کارهایی مانند پردازش زبان، شناسایی الگوها و کمک به تصمیم‌گیری را انجام دهند.\n\nهوش مصنوعی می‌تواند در پژوهش، سازمان‌دهی اطلاعات و حل مسائل کمک کند؛ اما پاسخ‌های آن همیشه درست نیست و باید بررسی شوند.\n\nدرس مهم کتاب: از فناوری هوشمند آگاهانه استفاده کنید و قضاوت انسانی را در تصمیم‌های مهم حفظ کنید."}
 ];
 
+const bookEnglish = {
+1:{title:"Atomic Habits",author:"James Clear"},
+2:{title:"Think and Grow Rich",author:"Napoleon Hill"},
+3:{title:"The Psychology of Money",author:"Morgan Housel"},
+4:{title:"Deep Work",author:"Cal Newport"},
+5:{title:"The Power of Now",author:"Eckhart Tolle"},
+6:{title:"Artificial Intelligence",author:"EHSAN BOOKS"}
+};
+
 let category="All";
 let currentBook=null;
 let saved=[];
@@ -188,29 +197,38 @@ return;
 filtered.forEach(b=>area.appendChild(createCard(b)));
 }
 
+
 function createCard(b){
+const english=document.documentElement.lang==="en";
+const translated=english?bookEnglish[b.id]:b;
 const card=document.createElement("div");
 card.className="book";
+
 const cover=document.createElement("div");
 cover.className="cover "+b.cover;
+
 const title=document.createElement("strong");
-title.textContent=b.title;
+title.textContent=translated.title;
+
 const author=document.createElement("small");
-author.textContent=b.author;
+author.textContent=translated.author;
 cover.append(title,author);
 
 const info=document.createElement("div");
 info.className="book-info";
+
 const h=document.createElement("h3");
-h.textContent=b.title;
+h.textContent=translated.title;
+
 const p=document.createElement("p");
-p.textContent=b.author;
+p.textContent=translated.author;
 
 const actions=document.createElement("div");
 actions.className="book-actions";
+
 const read=document.createElement("button");
 read.className="btn dark";
-read.textContent=document.documentElement.lang==="en"?"Read Summary":"مطالعه خلاصه";
+read.textContent=english?"Read Summary":"مطالعه خلاصه";
 read.onclick=()=>openReader(b.id);
 
 const fav=document.createElement("button");
@@ -223,7 +241,6 @@ info.append(h,p,actions);
 card.append(cover,info);
 return card;
 }
-
 function setCategory(value,el){
 category=value;
 document.querySelectorAll(".category").forEach(c=>c.classList.remove("active"));
@@ -231,21 +248,29 @@ el.classList.add("active");
 renderBooks();
 }
 
+
+
 function openReader(id){
 currentBook=books.find(b=>b.id===id);
 if(!currentBook)return;
-document.getElementById("readerTitle").textContent=currentBook.title;
-document.getElementById("readerAuthor").textContent=
-document.documentElement.lang==="en"?"Author: "+currentBook.author:"نویسنده: "+currentBook.author;
-document.getElementById("readerText").textContent=currentBook.summary;
+
 const english=document.documentElement.lang==="en";
+const translated=english?bookEnglish[currentBook.id]:currentBook;
+
+document.getElementById("readerTitle").textContent=translated.title;
+
+document.getElementById("readerAuthor").textContent=
+english?"Author: "+translated.author:"نویسنده: "+translated.author;
+
+document.getElementById("readerText").textContent=currentBook.summary;
 
 document.querySelector("button[onclick='saveCurrent()']").textContent=
 english?"Add to My Library":"افزودن به کتابخانه من";
 
 document.querySelector("button[onclick='closeReader()']").textContent=
 english?"Back to Library":"بازگشت به کتابخانه";
-  document.getElementById("reader").style.display="block";
+
+document.getElementById("reader").style.display="block";
 }
 
 function closeReader(){
