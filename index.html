@@ -74,6 +74,8 @@ footer{background:var(--navy);color:white;text-align:center;padding:30px;margin-
 <a href="#ai">هوش مصنوعی</a>
 <a href="#about">درباره ما</a>
 </nav>
+<button class="btn gold" onclick="changeLanguage()">فارسی | English</button>
+</nav>
 </header>
 
 <div class="hero" id="home">
@@ -272,6 +274,19 @@ list.forEach(b=>area.appendChild(createCard(b)));
 renderBooks();
 updateCount();
 showSaved();
+function changeLanguage(){
+const html=document.documentElement;
+if(html.lang==="fa"){
+html.lang="en";
+html.dir="ltr";
+document.querySelector(".logo").innerHTML='EHSAN <span>BOOKS</span>';
+document.querySelector("button[onclick='changeLanguage()']").textContent="English | فارسی";
+}else{
+html.lang="fa";
+html.dir="rtl";
+document.querySelector("button[onclick='changeLanguage()']").textContent="فارسی | English";
+}
+}
 </script>
 </body>
 </html>
