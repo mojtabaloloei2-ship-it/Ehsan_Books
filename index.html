@@ -5,138 +5,124 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#0b1830">
-<title>EHSAN BOOKS | دنیای هوشمند کتاب</title>
-<meta name="description" content="احسان بوکس؛ خلاصه کتاب‌های ارزشمند، آموزش هوش مصنوعی و دسترسی قانونی به کتاب‌های کامل.">
+<title>EHSAN BOOKS</title>
 <style>
 :root{
 --navy:#0b1830;
---navy2:#142746;
 --teal:#20c9bd;
 --gold:#e5bd70;
 --light:#f4f7fb;
---text:#263449;
 }
 *{box-sizing:border-box}
 body{
 margin:0;
 font-family:Tahoma,Arial,sans-serif;
 background:var(--light);
-color:var(--text);
+color:#263449;
 line-height:1.9;
 }
 header{
 background:var(--navy);
 color:white;
-padding:16px 6%;
+padding:16px 5%;
 display:flex;
-align-items:center;
 justify-content:space-between;
+align-items:center;
 flex-wrap:wrap;
-gap:12px;
+gap:15px;
 }
 .logo{
 font-size:23px;
 font-weight:bold;
-color:white;
 direction:ltr;
 }
 .logo span{color:var(--teal)}
-nav{display:flex;gap:18px;flex-wrap:wrap}
+nav{
+display:flex;
+gap:15px;
+flex-wrap:wrap;
+}
 nav a{
-color:#fff;
+color:white;
 text-decoration:none;
-font-size:14px;
+font-size:13px;
 }
 nav a:hover{color:var(--gold)}
+.lang{
+background:var(--teal);
+border:0;
+padding:9px 14px;
+border-radius:8px;
+font-weight:bold;
+cursor:pointer;
+}
 .hero{
 background:linear-gradient(135deg,#0b1830,#173c58);
 color:white;
 text-align:center;
-padding:75px 20px;
+padding:65px 20px;
 }
-.hero h1{font-size:32px;margin:0 0 15px}
-.hero p{color:#d6e4ef;max-width:650px;margin:0 auto 25px}
+.hero h1{font-size:30px}
+.hero p{color:#d6e4ef}
 .btn{
 display:inline-block;
-padding:11px 24px;
-border-radius:9px;
 background:var(--teal);
 color:#08202b;
+padding:10px 23px;
+border-radius:8px;
 text-decoration:none;
 font-weight:bold;
 }
-.btn.gold{background:var(--gold)}
-section{padding:48px 6%}
-.section-title{
-text-align:center;
-color:var(--navy);
-margin-bottom:30px;
-font-size:25px;
-}
+section{padding:42px 6%}
+h2{text-align:center;color:var(--navy)}
 .grid{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:20px;
+grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
+gap:18px;
 }
 .card{
 background:white;
-border-radius:14px;
-padding:23px;
-box-shadow:0 5px 20px #14274612;
-border:1px solid #e7edf4;
+padding:22px;
+border-radius:12px;
+box-shadow:0 4px 15px #00000010;
 }
-.card h3{color:var(--navy);margin-top:0}
-.card p{font-size:14px;color:#637184}
-.icon{font-size:30px}
+.card h3{color:var(--navy)}
 .search{
 display:flex;
-max-width:550px;
+max-width:500px;
 margin:20px auto;
 gap:8px;
 }
 .search input{
 flex:1;
 min-width:0;
-padding:13px;
+padding:12px;
 border:1px solid #ccd6e2;
-border-radius:9px;
-font-family:inherit;
+border-radius:8px;
 }
 .search button{
-border:0;
-border-radius:9px;
 background:var(--teal);
-padding:10px 18px;
-font-family:inherit;
+border:0;
+border-radius:8px;
+padding:10px 16px;
 cursor:pointer;
 }
-.book{
-border-top:3px solid var(--teal);
-}
-.book a{
-color:#087e80;
-font-weight:bold;
-text-decoration:none;
-}
 .notice{
-background:#e7f7f5;
-border-right:4px solid var(--teal);
-padding:20px;
+background:#e4f7f4;
+padding:18px;
 border-radius:10px;
 }
 footer{
 background:var(--navy);
-color:#dce5ef;
-padding:35px 6%;
+color:white;
 text-align:center;
-font-size:13px;
+padding:30px 15px;
 }
-footer a{color:var(--gold);text-decoration:none;margin:0 8px}
+footer a{color:var(--gold);margin:8px;text-decoration:none}
 @media(max-width:600px){
-.hero h1{font-size:25px}
 header{justify-content:center}
 nav{justify-content:center}
-section{padding:35px 5%}
+.hero h1{font-size:24px}
 }
 </style>
 </head>
@@ -144,102 +130,175 @@ section{padding:35px 5%}
 
 <header>
 <div class="logo">EHSAN <span>BOOKS</span></div>
+
 <nav>
-<a href="#home">خانه</a>
-<a href="#categories">دسته‌بندی کتاب‌ها</a>
-<a href="#books">خلاصه کتاب‌ها</a>
-<a href="ai-guide.html">هوش مصنوعی</a>
-<a href="about.html">درباره ما</a>
-<a href="contact.html">تماس با ما</a>
+<a href="#home" data-fa="خانه" data-en="Home">خانه</a>
+<a href="#categories" data-fa="دسته‌بندی کتاب‌ها" data-en="Categories">دسته‌بندی کتاب‌ها</a>
+<a href="#books" data-fa="خلاصه کتاب‌ها" data-en="Book Summaries">خلاصه کتاب‌ها</a>
+<a href="ai-guide.html" data-fa="هوش مصنوعی" data-en="AI Guide">هوش مصنوعی</a>
+<a href="about.html" data-fa="درباره ما" data-en="About Us">درباره ما</a>
+<a href="contact.html" data-fa="تماس با ما" data-en="Contact">تماس با ما</a>
 </nav>
+
+<button class="lang" id="languageButton" onclick="changeLanguage()">English</button>
 </header>
 
 <main>
 <div class="hero" id="home">
-<h1>به دنیای هوشمند کتاب خوش آمدید</h1>
-<p>دانش بیشتر، زمان کمتر؛ با خلاصه‌های کاربردی کتاب‌ها و دسترسی قانونی به نسخه‌های کامل.</p>
-<a class="btn" href="#books">شروع مطالعه</a>
-<a class="btn gold" href="#categories">کشف دنیای کتاب</a>
+<h1 data-fa="به دنیای هوشمند کتاب خوش آمدید"
+data-en="Welcome to the World of Smart Reading">
+به دنیای هوشمند کتاب خوش آمدید
+</h1>
+
+<p data-fa="دانش بیشتر، زمان کمتر؛ با خلاصه‌های کاربردی کتاب‌ها."
+data-en="More knowledge, less time, with practical book summaries.">
+دانش بیشتر، زمان کمتر؛ با خلاصه‌های کاربردی کتاب‌ها.
+</p>
+
+<a class="btn" href="#books"
+data-fa="شروع مطالعه" data-en="Start Reading">شروع مطالعه</a>
 </div>
 
 <section id="categories">
-<h2 class="section-title">دسته‌بندی موضوعی</h2>
+<h2 data-fa="دسته‌بندی موضوعی"
+data-en="Book Categories">دسته‌بندی موضوعی</h2>
+
 <div class="grid">
-<div class="card"><div class="icon">📚</div><h3>مدیریت و کسب‌وکار</h3><p>مدیریت، کارآفرینی و موفقیت شغلی.</p></div>
-<div class="card"><div class="icon">🧠</div><h3>روانشناسی و توسعه فردی</h3><p>شناخت بهتر خود و رشد مهارت‌های فردی.</p></div>
-<div class="card"><div class="icon">💰</div><h3>اقتصاد و سرمایه‌گذاری</h3><p>آشنایی با مفاهیم مالی و اقتصادی.</p></div>
-<div class="card"><div class="icon">🤖</div><h3>فناوری و هوش مصنوعی</h3><p>فناوری‌های جدید و آینده دنیای دیجیتال.</p></div>
-<div class="card"><div class="icon">🔬</div><h3>علم و آموزش</h3><p>یادگیری علوم و مهارت‌های کاربردی.</p></div>
-<div class="card"><div class="icon">🌍</div><h3>تاریخ و فرهنگ</h3><p>آشنایی با تاریخ و فرهنگ ملت‌ها.</p></div>
+<div class="card">
+<h3 data-fa="📚 مدیریت و کسب‌وکار" data-en="📚 Business & Management">📚 مدیریت و کسب‌وکار</h3>
+<p data-fa="مدیریت، کارآفرینی و موفقیت شغلی."
+data-en="Management, entrepreneurship and career success.">مدیریت، کارآفرینی و موفقیت شغلی.</p>
+</div>
+
+<div class="card">
+<h3 data-fa="🧠 روانشناسی و توسعه فردی" data-en="🧠 Psychology & Personal Growth">🧠 روانشناسی و توسعه فردی</h3>
+<p data-fa="شناخت بهتر خود و رشد مهارت‌های فردی."
+data-en="Self-awareness and personal development.">شناخت بهتر خود و رشد مهارت‌های فردی.</p>
+</div>
+
+<div class="card">
+<h3 data-fa="💰 اقتصاد و سرمایه‌گذاری" data-en="💰 Economics & Investment">💰 اقتصاد و سرمایه‌گذاری</h3>
+<p data-fa="آشنایی با مفاهیم مالی و اقتصادی."
+data-en="Learn financial and economic concepts.">آشنایی با مفاهیم مالی و اقتصادی.</p>
+</div>
+
+<div class="card">
+<h3 data-fa="🤖 فناوری و هوش مصنوعی" data-en="🤖 Technology & AI">🤖 فناوری و هوش مصنوعی</h3>
+<p data-fa="فناوری‌های جدید و آینده دنیای دیجیتال."
+data-en="New technologies and the digital future.">فناوری‌های جدید و آینده دنیای دیجیتال.</p>
+</div>
+
+<div class="card">
+<h3 data-fa="🔬 علم و آموزش" data-en="🔬 Science & Education">🔬 علم و آموزش</h3>
+<p data-fa="یادگیری علوم و مهارت‌های کاربردی."
+data-en="Science and practical learning.">یادگیری علوم و مهارت‌های کاربردی.</p>
+</div>
+
+<div class="card">
+<h3 data-fa="🌍 تاریخ و فرهنگ" data-en="🌍 History & Culture">🌍 تاریخ و فرهنگ</h3>
+<p data-fa="آشنایی با تاریخ و فرهنگ ملت‌ها."
+data-en="Explore world history and cultures.">آشنایی با تاریخ و فرهنگ ملت‌ها.</p>
+</div>
 </div>
 </section>
 
 <section id="books">
-<h2 class="section-title">کتابخانه احسان بوکس</h2>
+<h2 data-fa="کتابخانه احسان بوکس"
+data-en="EHSAN BOOKS Library">کتابخانه احسان بوکس</h2>
+
 <div class="search">
-<input id="bookSearch" type="search" placeholder="نام کتاب یا موضوع را جستجو کنید">
-<button onclick="searchBooks()">جستجو</button>
+<input id="searchInput" type="search"
+placeholder="جستجوی کتاب..."
+data-fa-placeholder="جستجوی کتاب..."
+data-en-placeholder="Search books...">
+<button onclick="searchBooks()"
+data-fa="جستجو" data-en="Search">جستجو</button>
 </div>
-<div id="searchMessage" style="text-align:center"></div>
+
+<p id="searchMessage" style="text-align:center"></p>
+
 <div class="grid" id="bookGrid">
 <div class="card book">
-<h3>قدرت عادت</h3>
-<p>خلاصه‌ای درباره شکل‌گیری عادت‌ها و تغییر رفتار انسان.</p>
-<a href="contact.html">مشاهده جزئیات</a>
+<h3 data-fa="قدرت عادت" data-en="The Power of Habit">قدرت عادت</h3>
+<p data-fa="خلاصه‌ای درباره شکل‌گیری عادت‌ها و تغییر رفتار."
+data-en="A summary about habits and behavior change.">خلاصه‌ای درباره شکل‌گیری عادت‌ها و تغییر رفتار.</p>
 </div>
-<div class="card book">
-<h3>تفکر سریع و کند</h3>
-<p>آشنایی با دو شیوه اصلی تفکر و تصمیم‌گیری.</p>
-<a href="contact.html">مشاهده جزئیات</a>
-</div>
-<div class="card book">
-<h3>پدر پولدار، پدر بی‌پول</h3>
-<p>مفاهیم سواد مالی و نگرش به دارایی و بدهی.</p>
-<a href="contact.html">مشاهده جزئیات</a>
-</div>
-</div>
-<p class="notice">خلاصه‌های آموزشی احسان بوکس برای یادگیری تهیه می‌شوند. نسخه کامل کتاب‌ها فقط از مسیر قانونی ناشر یا صاحب حق نشر ارائه خواهد شد.</p>
-</section>
 
-<section>
-<h2 class="section-title">چرا EHSAN BOOKS؟</h2>
-<div class="grid">
-<div class="card"><h3>مطالعه رایگان</h3><p>دسترسی به خلاصه‌های آموزشی و کاربردی.</p></div>
-<div class="card"><h3>یادگیری هوشمند</h3><p>استفاده از فناوری برای آسان‌تر کردن یادگیری.</p></div>
-<div class="card"><h3>کتاب‌های قانونی</h3><p>دسترسی به نسخه کامل از منابع مجاز.</p></div>
+<div class="card book">
+<h3 data-fa="تفکر سریع و کند" data-en="Thinking, Fast and Slow">تفکر سریع و کند</h3>
+<p data-fa="آشنایی با دو شیوه اصلی تفکر و تصمیم‌گیری."
+data-en="Explore two systems of thinking and decision-making.">آشنایی با دو شیوه اصلی تفکر و تصمیم‌گیری.</p>
 </div>
+
+<div class="card book">
+<h3 data-fa="پدر پولدار، پدر بی‌پول" data-en="Rich Dad Poor Dad">پدر پولدار، پدر بی‌پول</h3>
+<p data-fa="آشنایی با سواد مالی و نگرش به دارایی."
+data-en="An introduction to financial literacy and assets.">آشنایی با سواد مالی و نگرش به دارایی.</p>
+</div>
+</div>
+
+<p class="notice"
+data-fa="خلاصه‌های آموزشی احسان بوکس برای یادگیری تهیه می‌شوند. نسخه کامل کتاب‌ها فقط از مسیر قانونی ناشر یا صاحب حق نشر ارائه خواهد شد."
+data-en="EHSAN BOOKS summaries are created for learning. Full books will only be offered through authorized publishers or copyright holders.">
+خلاصه‌های آموزشی احسان بوکس برای یادگیری تهیه می‌شوند.
+</p>
 </section>
 </main>
 
 <footer>
 <div class="logo">EHSAN <span>BOOKS</span></div>
-<p>دانش، سرمایه‌ای است که همیشه همراه شما می‌ماند.</p>
-<div>
-<a href="about.html">درباره ما</a>
-<a href="publishers.html">ناشران</a>
-<a href="copyright.html">حقوق نشر</a>
-<a href="terms.html">قوانین</a>
-<a href="contact.html">تماس با ما</a>
-</div>
-<p>© 2026 EHSAN BOOKS - All Rights Reserved</p>
+<p data-fa="دانش، سرمایه‌ای است که همیشه همراه شما می‌ماند."
+data-en="Knowledge is an investment that stays with you forever.">
+دانش، سرمایه‌ای است که همیشه همراه شما می‌ماند.
+</p>
+<a href="about.html" data-fa="درباره ما" data-en="About Us">درباره ما</a>
+<a href="publishers.html" data-fa="ناشران" data-en="Publishers">ناشران</a>
+<a href="copyright.html" data-fa="حقوق نشر" data-en="Copyright">حقوق نشر</a>
+<a href="terms.html" data-fa="قوانین" data-en="Terms">قوانین</a>
+<a href="contact.html" data-fa="تماس با ما" data-en="Contact">تماس با ما</a>
+<p>© 2026 EHSAN BOOKS</p>
 </footer>
 
 <script>
+let currentLanguage="fa";
+
+function changeLanguage(){
+currentLanguage=currentLanguage==="fa"?"en":"fa";
+
+document.documentElement.lang=currentLanguage;
+document.documentElement.dir=currentLanguage==="fa"?"rtl":"ltr";
+
+document.querySelectorAll("[data-fa]").forEach(el=>{
+el.textContent=el.getAttribute("data-"+currentLanguage);
+});
+
+document.querySelectorAll("[data-fa-placeholder]").forEach(el=>{
+el.placeholder=el.getAttribute("data-"+currentLanguage+"-placeholder");
+});
+
+document.getElementById("languageButton").textContent=
+currentLanguage==="fa"?"English":"فارسی";
+
+document.getElementById("searchMessage").textContent="";
+document.getElementById("searchInput").value="";
+document.querySelectorAll(".book").forEach(card=>card.style.display="block");
+}
+
 function searchBooks(){
-const q=document.getElementById("bookSearch").value.trim().toLowerCase();
-const cards=document.querySelectorAll("#bookGrid .card");
+const q=document.getElementById("searchInput").value.toLowerCase().trim();
 let count=0;
-cards.forEach(card=>{
+
+document.querySelectorAll(".book").forEach(card=>{
 const match=card.innerText.toLowerCase().includes(q);
 card.style.display=match?"block":"none";
 if(match)count++;
 });
+
 document.getElementById("searchMessage").textContent=
-q?(count?"نتایج جستجو: "+count+" کتاب":"کتابی پیدا نشد"):"";
+q?(currentLanguage==="fa"?
+(count?"تعداد نتایج: "+count:"کتابی پیدا نشد"):
+(count?"Results: "+count:"No books found")):"";
 }
-document.getElementById("bookSearch").addEventListener("keydown",function(e){
-if(e.key==="Enter")searchBooks();
-});
 </script>
 
 </body>
