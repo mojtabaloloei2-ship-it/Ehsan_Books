@@ -5,7 +5,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#0b1830">
-<title>Publishers Partnership | EHSAN BOOKS</title>
+<title>AI Book Guide | EHSAN BOOKS</title>
 <style>
 *{box-sizing:border-box}
 body{margin:0;font-family:Tahoma,Arial,sans-serif;background:#f4f7fb;color:#17243a;line-height:2}
@@ -13,16 +13,20 @@ header{background:#0b1830;color:white;padding:20px 7%;display:flex;justify-conte
 .logo{font-size:23px;font-weight:bold;color:white}
 .logo span{color:#36c6bd}
 nav a{color:white;text-decoration:none;margin:0 9px;font-size:14px}
-button{background:#36c6bd;color:#0b1830;border:0;padding:9px 16px;border-radius:8px;font-weight:bold;cursor:pointer}
-.hero{background:linear-gradient(135deg,#0b1830,#193b60);color:white;padding:55px 20px;text-align:center}
-.hero h1{font-size:29px;margin:0 0 15px}
+button,select{font-family:inherit}
+#lang{background:#36c6bd;color:#0b1830;border:0;padding:9px 16px;border-radius:8px;font-weight:bold;cursor:pointer}
+.hero{background:linear-gradient(135deg,#0b1830,#193b60);color:white;padding:45px 20px;text-align:center}
+.hero h1{font-size:28px;margin:0 0 12px}
 .hero p{max-width:700px;margin:auto;color:#e1eaf5}
-main{max-width:950px;margin:30px auto;padding:20px}
-.card{background:white;padding:25px;border-radius:14px;margin-bottom:20px;box-shadow:0 5px 25px #15233a10}
-h2{color:#102746;font-size:21px}
-p,li{font-size:15px}
-ul{padding-right:25px}
-a.contact{display:inline-block;background:#36c6bd;color:#0b1830;text-decoration:none;padding:10px 22px;border-radius:8px;font-weight:bold;margin-top:10px}
+main{max-width:850px;margin:30px auto;padding:20px}
+.card{background:white;padding:28px;border-radius:14px;box-shadow:0 5px 25px #15233a12;margin-bottom:22px}
+h2{color:#102746;font-size:21px;margin-top:0}
+label{display:block;font-weight:bold;margin:15px 0 7px}
+select{width:100%;padding:13px;border:1px solid #ccd5e1;border-radius:8px;background:white;color:#17243a}
+.action{background:#36c6bd;color:#0b1830;border:0;padding:12px 22px;border-radius:8px;font-weight:bold;cursor:pointer;margin-top:20px;width:100%;font-size:15px}
+#result{display:none;margin-top:22px;padding:18px;background:#edf9f8;border-right:4px solid #36c6bd;border-radius:8px}
+#result h3{color:#102746}
+.book{background:white;padding:12px;border-radius:8px;margin:10px 0}
 footer{text-align:center;background:#0b1830;color:#dce5f2;padding:22px;margin-top:40px}
 footer a{color:#36c6bd;text-decoration:none;margin:0 8px}
 @media(max-width:600px){header{padding:16px}.hero h1{font-size:23px}.card{padding:20px}}
@@ -41,51 +45,38 @@ footer a{color:#36c6bd;text-decoration:none;margin:0 8px}
 </header>
 
 <section class="hero">
-<h1 data-fa="همکاری با ناشران و نویسندگان" data-en="Partner with EHSAN BOOKS">همکاری با ناشران و نویسندگان</h1>
-<p data-fa="با همکاری یکدیگر، کتاب‌ها و دانش را به مخاطبان بیشتری در سراسر جهان معرفی کنیم."
-data-en="Together, let's bring books and knowledge to more readers around the world.">
-با همکاری یکدیگر، کتاب‌ها و دانش را به مخاطبان بیشتری در سراسر جهان معرفی کنیم.
+<h1 data-fa="راهنمای هوشمند کتاب‌ها" data-en="AI Book Guide">راهنمای هوشمند کتاب‌ها</h1>
+<p data-fa="کتاب مناسب خود را پیدا کن و مسیر یادگیری‌ات را با راهنمای EHSAN BOOKS آغاز کن."
+data-en="Discover books that match your interests and begin your learning journey with EHSAN BOOKS.">
+کتاب مناسب خود را پیدا کن و مسیر یادگیری‌ات را با راهنمای EHSAN BOOKS آغاز کن.
 </p>
 </section>
 
 <main>
-
 <section class="card">
-<h2 data-fa="چرا با EHSAN BOOKS همکاری کنیم؟" data-en="Why Partner with EHSAN BOOKS?">چرا با EHSAN BOOKS همکاری کنیم؟</h2>
-<p data-fa="EHSAN BOOKS با هدف ایجاد یک پلتفرم بین‌المللی برای معرفی و دسترسی قانونی به کتاب‌ها فعالیت می‌کند. ما به دنبال همکاری بلندمدت و شفاف با ناشران، نویسندگان، مترجمان و صاحبان حقوق آثار هستیم."
-data-en="EHSAN BOOKS aims to build an international platform for book discovery and lawful access to books. We seek transparent, long-term partnerships with publishers, authors, translators, and rights holders.">
-EHSAN BOOKS با هدف ایجاد یک پلتفرم بین‌المللی برای معرفی و دسترسی قانونی به کتاب‌ها فعالیت می‌کند. ما به دنبال همکاری بلندمدت و شفاف با ناشران، نویسندگان، مترجمان و صاحبان حقوق آثار هستیم.
-</p>
-</section>
+<h2 data-fa="چه چیزی می‌خواهی یاد بگیری؟" data-en="What would you like to learn?">چه چیزی می‌خواهی یاد بگیری؟</h2>
 
-<section class="card">
-<h2 data-fa="زمینه‌های همکاری" data-en="Partnership Opportunities">زمینه‌های همکاری</h2>
-<ul>
-<li data-fa="معرفی و تبلیغ کتاب‌های ناشران" data-en="Book promotion and publisher visibility">معرفی و تبلیغ کتاب‌های ناشران</li>
-<li data-fa="عرضه قانونی نسخه دیجیتال کتاب‌ها با مجوز معتبر" data-en="Authorized distribution of digital books">عرضه قانونی نسخه دیجیتال کتاب‌ها با مجوز معتبر</li>
-<li data-fa="تهیه و انتشار خلاصه‌های آموزشی با رعایت حقوق مؤلف" data-en="Educational summaries prepared with copyright compliance">تهیه و انتشار خلاصه‌های آموزشی با رعایت حقوق مؤلف</li>
-<li data-fa="همکاری با نویسندگان و مترجمان مستقل" data-en="Working with independent authors and translators">همکاری با نویسندگان و مترجمان مستقل</li>
-<li data-fa="توسعه بازار جهانی و معرفی آثار به مخاطبان جدید" data-en="Expanding global reach and introducing works to new audiences">توسعه بازار جهانی و معرفی آثار به مخاطبان جدید</li>
-</ul>
-</section>
+<label for="topic" data-fa="موضوع مورد علاقه" data-en="Your Topic">موضوع مورد علاقه</label>
+<select id="topic">
+<option value="business" data-fa="کسب‌وکار و مدیریت" data-en="Business and Management">کسب‌وکار و مدیریت</option>
+<option value="success" data-fa="موفقیت و توسعه فردی" data-en="Success and Personal Development">موفقیت و توسعه فردی</option>
+<option value="psychology" data-fa="روان‌شناسی و ذهن" data-en="Psychology and Mind">روان‌شناسی و ذهن</option>
+<option value="finance" data-fa="مالی و سرمایه‌گذاری" data-en="Finance and Investing">مالی و سرمایه‌گذاری</option>
+<option value="technology" data-fa="فناوری و هوش مصنوعی" data-en="Technology and AI">فناوری و هوش مصنوعی</option>
+<option value="science" data-fa="علم و دانش عمومی" data-en="Science and General Knowledge">علم و دانش عمومی</option>
+</select>
 
-<section class="card">
-<h2 data-fa="حقوق و مالکیت آثار" data-en="Copyright and Ownership">حقوق و مالکیت آثار</h2>
-<p data-fa="تمامی همکاری‌ها بر اساس توافق روشن و مجوزهای قانونی انجام می‌شود. حقوق مالکیت فکری آثار برای صاحبان قانونی آن‌ها محفوظ است. هیچ نسخه کامل دارای حق نشر بدون مجوز معتبر منتشر نخواهد شد."
-data-en="All partnerships are based on clear agreements and lawful permissions. Intellectual property rights remain with their rightful owners. No copyrighted full book will be distributed without valid authorization.">
-تمامی همکاری‌ها بر اساس توافق روشن و مجوزهای قانونی انجام می‌شود. حقوق مالکیت فکری آثار برای صاحبان قانونی آن‌ها محفوظ است. هیچ نسخه کامل دارای حق نشر بدون مجوز معتبر منتشر نخواهد شد.
-</p>
-</section>
+<label for="level" data-fa="سطح مطالعه" data-en="Reading Level">سطح مطالعه</label>
+<select id="level">
+<option value="beginner" data-fa="مبتدی" data-en="Beginner">مبتدی</option>
+<option value="intermediate" data-fa="متوسط" data-en="Intermediate">متوسط</option>
+<option value="advanced" data-fa="پیشرفته" data-en="Advanced">پیشرفته</option>
+</select>
 
-<section class="card">
-<h2 data-fa="شروع همکاری" data-en="Start a Partnership">شروع همکاری</h2>
-<p data-fa="اگر ناشر، نویسنده، مترجم یا صاحب امتیاز کتاب هستید، خوشحال می‌شویم پیشنهاد همکاری شما را دریافت کنیم. لطفاً نام سازمان یا شخص، اطلاعات تماس و موضوع همکاری را برای ما ارسال کنید."
-data-en="If you are a publisher, author, translator, or book rights holder, we would be pleased to hear from you. Please send us your name or organization, contact details, and partnership proposal.">
-اگر ناشر، نویسنده، مترجم یا صاحب امتیاز کتاب هستید، خوشحال می‌شویم پیشنهاد همکاری شما را دریافت کنیم. لطفاً نام سازمان یا شخص، اطلاعات تماس و موضوع همکاری را برای ما ارسال کنید.
-</p>
-<a class="contact" href="contact.html" data-fa="ارسال درخواست همکاری" data-en="Send a Partnership Request">ارسال درخواست همکاری</a>
-</section>
+<button class="action" onclick="recommend()" data-fa="پیشنهاد کتاب به من" data-en="Recommend Books">پیشنهاد کتاب به من</button>
 
+<div id="result" aria-live="polite"></div>
+</section>
 </main>
 
 <footer>
@@ -96,13 +87,69 @@ data-en="If you are a publisher, author, translator, or book rights holder, we w
 
 <script>
 let language="fa";
+
+const books={
+business:{
+fa:["مدیر یک دقیقه‌ای","از خوب به عالی","استراتژی اقیانوس آبی"],
+en:["The One Minute Manager","Good to Great","Blue Ocean Strategy"]
+},
+success:{
+fa:["قدرت عادت","اثر مرکب","هفت عادت مردمان مؤثر"],
+en:["The Power of Habit","The Compound Effect","The 7 Habits of Highly Effective People"]
+},
+psychology:{
+fa:["تفکر سریع و کند","هوش هیجانی","انسان در جستجوی معنا"],
+en:["Thinking, Fast and Slow","Emotional Intelligence","Man's Search for Meaning"]
+},
+finance:{
+fa:["پدر پولدار پدر بی‌پول","روان‌شناسی پول","سرمایه‌گذار هوشمند"],
+en:["Rich Dad Poor Dad","The Psychology of Money","The Intelligent Investor"]
+},
+technology:{
+fa:["زندگی ۳.۰","هوش مصنوعی: رویکردی نوین","انسان و ماشین"],
+en:["Life 3.0","Artificial Intelligence: A Modern Approach","Human Compatible"]
+},
+science:{
+fa:["جهان در پوست گردو","تاریخچه مختصر زمان","جهان‌های موازی"],
+en:["The Universe in a Nutshell","A Brief History of Time","Parallel Worlds"]
+}
+};
+
+function recommend(){
+const topic=document.getElementById("topic").value;
+const level=document.getElementById("level").value;
+const list=books[topic][language];
+const result=document.getElementById("result");
+
+const titles=language==="fa"
+?["پیشنهادهای کتاب برای شما","مسیر پیشنهادی مطالعه","سطح انتخاب‌شده"]
+:["Recommended Books for You","Suggested Reading Path","Selected Level"];
+
+const levels={
+beginner:language==="fa"?"مبتدی":"Beginner",
+intermediate:language==="fa"?"متوسط":"Intermediate",
+advanced:language==="fa"?"پیشرفته":"Advanced"
+};
+
+result.style.display="block";
+result.innerHTML="<h3>"+titles[0]+"</h3>"+
+list.map((book,i)=>"<div class='book'>"+(i+1)+". "+book+"</div>").join("")+
+"<h3>"+titles[1]+"</h3>"+
+(language==="fa"
+?"از کتاب اول شروع کن، نکات مهم را یادداشت کن و سپس سراغ کتاب بعدی برو."
+:"Start with the first book, take notes on key ideas, and then move to the next book.")+
+"<p><strong>"+titles[2]+": </strong>"+levels[level]+"</p>";
+}
+
 function changeLanguage(){
 language=language==="fa"?"en":"fa";
 document.documentElement.lang=language;
 document.documentElement.dir=language==="fa"?"rtl":"ltr";
+
 document.querySelectorAll("[data-fa]").forEach(el=>{
 el.textContent=el.getAttribute("data-"+language);
 });
+
 document.getElementById("lang").textContent=language==="fa"?"English":"فارسی";
 }
 </script>
