@@ -5,301 +5,89 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#0b1830">
-<title>EHSAN BOOKS</title>
+<title>درباره ما | EHSAN BOOKS</title>
 <style>
-:root{
---navy:#0b1830;
---teal:#20c9bd;
---gold:#e5bd70;
---light:#f4f7fb;
-}
 *{box-sizing:border-box}
-body{
-margin:0;
-font-family:Tahoma,Arial,sans-serif;
-background:var(--light);
-color:#263449;
-line-height:1.9;
-}
-header{
-background:var(--navy);
-color:white;
-padding:16px 5%;
-display:flex;
-justify-content:space-between;
-align-items:center;
-flex-wrap:wrap;
-gap:15px;
-}
-.logo{
-font-size:23px;
-font-weight:bold;
-direction:ltr;
-}
-.logo span{color:var(--teal)}
-nav{
-display:flex;
-gap:15px;
-flex-wrap:wrap;
-}
-nav a{
-color:white;
-text-decoration:none;
-font-size:13px;
-}
-nav a:hover{color:var(--gold)}
-.lang{
-background:var(--teal);
-border:0;
-padding:9px 14px;
-border-radius:8px;
-font-weight:bold;
-cursor:pointer;
-}
-.hero{
-background:linear-gradient(135deg,#0b1830,#173c58);
-color:white;
-text-align:center;
-padding:65px 20px;
-}
+body{margin:0;font-family:Tahoma,Arial,sans-serif;background:#f4f7fb;color:#263449;line-height:2}
+header{background:#0b1830;color:white;padding:18px 6%;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.logo{font-size:23px;font-weight:bold;direction:ltr}
+.logo span{color:#20c9bd}
+nav{display:flex;gap:15px;flex-wrap:wrap}
+nav a{color:white;text-decoration:none;font-size:13px}
+button{background:#20c9bd;border:0;padding:10px 17px;border-radius:8px;font-weight:bold;cursor:pointer}
+.hero{background:linear-gradient(135deg,#0b1830,#173c58);color:white;text-align:center;padding:55px 20px}
 .hero h1{font-size:30px}
-.hero p{color:#d6e4ef}
-.btn{
-display:inline-block;
-background:var(--teal);
-color:#08202b;
-padding:10px 23px;
-border-radius:8px;
-text-decoration:none;
-font-weight:bold;
-}
-section{padding:42px 6%}
-h2{text-align:center;color:var(--navy)}
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
-gap:18px;
-}
-.card{
-background:white;
-padding:22px;
-border-radius:12px;
-box-shadow:0 4px 15px #00000010;
-}
-.card h3{color:var(--navy)}
-.search{
-display:flex;
-max-width:500px;
-margin:20px auto;
-gap:8px;
-}
-.search input{
-flex:1;
-min-width:0;
-padding:12px;
-border:1px solid #ccd6e2;
-border-radius:8px;
-}
-.search button{
-background:var(--teal);
-border:0;
-border-radius:8px;
-padding:10px 16px;
-cursor:pointer;
-}
-.notice{
-background:#e4f7f4;
-padding:18px;
-border-radius:10px;
-}
-footer{
-background:var(--navy);
-color:white;
-text-align:center;
-padding:30px 15px;
-}
-footer a{color:var(--gold);margin:8px;text-decoration:none}
-@media(max-width:600px){
-header{justify-content:center}
-nav{justify-content:center}
-.hero h1{font-size:24px}
-}
+main{max-width:950px;margin:auto;padding:35px 20px}
+.card{background:white;padding:28px;border-radius:14px;margin-bottom:20px;box-shadow:0 4px 16px #0000000c}
+h2{color:#0b1830}
+footer{background:#0b1830;color:white;text-align:center;padding:28px 15px}
+footer a{color:#e5bd70;text-decoration:none;margin:7px}
 </style>
 </head>
 <body>
 
 <header>
 <div class="logo">EHSAN <span>BOOKS</span></div>
-
 <nav>
-<a href="#home" data-fa="خانه" data-en="Home">خانه</a>
-<a href="#categories" data-fa="دسته‌بندی کتاب‌ها" data-en="Categories">دسته‌بندی کتاب‌ها</a>
-<a href="#books" data-fa="خلاصه کتاب‌ها" data-en="Book Summaries">خلاصه کتاب‌ها</a>
-<a href="ai-guide.html" data-fa="هوش مصنوعی" data-en="AI Guide">هوش مصنوعی</a>
+<a href="index.html" data-fa="خانه" data-en="Home">خانه</a>
 <a href="about.html" data-fa="درباره ما" data-en="About Us">درباره ما</a>
 <a href="contact.html" data-fa="تماس با ما" data-en="Contact">تماس با ما</a>
+<a href="ai-guide.html" data-fa="هوش مصنوعی" data-en="AI Guide">هوش مصنوعی</a>
 </nav>
-
-<button class="lang" id="languageButton" onclick="changeLanguage()">English</button>
+<button onclick="changeLanguage()" id="lang">English</button>
 </header>
 
+<div class="hero">
+<h1 data-fa="درباره EHSAN BOOKS" data-en="About EHSAN BOOKS">درباره EHSAN BOOKS</h1>
+<p data-fa="دانش را ساده‌تر، دسترس‌پذیرتر و جهانی‌تر می‌کنیم."
+data-en="Making knowledge simpler, more accessible and global.">دانش را ساده‌تر، دسترس‌پذیرتر و جهانی‌تر می‌کنیم.</p>
+</div>
+
 <main>
-<div class="hero" id="home">
-<h1 data-fa="به دنیای هوشمند کتاب خوش آمدید"
-data-en="Welcome to the World of Smart Reading">
-به دنیای هوشمند کتاب خوش آمدید
-</h1>
-
-<p data-fa="دانش بیشتر، زمان کمتر؛ با خلاصه‌های کاربردی کتاب‌ها."
-data-en="More knowledge, less time, with practical book summaries.">
-دانش بیشتر، زمان کمتر؛ با خلاصه‌های کاربردی کتاب‌ها.
-</p>
-
-<a class="btn" href="#books"
-data-fa="شروع مطالعه" data-en="Start Reading">شروع مطالعه</a>
-</div>
-
-<section id="categories">
-<h2 data-fa="دسته‌بندی موضوعی"
-data-en="Book Categories">دسته‌بندی موضوعی</h2>
-
-<div class="grid">
 <div class="card">
-<h3 data-fa="📚 مدیریت و کسب‌وکار" data-en="📚 Business & Management">📚 مدیریت و کسب‌وکار</h3>
-<p data-fa="مدیریت، کارآفرینی و موفقیت شغلی."
-data-en="Management, entrepreneurship and career success.">مدیریت، کارآفرینی و موفقیت شغلی.</p>
+<h2 data-fa="داستان ما" data-en="Our Story">داستان ما</h2>
+<p data-fa="EHSAN BOOKS با هدف آسان‌تر کردن دسترسی به دانش و یادگیری تأسیس شده است. ما می‌خواهیم مطالعه و یادگیری برای همه افراد، در هر نقطه از جهان، ساده‌تر و کاربردی‌تر باشد."
+data-en="EHSAN BOOKS was created to make knowledge and learning more accessible. We aim to make reading and learning easier and more practical for people everywhere.">EHSAN BOOKS با هدف آسان‌تر کردن دسترسی به دانش و یادگیری تأسیس شده است. ما می‌خواهیم مطالعه و یادگیری برای همه افراد، در هر نقطه از جهان، ساده‌تر و کاربردی‌تر باشد.</p>
 </div>
 
 <div class="card">
-<h3 data-fa="🧠 روانشناسی و توسعه فردی" data-en="🧠 Psychology & Personal Growth">🧠 روانشناسی و توسعه فردی</h3>
-<p data-fa="شناخت بهتر خود و رشد مهارت‌های فردی."
-data-en="Self-awareness and personal development.">شناخت بهتر خود و رشد مهارت‌های فردی.</p>
+<h2 data-fa="مأموریت ما" data-en="Our Mission">مأموریت ما</h2>
+<p data-fa="ارائه خلاصه‌های آموزشی، معرفی کتاب‌های ارزشمند، توسعه سواد دیجیتال و استفاده مسئولانه از فناوری و هوش مصنوعی برای گسترش یادگیری."
+data-en="Our mission is to provide educational summaries, introduce valuable books, develop digital literacy, and responsibly use technology and AI to expand learning.">ارائه خلاصه‌های آموزشی، معرفی کتاب‌های ارزشمند، توسعه سواد دیجیتال و استفاده مسئولانه از فناوری و هوش مصنوعی برای گسترش یادگیری.</p>
 </div>
 
 <div class="card">
-<h3 data-fa="💰 اقتصاد و سرمایه‌گذاری" data-en="💰 Economics & Investment">💰 اقتصاد و سرمایه‌گذاری</h3>
-<p data-fa="آشنایی با مفاهیم مالی و اقتصادی."
-data-en="Learn financial and economic concepts.">آشنایی با مفاهیم مالی و اقتصادی.</p>
+<h2 data-fa="چشم‌انداز جهانی" data-en="Our Global Vision">چشم‌انداز جهانی</h2>
+<p data-fa="چشم‌انداز ما تبدیل شدن به یک پلتفرم بین‌المللی یادگیری و کتاب است که به زبان‌ها و فرهنگ‌های مختلف احترام می‌گذارد و مخاطبان سراسر جهان را به دانش متصل می‌کند."
+data-en="Our vision is to become an international learning and book platform that respects different languages and cultures and connects people around the world with knowledge.">چشم‌انداز ما تبدیل شدن به یک پلتفرم بین‌المللی یادگیری و کتاب است که به زبان‌ها و فرهنگ‌های مختلف احترام می‌گذارد و مخاطبان سراسر جهان را به دانش متصل می‌کند.</p>
 </div>
 
 <div class="card">
-<h3 data-fa="🤖 فناوری و هوش مصنوعی" data-en="🤖 Technology & AI">🤖 فناوری و هوش مصنوعی</h3>
-<p data-fa="فناوری‌های جدید و آینده دنیای دیجیتال."
-data-en="New technologies and the digital future.">فناوری‌های جدید و آینده دنیای دیجیتال.</p>
+<h2 data-fa="ارزش‌های ما" data-en="Our Values">ارزش‌های ما</h2>
+<p data-fa="اعتماد، کیفیت، یادگیری مستمر، احترام به حقوق مؤلفان و ناشران و دسترسی مسئولانه به دانش، اصول اصلی ما هستند."
+data-en="Trust, quality, continuous learning, respect for authors and publishers, and responsible access to knowledge are our core values.">اعتماد، کیفیت، یادگیری مستمر، احترام به حقوق مؤلفان و ناشران و دسترسی مسئولانه به دانش، اصول اصلی ما هستند.</p>
 </div>
-
-<div class="card">
-<h3 data-fa="🔬 علم و آموزش" data-en="🔬 Science & Education">🔬 علم و آموزش</h3>
-<p data-fa="یادگیری علوم و مهارت‌های کاربردی."
-data-en="Science and practical learning.">یادگیری علوم و مهارت‌های کاربردی.</p>
-</div>
-
-<div class="card">
-<h3 data-fa="🌍 تاریخ و فرهنگ" data-en="🌍 History & Culture">🌍 تاریخ و فرهنگ</h3>
-<p data-fa="آشنایی با تاریخ و فرهنگ ملت‌ها."
-data-en="Explore world history and cultures.">آشنایی با تاریخ و فرهنگ ملت‌ها.</p>
-</div>
-</div>
-</section>
-
-<section id="books">
-<h2 data-fa="کتابخانه احسان بوکس"
-data-en="EHSAN BOOKS Library">کتابخانه احسان بوکس</h2>
-
-<div class="search">
-<input id="searchInput" type="search"
-placeholder="جستجوی کتاب..."
-data-fa-placeholder="جستجوی کتاب..."
-data-en-placeholder="Search books...">
-<button onclick="searchBooks()"
-data-fa="جستجو" data-en="Search">جستجو</button>
-</div>
-
-<p id="searchMessage" style="text-align:center"></p>
-
-<div class="grid" id="bookGrid">
-<div class="card book">
-<h3 data-fa="قدرت عادت" data-en="The Power of Habit">قدرت عادت</h3>
-<p data-fa="خلاصه‌ای درباره شکل‌گیری عادت‌ها و تغییر رفتار."
-data-en="A summary about habits and behavior change.">خلاصه‌ای درباره شکل‌گیری عادت‌ها و تغییر رفتار.</p>
-</div>
-
-<div class="card book">
-<h3 data-fa="تفکر سریع و کند" data-en="Thinking, Fast and Slow">تفکر سریع و کند</h3>
-<p data-fa="آشنایی با دو شیوه اصلی تفکر و تصمیم‌گیری."
-data-en="Explore two systems of thinking and decision-making.">آشنایی با دو شیوه اصلی تفکر و تصمیم‌گیری.</p>
-</div>
-
-<div class="card book">
-<h3 data-fa="پدر پولدار، پدر بی‌پول" data-en="Rich Dad Poor Dad">پدر پولدار، پدر بی‌پول</h3>
-<p data-fa="آشنایی با سواد مالی و نگرش به دارایی."
-data-en="An introduction to financial literacy and assets.">آشنایی با سواد مالی و نگرش به دارایی.</p>
-</div>
-</div>
-
-<p class="notice"
-data-fa="خلاصه‌های آموزشی احسان بوکس برای یادگیری تهیه می‌شوند. نسخه کامل کتاب‌ها فقط از مسیر قانونی ناشر یا صاحب حق نشر ارائه خواهد شد."
-data-en="EHSAN BOOKS summaries are created for learning. Full books will only be offered through authorized publishers or copyright holders.">
-خلاصه‌های آموزشی احسان بوکس برای یادگیری تهیه می‌شوند.
-</p>
-</section>
 </main>
 
 <footer>
 <div class="logo">EHSAN <span>BOOKS</span></div>
-<p data-fa="دانش، سرمایه‌ای است که همیشه همراه شما می‌ماند."
-data-en="Knowledge is an investment that stays with you forever.">
-دانش، سرمایه‌ای است که همیشه همراه شما می‌ماند.
-</p>
-<a href="about.html" data-fa="درباره ما" data-en="About Us">درباره ما</a>
-<a href="publishers.html" data-fa="ناشران" data-en="Publishers">ناشران</a>
-<a href="copyright.html" data-fa="حقوق نشر" data-en="Copyright">حقوق نشر</a>
-<a href="terms.html" data-fa="قوانین" data-en="Terms">قوانین</a>
-<a href="contact.html" data-fa="تماس با ما" data-en="Contact">تماس با ما</a>
 <p>© 2026 EHSAN BOOKS</p>
+<a href="index.html" data-fa="صفحه اصلی" data-en="Home">صفحه اصلی</a>
+<a href="contact.html" data-fa="تماس با ما" data-en="Contact">تماس با ما</a>
+<a href="copyright.html" data-fa="حقوق نشر" data-en="Copyright">حقوق نشر</a>
 </footer>
 
 <script>
-let currentLanguage="fa";
-
+let language="fa";
 function changeLanguage(){
-currentLanguage=currentLanguage==="fa"?"en":"fa";
-
-document.documentElement.lang=currentLanguage;
-document.documentElement.dir=currentLanguage==="fa"?"rtl":"ltr";
-
+language=language==="fa"?"en":"fa";
+document.documentElement.lang=language;
+document.documentElement.dir=language==="fa"?"rtl":"ltr";
 document.querySelectorAll("[data-fa]").forEach(el=>{
-el.textContent=el.getAttribute("data-"+currentLanguage);
+el.textContent=el.getAttribute("data-"+language);
 });
-
-document.querySelectorAll("[data-fa-placeholder]").forEach(el=>{
-el.placeholder=el.getAttribute("data-"+currentLanguage+"-placeholder");
-});
-
-document.getElementById("languageButton").textContent=
-currentLanguage==="fa"?"English":"فارسی";
-
-document.getElementById("searchMessage").textContent="";
-document.getElementById("searchInput").value="";
-document.querySelectorAll(".book").forEach(card=>card.style.display="block");
-}
-
-function searchBooks(){
-const q=document.getElementById("searchInput").value.toLowerCase().trim();
-let count=0;
-
-document.querySelectorAll(".book").forEach(card=>{
-const match=card.innerText.toLowerCase().includes(q);
-card.style.display=match?"block":"none";
-if(match)count++;
-});
-
-document.getElementById("searchMessage").textContent=
-q?(currentLanguage==="fa"?
-(count?"تعداد نتایج: "+count:"کتابی پیدا نشد"):
-(count?"Results: "+count:"No books found")):"";
+document.getElementById("lang").textContent=language==="fa"?"English":"فارسی";
 }
 </script>
-
 </body>
 </html>
