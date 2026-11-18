@@ -12,142 +12,262 @@ margin:0;
 font-family:Tahoma,Arial,sans-serif;
 background:#f3f6fa;
 color:#243247;
-line-height:2;
+line-height:2
 }
 header{
-background:#102b46;
+background:#101d35;
 color:white;
-padding:22px 15px;
-text-align:center;
+padding:20px;
+text-align:center
 }
-header h1{margin:0;color:#40c6bd}
-header p{margin:5px 0 0}
-main{
-max-width:850px;
-margin:25px auto;
-padding:15px;
-}
-section{
-background:white;
-padding:22px;
-margin-bottom:18px;
-border-radius:14px;
-box-shadow:0 3px 12px #0000000c;
-}
-h2{color:#087f83;font-size:20px}
-.cover{
-background:#173b59;
-color:white;
-padding:35px 15px;
-text-align:center;
-border-radius:12px;
+.logo{
 font-size:25px;
 font-weight:bold;
+color:white
 }
+.logo span{color:#35c6b0}
 button{
-background:#087f83;
-color:white;
 border:0;
-border-radius:8px;
-padding:11px 20px;
-font-size:15px;
+border-radius:9px;
+padding:10px 18px;
 cursor:pointer;
+font-size:14px;
+font-weight:bold
 }
-.back{
-display:inline-block;
-color:#087f83;
-text-decoration:none;
-margin-bottom:15px;
+.lang{
+background:#35c6b0;
+color:#102139;
+margin-top:12px
 }
-footer{
-background:#102b46;
+.hero{
+background:linear-gradient(135deg,#10203b,#174b61);
 color:white;
 text-align:center;
-padding:18px;
+padding:45px 18px
+}
+.cover{
+background:#173b4c;
+border:2px solid #35c6b0;
+border-radius:14px;
+padding:25px;
+width:190px;
+margin:15px auto;
+font-size:25px;
+font-weight:bold;
+line-height:1.5;
+box-shadow:0 8px 25px #0005
+}
+.hero h1{font-size:27px}
+.hero p{color:#d7e9ed}
+.container{
+max-width:850px;
+margin:auto;
+padding:20px
+}
+.card{
+background:white;
+padding:23px;
+margin:20px 0;
+border-radius:14px;
+box-shadow:0 4px 16px #152b4610
+}
+h2{color:#147d80;font-size:21px}
+h3{color:#173b58}
+.tag{
+display:inline-block;
+background:#e1f7f3;
+color:#087e73;
+padding:3px 12px;
+border-radius:20px;
+font-size:13px
+}
+.highlight{
+background:#e9f7f5;
+border-right:4px solid #27b9a6;
+padding:12px;
+border-radius:8px
+}
+ul{padding-right:22px}
+li{margin:8px 0}
+.exercise{
+background:#fff8e8;
+border-right:4px solid #e3ad42;
+padding:14px;
+border-radius:8px
+}
+footer{
+background:#101d35;
+color:#d8e4ec;
+text-align:center;
+padding:25px;
+margin-top:35px
+}
+a{color:#159b91}
+[dir="ltr"] ul{padding-right:0;padding-left:22px}
+@media(max-width:600px){
+.hero h1{font-size:23px}
+.container{padding:12px}
+.card{padding:17px}
 }
 </style>
 </head>
 <body>
 
 <header>
-<h1>EHSAN BOOKS</h1>
-<p>دانش امروز، موفقیت فردا</p>
+<div class="logo">EHSAN <span>BOOKS</span></div>
+<button class="lang" onclick="toggleLang()">English / فارسی</button>
 </header>
 
-<main>
-<a class="back" href="index.html">← بازگشت به کتابخانه</a>
+<div class="hero">
+<div class="cover">ATOMIC<br>HABITS</div>
+<span class="tag" data-fa="رشد فردی" data-en="Personal Growth">رشد فردی</span>
+<h1 data-fa="عادت‌های اتمی" data-en="Atomic Habits">عادت‌های اتمی</h1>
+<p data-fa="نویسنده: جیمز کلیر"
+data-en="Author: James Clear">نویسنده: جیمز کلیر</p>
+<p data-fa="تغییرات کوچک، نتایج بزرگ"
+data-en="Small Changes, Remarkable Results">تغییرات کوچک، نتایج بزرگ</p>
+</div>
 
-<section>
-<div class="cover">ATOMIC HABITS</div>
-<h2>عادت‌های اتمی</h2>
-<p><strong>نویسنده:</strong> جیمز کلیر</p>
-<p>موضوع: رشد فردی و توسعه عادت‌های مثبت</p>
-<p>
-این کتاب درباره قدرت تغییرات کوچک و تأثیر آن‌ها
-بر موفقیت‌های بزرگ در زندگی است.
+<main class="container">
+
+<section class="card">
+<h2 data-fa="درباره کتاب" data-en="About the Book">درباره کتاب</h2>
+<p data-fa="کتاب عادت‌های اتمی درباره قدرت تغییرات کوچک و مستمر در زندگی است. جیمز کلیر توضیح می‌دهد که چگونه رفتارهای روزمره می‌توانند در طول زمان نتایج بزرگی ایجاد کنند."
+data-en="Atomic Habits explores the power of small, consistent changes. James Clear explains how daily behaviors can create remarkable results over time.">
+کتاب عادت‌های اتمی درباره قدرت تغییرات کوچک و مستمر در زندگی است. جیمز کلیر توضیح می‌دهد که چگونه رفتارهای روزمره می‌توانند در طول زمان نتایج بزرگی ایجاد کنند.
 </p>
 </section>
 
-<section>
-<h2>خلاصه کتاب</h2>
-<p>
-یکی از پیام‌های اصلی کتاب این است که تغییرات کوچک
-و مستمر می‌توانند در طول زمان نتایج بزرگی ایجاد کنند.
-برای رسیدن به موفقیت، لازم نیست هر روز تغییر بزرگی
-ایجاد کنیم؛ کافی است قدم‌های کوچک اما پیوسته برداریم.
+<section class="card">
+<h2 data-fa="خلاصه فصل‌ها و ایده‌های اصلی"
+data-en="Chapter Themes and Main Ideas">خلاصه فصل‌ها و ایده‌های اصلی</h2>
+
+<h3 data-fa="۱. قدرت تغییرات کوچک"
+data-en="1. The Power of Tiny Changes">۱. قدرت تغییرات کوچک</h3>
+<p data-fa="پیشرفت‌های کوچک ممکن است در ابتدا ناچیز به نظر برسند، اما تکرار آن‌ها در طول زمان می‌تواند تفاوت بزرگی ایجاد کند."
+data-en="Small improvements may seem insignificant at first, but repeating them over time can create a major difference.">
+پیشرفت‌های کوچک ممکن است در ابتدا ناچیز به نظر برسند، اما تکرار آن‌ها در طول زمان می‌تواند تفاوت بزرگی ایجاد کند.
 </p>
-<p>
-به جای تمرکز صرف بر هدف نهایی، بهتر است روی ساختن
-سیستمی از رفتارهای روزانه تمرکز کنیم که ما را به هدف
-نزدیک می‌کند.
+
+<h3 data-fa="۲. هویت و عادت‌ها"
+data-en="2. Identity and Habits">۲. هویت و عادت‌ها</h3>
+<p data-fa="به جای تمرکز صرف بر نتیجه، روی تبدیل شدن به فردی تمرکز کن که رفتار موردنظرت را به طور منظم انجام می‌دهد."
+data-en="Instead of focusing only on outcomes, focus on becoming the kind of person who consistently performs the desired behavior.">
+به جای تمرکز صرف بر نتیجه، روی تبدیل شدن به فردی تمرکز کن که رفتار موردنظرت را به طور منظم انجام می‌دهد.
+</p>
+
+<h3 data-fa="۳. چرخه شکل‌گیری عادت"
+data-en="3. The Habit Loop">۳. چرخه شکل‌گیری عادت</h3>
+<p data-fa="عادت‌ها با چهار مرحله نشانه، اشتیاق، پاسخ و پاداش شکل می‌گیرند. شناخت این چرخه به ساخت رفتارهای بهتر کمک می‌کند."
+data-en="Habits develop through four stages: cue, craving, response, and reward. Understanding this cycle helps build better behaviors.">
+عادت‌ها با چهار مرحله نشانه، اشتیاق، پاسخ و پاداش شکل می‌گیرند. شناخت این چرخه به ساخت رفتارهای بهتر کمک می‌کند.
+</p>
+
+<h3 data-fa="۴. قانون اول: آن را آشکار کن"
+data-en="4. Law One: Make It Obvious">۴. قانون اول: آن را آشکار کن</h3>
+<p data-fa="نشانه‌های عادت خوب را در محیط اطراف خود واضح و قابل مشاهده قرار بده."
+data-en="Make the cues of good habits obvious and visible in your environment.">
+نشانه‌های عادت خوب را در محیط اطراف خود واضح و قابل مشاهده قرار بده.
+</p>
+
+<h3 data-fa="۵. قانون دوم: آن را جذاب کن"
+data-en="5. Law Two: Make It Attractive">۵. قانون دوم: آن را جذاب کن</h3>
+<p data-fa="انجام عادت‌های مفید را با فعالیت‌هایی که دوست داری همراه کن تا انگیزه بیشتری داشته باشی."
+data-en="Pair beneficial habits with activities you enjoy to make them more appealing.">
+انجام عادت‌های مفید را با فعالیت‌هایی که دوست داری همراه کن تا انگیزه بیشتری داشته باشی.
+</p>
+
+<h3 data-fa="۶. قانون سوم: آن را آسان کن"
+data-en="6. Law Three: Make It Easy">۶. قانون سوم: آن را آسان کن</h3>
+<p data-fa="برای شروع، رفتار موردنظر را تا حد امکان ساده کن. حتی دو دقیقه تمرین می‌تواند نقطه شروع خوبی باشد."
+data-en="Make the desired behavior as simple as possible. Even two minutes of practice can be a good starting point.">
+برای شروع، رفتار موردنظر را تا حد امکان ساده کن. حتی دو دقیقه تمرین می‌تواند نقطه شروع خوبی باشد.
+</p>
+
+<h3 data-fa="۷. قانون چهارم: آن را رضایت‌بخش کن"
+data-en="7. Law Four: Make It Satisfying">۷. قانون چهارم: آن را رضایت‌بخش کن</h3>
+<p data-fa="برای تکرار رفتارهای مثبت، پیشرفت خود را مشاهده و موفقیت‌های کوچک را ثبت کن."
+data-en="Track your progress and acknowledge small wins to encourage repetition of positive behaviors.">
+برای تکرار رفتارهای مثبت، پیشرفت خود را مشاهده و موفقیت‌های کوچک را ثبت کن.
 </p>
 </section>
 
-<section>
-<h2>چهار قانون ساخت عادت خوب</h2>
-<ol>
-<li>عادت را آشکار و قابل مشاهده کن.</li>
-<li>عادت را جذاب کن.</li>
-<li>انجام عادت را آسان کن.</li>
-<li>انجام عادت را رضایت‌بخش کن.</li>
-</ol>
-</section>
-
-<section>
-<h2>نکات کلیدی</h2>
+<section class="card">
+<h2 data-fa="چهار قانون طلایی ساخت عادت"
+data-en="The Four Laws of Habit Building">چهار قانون طلایی ساخت عادت</h2>
 <ul>
-<li>پیشرفت کوچک بهتر از توقف کامل است.</li>
-<li>تکرار، پایه شکل‌گیری عادت است.</li>
-<li>محیط اطراف بر رفتار ما تأثیر می‌گذارد.</li>
-<li>هویت و تصویر ذهنی از خود در تغییر رفتار اهمیت دارد.</li>
+<li data-fa="آشکار کردن نشانه‌ها" data-en="Make it obvious">آشکار کردن نشانه‌ها</li>
+<li data-fa="جذاب کردن رفتار" data-en="Make it attractive">جذاب کردن رفتار</li>
+<li data-fa="آسان کردن شروع" data-en="Make it easy">آسان کردن شروع</li>
+<li data-fa="رضایت‌بخش کردن نتیجه" data-en="Make it satisfying">رضایت‌بخش کردن نتیجه</li>
 </ul>
+<div class="highlight" data-fa="برای ترک عادت بد، همین چهار قانون را برعکس کن: نامرئی، غیرجذاب، دشوار و غیررضایت‌بخش."
+data-en="To break a bad habit, reverse these laws: make it invisible, unattractive, difficult, and unsatisfying.">
+برای ترک عادت بد، همین چهار قانون را برعکس کن: نامرئی، غیرجذاب، دشوار و غیررضایت‌بخش.
+</div>
 </section>
 
-<section>
-<h2>تمرین عملی روزانه</h2>
-<p>
-یک عادت مثبت انتخاب کن؛ مثلاً روزانه ۱۰ دقیقه مطالعه.
-برای آن زمان مشخصی تعیین کن و هر روز انجام آن را ثبت کن.
+<section class="card">
+<h2 data-fa="تمرین عملی برای خواننده"
+data-en="Practical Exercise">تمرین عملی برای خواننده</h2>
+<div class="exercise">
+<p data-fa="یک عادت کوچک انتخاب کن؛ مثلاً روزانه ۱۰ دقیقه مطالعه."
+data-en="Choose one small habit, such as reading for 10 minutes every day.">
+یک عادت کوچک انتخاب کن؛ مثلاً روزانه ۱۰ دقیقه مطالعه.
 </p>
-<button onclick="alert('امروز یک قدم کوچک برای موفقیت بردار!')">
-شروع تمرین امروز
-</button>
+<ul>
+<li data-fa="زمان مشخصی برای آن تعیین کن."
+data-en="Choose a specific time.">زمان مشخصی برای آن تعیین کن.</li>
+<li data-fa="محیط را برای انجام آن آماده کن."
+data-en="Prepare your environment.">محیط را برای doing it آماده کن.</li>
+<li data-fa="هر روز انجام آن را ثبت کن."
+data-en="Track it every day.">هر روز انجام آن را ثبت کن.</li>
+<li data-fa="پس از انجام، موفقیت خود را جشن بگیر."
+data-en="Celebrate your progress.">پس از انجام، موفقیت خود را جشن بگیر.</li>
+</ul>
+</div>
 </section>
 
-<section>
-<h2>نتیجه‌گیری</h2>
-<p>
-موفقیت حاصل یک تصمیم بزرگ و ناگهانی نیست؛
-بلکه نتیجه انتخاب‌های کوچک و تکرارشونده است.
-هر روز کمی بهتر شدن می‌تواند آینده متفاوتی بسازد.
+<section class="card">
+<h2 data-fa="پیام اصلی کتاب"
+data-en="The Main Message">پیام اصلی کتاب</h2>
+<p data-fa="برای رسیدن به موفقیت، لازم نیست یک‌باره زندگی خود را تغییر دهی. از یک قدم کوچک شروع کن و آن را به یک رفتار مستمر تبدیل کن."
+data-en="You do not need to transform your life overnight. Start with one small step and turn it into a consistent behavior.">
+برای رسیدن به موفقیت، لازم نیست یک‌باره زندگی خود را تغییر دهی. از یک قدم کوچک شروع کن و آن را به یک رفتار مستمر تبدیل کن.
+</p>
+</section>
+
+<section class="card">
+<h2 data-fa="درباره EHSAN BOOKS"
+data-en="About EHSAN BOOKS">درباره EHSAN BOOKS</h2>
+<p data-fa="هدف ما فراهم کردن دسترسی آسان به دانش، ایده‌ها و خلاصه‌های کاربردی کتاب‌های ارزشمند برای مخاطبان سراسر جهان است."
+data-en="Our mission is to make knowledge, ideas, and practical book summaries accessible to readers around the world.">
+هدف ما فراهم کردن دسترسی آسان به دانش، ایده‌ها و خلاصه‌های کاربردی کتاب‌های ارزشمند برای مخاطبان سراسر جهان است.
 </p>
 </section>
 
 </main>
 
 <footer>
-EHSAN BOOKS | علم، آگاهی و رشد
+<div class="logo">EHSAN <span>BOOKS</span></div>
+<p>© 2026 EHSAN BOOKS</p>
+<p data-fa="دانش امروز، موفقیت فردا"
+data-en="Knowledge Today, Success Tomorrow">دانش امروز، موفقیت فردا</p>
 </footer>
+
+<script>
+let currentLang="fa";
+
+function toggleLang(){
+currentLang=currentLang==="fa"?"en":"fa";
+document.documentElement.lang=currentLang;
+document.documentElement.dir=currentLang==="fa"?"rtl":"ltr";
+
+document.querySelectorAll("[data-fa]").forEach(el=>{
+el.textContent=el.getAttribute("data-"+currentLang);
+});
+}
+</script>
 
 </body>
 </html>
