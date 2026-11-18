@@ -1,710 +1,713 @@
-
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#0b1830">
-<title>EHSAN BOOKS | Discover Knowledge</title>
+<meta name="description" content="EHSAN BOOKS؛ کتابخانه‌ای برای یادگیری، رشد و ساختن آینده‌ای بهتر.">
+<title>EHSAN BOOKS | دانش برای جهانی بهتر</title>
 
 <style>
 :root{
---navy:#0b1830;
---navy2:#173454;
---turquoise:#36c6bd;
---gold:#d9b96e;
---bg:#f4f7fb;
---text:#17243a;
+  --navy:#0b1830;
+  --navy2:#173454;
+  --turquoise:#36c6bd;
+  --gold:#d9b96e;
+  --bg:#f4f7fb;
+  --text:#17243a;
+  --muted:#718096;
+  --white:#fff;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{
-margin:0;
-font-family:Tahoma,Arial,sans-serif;
-background:var(--bg);
-color:var(--text);
-line-height:1.9
+  margin:0;
+  font-family:Tahoma,Arial,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.8;
 }
+a{text-decoration:none;color:inherit}
+button,input{font-family:inherit}
+.container{width:min(1160px,92%);margin:auto}
+
+/* HEADER */
 header{
-background:var(--navy);
-color:white;
-padding:17px 6%;
-display:flex;
-align-items:center;
-justify-content:space-between;
-gap:15px;
-flex-wrap:wrap;
-box-shadow:0 3px 15px #0002;
-}
-.logo{
-font-size:25px;
-font-weight:bold;
-white-space:nowrap;
-letter-spacing:1px
-}
-.logo span{color:var(--turquoise)}
-nav{display:flex;gap:18px;flex-wrap:wrap}
-nav a{
-color:#e7edf5;
-text-decoration:none;
-font-size:13px;
-transition:.2s
-}
-nav a:hover{color:var(--gold)}
-#lang{
-background:var(--turquoise);
-border:0;
-border-radius:8px;
-padding:10px 17px;
-font-weight:bold;
-cursor:pointer
-}
-.hero{
-background:
-radial-gradient(circle at 15% 20%,#36c6bd25,transparent 35%),
-linear-gradient(125deg,var(--navy),var(--navy2));
-color:white;
-text-align:center;
-padding:85px 20px 75px
-}
-.hero h1{
-font-size:36px;
-margin:0 0 15px;
-letter-spacing:.3px
-}
-.hero p{
-max-width:680px;
-margin:0 auto 28px;
-color:#dce7f3;
-font-size:15px
-}
-.search{
-max-width:650px;
-margin:auto;
-display:flex;
-gap:10px
-}
-.search input{
-flex:1;
-min-width:0;
-padding:15px;
-border:2px solid transparent;
-border-radius:9px;
-font-family:inherit;
-font-size:14px;
-outline:none
-}
-.search input:focus{border-color:var(--turquoise)}
-.search button,.primary{
-background:var(--turquoise);
-color:var(--navy);
-border:0;
-padding:13px 22px;
-border-radius:9px;
-font-weight:bold;
-cursor:pointer;
-text-decoration:none;
-display:inline-block;
-transition:.2s
-}
-.search button:hover,.primary:hover{
-background:var(--gold);
-transform:translateY(-2px)
-}
-main{
-max-width:1150px;
-margin:45px auto;
-padding:0 18px
-}
-.section-title{
-font-size:24px;
-color:var(--navy);
-margin:0 0 22px;
-border-right:4px solid var(--turquoise);
-padding-right:12px
-}
-.categories{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
-gap:15px;
-margin-bottom:45px
-}
-.category{
-background:white;
-border-radius:14px;
-padding:23px 10px;
-text-align:center;
-border:1px solid #e6ebf1;
-cursor:pointer;
-font-weight:bold;
-color:var(--navy);
-transition:.25s;
-box-shadow:0 3px 12px #0b183008
-}
-.category:hover{
-border-color:var(--turquoise);
-transform:translateY(-4px);
-box-shadow:0 8px 20px #0b183015
-}
-.books{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
-gap:22px
-}
-.book{
-background:white;
-border-radius:15px;
-padding:20px;
-box-shadow:0 5px 20px #0b183010;
-border:1px solid #edf0f4;
-transition:.25s
-}
-.book:hover{
-transform:translateY(-5px);
-box-shadow:0 12px 28px #0b183020
-}
-.book-cover{
-height:145px;
-background:
-radial-gradient(circle at 80% 20%,#36c6bd55,transparent 35%),
-linear-gradient(135deg,#102746,#247c83);
-border-radius:11px;
-display:flex;
-align-items:center;
-justify-content:center;
-color:white;
-font-size:23px;
-font-weight:bold;
-margin-bottom:17px;
-text-align:center;
-padding:12px;
-box-shadow:inset 0 0 25px #0002
-}
-.book h3{
-font-size:17px;
-color:var(--navy);
-margin:9px 0
-}
-.book p{
-font-size:13px;
-color:#687589;
-min-height:48px
-}
-.book a{
-color:#168e8b;
-text-decoration:none;
-font-weight:bold;
-font-size:13px
-}
-.book a:hover{color:#b18b3f}
-.tag{
-display:inline-block;
-background:#e7f8f6;
-color:#167c78;
-padding:4px 10px;
-border-radius:20px;
-font-size:11px
-}
-.feature{
-background:linear-gradient(120deg,#fff,#f0f8f8);
-padding:35px;
-border-radius:17px;
-margin:45px 0;
-display:flex;
-align-items:center;
-justify-content:space-between;
-gap:20px;
-flex-wrap:wrap;
-border:1px solid #e2eeee;
-box-shadow:0 5px 20px #0b183008
-}
-.feature h2{color:var(--navy);margin:0}
-.feature p{color:#657186}
-.no-result{
-display:none;
-background:white;
-padding:22px;
-border-radius:12px;
-margin-top:15px;
-text-align:center
-}
-footer{
-background:var(--navy);
-color:#dce5f2;
-text-align:center;
-padding:35px 15px;
-margin-top:60px
-}
-footer a{
-color:var(--turquoise);
-text-decoration:none;
-margin:5px 9px;
-font-size:13px
-}
-footer p{font-size:12px;color:#aebed0}
-@media(max-width:650px){
-header{justify-content:center;padding:16px}
-nav{justify-content:center;gap:12px}
-.hero{padding:55px 16px}
-.hero h1{font-size:27px}
-.hero p{font-size:13px}
-.search{flex-direction:column}
-.search button{width:100%}
-.books{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
-.book{padding:12px}
-.book-cover{height:125px;font-size:18px}
-.book h3{font-size:14px}
-.book p{font-size:11px}
-.feature{padding:22px}
-}
-
-/* EHSAN BOOKS Professional Logo */
-.logo{
-  display:flex;
-  align-items:center;
-  gap:10px;
-  font-size:25px;
-  font-weight:900;
+  background:var(--navy);
   color:white;
-  white-space:nowrap;
-  line-height:1.2;
+  position:sticky;
+  top:0;
+  z-index:100;
+  box-shadow:0 5px 25px #07122535;
 }
-
-.brand-icon{
-  width:76px;
-  height:62px;
-  flex-shrink:0;
-}
-
-.logo-text span{
-  color:var(--gold);
-}
-
-.logo-text small{
-  display:block;
-  font-size:10px;
-  color:#d9b96e;
-  font-weight:normal;
-  letter-spacing:.3px;
-  margin-top:4px;
-}
-
-@media(max-width:650px){
-  .logo{
-    font-size:22px;
-    justify-content:center;
-  }
-  .brand-icon{
-    width:65px;
-    height:55px;
-  }
-  .logo-text small{
-    font-size:9px;
-  }
-}
-
-/* EHSAN BOOKS - Premium Hero */
-.hero{
-  background:
-    radial-gradient(circle at 78% 35%,#247c8355,transparent 35%),
-    linear-gradient(125deg,#09172e,#173454 70%,#102b43);
-  color:white;
-  min-height:420px;
-  padding:55px 7%;
+.header-inner{
+  min-height:82px;
   display:flex;
   align-items:center;
   justify-content:space-between;
-  gap:30px;
-  text-align:right;
+  gap:20px;
+  flex-wrap:wrap;
+  padding:12px 0;
+}
+.logo-area{display:flex;align-items:center;gap:12px}
+.logo-icon{width:48px;height:48px;flex-shrink:0}
+.logo-name{
+  font-size:23px;
+  font-weight:900;
+  letter-spacing:1px;
+  color:white;
+  line-height:1.3;
+}
+.logo-name span{color:var(--turquoise)}
+.logo-tagline{font-size:10px;color:#c5d5e5;direction:ltr}
+nav{display:flex;align-items:center;gap:22px;flex-wrap:wrap}
+nav a{font-size:13px;color:#e4edf5;transition:.2s}
+nav a:hover{color:var(--turquoise)}
+.lang-btn{
+  border:1px solid var(--gold);
+  color:var(--gold);
+  background:transparent;
+  padding:8px 15px;
+  border-radius:20px;
+  cursor:pointer;
+  font-size:12px;
+}
+
+/* HERO */
+.hero{
+  background:
+    radial-gradient(circle at 80% 30%,#1c5266 0,transparent 32%),
+    linear-gradient(125deg,#09162d,#173957 65%,#0d293e);
+  color:white;
   overflow:hidden;
   position:relative;
+  padding:85px 0 95px;
 }
-
-.hero-content{
-  flex:1;
-  max-width:650px;
+.hero-inner{
+  display:grid;
+  grid-template-columns:1.1fr .9fr;
+  align-items:center;
+  gap:45px;
 }
-
 .hero-label{
   display:inline-block;
-  color:#d9b96e;
-  border:1px solid #d9b96e88;
+  color:var(--gold);
+  border:1px solid #d9b96e65;
   border-radius:30px;
   padding:5px 15px;
   font-size:12px;
   margin-bottom:15px;
 }
-
 .hero h1{
-  color:white;
-  font-size:36px;
-  line-height:1.6;
-  margin:5px 0 12px;
+  font-size:clamp(30px,5vw,51px);
+  line-height:1.5;
+  margin:0 0 16px;
 }
-
+.hero h1 span{color:var(--turquoise)}
 .hero p{
-  color:#dce7f3;
+  color:#d1deeb;
   font-size:15px;
-  line-height:2;
-  margin-bottom:25px;
+  max-width:570px;
+  margin:0 0 25px;
+}
+.search-box{
+  display:flex;
+  background:white;
+  padding:6px;
+  border-radius:12px;
+  max-width:520px;
+  box-shadow:0 12px 35px #0003;
+}
+.search-box input{
+  min-width:0;
+  flex:1;
+  border:0;
+  outline:0;
+  padding:12px;
+  font-size:13px;
+  color:var(--text);
+  background:transparent;
+}
+.search-box button{
+  border:0;
+  border-radius:9px;
+  background:var(--turquoise);
+  color:var(--navy);
+  padding:10px 20px;
+  font-weight:bold;
+  cursor:pointer;
+}
+.hero-note{font-size:11px;color:#aebfd0;margin-top:15px}
+.hero-art{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+.hero-art svg{
+  width:min(100%,410px);
+  filter:drop-shadow(0 20px 30px #0004);
 }
 
-.hero-art{
-  width:40%;
-  max-width:380px;
+/* GENERAL SECTIONS */
+section.content-section{padding:70px 0}
+.section-heading{text-align:center;margin-bottom:35px}
+.section-heading h2{font-size:27px;margin:0 0 8px;color:var(--navy)}
+.section-heading p{color:var(--muted);font-size:13px;margin:0}
+.gold-line{
+  width:55px;height:3px;
+  background:var(--gold);
+  border-radius:5px;
+  margin:12px auto 0;
+}
+
+/* CATEGORIES */
+.categories{
+  display:grid;
+  grid-template-columns:repeat(6,1fr);
+  gap:14px;
+}
+.category{
+  background:white;
+  border:1px solid #e8edf3;
+  border-radius:15px;
+  text-align:center;
+  padding:22px 8px;
+  cursor:pointer;
+  transition:.25s;
+}
+.category:hover{
+  transform:translateY(-5px);
+  border-color:var(--turquoise);
+  box-shadow:0 12px 25px #17345412;
+}
+.category-icon{font-size:28px;display:block;margin-bottom:8px}
+.category strong{font-size:12px;color:var(--navy)}
+
+/* BOOKS */
+.books-section{background:#edf2f7}
+.books{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:20px;
+}
+.book{
+  background:white;
+  border:1px solid #e7edf3;
+  border-radius:15px;
+  overflow:hidden;
+  padding:15px;
+  transition:.25s;
+  display:flex;
+  flex-direction:column;
+}
+.book:hover{
+  transform:translateY(-5px);
+  box-shadow:0 15px 30px #0b18301a;
+}
+.book-cover{
+  height:175px;
+  border-radius:10px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:15px;
+  color:white;
+  background:linear-gradient(145deg,#173454,#0b1830);
+  font-weight:900;
+  font-size:19px;
+  line-height:1.7;
+  direction:ltr;
+  position:relative;
+  overflow:hidden;
+}
+.book-cover:before{
+  content:"";
+  position:absolute;
+  width:150px;height:150px;
+  border:1px solid #ffffff25;
+  border-radius:50%;
+  top:-70px;right:-40px;
+}
+.book-cover:after{
+  content:"EHSAN BOOKS";
+  position:absolute;
+  bottom:10px;
+  font-size:9px;
+  letter-spacing:2px;
+  color:#ffffffa0;
+}
+.book:nth-child(3n+2) .book-cover{
+  background:linear-gradient(145deg,#176b70,#103c50);
+}
+.book:nth-child(3n) .book-cover{
+  background:linear-gradient(145deg,#9a7740,#493b2c);
+}
+.tag{
+  display:inline-block;
+  align-self:flex-start;
+  background:#e7f7f5;
+  color:#168c85;
+  padding:3px 10px;
+  border-radius:20px;
+  font-size:10px;
+  margin-top:13px;
+}
+.book h3{font-size:15px;margin:8px 0;color:var(--navy)}
+.book p{font-size:11px;color:var(--muted);margin:0 0 13px;flex:1}
+.book-link{
+  display:block;
+  text-align:center;
+  padding:9px;
+  border-radius:8px;
+  background:var(--navy);
+  color:white;
+  font-size:12px;
+  transition:.2s;
+}
+.book-link:hover{background:var(--turquoise);color:var(--navy)}
+.no-result{
+  display:none;
+  text-align:center;
+  color:var(--muted);
+  padding:30px;
+  grid-column:1/-1;
+}
+</style>
+</head>
+<style>
+/* FEATURES */
+.features{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:20px;
+}
+.feature{
+  background:white;
+  border-radius:16px;
+  padding:25px;
+  border:1px solid #e8edf3;
+  display:flex;
+  gap:18px;
+  align-items:flex-start;
+}
+.feature-icon{
+  width:52px;height:52px;
+  border-radius:13px;
+  background:#e5f7f5;
+  display:grid;
+  place-items:center;
+  font-size:25px;
   flex-shrink:0;
 }
+.feature h3{margin:0 0 7px;color:var(--navy);font-size:16px}
+.feature p{margin:0 0 12px;color:var(--muted);font-size:12px}
+.feature a{font-size:12px;color:#168c85;font-weight:bold}
 
-.hero-art svg{
-  width:100%;
-  height:auto;
-  filter:drop-shadow(0 12px 20px #0004);
+/* FOOTER */
+footer{
+  background:var(--navy);
+  color:#d3deea;
+  padding:45px 0 18px;
+}
+.footer-grid{
+  display:grid;
+  grid-template-columns:1.5fr 1fr 1fr;
+  gap:35px;
+}
+footer h3,footer h4{color:white;margin-top:0}
+footer p{font-size:12px;color:#b6c6d6}
+.footer-links{display:grid;gap:8px}
+.footer-links a{font-size:12px;color:#c6d3df}
+.footer-links a:hover{color:var(--turquoise)}
+.copyright{
+  border-top:1px solid #ffffff20;
+  text-align:center;
+  margin-top:30px;
+  padding-top:15px;
+  font-size:11px;
+  color:#91a5ba;
 }
 
-.hero-note{
-  color:#d9b96e;
-  font-size:13px;
-  margin-top:18px;
+/* RESPONSIVE */
+@media(max-width:900px){
+  .categories{grid-template-columns:repeat(3,1fr)}
+  .books{grid-template-columns:repeat(3,1fr)}
+  .hero-inner{gap:20px}
 }
-
-.hero .search{
-  max-width:600px;
-}
-
 @media(max-width:650px){
-  .hero{
-    flex-direction:column;
-    text-align:center;
-    padding:38px 18px;
-    gap:10px;
-  }
-  .hero h1{font-size:26px}
-  .hero p{font-size:13px}
-  .hero-art{
-    width:75%;
-    max-width:260px;
-  }
-  .hero .search{margin:auto}
+  .header-inner{justify-content:center}
+  nav{justify-content:center;gap:13px}
+  nav a{font-size:11px}
+  .hero{padding:55px 0 65px}
+  .hero-inner{grid-template-columns:1fr;text-align:center}
+  .hero p{margin-left:auto;margin-right:auto}
+  .search-box{margin:auto}
+  .hero-art svg{max-width:260px}
+  section.content-section{padding:50px 0}
+  .categories{grid-template-columns:repeat(2,1fr)}
+  .books{grid-template-columns:repeat(2,1fr);gap:12px}
+  .book{padding:10px}
+  .book-cover{height:145px;font-size:15px}
+  .book h3{font-size:13px}
+  .features{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr;gap:20px}
 }
-
+@media(max-width:360px){
+  .books{grid-template-columns:1fr}
+}
 </style>
 
 </head>
 <body>
 
-
 <header>
-  <div class="logo">
-    <svg viewBox="0 0 100 75" class="brand-icon" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="50" cy="25" r="19" fill="none" stroke="#d9b96e" stroke-width="3"/>
-      <path d="M35 22 Q50 10 65 22 M50 7 V43 M39 13 Q31 25 39 37 M61 13 Q69 25 61 37" fill="none" stroke="#36c6bd" stroke-width="2"/>
-      <path d="M8 39 Q29 32 50 49 Q71 32 92 39 L92 68 Q70 61 50 73 Q30 61 8 68 Z" fill="#173454" stroke="#d9b96e" stroke-width="3"/>
-      <path d="M50 49 V72 M15 45 Q32 42 46 54 M85 45 Q68 42 54 54" fill="none" stroke="#36c6bd" stroke-width="2.5"/>
-    </svg>
-    <div class="logo-text">
-      <div>EHSAN <span>BOOKS</span></div>
-      <small>Knowledge for a Better World</small>
-    </div>
-  </div>
+  <div class="container header-inner">
+    <a class="logo-area" href="#home">
+      <svg class="logo-icon" viewBox="0 0 100 100" fill="none">
+        <circle cx="50" cy="50" r="44" stroke="#36c6bd" stroke-width="3"/>
+        <path d="M50 30C38 22 25 25 19 29V68C30 63 41 65 50 73C59 65 70 63 81 68V29C75 25 62 22 50 30Z" stroke="#d9b96e" stroke-width="4" stroke-linejoin="round"/>
+        <path d="M50 30V73" stroke="#36c6bd" stroke-width="3"/>
+        <path d="M28 40C35 38 40 40 44 43M28 50C35 48 40 50 44 53M56 43C62 40 68 38 74 40M56 53C62 50 68 48 74 50" stroke="white" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+      <div>
+        <div class="logo-name">EHSAN <span>BOOKS</span></div>
+        <div class="logo-tagline">Knowledge for a Better World</div>
+      </div>
+    </a>
 
-  <nav>
-    <a href="#home" data-fa="خانه" data-en="Home">خانه</a>
-    <a href="#categories" data-fa="دسته‌بندی‌ها" data-en="Categories">دسته‌بندی‌ها</a>
-    <a href="#books" data-fa="کتاب‌ها" data-en="Books">کتاب‌ها</a>
-    <a href="ai-guide.html" data-fa="راهنمای هوشمند" data-en="AI Guide">راهنمای هوشمند</a>
-    <a href="about.html" data-fa="درباره ما" data-en="About Us">درباره ما</a>
-    <a href="contact.html" data-fa="تماس" data-en="Contact">تماس</a>
-  </nav>
-  <button id="lang" onclick="changeLanguage()">English</button>
+    <nav>
+      <a href="#home" data-fa="خانه" data-en="Home">خانه</a>
+      <a href="#categories" data-fa="دسته‌بندی‌ها" data-en="Categories">دسته‌بندی‌ها</a>
+      <a href="#books" data-fa="کتاب‌ها" data-en="Books">کتاب‌ها</a>
+      <a href="ai-guide.html" data-fa="راهنمای هوشمند" data-en="Smart Guide">راهنمای هوشمند</a>
+      <a href="about.html" data-fa="درباره ما" data-en="About Us">درباره ما</a>
+      <button class="lang-btn" id="langButton" onclick="changeLanguage()">English</button>
+    </nav>
+  </div>
 </header>
 
-
-
-<section class="hero" id="home">
-  <div class="hero-content">
-    <span class="hero-label" data-fa="کتابخانه دیجیتال احسان" data-en="EHSAN DIGITAL LIBRARY">کتابخانه دیجیتال احسان</span>
-
-    <h1 data-fa="دانش، پلی به سوی آینده" data-en="Knowledge, A Bridge to the Future">
-      دانش، پلی به سوی آینده
-    </h1>
-
-    <p data-fa="با EHSAN BOOKS دنیایی از کتاب‌های الهام‌بخش را کشف کن، رایگان یاد بگیر و مسیر رشد خود را بساز."
-       data-en="Discover a world of inspiring books, learn for free, and build your path to growth with EHSAN BOOKS.">
-      با EHSAN BOOKS دنیایی از کتاب‌های الهام‌بخش را کشف کن، رایگان یاد بگیر و مسیر رشد خود را بساز.
-    </p>
-
-    <div class="search">
-      <input id="searchInput" type="search"
-        placeholder="نام کتاب یا موضوع مورد نظر..."
-        data-fa-placeholder="نام کتاب یا موضوع مورد نظر..."
-        data-en-placeholder="Search books or topics...">
-      <button onclick="searchBooks()" data-fa="جست‌وجوی کتاب" data-en="Search Books">جست‌وجوی کتاب</button>
-    </div>
-
-    <div class="hero-note" data-fa="دانایی امروز، فرصت‌های فردا" data-en="Knowledge today, opportunities tomorrow">
-      دانایی امروز، فرصت‌های فردا
-    </div>
-  </div>
-
-  <div class="hero-art">
-    <svg viewBox="0 0 360 300" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="180" cy="125" r="105" fill="#36c6bd" opacity=".10"/>
-      <circle cx="180" cy="125" r="78" fill="none" stroke="#d9b96e" stroke-width="2" opacity=".8"/>
-      <circle cx="180" cy="125" r="58" fill="none" stroke="#36c6bd" stroke-width="2" opacity=".7"/>
-      <path d="M102 125 Q180 40 258 125 Q180 210 102 125Z" fill="none" stroke="#36c6bd" stroke-width="2"/>
-      <path d="M180 47 Q140 125 180 203 Q220 125 180 47Z" fill="none" stroke="#d9b96e" stroke-width="2"/>
-      <path d="M55 190 Q115 145 180 200 Q245 145 305 190 L305 260 Q240 215 180 270 Q120 215 55 260Z" fill="#173454" stroke="#d9b96e" stroke-width="4"/>
-      <path d="M180 200 V269 M70 201 Q125 183 169 218 M290 201 Q235 183 191 218" fill="none" stroke="#36c6bd" stroke-width="3"/>
-      <path d="M125 35 L130 25 M235 55 L245 45 M65 110 L52 105 M290 110 L304 105" stroke="#d9b96e" stroke-width="3" stroke-linecap="round"/>
-    </svg>
-  </div>
-</section>
-
-
 <main>
+<section class="hero" id="home">
+  <div class="container hero-inner">
+    <div class="hero-content">
+      <span class="hero-label" data-fa="به کتابخانه جهانی احسان خوش آمدید" data-en="Welcome to Ehsan Digital Library">به کتابخانه جهانی احسان خوش آمدید</span>
+      <h1 data-fa="دانش، پلی به سوی آینده" data-en="Knowledge is the Bridge to the Future">دانش، پلی به سوی آینده</h1>
+      <p data-fa="اینجا دنیایی از کتاب‌ها، ایده‌ها و آموخته‌ها در انتظار شماست. یاد بگیرید، رشد کنید و آینده‌ای بهتر بسازید." data-en="Discover a world of books, ideas and knowledge. Learn, grow and build a better future.">اینجا دنیایی از کتاب‌ها، ایده‌ها و آموخته‌ها در انتظار شماست. یاد بگیرید، رشد کنید و آینده‌ای بهتر بسازید.</p>
 
-<section id="categories">
-<h2 class="section-title" data-fa="دسته‌بندی کتاب‌ها" data-en="Explore Categories">دسته‌بندی کتاب‌ها</h2>
-<div class="categories">
-<div class="category" onclick="filterCategory('business')" data-fa="💼 کسب‌وکار و مدیریت" data-en="💼 Business & Management">💼 کسب‌وکار و مدیریت</div>
-<div class="category" onclick="filterCategory('success')" data-fa="🚀 موفقیت و رشد فردی" data-en="🚀 Success & Growth">🚀 موفقیت و رشد فردی</div>
-<div class="category" onclick="filterCategory('psychology')" data-fa="🧠 روان‌شناسی" data-en="🧠 Psychology">🧠 روان‌شناسی</div>
-<div class="category" onclick="filterCategory('finance')" data-fa="💰 مالی و سرمایه‌گذاری" data-en="💰 Finance & Investing">💰 مالی و سرمایه‌گذاری</div>
-<div class="category" onclick="filterCategory('technology')" data-fa="🤖 فناوری و هوش مصنوعی" data-en="🤖 Technology & AI">🤖 فناوری و هوش مصنوعی</div>
-<div class="category" onclick="filterCategory('science')" data-fa="🔬 علم و دانش" data-en="🔬 Science">🔬 علم و دانش</div>
-</div>
+      <div class="search-box">
+        <input id="searchInput" type="search" placeholder="نام کتاب یا موضوع مورد نظر را جست‌وجو کنید..." oninput="searchBooks()">
+        <button onclick="searchBooks()" data-fa="جست‌وجو" data-en="Search">جست‌وجو</button>
+      </div>
+      <div class="hero-note" data-fa="یادگیری امروز، سرمایه‌گذاری برای فرداست." data-en="Learning today is an investment in tomorrow.">یادگیری امروز، سرمایه‌گذاری برای فرداست.</div>
+    </div>
+
+    <div class="hero-art">
+      <svg viewBox="0 0 420 340" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="210" cy="145" r="115" stroke="#36c6bd" stroke-opacity=".35" stroke-width="2"/>
+        <circle cx="210" cy="145" r="88" stroke="#d9b96e" stroke-opacity=".5" stroke-width="1.5"/>
+        <ellipse cx="210" cy="145" rx="45" ry="88" stroke="#36c6bd" stroke-opacity=".55" stroke-width="2"/>
+        <path d="M95 145H325M111 95C165 123 255 123 309 95M111 195C165 167 255 167 309 195" stroke="#36c6bd" stroke-opacity=".4" stroke-width="1.5"/>
+        <circle cx="290" cy="60" r="7" fill="#d9b96e"/>
+        <circle cx="92" cy="170" r="5" fill="#36c6bd"/>
+        <path d="M210 205C175 177 130 182 110 199V275C145 259 181 267 210 292C239 267 275 259 310 275V199C290 182 245 177 210 205Z" fill="#173454" stroke="#d9b96e" stroke-width="4" stroke-linejoin="round"/>
+        <path d="M210 205V292" stroke="#36c6bd" stroke-width="3"/>
+        <path d="M130 220C154 214 178 220 193 232M130 240C154 234 178 240 193 252M227 232C242 220 266 214 290 220M227 252C242 240 266 234 290 240" stroke="#d8e7ef" stroke-width="3" stroke-linecap="round"/>
+        <path d="M210 30V5M75 145H45M345 145H375" stroke="#d9b96e" stroke-width="2" stroke-linecap="round"/>
+        <path d="M190 315H230" stroke="#36c6bd" stroke-width="3" stroke-linecap="round"/>
+      </svg>
+    </div>
+  </div>
 </section>
 
-<section id="books">
-<h2 class="section-title" data-fa="کتاب‌های منتخب" data-en="Featured Books">کتاب‌های منتخب</h2>
+<section class="content-section" id="categories">
+  <div class="container">
+    <div class="section-heading">
+      <h2 data-fa="دسته‌بندی کتاب‌ها" data-en="Book Categories">دسته‌بندی کتاب‌ها</h2>
+      <p data-fa="دانش مورد علاقه خود را آسان‌تر پیدا کنید." data-en="Find the knowledge you are looking for.">دانش مورد علاقه خود را آسان‌تر پیدا کنید.</p>
+      <div class="gold-line"></div>
+    </div>
 
-<div class="books" id="bookList">
-
-<article class="book" data-category="psychology" data-search="تفکر سریع و کند thinking fast and slow">
-<div class="book-cover">THINKING<br>FAST AND SLOW</div>
-<span class="tag" data-fa="روان‌شناسی" data-en="Psychology">روان‌شناسی</span>
-<h3 data-fa="تفکر سریع و کند" data-en="Thinking, Fast and Slow">تفکر سریع و کند</h3>
-<p data-fa="دنیل کانمن | شناخت شیوه‌های تصمیم‌گیری ذهن"
-data-en="Daniel Kahneman | Understanding how the mind makes decisions">دنیل کانمن | شناخت شیوه‌های تصمیم‌گیری ذهن</p>
-<a href="ai-guide.html" data-fa="راهنمای مطالعه" data-en="Reading Guide">راهنمای مطالعه</a>
-</article>
-
-<article class="book" data-category="finance" data-search="پدر پولدار پدر بی پول rich dad poor dad">
-<div class="book-cover">RICH DAD<br>POOR DAD</div>
-<span class="tag" data-fa="مالی" data-en="Finance">مالی</span>
-<h3 data-fa="پدر پولدار پدر بی‌پول" data-en="Rich Dad Poor Dad">پدر پولدار پدر بی‌پول</h3>
-<p data-fa="رابرت کیوساکی | آشنایی با مفاهیم سواد مالی"
-data-en="Robert Kiyosaki | An introduction to financial literacy">رابرت کیوساکی | آشنایی با مفاهیم سواد مالی</p>
-<a href="rich-dad-poor-dad.html" data-fa="راهنمای مطالعه" data-en="Reading Guide">راهنمای مطالعه</a>
-</article>
-
-<article class="book" data-category="success" data-search="عادت های اتمی atomic habits">
-<div class="book-cover">ATOMIC<br>HABITS</div>
-<span class="tag" data-fa="رشد فردی" data-en="Personal Growth">رشد فردی</span>
-<h3 data-fa="عادت‌های اتمی" data-en="Atomic Habits">عادت‌های اتمی</h3>
-<p data-fa="جیمز کلیر | روش‌های ساخت عادت‌های خوب و ترک عادت‌های بد"
-data-en="James Clear | Building good habits and breaking bad ones">جیمز کلیر | روش‌های ساخت عادت‌های خوب و ترک عادت‌های بد</p>
-<a href="atomic-habits.html" data-fa="مطالعه خلاصه کتاب" data-en="Read Book Summary">مطالعه خلاصه کتاب</a>
-</article>
-
-<article class="book" data-category="success" data-search="هفت عادت مردمان موثر 7 habits of highly effective people">
-<div class="book-cover">7 HABITS<br>OF EFFECTIVE PEOPLE</div>
-<span class="tag" data-fa="موفقیت" data-en="Success">موفقیت</span>
-<h3 data-fa="هفت عادت مردمان مؤثر" data-en="The 7 Habits of Highly Effective People">هفت عادت مردمان مؤثر</h3>
-<p data-fa="استیون کاوی | اصول رشد شخصی و اثربخشی"
-data-en="Stephen Covey | Principles of personal growth and effectiveness">استیون کاوی | اصول رشد شخصی و اثربخشی</p>
-<a href=" think-and-grow-rich.html " data-fa="راهنمای مطالعه" data-en="Reading Guide">راهنمای مطالعه</a>
-</article>
-
-<article class="book" data-category="finance" data-search="روان شناسی پول the psychology of money">
-<div class="book-cover">THE<br>PSYCHOLOGY<br>OF MONEY</div>
-<span class="tag" data-fa="مالی" data-en="Finance">مالی</span>
-<h3 data-fa="روان‌شناسی پول" data-en="The Psychology of Money">روان‌شناسی پول</h3>
-<p data-fa="مورگان هاوسل | رفتار انسان در تصمیم‌های مالی"
-data-en="Morgan Housel | Human behavior in financial decisions">مورگان هاوسل | رفتار انسان در تصمیم‌های مالی</p>
-<a href="ai-guide.html" data-fa="راهنمای مطالعه" data-en="Reading Guide">راهنمای مطالعه</a>
-</article>
-
-<article class="book" data-category="business" data-search="کار عمیق deep work">
-<div class="book-cover">DEEP<br>WORK</div>
-<span class="tag" data-fa="مدیریت" data-en="Management">مدیریت</span>
-<h3 data-fa="کار عمیق" data-en="Deep Work">کار عمیق</h3>
-<p data-fa="کال نیوپورت | تمرکز و افزایش بهره‌وری"
-data-en="Cal Newport | Focus and productivity">کال نیوپورت | تمرکز و افزایش بهره‌وری</p>
-<a href="ai-guide.html" data-fa="راهنمای مطالعه" data-en="Reading Guide">راهنمای مطالعه</a>
-</article>
-
-  
-<article class="book" data-category="business" data-search="از خوب به عالی good to great">
-<div class="book-cover">GOOD<br>TO GREAT</div>
-<span class="tag" data-fa="مدیریت" data-en="Management">مدیریت</span>
-<h3 data-fa="از خوب به عالی" data-en="Good to Great">از خوب به عالی</h3>
-<p data-fa="جیم کالینز | اصول ساخت سازمان‌های موفق"
-data-en="Jim Collins | Principles of building successful organizations">جیم کالینز | اصول ساخت سازمان‌های موفق</p>
-<a href="ai-guide.html" data-fa="راهنمای مطالعه" data-en="Reading Guide">راهنمای مطالعه</a>
-</article>
-<article class="book" data-category="success" data-search="بیندیشید و ثروتمند شوید think and grow rich">
-<div class="book-cover">THINK AND<br>GROW RICH</div>
-<span class="tag" data-fa="موفقیت" data-en="Success">موفقیت</span>
-<h3 data-fa="بیندیشید و ثروتمند شوید" data-en="Think and Grow Rich">بیندیشید و ثروتمند شوید</h3>
-<p data-fa="ناپلئون هیل | هدف‌گذاری و موفقیت مالی"
-data-en="Napoleon Hill | Goal Setting and Financial Success">ناپلئون هیل | هدف‌گذاری و موفقیت مالی</p>
-<a href="think-and-grow-rich.html" data-fa="راهنمای مطالعه" data-en="Reading Guide">راهنمای مطالعه</a>
-</article>
-<article class="book" data-category="success" data-search="اثر مرکب the compound effect">
-<div class="book-cover">THE<br>COMPOUND<br>EFFECT</div>
-<span class="tag" data-fa="رشد فردی" data-en="Personal Growth">رشد فردی</span>
-<h3 data-fa="اثر مرکب" data-en="The Compound Effect">اثر مرکب</h3>
-<p data-fa="دارن هاردی | قدرت تصمیم‌های کوچک و استمرار"
-data-en="Darren Hardy | The Power of Small Choices and Consistency">دارن هاردی | قدرت تصمیم‌های کوچک و استمرار</p>
-<a href="the-compound-effect.html" data-fa="راهنمای مطالعه" data-en="Reading Guide">راهنمای مطالعه</a>
-</article>
-<article class="book" data-category="finance" data-search="ثروتمندترین مرد بابل the richest man in babylon">
-<div class="book-cover">THE RICHEST MAN<br>IN BABYLON</div>
-<span class="tag" data-fa="مالی" data-en="Finance">مالی</span>
-<h3 data-fa="ثروتمندترین مرد بابل" data-en="The Richest Man in Babylon">ثروتمندترین مرد بابل</h3>
-<p data-fa="جورج کلاسون | اصول پس‌انداز و مدیریت پول"
-data-en="George Clason | Principles of Saving and Money Management">جورج کلاسون | اصول پس‌انداز و مدیریت پول</p>
-<a href="richest-man-in-babylon.html" data-fa="راهنمای مطالعه" data-en="Reading Guide">راهنمای مطالعه</a>
-</article>
-<article class="book" data-category="success" data-search="چه کسی پنیر مرا جابه‌جا کرد who moved my cheese">
-<div class="book-cover">WHO MOVED<br>MY CHEESE?</div>
-<span class="tag" data-fa="رشد فردی" data-en="Personal Growth">رشد فردی</span>
-<h3 data-fa="چه کسی پنیر مرا جابه‌جا کرد؟" data-en="Who Moved My Cheese?">چه کسی پنیر مرا جابه‌جا کرد؟</h3>
-<p data-fa="اسپنسر جانسون | سازگاری با تغییرات"
-data-en="Spencer Johnson | Adapting to Change">اسپنسر جانسون | سازگاری با تغییرات</p>
-<a href="who-moved-my-cheese.html" data-fa="راهنمای مطالعه" data-en="Reading Guide">راهنمای مطالعه</a>
-</article>
-<article class="book" data-category="success" data-search="قدرت عادت the power of habit">
-<div class="book-cover">THE<br>POWER OF<br>HABIT</div>
-<span class="tag" data-fa="رشد فردی" data-en="Personal Growth">رشد فردی</span>
-<h3 data-fa="قدرت عادت" data-en="The Power of Habit">قدرت عادت</h3>
-<p data-fa="چارلز دوهیگ | شناخت و تغییر عادت‌ها"
-data-en="Charles Duhigg | Understanding and Changing Habits">چارلز دوهیگ | شناخت و تغییر عادت‌ها</p>
-<a href="power-of-habit.html" data-fa="راهنمای مطالعه" data-en="Reading Guide">راهنمای مطالعه</a>
-</article>
-<article class="book" data-category="success" data-search="هفت عادت مردمان مؤثر the 7 habits of highly effective people">
-<div class="book-cover">THE 7 HABITS<br>OF HIGHLY<br>EFFECTIVE PEOPLE</div>
-<span class="tag" data-fa="رشد فردی" data-en="Personal Growth">رشد فردی</span>
-<h3 data-fa="هفت عادت مردمان مؤثر" data-en="The 7 Habits of Highly Effective People">هفت عادت مردمان مؤثر</h3>
-<p data-fa="استیون کاوی | مدیریت زندگی و موفقیت"
-data-en="Stephen Covey | Life Management and Success">استیون کاوی | مدیریت زندگی و موفقیت</p>
-<a href="seven-habits.html" data-fa="راهنمای مطالعه" data-en="Reading Guide">راهنمای مطالعه</a>
-</article>
-<article class="book" data-category="finance" data-search="ثروت ملل the wealth of nations">
-<div class="book-cover">THE WEALTH<br>OF NATIONS</div>
-<span class="tag" data-fa="اقتصاد" data-en="Economics">اقتصاد</span>
-<h3 data-fa="ثروت ملل" data-en="The Wealth of Nations">ثروت ملل</h3>
-<p data-fa="آدام اسمیت | اقتصاد، بازار و تولید ثروت"
-data-en="Adam Smith | Economics, Markets and Wealth Creation">آدام اسمیت | اقتصاد، بازار و تولید ثروت</p>
-<a href="wealth-of-nations.html" data-fa="راهنمای مطالعه" data-en="Reading Guide">راهنمای مطالعه</a>
-</article>
-</div>
-<div class="no-result" id="noResult" data-fa="کتابی با این عبارت پیدا نشد. موضوع دیگری را جست‌وجو کن."
-data-en="No books found. Try another search.">کتابی با این عبارت پیدا نشد. موضوع دیگری را جست‌وجو کن.</div>
+    <div class="categories">
+      <div class="category" onclick="filterCategory('business')"><span class="category-icon">💼</span><strong data-fa="کسب‌وکار" data-en="Business">کسب‌وکار</strong></div>
+      <div class="category" onclick="filterCategory('success')"><span class="category-icon">🚀</span><strong data-fa="موفقیت" data-en="Success">موفقیت</strong></div>
+      <div class="category" onclick="filterCategory('psychology')"><span class="category-icon">🧠</span><strong data-fa="روان‌شناسی" data-en="Psychology">روان‌شناسی</strong></div>
+      <div class="category" onclick="filterCategory('finance')"><span class="category-icon">💰</span><strong data-fa="مالی" data-en="Finance">مالی</strong></div>
+      <div class="category" onclick="filterCategory('technology')"><span class="category-icon">💻</span><strong data-fa="فناوری" data-en="Technology">فناوری</strong></div>
+      <div class="category" onclick="filterCategory('science')"><span class="category-icon">🔬</span><strong data-fa="علوم" data-en="Science">علوم</strong></div>
+    </div>
+  </div>
 </section>
 
-<section class="feature">
-<div>
-<h2 data-fa="راهنمای هوشمند EHSAN" data-en="EHSAN Smart Book Guide">راهنمای هوشمند EHSAN</h2>
-<p data-fa="برای پیدا کردن کتاب مناسب و ساخت مسیر مطالعه، از راهنمای هوشمند کمک بگیر."
-data-en="Use our smart guide to discover suitable books and build your reading path.">
-برای پیدا کردن کتاب مناسب و ساخت مسیر مطالعه، از راهنمای هوشمند کمک بگیر.
-</p>
-<a class="primary" href="ai-guide.html" data-fa="شروع راهنمای هوشمند" data-en="Open Smart Guide">شروع راهنمای هوشمند</a>
-</div>
-<div style="font-size:55px">📚🤖</div>
-</section>
+<section class="content-section books-section" id="books">
+  <div class="container">
+    <div class="section-heading">
+      <h2 data-fa="کتابخانه منتخب احسان" data-en="Ehsan Featured Library">کتابخانه منتخب احسان</h2>
+      <p data-fa="کتاب‌هایی برای الهام گرفتن، یادگیری و پیشرفت." data-en="Books to inspire learning and progress.">کتاب‌هایی برای الهام گرفتن، یادگیری و پیشرفت.</p>
+      <div class="gold-line"></div>
+    </div>
 
-<section class="feature">
-<div>
-<h2 data-fa="دانش رایگان، دسترسی قانونی" data-en="Free Knowledge, Legal Access">دانش رایگان، دسترسی قانونی</h2>
-<p data-fa="خلاصه‌های آموزشی رایگان و دسترسی به نسخه کامل کتاب‌ها از طریق مجوزهای معتبر ناشران و صاحبان حقوق."
-data-en="Free educational summaries and access to full books through valid licenses from publishers and rights holders.">
-خلاصه‌های آموزشی رایگان و دسترسی به نسخه کامل کتاب‌ها از طریق مجوزهای معتبر ناشران و صاحبان حقوق.
-</p>
-<a class="primary" href="publishers.html" data-fa="همکاری با ناشران" data-en="Partner with Publishers">همکاری با ناشران</a>
-</div>
-<div style="font-size:55px">🌍📖</div>
-</section>
+    <div class="books" id="bookList">
+      <article class="book" data-category="psychology" data-search="تفکر سریع و کند thinking fast and slow">
+        <div class="book-cover">THINKING<br>FAST AND SLOW</div>
+        <span class="tag" data-fa="روان‌شناسی" data-en="Psychology">روان‌شناسی</span>
+        <h3 data-fa="تفکر سریع و کند" data-en="Thinking, Fast and Slow">تفکر سریع و کند</h3>
+        <p data-fa="نگاهی به دو شیوه متفاوت تفکر و تصمیم‌گیری انسان." data-en="A look at two systems of human thought and decision-making.">نگاهی به دو شیوه متفاوت تفکر و تصمیم‌گیری انسان.</p>
+        <a class="book-link" href="ai-guide.html" data-fa="مشاهده کتاب" data-en="Explore Book">مشاهده کتاب</a>
+      </article>
 
+      <article class="book" data-category="finance" data-search="پدر پولدار پدر بی پول rich dad poor dad">
+        <div class="book-cover">RICH DAD<br>POOR DAD</div>
+        <span class="tag" data-fa="مالی" data-en="Finance">مالی</span>
+        <h3 data-fa="پدر پولدار پدر بی‌پول" data-en="Rich Dad Poor Dad">پدر پولدار پدر بی‌پول</h3>
+        <p data-fa="آشنایی با تفاوت نگرش‌ها درباره پول، دارایی و استقلال مالی." data-en="Explore different perspectives on money, assets and financial independence.">آشنایی با تفاوت نگرش‌ها درباره پول، دارایی و استقلال مالی.</p>
+        <a class="book-link" href="rich-dad-poor-dad.html" data-fa="مطالعه خلاصه" data-en="Read Summary">مطالعه خلاصه</a>
+      </article>
+
+      <article class="book" data-category="success" data-search="عادت های اتمی atomic habits">
+        <div class="book-cover">ATOMIC<br>HABITS</div>
+        <span class="tag" data-fa="رشد فردی" data-en="Personal Growth">رشد فردی</span>
+        <h3 data-fa="عادت‌های اتمی" data-en="Atomic Habits">عادت‌های اتمی</h3>
+        <p data-fa="چگونه تغییرات کوچک می‌توانند نتایج بزرگ ایجاد کنند." data-en="How small changes can lead to remarkable results.">چگونه تغییرات کوچک می‌توانند نتایج بزرگ ایجاد کنند.</p>
+        <a class="book-link" href="atomic-habits.html" data-fa="مطالعه خلاصه" data-en="Read Summary">مطالعه خلاصه</a>
+      </article>
+
+      <article class="book" data-category="finance" data-search="روان شناسی پول psychology of money">
+        <div class="book-cover">THE<br>PSYCHOLOGY<br>OF MONEY</div>
+        <span class="tag" data-fa="مالی" data-en="Finance">مالی</span>
+        <h3 data-fa="روان‌شناسی پول" data-en="The Psychology of Money">روان‌شناسی پول</h3>
+        <p data-fa="شناخت رفتار انسان در تصمیم‌های مالی و اقتصادی." data-en="Understanding human behavior in financial decisions.">شناخت رفتار انسان در تصمیم‌های مالی و اقتصادی.</p>
+        <a class="book-link" href="ai-guide.html" data-fa="مشاهده کتاب" data-en="Explore Book">مشاهده کتاب</a>
+      </article>
+
+      <article class="book" data-category="business" data-search="کار عمیق deep work">
+        <div class="book-cover">DEEP<br>WORK</div>
+        <span class="tag" data-fa="مدیریت" data-en="Management">مدیریت</span>
+        <h3 data-fa="کار عمیق" data-en="Deep Work">کار عمیق</h3>
+        <p data-fa="هنر تمرکز بدون حواس‌پرتی برای دستیابی به نتایج ارزشمند." data-en="The art of focused work in a distracted world.">هنر تمرکز بدون حواس‌پرتی برای دستیابی به نتایج ارزشمند.</p>
+        <a class="book-link" href="ai-guide.html" data-fa="مشاهده کتاب" data-en="Explore Book">مشاهده کتاب</a>
+      </article>
+
+      <article class="book" data-category="business" data-search="از خوب به عالی good to great">
+        <div class="book-cover">GOOD<br>TO GREAT</div>
+        <span class="tag" data-fa="مدیریت" data-en="Management">مدیریت</span>
+        <h3 data-fa="از خوب به عالی" data-en="Good to Great">از خوب به عالی</h3>
+        <p data-fa="اصول تبدیل سازمان‌ها و کسب‌وکارهای خوب به عالی." data-en="Principles for turning good companies into great ones.">اصول تبدیل سازمان‌ها و کسب‌وکارهای خوب به عالی.</p>
+        <a class="book-link" href="good-to-great.html" data-fa="مطالعه خلاصه" data-en="Read Summary">مطالعه خلاصه</a>
+      </article>
+
+      <article class="book" data-category="success" data-search="بیندیشید و ثروتمند شوید think and grow rich">
+        <div class="book-cover">THINK AND<br>GROW RICH</div>
+        <span class="tag" data-fa="موفقیت" data-en="Success">موفقیت</span>
+        <h3 data-fa="بیندیشید و ثروتمند شوید" data-en="Think and Grow Rich">بیندیشید و ثروتمند شوید</h3>
+        <p data-fa="نگاهی به نقش هدف، باور و پشتکار در موفقیت." data-en="The role of goals, belief and persistence in success.">نگاهی به نقش هدف، باور و پشتکار در موفقیت.</p>
+        <a class="book-link" href="think-and-grow-rich.html" data-fa="مطالعه خلاصه" data-en="Read Summary">مطالعه خلاصه</a>
+      </article>
+
+      <article class="book" data-category="success" data-search="اثر مرکب the compound effect">
+        <div class="book-cover">THE<br>COMPOUND<br>EFFECT</div>
+        <span class="tag" data-fa="رشد فردی" data-en="Personal Growth">رشد فردی</span>
+        <h3 data-fa="اثر مرکب" data-en="The Compound Effect">اثر مرکب</h3>
+        <p data-fa="قدرت انتخاب‌ها و اقدامات کوچک و مداوم." data-en="The power of small, consistent actions and choices.">قدرت انتخاب‌ها و اقدامات کوچک و مداوم.</p>
+        <a class="book-link" href="the-compound-effect.html" data-fa="مطالعه خلاصه" data-en="Read Summary">مطالعه خلاصه</a>
+      </article>
+
+      <article class="book" data-category="finance" data-search="ثروتمندترین مرد بابل richest man in babylon">
+        <div class="book-cover">THE RICHEST<br>MAN IN BABYLON</div>
+        <span class="tag" data-fa="مالی" data-en="Finance">مالی</span>
+        <h3 data-fa="ثروتمندترین مرد بابل" data-en="The Richest Man in Babylon">ثروتمندترین مرد بابل</h3>
+        <p data-fa="درس‌های ساده و ماندگار درباره پس‌انداز و ثروت." data-en="Timeless lessons about saving and building wealth.">درس‌های ساده و ماندگار درباره پس‌انداز و ثروت.</p>
+        <a class="book-link" href="richest-man-in-babylon.html" data-fa="مطالعه خلاصه" data-en="Read Summary">مطالعه خلاصه</a>
+      </article>
+
+      <article class="book" data-category="success" data-search="چه کسی پنیر مرا جابه جا کرد who moved my cheese">
+        <div class="book-cover">WHO MOVED<br>MY CHEESE?</div>
+        <span class="tag" data-fa="موفقیت" data-en="Success">موفقیت</span>
+        <h3 data-fa="چه کسی پنیر مرا جابه‌جا کرد؟" data-en="Who Moved My Cheese?">چه کسی پنیر مرا جابه‌جا کرد؟</h3>
+        <p data-fa="چگونه با تغییرات زندگی و کار بهتر کنار بیاییم." data-en="How to adapt to change in life and work.">چگونه با تغییرات زندگی و کار بهتر کنار بیاییم.</p>
+        <a class="book-link" href="who-moved-my-cheese.html" data-fa="مطالعه خلاصه" data-en="Read Summary">مطالعه خلاصه</a>
+      </article>
+
+      <article class="book" data-category="psychology" data-search="قدرت عادت power of habit">
+        <div class="book-cover">THE POWER<br>OF HABIT</div>
+        <span class="tag" data-fa="روان‌شناسی" data-en="Psychology">روان‌شناسی</span>
+        <h3 data-fa="قدرت عادت" data-en="The Power of Habit">قدرت عادت</h3>
+        <p data-fa="شناخت چرخه عادت و روش تغییر رفتارهای روزمره." data-en="Understand the habit loop and how to change behavior.">شناخت چرخه عادت و روش تغییر رفتارهای روزمره.</p>
+        <a class="book-link" href="power-of-habit.html" data-fa="مطالعه خلاصه" data-en="Read Summary">مطالعه خلاصه</a>
+      </article>
+
+      <article class="book" data-category="business" data-search="هفت عادت مردمان موثر seven habits">
+        <div class="book-cover">THE 7 HABITS<br>OF HIGHLY<br>EFFECTIVE PEOPLE</div>
+        <span class="tag" data-fa="موفقیت" data-en="Success">موفقیت</span>
+        <h3 data-fa="هفت عادت مردمان مؤثر" data-en="The 7 Habits of Highly Effective People">هفت عادت مردمان مؤثر</h3>
+        <p data-fa="هفت اصل برای زندگی مؤثرتر و هدفمندتر." data-en="Seven principles for a more effective and purposeful life.">هفت اصل برای زندگی مؤثرتر و هدفمندتر.</p>
+        <a class="book-link" href="seven-habits.html" data-fa="مطالعه خلاصه" data-en="Read Summary">مطالعه خلاصه</a>
+      </article>
+
+      <article class="book" data-category="finance" data-search="ثروت ملل wealth of nations">
+        <div class="book-cover">THE WEALTH<br>OF NATIONS</div>
+        <span class="tag" data-fa="اقتصاد" data-en="Economics">اقتصاد</span>
+        <h3 data-fa="ثروت ملل" data-en="The Wealth of Nations">ثروت ملل</h3>
+        <p data-fa="آشنایی با اندیشه‌های بنیادین اقتصاد و بازار." data-en="Explore foundational ideas about economics and markets.">آشنایی با اندیشه‌های بنیادین اقتصاد و بازار.</p>
+        <a class="book-link" href="wealth-of-nations.html" data-fa="مطالعه خلاصه" data-en="Read Summary">مطالعه خلاصه</a>
+      </article>
+
+      <div class="no-result" id="noResult" data-fa="کتابی با این مشخصات پیدا نشد." data-en="No books found.">کتابی با این مشخصات پیدا نشد.</div>
+    </div>
+  </div>
+</section>
+<section class="content-section">
+  <div class="container">
+    <div class="section-heading">
+      <h2 data-fa="تجربه‌ای فراتر از مطالعه" data-en="More Than Reading">تجربه‌ای فراتر از مطالعه</h2>
+      <p data-fa="امکانات هوشمند برای یادگیری بهتر و دسترسی آسان‌تر به دانش." data-en="Smart features for better learning and easier access to knowledge.">امکانات هوشمند برای یادگیری بهتر و دسترسی آسان‌تر به دانش.</p>
+      <div class="gold-line"></div>
+    </div>
+
+    <div class="features">
+      <div class="feature">
+        <div class="feature-icon">🤖</div>
+        <div>
+          <h3 data-fa="راهنمای هوشمند کتاب" data-en="EHSAN Smart Book Guide">راهنمای هوشمند کتاب</h3>
+          <p data-fa="برای پیدا کردن کتاب مناسب و آشنایی با موضوعات مورد علاقه‌تان از راهنمای احسان کمک بگیرید." data-en="Discover books and topics that match your interests with EHSAN guidance.">برای پیدا کردن کتاب مناسب و آشنایی با موضوعات مورد علاقه‌تان از راهنمای احسان کمک بگیرید.</p>
+          <a href="ai-guide.html" data-fa="ورود به راهنمای هوشمند ←" data-en="Open Smart Guide →">ورود به راهنمای هوشمند ←</a>
+        </div>
+      </div>
+
+      <div class="feature">
+        <div class="feature-icon">📚</div>
+        <div>
+          <h3 data-fa="دانش و دسترسی قانونی" data-en="Knowledge and Legal Access">دانش و دسترسی قانونی</h3>
+          <p data-fa="خلاصه‌های آموزشی رایگان و معرفی راه‌های قانونی تهیه نسخه کامل کتاب‌ها." data-en="Free educational summaries and information about lawful access to full books.">خلاصه‌های آموزشی رایگان و معرفی راه‌های قانونی تهیه نسخه کامل کتاب‌ها.</p>
+          <a href="publishers.html" data-fa="اطلاعات بیشتر ←" data-en="Learn More →">اطلاعات بیشتر ←</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 </main>
 
 <footer>
-<div class="logo">EHSAN <span>BOOKS</span></div>
-<p data-fa="دانایی، الهام و رشد برای همه" data-en="Knowledge, Inspiration and Growth for Everyone">دانایی، الهام و رشد برای همه</p>
-<div>
-<a href="about.html" data-fa="درباره ما" data-en="About Us">درباره ما</a>
-<a href="contact.html" data-fa="تماس با ما" data-en="Contact">تماس با ما</a>
-<a href="ai-guide.html" data-fa="راهنمای هوشمند" data-en="AI Guide">راهنمای هوشمند</a>
-<a href="publishers.html" data-fa="ناشران" data-en="Publishers">ناشران</a>
-<a href="copyright.html" data-fa="حقوق نشر" data-en="Copyright">حقوق نشر</a>
-<a href="terms.html" data-fa="شرایط استفاده" data-en="Terms">شرایط استفاده</a>
-</div>
-<p>© 2026 EHSAN BOOKS. All rights reserved.</p>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <h3>EHSAN BOOKS</h3>
+        <p data-fa="دانش، الهام و فرصتی برای ساختن آینده‌ای بهتر. هدف ما فراهم کردن تجربه‌ای ارزشمند برای علاقه‌مندان به یادگیری در سراسر جهان است." data-en="Knowledge, inspiration and an opportunity to build a better future. Our goal is to create a valuable learning experience for people around the world.">دانش، الهام و فرصتی برای ساختن آینده‌ای بهتر. هدف ما فراهم کردن تجربه‌ای ارزشمند برای علاقه‌مندان به یادگیری در سراسر جهان است.</p>
+        <p>Knowledge for a Better World</p>
+      </div>
+
+      <div>
+        <h4 data-fa="دسترسی سریع" data-en="Quick Links">دسترسی سریع</h4>
+        <div class="footer-links">
+          <a href="#home" data-fa="صفحه اصلی" data-en="Home">صفحه اصلی</a>
+          <a href="#books" data-fa="کتابخانه" data-en="Library">کتابخانه</a>
+          <a href="about.html" data-fa="درباره ما" data-en="About Us">درباره ما</a>
+          <a href="contact.html" data-fa="تماس با ما" data-en="Contact Us">تماس با ما</a>
+        </div>
+      </div>
+
+      <div>
+        <h4 data-fa="قوانین و خدمات" data-en="Policies and Services">قوانین و خدمات</h4>
+        <div class="footer-links">
+          <a href="ai-guide.html" data-fa="راهنمای هوشمند" data-en="Smart Guide">راهنمای هوشمند</a>
+          <a href="publishers.html" data-fa="ناشران و حقوق کتاب‌ها" data-en="Publishers and Rights">ناشران و حقوق کتاب‌ها</a>
+          <a href="copyright.html" data-fa="حقوق نشر" data-en="Copyright">حقوق نشر</a>
+          <a href="terms.html" data-fa="شرایط استفاده" data-en="Terms of Use">شرایط استفاده</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="copyright">
+      © 2026 EHSAN BOOKS. All Rights Reserved.
+    </div>
+  </div>
 </footer>
 
 <script>
-let language="fa";
+let currentLanguage = "fa";
 
-
-function searchBooks(){
-const normalize = text => text
-.toLowerCase()
-.replace(/ي/g,"ی")
-.replace(/ك/g,"ک")
-.replace(/‌/g," ")
-.replace(/\s+/g," ")
-.trim();
-
-const query = normalize(document.getElementById("searchInput").value);
-const books = document.querySelectorAll(".book");
-let count = 0;
-
-books.forEach(book=>{
-const searchText = normalize(book.getAttribute("data-search"));
-const title = normalize(book.querySelector("h3").textContent);
-const description = normalize(book.querySelector("p").textContent);
-
-const match = query === "" ||
-searchText.includes(query) ||
-title.includes(query) ||
-description.includes(query);
-
-book.style.display = match ? "block" : "none";
-if(match) count++;
-});
-
-document.getElementById("noResult").style.display =
-count === 0 ? "block" : "none";
+function normalizeText(text){
+  return (text || "")
+    .toLowerCase()
+    .replace(/ي/g,"ی")
+    .replace(/ك/g,"ک")
+    .replace(/‌/g," ")
+    .replace(/\s+/g," ")
+    .trim();
 }
 
+function searchBooks(){
+  const input = document.getElementById("searchInput");
+  const query = normalizeText(input.value);
+  const books = document.querySelectorAll(".book");
+  let visibleCount = 0;
+
+  books.forEach(book => {
+    const searchText = normalizeText(
+      (book.dataset.search || "") + " " +
+      book.innerText
+    );
+
+    const match = searchText.includes(query);
+    book.style.display = match ? "flex" : "none";
+
+    if(match) visibleCount++;
+  });
+
+  document.getElementById("noResult").style.display =
+    visibleCount === 0 ? "block" : "none";
+}
 
 function filterCategory(category){
-document.querySelectorAll(".book").forEach(book=>{
-book.style.display=book.dataset.category===category?"block":"none";
-});
-document.getElementById("noResult").style.display="none";
-document.getElementById("books").scrollIntoView({behavior:"smooth"});
+  const books = document.querySelectorAll(".book");
+  let visibleCount = 0;
+
+  document.getElementById("searchInput").value = "";
+
+  books.forEach(book => {
+    const match = book.dataset.category === category;
+    book.style.display = match ? "flex" : "none";
+    if(match) visibleCount++;
+  });
+
+  document.getElementById("noResult").style.display =
+    visibleCount === 0 ? "block" : "none";
+
+  document.getElementById("books").scrollIntoView({
+    behavior:"smooth"
+  });
 }
 
 function changeLanguage(){
-language=language==="fa"?"en":"fa";
-document.documentElement.lang=language;
-document.documentElement.dir=language==="fa"?"rtl":"ltr";
+  currentLanguage = currentLanguage === "fa" ? "en" : "fa";
 
-document.querySelectorAll("[data-fa]").forEach(el=>{
-el.textContent=el.getAttribute("data-"+language);
-});
+  document.documentElement.lang = currentLanguage;
+  document.documentElement.dir =
+    currentLanguage === "fa" ? "rtl" : "ltr";
 
-document.querySelectorAll("[data-fa-placeholder]").forEach(el=>{
-el.placeholder=el.getAttribute("data-"+language+"-placeholder");
-});
+  document.querySelectorAll("[data-fa][data-en]").forEach(element => {
+    element.textContent =
+      element.getAttribute("data-" + currentLanguage);
+  });
 
-document.getElementById("lang").textContent=language==="fa"?"English":"فارسی";
-document.getElementById("searchInput").value="";
-searchBooks();
+  const input = document.getElementById("searchInput");
+
+  input.placeholder = currentLanguage === "fa"
+    ? "نام کتاب یا موضوع مورد نظر را جست‌وجو کنید..."
+    : "Search for a book or topic...";
+
+  document.getElementById("langButton").textContent =
+    currentLanguage === "fa" ? "English" : "فارسی";
+
+  input.value = "";
+  document.querySelectorAll(".book").forEach(book => {
+    book.style.display = "flex";
+  });
+
+  document.getElementById("noResult").style.display = "none";
 }
 </script>
+
 </body>
 </html>
