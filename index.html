@@ -274,6 +274,31 @@ section.content-section{padding:70px 0}
   padding:30px;
   grid-column:1/-1;
 }
+
+/* EHSAN BOOKS HERO BANNER */
+.hero-banner{
+  width:100%;
+  max-width:950px;
+  margin:20px auto;
+  text-align:center;
+  overflow:hidden;
+  border-radius:18px;
+}
+.hero-banner img{
+  display:block;
+  width:100%;
+  height:auto;
+  object-fit:contain;
+  border-radius:18px;
+}
+@media(max-width:650px){
+  .hero-banner{
+    width:100%;
+    margin:16px auto;
+    border-radius:12px;
+  }
+}
+
 </style>
 </head>
 <style>
@@ -422,17 +447,12 @@ footer p{font-size:12px;color:#b6c6d6}
   <button onclick="searchBooks()" data-fa="جست‌وجو" data-en="Search">جست‌وجو</button>
 </div>
 
-<div class="hero-logo">
-  <svg viewBox="0 0 220 150" width="180" role="img" aria-label="لوگوی EHSAN BOOKS">
-    <circle cx="110" cy="70" r="57" fill="none" stroke="#36c6bd" stroke-width="5"/>
-    <path d="M110 112 C88 92 65 91 43 99 L43 54 C68 46 91 51 110 70 Z" fill="#0b1830" stroke="#d9b96e" stroke-width="3"/>
-    <path d="M110 112 C132 92 155 91 177 99 L177 54 C152 46 129 51 110 70 Z" fill="#173454" stroke="#d9b96e" stroke-width="3"/>
-    <path d="M110 70 Q110 48 110 28 M110 28 L101 39 M110 28 L119 39" fill="none" stroke="#36c6bd" stroke-width="4" stroke-linecap="round"/>
-    <path d="M58 65 Q78 57 96 72 M162 65 Q142 57 124 72" fill="none" stroke="#36c6bd" stroke-width="2"/>
-    <path d="M110 70 L110 112" stroke="#d9b96e" stroke-width="3"/>
-  </svg>
-  <div>EHSAN BOOKS</div>
+
+<div class="hero-banner">
+  <img src="ehsan_books_hero_artwork_no_search-1.png"
+       alt="EHSAN BOOKS - Books and Global Knowledge">
 </div>
+
 
 <div class="hero-note" data-fa="یادگیری امروز، سرمایه‌گذاری برای فرداست." data-en="Learning today is an investment in tomorrow.">یادگیری امروز، سرمایه‌گذاری برای فرداست.</div>
 </div>
