@@ -303,6 +303,90 @@ nav{justify-content:center;gap:12px}
   }
 }
 
+/* EHSAN BOOKS - Premium Hero */
+.hero{
+  background:
+    radial-gradient(circle at 78% 35%,#247c8355,transparent 35%),
+    linear-gradient(125deg,#09172e,#173454 70%,#102b43);
+  color:white;
+  min-height:420px;
+  padding:55px 7%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:30px;
+  text-align:right;
+  overflow:hidden;
+  position:relative;
+}
+
+.hero-content{
+  flex:1;
+  max-width:650px;
+}
+
+.hero-label{
+  display:inline-block;
+  color:#d9b96e;
+  border:1px solid #d9b96e88;
+  border-radius:30px;
+  padding:5px 15px;
+  font-size:12px;
+  margin-bottom:15px;
+}
+
+.hero h1{
+  color:white;
+  font-size:36px;
+  line-height:1.6;
+  margin:5px 0 12px;
+}
+
+.hero p{
+  color:#dce7f3;
+  font-size:15px;
+  line-height:2;
+  margin-bottom:25px;
+}
+
+.hero-art{
+  width:40%;
+  max-width:380px;
+  flex-shrink:0;
+}
+
+.hero-art svg{
+  width:100%;
+  height:auto;
+  filter:drop-shadow(0 12px 20px #0004);
+}
+
+.hero-note{
+  color:#d9b96e;
+  font-size:13px;
+  margin-top:18px;
+}
+
+.hero .search{
+  max-width:600px;
+}
+
+@media(max-width:650px){
+  .hero{
+    flex-direction:column;
+    text-align:center;
+    padding:38px 18px;
+    gap:10px;
+  }
+  .hero h1{font-size:26px}
+  .hero p{font-size:13px}
+  .hero-art{
+    width:75%;
+    max-width:260px;
+  }
+  .hero .search{margin:auto}
+}
+
 </style>
 
 </head>
