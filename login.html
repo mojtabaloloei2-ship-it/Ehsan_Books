@@ -1,0 +1,204 @@
+
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EHSAN BOOKS | ورود و ثبت نام</title>
+<style>
+*{box-sizing:border-box}
+body{
+margin:0;
+font-family:Tahoma,Arial,sans-serif;
+background:linear-gradient(135deg,#071b35,#123e60);
+color:#fff;
+min-height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+padding:20px;
+}
+.container{
+width:100%;
+max-width:430px;
+background:#fff;
+color:#183047;
+border-radius:20px;
+padding:30px 25px;
+box-shadow:0 15px 45px #0005;
+}
+.logo{
+text-align:center;
+font-size:27px;
+font-weight:bold;
+color:#102e50;
+margin-bottom:8px;
+}
+.logo span{color:#13a6a0}
+.subtitle{
+text-align:center;
+color:#718096;
+margin-bottom:25px;
+font-size:14px;
+}
+.tabs{
+display:flex;
+background:#edf3f7;
+padding:5px;
+border-radius:10px;
+margin-bottom:22px;
+}
+.tabs button{
+width:50%;
+border:0;
+padding:12px;
+border-radius:8px;
+background:transparent;
+font-size:15px;
+cursor:pointer;
+}
+.tabs button.active{
+background:#123e60;
+color:white;
+}
+.field{margin-bottom:15px}
+label{
+display:block;
+margin-bottom:7px;
+font-size:13px;
+}
+input{
+width:100%;
+padding:13px;
+border:1px solid #d5dfe7;
+border-radius:9px;
+font-size:14px;
+outline:none;
+}
+input:focus{border-color:#13a6a0}
+.submit{
+width:100%;
+padding:14px;
+border:0;
+border-radius:9px;
+background:#13a6a0;
+color:white;
+font-size:16px;
+font-weight:bold;
+cursor:pointer;
+margin-top:8px;
+}
+.submit:hover{background:#0d8985}
+.note{
+font-size:12px;
+color:#82909c;
+text-align:center;
+margin-top:20px;
+line-height:2;
+}
+.hidden{display:none}
+.message{
+text-align:center;
+font-size:13px;
+margin-top:14px;
+color:#087c61;
+line-height:1.8;
+}
+.lang{
+text-align:center;
+margin-top:20px;
+}
+.lang button{
+background:none;
+border:0;
+color:#13a6a0;
+cursor:pointer;
+}
+</style>
+</head>
+<body>
+<div class="container">
+<div class="logo">EHSAN <span>BOOKS</span></div>
+<div class="subtitle" id="subtitle">به دنیای دانش و کتاب خوش آمدید</div>
+
+<div class="tabs">
+<button class="active" id="loginTab" onclick="showForm('login')">ورود</button>
+<button id="registerTab" onclick="showForm('register')">ثبت نام</button>
+</div>
+
+<form id="loginForm">
+<div class="field">
+<label>ایمیل</label>
+<input type="email" placeholder="example@email.com" required>
+</div>
+<div class="field">
+<label>رمز عبور</label>
+<input type="password" placeholder="رمز عبور" required>
+</div>
+<button class="submit" type="submit">ورود به حساب</button>
+</form>
+
+<form id="registerForm" class="hidden">
+<div class="field">
+<label>نام و نام خانوادگی</label>
+<input type="text" placeholder="نام شما" required>
+</div>
+<div class="field">
+<label>ایمیل</label>
+<input type="email" placeholder="example@email.com" required>
+</div>
+<div class="field">
+<label>رمز عبور</label>
+<input type="password" minlength="8" placeholder="حداقل ۸ کاراکتر" required>
+</div>
+<button class="submit" type="submit">ایجاد حساب کاربری</button>
+</form>
+
+<div class="message" id="message"></div>
+<div class="note">
+با استفاده از EHSAN BOOKS، قوانین و شرایط استفاده از سایت را می‌پذیرید.
+</div>
+<div class="lang">
+<button onclick="toggleLanguage()">English / فارسی</button>
+</div>
+</div>
+
+<script>
+function showForm(type){
+document.getElementById('loginForm').classList.toggle('hidden',type!=='login');
+document.getElementById('registerForm').classList.toggle('hidden',type!=='register');
+document.getElementById('loginTab').classList.toggle('active',type==='login');
+document.getElementById('registerTab').classList.toggle('active',type==='register');
+document.getElementById('message').textContent='';
+}
+
+document.getElementById('loginForm').addEventListener('submit',function(e){
+e.preventDefault();
+document.getElementById('message').textContent='این بخش نمایشی است؛ سیستم ورود پس از اتصال پایگاه داده فعال خواهد شد.';
+});
+
+document.getElementById('registerForm').addEventListener('submit',function(e){
+e.preventDefault();
+document.getElementById('message').textContent='فرم شما آماده است؛ ثبت نام واقعی پس از راه اندازی سیستم کاربران فعال خواهد شد.';
+});
+
+let english=false;
+function toggleLanguage(){
+english=!english;
+document.documentElement.lang=english?'en':'fa';
+document.documentElement.dir=english?'ltr':'rtl';
+document.getElementById('subtitle').textContent=english?'Welcome to the world of knowledge and books':'به دنیای دانش و کتاب خوش آمدید';
+document.getElementById('loginTab').textContent=english?'Login':'ورود';
+document.getElementById('registerTab').textContent=english?'Register':'ثبت نام';
+document.querySelector('#loginForm label:nth-of-type(1)').textContent=english?'Email':'ایمیل';
+document.querySelector('#loginForm label:nth-of-type(2)').textContent=english?'Password':'رمز عبور';
+document.querySelector('#loginForm button').textContent=english?'Login to Account':'ورود به حساب';
+document.querySelectorAll('#registerForm label')[0].textContent=english?'Full Name':'نام و نام خانوادگی';
+document.querySelectorAll('#registerForm label')[1].textContent=english?'Email':'ایمیل';
+document.querySelectorAll('#registerForm label')[2].textContent=english?'Password':'رمز عبور';
+document.querySelector('#registerForm button').textContent=english?'Create Account':'ایجاد حساب کاربری';
+document.querySelector('.note').textContent=english?'By using EHSAN BOOKS, you agree to the terms and conditions.':'با استفاده از EHSAN BOOKS، قوانین و شرایط استفاده از سایت را می‌پذیرید.';
+}
+</script>
+</body>
+</html>
