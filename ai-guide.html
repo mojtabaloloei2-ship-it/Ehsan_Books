@@ -569,6 +569,15 @@ nav{justify-content:center}
 <button type="button" class="primary-btn" onclick="checkQuiz()" data-fa="ثبت پاسخ‌ها و مشاهده نتیجه" data-en="Submit and View Results">ثبت پاسخ‌ها و مشاهده نتیجه</button>
 <button type="reset" class="primary-btn" onclick="resetQuiz()" data-fa="شروع دوباره" data-en="Try Again">شروع دوباره</button>
 <div class="result" id="quizResult" aria-live="polite"></div>
+
+<div id="certificateBox" style="display:none; margin-top:25px; padding:25px; background:#fff; border:3px solid #d9b96e; border-radius:16px; text-align:center;">
+  <h2 style="color:#173454" data-fa="گواهی پایان دوره" data-en="Course Completion Certificate">گواهی پایان دوره</h2>
+  <p data-fa="نام و نام خانوادگی خود را وارد کنید:" data-en="Enter your full name:">نام و نام خانوادگی خود را وارد کنید:</p>
+  <input id="studentName" type="text" placeholder="نام شما" style="padding:12px; width:90%; max-width:350px; border:1px solid #ccc; border-radius:8px;">
+  <button type="button" class="primary-btn" onclick="createCertificate()" data-fa="دریافت گواهی" data-en="Get Certificate">دریافت گواهی</button>
+  <div id="certificateResult"></div>
+</div>
+
 </form>
 </section>
 
@@ -653,7 +662,10 @@ if(selected.value===answers[key])score++;
 });
 
 const result=document.getElementById("quizResult");
+const certificateBox=document.getElementById("certificateBox");
+
 result.style.display="block";
+certificateBox.style.display="none";
 
 if(answered!==3){
 result.textContent=currentLanguage==="fa"?
@@ -667,12 +679,58 @@ const message=currentLanguage==="fa"?
 "Your score: "+score+" out of 3. "+(score===3?"Excellent!":score===2?"Good work! Keep practicing.":"Review the lessons and try again.");
 
 result.textContent=message;
+
+if(score>=2){
+certificateBox.style.display="block";
+}
+}
+
+function createCertificate(){
+const name=document.getElementById("studentName").value.trim();
+const output=document.getElementById("certificateResult");
+
+if(!name){
+output.textContent=currentLanguage==="fa"?
+"لطفاً نام خود را وارد کنید.":
+"Please enter your name.";
+return;
+}
+
+const date=new Date().toLocaleDateString(
+currentLanguage==="fa"?"fa-IR":"en-US"
+);
+
+const title=currentLanguage==="fa"?
+"گواهی پایان دوره آموزش هوش مصنوعی":
+"Artificial Intelligence Course Certificate";
+
+const text=currentLanguage==="fa"?
+"بدین‌وسیله گواهی می‌شود که "+name+" دوره آموزش هوش مصنوعی EHSAN BOOKS را با موفقیت به پایان رسانده است.":
+"This certifies that "+name+" has successfully completed the EHSAN BOOKS Artificial Intelligence course.";
+
+output.innerHTML=`
+<div id="printCertificate" style="border:4px double #d9b96e;padding:25px;margin-top:20px;background:white;color:#173454">
+<h2>EHSAN BOOKS</h2>
+<h2>${title}</h2>
+<h3>${name}</h3>
+<p>${text}</p>
+<p>${date}</p>
+<p>Knowledge for a Better World</p>
+</div>
+<button type="button" class="primary-btn" onclick="window.print()">
+${currentLanguage==="fa"?"چاپ یا ذخیره PDF":"Print or Save PDF"}
+</button>`;
 }
 
 function resetQuiz(){
 document.getElementById("quizResult").style.display="none";
+document.getElementById("certificateBox").style.display="none";
+document.getElementById("certificateResult").innerHTML="";
+document.getElementById("studentName").value="";
+}
 }
 
 </script>
 </body>
 </html>
+
