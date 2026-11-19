@@ -3,93 +3,215 @@
 <html lang="fa" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0b1830">
+<meta name="description" content="خلاصه کتاب اثر مرکب نوشته دارن هاردی در EHSAN BOOKS">
 <title>اثر مرکب | EHSAN BOOKS</title>
+
 <style>
+:root{
+--navy:#0b1830;
+--navy2:#173454;
+--turquoise:#36c6bd;
+--gold:#d9b96e;
+--bg:#f4f7fb;
+--text:#17243a;
+}
 *{box-sizing:border-box}
-body{margin:0;font-family:Tahoma,Arial,sans-serif;background:#f3f6fa;color:#243247;line-height:2}
-header{background:#102b46;color:white;padding:22px;text-align:center}
-header h1{margin:0;color:#45d6c4}
-main{max-width:850px;margin:25px auto;padding:20px}
-.card{background:white;border-radius:15px;padding:24px;margin-bottom:20px;box-shadow:0 4px 15px #0000000c}
-h2{color:#087f83}
-.cover{background:#102b46;color:white;text-align:center;padding:35px;border-radius:12px;font-size:27px;font-weight:bold}
-button{background:#087f83;color:white;border:0;padding:12px 22px;border-radius:9px;font-size:15px;cursor:pointer}
-li{margin:10px 0}
-footer{text-align:center;padding:20px;color:#667}
+body{
+margin:0;
+font-family:Tahoma,Arial,sans-serif;
+background:var(--bg);
+color:var(--text);
+line-height:2;
+}
+header{
+background:var(--navy);
+color:white;
+padding:20px 7%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+flex-wrap:wrap;
+gap:12px;
+}
+.logo{
+font-size:23px;
+font-weight:bold;
+color:var(--turquoise);
+}
+header a{
+color:white;
+text-decoration:none;
+}
+.hero{
+background:linear-gradient(135deg,var(--navy),var(--navy2));
+color:white;
+padding:65px 8%;
+text-align:center;
+}
+.hero h1{font-size:36px;margin:10px 0}
+.hero p{color:#d6e3ee}
+.tag{
+color:var(--gold);
+font-weight:bold;
+}
+.container{
+max-width:900px;
+margin:35px auto;
+padding:0 18px;
+}
+.card{
+background:white;
+padding:28px;
+border-radius:18px;
+margin-bottom:22px;
+box-shadow:0 5px 22px #10243a10;
+}
+h2{color:var(--navy)}
+.cover{
+background:linear-gradient(145deg,#10243b,#24516a);
+color:#fff;
+text-align:center;
+padding:35px 15px;
+border-radius:15px;
+max-width:230px;
+margin:0 auto 25px;
+border:2px solid var(--gold);
+font-size:23px;
+font-weight:bold;
+}
+.cover span{
+display:block;
+color:var(--gold);
+font-size:14px;
+margin-top:15px;
+}
+.lesson{
+border-right:4px solid var(--turquoise);
+padding:10px 18px;
+margin:15px 0;
+background:#f2fafa;
+border-radius:8px;
+}
+button{
+border:0;
+border-radius:10px;
+padding:12px 20px;
+background:var(--turquoise);
+color:var(--navy);
+font-size:15px;
+font-weight:bold;
+cursor:pointer;
+}
+#english{background:var(--gold)}
+footer{
+background:var(--navy);
+color:white;
+text-align:center;
+padding:25px;
+margin-top:50px;
+}
 </style>
 </head>
+
 <body>
 
 <header>
-<h1>EHSAN BOOKS</h1>
-<p data-fa="کتاب بخوان، بهتر بیندیش، هوشمندانه‌تر زندگی کن" data-en="Read more, think better, live smarter">کتاب بخوان، بهتر بیندیش، هوشمندانه‌تر زندگی کن</p>
-<button onclick="toggleLanguage()">فارسی / English</button>
+<div class="logo">EHSAN BOOKS</div>
+<a href="index.html">بازگشت به کتابخانه</a>
+<button id="languageButton" onclick="changeLanguage()">English</button>
 </header>
 
-<main>
-<div class="card">
-<div class="cover">THE<br>COMPOUND<br>EFFECT</div>
-<h2 data-fa="اثر مرکب" data-en="The Compound Effect">اثر مرکب</h2>
-<p data-fa="نویسنده: دارن هاردی" data-en="Author: Darren Hardy">نویسنده: دارن هاردی</p>
-<p data-fa="موضوع: رشد فردی، عادت‌ها و موفقیت بلندمدت" data-en="Topic: Personal Growth, Habits and Long-Term Success">موضوع: رشد فردی، عادت‌ها و موفقیت بلندمدت</p>
-</div>
+<section class="hero">
+<span class="tag" data-fa="رشد فردی و موفقیت" data-en="Personal Growth & Success">رشد فردی و موفقیت</span>
+<h1 data-fa="اثر مرکب" data-en="The Compound Effect">اثر مرکب</h1>
+<p data-fa="قدرت انتخاب‌های کوچک و اقدامات مداوم" data-en="The Power of Small Choices and Consistent Actions">قدرت انتخاب‌های کوچک و اقدامات مداوم</p>
+</section>
+
+<main class="container">
 
 <div class="card">
+<div class="cover">
+THE<br>COMPOUND<br>EFFECT
+<span>DARREN HARDY</span>
+</div>
 <h2 data-fa="درباره کتاب" data-en="About the Book">درباره کتاب</h2>
-<p data-fa="کتاب اثر مرکب توضیح می‌دهد که تصمیم‌های کوچک و روزانه، وقتی به‌صورت مداوم تکرار شوند، می‌توانند در طول زمان نتایج بزرگی ایجاد کنند. موفقیت معمولاً حاصل یک حرکت ناگهانی نیست، بلکه از انتخاب‌های کوچک و پیوسته شکل می‌گیرد."
-data-en="The Compound Effect explains how small daily decisions, repeated consistently, can create significant results over time. Success is usually not the result of one sudden action, but of small and consistent choices.">
-کتاب اثر مرکب توضیح می‌دهد که تصمیم‌های کوچک و روزانه، وقتی به‌صورت مداوم تکرار شوند، می‌توانند در طول زمان نتایج بزرگی ایجاد کنند. موفقیت معمولاً حاصل یک حرکت ناگهانی نیست، بلکه از انتخاب‌های کوچک و پیوسته شکل می‌گیرد.
+<p data-fa="اثر مرکب نوشته دارن هاردی، کتابی درباره قدرت تصمیم‌های کوچک و عادت‌های روزانه است. نویسنده توضیح می‌دهد که چگونه اقدامات کوچک اما مستمر می‌توانند در طول زمان نتایج بزرگی ایجاد کنند."
+data-en="The Compound Effect by Darren Hardy explains how small decisions and consistent daily habits can create remarkable results over time.">
+اثر مرکب نوشته دارن هاردی، کتابی درباره قدرت تصمیم‌های کوچک و عادت‌های روزانه است. نویسنده توضیح می‌دهد که چگونه اقدامات کوچک اما مستمر می‌توانند در طول زمان نتایج بزرگی ایجاد کنند.
 </p>
 </div>
 
 <div class="card">
-<h2 data-fa="ایده‌های مهم کتاب" data-en="Key Ideas">ایده‌های مهم کتاب</h2>
-<ul>
-<li data-fa="قدرت انتخاب‌ها: تصمیم‌های کوچک امروز، آینده را می‌سازند." data-en="The Power of Choices: Small decisions today shape the future.">قدرت انتخاب‌ها: تصمیم‌های کوچک امروز، آینده را می‌سازند.</li>
-<li data-fa="عادت‌های روزانه: رفتارهای کوچک و تکراری را جدی بگیر." data-en="Daily Habits: Take small repeated behaviors seriously.">عادت‌های روزانه: رفتارهای کوچک و تکراری را جدی بگیر.</li>
-<li data-fa="ثبات و استمرار: به جای تغییرات بزرگ و کوتاه‌مدت، پیوسته پیش برو." data-en="Consistency: Focus on steady progress rather than short-lived dramatic changes.">ثبات و استمرار: به جای تغییرات بزرگ و کوتاه‌مدت، پیوسته پیش برو.</li>
-<li data-fa="ردیابی پیشرفت: رفتارها و نتایج خود را ثبت کن." data-en="Tracking Progress: Record your actions and results.">ردیابی پیشرفت: رفتارها و نتایج خود را ثبت کن.</li>
-<li data-fa="محیط مناسب: شرایطی ایجاد کن که انتخاب‌های خوب آسان‌تر شوند." data-en="Positive Environment: Build conditions that make good choices easier.">محیط مناسب: شرایطی ایجاد کن که انتخاب‌های خوب آسان‌تر شوند.</li>
-</ul>
+<h2 data-fa="خلاصه رایگان کتاب" data-en="Free Book Summary">خلاصه رایگان کتاب</h2>
+
+<p data-fa="بسیاری از افراد به دنبال تغییرات بزرگ و سریع هستند، اما موفقیت واقعی اغلب از تصمیم‌های کوچک و تکرار آن‌ها به وجود می‌آید."
+data-en="Many people seek big and immediate changes, but real success often comes from small decisions repeated consistently.">
+بسیاری از افراد به دنبال تغییرات بزرگ و سریع هستند، اما موفقیت واقعی اغلب از تصمیم‌های کوچک و تکرار آن‌ها به وجود می‌آید.
+</p>
+
+<p data-fa="برای مثال، مطالعه روزانه چند صفحه، پس‌انداز مقدار کمی پول یا انجام روزانه چند دقیقه ورزش ممکن است در ابتدا ناچیز به نظر برسد؛ اما با گذشت زمان نتایج قابل توجهی ایجاد می‌کند."
+data-en="Reading a few pages daily, saving a little money, or exercising for a few minutes may seem insignificant at first, but these actions can produce meaningful results over time.">
+برای مثال، مطالعه روزانه چند صفحه، پس‌انداز مقدار کمی پول یا انجام روزانه چند دقیقه ورزش ممکن است در ابتدا ناچیز به نظر برسد؛ اما با گذشت زمان نتایج قابل توجهی ایجاد می‌کند.
+</p>
 </div>
 
 <div class="card">
-<h2 data-fa="تمرین کاربردی" data-en="Practical Exercise">تمرین کاربردی</h2>
-<p data-fa="یک عادت کوچک انتخاب کن که می‌خواهی در ۳۰ روز آینده انجام دهی."
-data-en="Choose one small habit you want to practice over the next 30 days.">
-یک عادت کوچک انتخاب کن که می‌خواهی در ۳۰ روز آینده انجام دهی.
-</p>
-<ol>
-<li data-fa="عادت مورد نظرت را دقیق بنویس." data-en="Write down the exact habit you want to build.">عادت مورد نظرت را دقیق بنویس.</li>
-<li data-fa="هر روز زمان مشخصی برای آن تعیین کن." data-en="Set a specific time for it every day.">هر روز زمان مشخصی برای آن تعیین کن.</li>
-<li data-fa="انجام آن را در یک تقویم علامت بزن." data-en="Mark each completed day on a calendar.">انجام آن را در یک تقویم علامت بزن.</li>
-<li data-fa="در پایان هر هفته پیشرفتت را بررسی کن." data-en="Review your progress at the end of each week.">در پایان هر هفته پیشرفتت را بررسی کن.</li>
-</ol>
+<h2 data-fa="۵ درس مهم کتاب" data-en="5 Important Lessons">۵ درس مهم کتاب</h2>
+
+<div class="lesson" data-fa="۱. تصمیم‌های کوچک می‌توانند آینده شما را تغییر دهند." data-en="1. Small decisions can change your future.">۱. تصمیم‌های کوچک می‌توانند آینده شما را تغییر دهند.</div>
+
+<div class="lesson" data-fa="۲. استمرار از انگیزه لحظه‌ای مهم‌تر است." data-en="2. Consistency is more important than temporary motivation.">۲. استمرار از انگیزه لحظه‌ای مهم‌تر است.</div>
+
+<div class="lesson" data-fa="۳. عادت‌های روزانه مسیر زندگی را شکل می‌دهند." data-en="3. Daily habits shape your life.">۳. عادت‌های روزانه مسیر زندگی را شکل می‌دهند.</div>
+
+<div class="lesson" data-fa="۴. مسئولیت انتخاب‌های خود را بپذیرید." data-en="4. Take responsibility for your choices.">۴. مسئولیت انتخاب‌های خود را بپذیرید.</div>
+
+<div class="lesson" data-fa="۵. صبور باشید و به نتایج بلندمدت فکر کنید." data-en="5. Be patient and focus on long-term results.">۵. صبور باشید و به نتایج بلندمدت فکر کنید.</div>
 </div>
 
 <div class="card">
-<h2 data-fa="پیام اصلی کتاب" data-en="Main Message">پیام اصلی کتاب</h2>
-<p data-fa="پیشرفت‌های کوچک و مداوم، در طول زمان می‌توانند به تغییرات بزرگ منجر شوند. از امروز با یک قدم کوچک شروع کن."
-data-en="Small and consistent improvements can lead to major changes over time. Start today with one small step.">
-پیشرفت‌های کوچک و مداوم، در طول زمان می‌توانند به تغییرات بزرگ منجر شوند. از امروز با یک قدم کوچک شروع کن.
+<h2 data-fa="تمرین عملی" data-en="Practical Exercise">تمرین عملی</h2>
+
+<p data-fa="یک عادت کوچک انتخاب کنید که بتوانید هر روز انجام دهید. برای مثال روزانه ۱۰ دقیقه مطالعه کنید. به مدت ۳۰ روز آن را ادامه دهید و پیشرفت خود را ثبت کنید."
+data-en="Choose one small habit you can practice every day. For example, read for 10 minutes daily. Continue for 30 days and track your progress.">
+یک عادت کوچک انتخاب کنید که بتوانید هر روز انجام دهید. برای مثال روزانه ۱۰ دقیقه مطالعه کنید. به مدت ۳۰ روز آن را ادامه دهید و پیشرفت خود را ثبت کنید.
 </p>
 </div>
+
+<div class="card">
+<h2 data-fa="نسخه کامل کتاب" data-en="Full Book Edition">نسخه کامل کتاب</h2>
+<p data-fa="برای مطالعه نسخه کامل، می‌توانید از فروشگاه‌ها و ناشران قانونی کتاب استفاده کنید."
+data-en="For the full book, please use authorized bookstores and publishers.">
+برای مطالعه نسخه کامل، می‌توانید از فروشگاه‌ها و ناشران قانونی کتاب استفاده کنید.
+</p>
+</div>
+
 </main>
 
-<footer>EHSAN BOOKS | Knowledge for Everyone</footer>
+<footer>
+<strong>EHSAN BOOKS</strong>
+<p data-fa="دانش برای جهانی بهتر" data-en="Knowledge for a Better World">دانش برای جهانی بهتر</p>
+</footer>
 
 <script>
-let english=false;
-function toggleLanguage(){
-english=!english;
-document.documentElement.lang=english?'en':'fa';
-document.documentElement.dir=english?'ltr':'rtl';
-document.querySelectorAll('[data-fa]').forEach(el=>{
-el.textContent=english?el.dataset.en:el.dataset.fa;
+let currentLanguage="fa";
+
+function changeLanguage(){
+currentLanguage=currentLanguage==="fa"?"en":"fa";
+
+document.documentElement.lang=currentLanguage;
+document.documentElement.dir=currentLanguage==="fa"?"rtl":"ltr";
+
+document.querySelectorAll("[data-fa]").forEach(el=>{
+el.textContent=el.getAttribute("data-"+currentLanguage);
 });
-document.querySelector('button').textContent=english?'Persian / English':'فارسی / English';
+
+document.getElementById("languageButton").textContent=
+currentLanguage==="fa"?"English":"فارسی";
 }
 </script>
+
 </body>
 </html>
