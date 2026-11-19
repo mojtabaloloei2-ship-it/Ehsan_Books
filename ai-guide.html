@@ -1,136 +1,678 @@
-
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="آموزش رایگان هوش مصنوعی به زبان ساده برای همه">
-<title>هوش مصنوعی به زبان ساده | EHSAN BOOKS</title>
+<meta name="theme-color" content="#0b1830">
+<meta name="description" content="EHSAN AI GUIDE - آموزش هوش مصنوعی برای همه">
+<title>EHSAN AI GUIDE | راهنمای هوشمند</title>
+
 <style>
-body{font-family:tahoma,Arial;background:#f3f6fa;color:#24344d;line-height:2;margin:0;padding:15px}
-main{max-width:850px;margin:25px auto;background:white;padding:25px;border-radius:16px}
-h1,h2{color:#087e8b}
-h1{font-size:25px}
-h2{border-bottom:1px solid #e4edf0;padding-bottom:8px;margin-top:30px}
-.hero{background:#0b1830;color:white;padding:25px;border-radius:14px}
-.hero h1{color:#63d6d0}
-.tip{background:#edf7f8;padding:15px;border-radius:10px;margin:15px 0}
-li{margin:8px 0}
-a{color:#087e8b}
-button{background:#087e8b;color:white;border:0;border-radius:8px;padding:12px 20px;font-size:15px}
-input{padding:10px;width:90%;border:1px solid #ccc;border-radius:8px}
+:root{
+--navy:#0b1830;
+--navy2:#173454;
+--turquoise:#36c6bd;
+--gold:#d9b96e;
+--bg:#f4f7fb;
+--white:#fff;
+--text:#26364c;
+--muted:#718096;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+margin:0;
+font-family:Tahoma,Arial,sans-serif;
+background:var(--bg);
+color:var(--text);
+line-height:1.9;
+}
+a{text-decoration:none;color:inherit}
+button,input{font-family:inherit}
+.container{width:min(1100px,92%);margin:auto}
+
+/* HEADER */
+header{
+background:var(--navy);
+color:white;
+position:sticky;
+top:0;
+z-index:10;
+box-shadow:0 5px 20px #0002;
+}
+.header-inner{
+min-height:75px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:15px;
+flex-wrap:wrap;
+padding:12px 0;
+}
+.brand{
+display:flex;
+align-items:center;
+gap:10px;
+}
+.brand-icon{
+width:43px;
+height:43px;
+border:2px solid var(--turquoise);
+border-radius:50%;
+display:grid;
+place-items:center;
+color:var(--gold);
+font-size:23px;
+}
+.brand-name{
+font-size:19px;
+font-weight:900;
+}
+.brand-name span{color:var(--turquoise)}
+.brand small{
+display:block;
+font-size:9px;
+color:#b9cad9;
+direction:ltr;
+}
+nav{display:flex;gap:17px;align-items:center;flex-wrap:wrap}
+nav a{font-size:12px;color:#e1eaf3}
+nav a:hover{color:var(--turquoise)}
+.lang-btn{
+background:transparent;
+border:1px solid var(--gold);
+color:var(--gold);
+padding:7px 13px;
+border-radius:20px;
+cursor:pointer;
+}
+
+/* HERO */
+.hero{
+background:
+radial-gradient(circle at 80% 20%,#205a68,transparent 35%),
+linear-gradient(125deg,#09162d,#173957);
+color:white;
+padding:65px 0;
+text-align:center;
+}
+.hero-label{
+color:var(--gold);
+font-size:12px;
+border:1px solid #d9b96e66;
+padding:6px 16px;
+border-radius:30px;
+display:inline-block;
+}
+.hero h1{
+font-size:clamp(28px,5vw,45px);
+margin:18px 0 8px;
+line-height:1.5;
+}
+.hero h1 span{color:var(--turquoise)}
+.hero p{
+color:#d1deeb;
+max-width:650px;
+margin:0 auto 22px;
+font-size:14px;
+}
+.hero-icon{
+font-size:48px;
+margin-bottom:10px;
+}
+.search{
+max-width:560px;
+margin:25px auto 0;
+display:flex;
+background:white;
+padding:6px;
+border-radius:12px;
+}
+.search input{
+flex:1;
+min-width:0;
+border:0;
+outline:0;
+padding:12px;
+font-size:13px;
+color:var(--text);
+}
+.search button{
+background:var(--turquoise);
+color:var(--navy);
+border:0;
+padding:10px 20px;
+border-radius:9px;
+font-weight:bold;
+cursor:pointer;
+}
+
+/* MAIN */
+main{padding:45px 0 70px}
+.section-title{text-align:center;margin-bottom:30px}
+.section-title h2{
+color:var(--navy);
+font-size:25px;
+margin:0 0 5px;
+}
+.section-title p{font-size:12px;color:var(--muted)}
+.gold-line{
+width:55px;
+height:3px;
+background:var(--gold);
+margin:12px auto;
+border-radius:5px;
+}
+
+/* INTRO CARDS */
+.intro-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:15px;
+margin-bottom:45px;
+}
+.intro-card{
+background:white;
+padding:20px;
+border-radius:14px;
+border:1px solid #e7edf3;
+text-align:center;
+}
+.intro-card .icon{font-size:30px}
+.intro-card h3{color:var(--navy);font-size:14px}
+.intro-card p{font-size:11px;color:var(--muted);margin:0}
+
+/* CONTENT LAYOUT */
+.learning-layout{
+display:grid;
+grid-template-columns:250px 1fr;
+gap:22px;
+align-items:start;
+}
+.sidebar{
+background:white;
+border:1px solid #e7edf3;
+border-radius:14px;
+padding:18px;
+position:sticky;
+top:100px;
+}
+.sidebar h3{font-size:15px;color:var(--navy);margin-top:0}
+.chapter-link{
+display:block;
+padding:9px 10px;
+border-radius:8px;
+font-size:12px;
+margin:4px 0;
+color:var(--text);
+cursor:pointer;
+}
+.chapter-link:hover{
+background:#e8f8f6;
+color:#087e8b;
+}
+.lesson-area{min-width:0}
+.lesson{
+background:white;
+border:1px solid #e7edf3;
+border-radius:15px;
+padding:25px;
+margin-bottom:18px;
+scroll-margin-top:100px;
+}
+.lesson h2{
+font-size:19px;
+color:var(--navy);
+margin-top:0;
+border-bottom:1px solid #e8edf3;
+padding-bottom:12px;
+}
+.lesson h3{font-size:14px;color:#087e8b}
+.lesson p,.lesson li{
+font-size:13px;
+color:#536276;
+}
+.lesson li{margin:7px 0}
+.lesson .number{
+color:#168c85;
+font-size:11px;
+font-weight:bold;
+}
+.tip{
+background:#eaf8f6;
+border-right:4px solid var(--turquoise);
+padding:14px;
+border-radius:8px;
+margin:18px 0;
+font-size:12px;
+}
+.warning{
+background:#fff7e7;
+border-right:4px solid var(--gold);
+padding:14px;
+border-radius:8px;
+font-size:12px;
+margin:15px 0;
+}
+.example{
+background:#f1f4f8;
+border-radius:9px;
+padding:13px;
+direction:rtl;
+font-size:12px;
+margin:12px 0;
+}
+.practice{
+background:var(--navy);
+color:white;
+padding:20px;
+border-radius:13px;
+margin-top:15px;
+}
+.practice h3{color:var(--turquoise)}
+.practice p{color:#d4dfeb}
+.copy-btn{
+background:var(--turquoise);
+color:var(--navy);
+border:0;
+border-radius:7px;
+padding:8px 13px;
+cursor:pointer;
+font-weight:bold;
+font-size:11px;
+}
+.lesson[hidden]{display:none!important}
+
+/* QUIZ */
+.quiz{
+background:white;
+padding:25px;
+border-radius:15px;
+border:1px solid #e7edf3;
+margin-top:30px;
+}
+.quiz h2{color:var(--navy);font-size:20px}
+.question{
+padding:16px 0;
+border-bottom:1px solid #edf0f4;
+}
+.question p{font-size:13px;font-weight:bold}
+.question label{
+display:block;
+font-size:12px;
+padding:7px;
+cursor:pointer;
+}
+.question input{margin-left:7px}
+.primary-btn{
+background:var(--navy);
+color:white;
+border:0;
+border-radius:9px;
+padding:12px 22px;
+cursor:pointer;
+margin-top:15px;
+}
+.result{
+margin-top:15px;
+padding:15px;
+border-radius:9px;
+background:#eaf8f6;
+color:#087e8b;
+font-weight:bold;
+display:none;
+}
+
+/* FOOTER */
+footer{
+background:var(--navy);
+color:#d2deeb;
+text-align:center;
+padding:30px 15px;
+}
+footer h3{color:white}
+footer p{font-size:12px}
+footer a{color:var(--turquoise);font-size:12px}
+
+@media(max-width:750px){
+.learning-layout{grid-template-columns:1fr}
+.sidebar{position:static}
+.sidebar-list{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:3px;
+}
+.intro-grid{grid-template-columns:1fr}
+.header-inner{justify-content:center}
+nav{justify-content:center}
+.lesson{padding:18px}
+}
+@media(max-width:380px){
+.sidebar-list{grid-template-columns:1fr}
+.search button{padding:9px}
+}
 </style>
 </head>
+
 <body>
-<main>
 
-<div class="hero">
-<h1>هوش مصنوعی به زبان ساده</h1>
-<p>راهنمای کاربردی برای همه</p>
-<p>آموزش رایگان اختصاصی EHSAN BOOKS</p>
+<header>
+<div class="container header-inner">
+<a class="brand" href="index.html">
+<div class="brand-icon">ا</div>
+<div>
+<div class="brand-name">EHSAN <span>BOOKS</span></div>
+<small>KNOWLEDGE FOR A BETTER WORLD</small>
+</div>
+</a>
+
+<nav>
+<a href="index.html" data-fa="صفحه اصلی" data-en="Home">صفحه اصلی</a>
+<a href="#lessons" data-fa="آموزش‌ها" data-en="Lessons">آموزش‌ها</a>
+<a href="#quiz" data-fa="آزمون" data-en="Quiz">آزمون</a>
+<button class="lang-btn" id="langButton" onclick="changeLanguage()">English</button>
+</nav>
+</div>
+</header>
+
+<section class="hero">
+<div class="container">
+<div class="hero-icon">🤖</div>
+<span class="hero-label" data-fa="آموزش رایگان و کاربردی" data-en="FREE PRACTICAL LEARNING">آموزش رایگان و کاربردی</span>
+<h1 data-fa="دنیای <span>هوش مصنوعی</span> را کشف کنید" data-en="Discover the World of <span>Artificial Intelligence</span>">دنیای <span>هوش مصنوعی</span> را کشف کنید</h1>
+<p data-fa="از آشنایی اولیه تا استفاده کاربردی از هوش مصنوعی؛ قدم‌به‌قدم با آموزش‌های ساده و قابل فهم EHSAN BOOKS همراه شوید." data-en="From the basics to practical AI skills. Learn step by step with EHSAN BOOKS.">از آشنایی اولیه تا استفاده کاربردی از هوش مصنوعی؛ قدم‌به‌قدم با آموزش‌های ساده و قابل فهم EHSAN BOOKS همراه شوید.</p>
+
+<div class="search">
+<input id="lessonSearch" type="search" placeholder="جست‌وجو در آموزش‌ها..." oninput="searchLessons()">
+<button onclick="searchLessons()" data-fa="جست‌وجو" data-en="Search">جست‌وجو</button>
+</div>
+</div>
+</section>
+
+<main class="container">
+
+<div class="intro-grid">
+<div class="intro-card">
+<div class="icon">🧠</div>
+<h3 data-fa="یادگیری ساده" data-en="Easy Learning">یادگیری ساده</h3>
+<p data-fa="بدون نیاز به برنامه‌نویسی یا دانش قبلی" data-en="No programming or previous knowledge required">بدون نیاز به برنامه‌نویسی یا دانش قبلی</p>
+</div>
+<div class="intro-card">
+<div class="icon">💡</div>
+<h3 data-fa="تمرین کاربردی" data-en="Practical Exercises">تمرین کاربردی</h3>
+<p data-fa="مثال‌های واقعی برای استفاده روزمره" data-en="Real examples for everyday use">مثال‌های واقعی برای استفاده روزمره</p>
+</div>
+<div class="intro-card">
+<div class="icon">🌍</div>
+<h3 data-fa="آموزش دو زبانه" data-en="Bilingual Education">آموزش دو زبانه</h3>
+<p data-fa="دسترسی به محتوای فارسی و انگلیسی" data-en="Access Persian and English content">دسترسی به محتوای فارسی و انگلیسی</p>
+</div>
 </div>
 
-<h2>مقدمه</h2>
-<p>هوش مصنوعی یکی از مهم‌ترین فناوری‌های دنیای امروز است. این فناوری به رایانه‌ها کمک می‌کند بعضی کارهایی را انجام دهند که معمولاً به توانایی‌های انسانی مانند یادگیری، تحلیل، تشخیص و تولید محتوا نیاز دارند.</p>
-<p>هدف این آموزش آن است که بدون نیاز به دانش برنامه‌نویسی، با هوش مصنوعی آشنا شوید و یاد بگیرید چگونه از آن استفاده کنید.</p>
-
-<h2>فصل اول: هوش مصنوعی چیست؟</h2>
-<p>هوش مصنوعی یا Artificial Intelligence که به اختصار AI نامیده می‌شود، شاخه‌ای از فناوری است که سیستم‌های رایانه‌ای را قادر می‌سازد از داده‌ها الگو یاد بگیرند و وظایفی مانند پاسخ‌گویی، ترجمه، تشخیص تصویر و تحلیل اطلاعات را انجام دهند.</p>
-<div class="tip"><strong>مثال ساده:</strong> وقتی تلفن همراه شما چهره‌تان را تشخیص می‌دهد یا یک برنامه مسیر مناسب‌تری پیشنهاد می‌کند، ممکن است از فناوری‌های هوش مصنوعی استفاده کرده باشد.</div>
-
-<h2>فصل دوم: هوش مصنوعی چگونه کار می‌کند؟</h2>
-<p>بسیاری از سیستم‌های هوش مصنوعی با استفاده از داده‌ها و روش‌های یادگیری ماشین آموزش می‌بینند. آن‌ها نمونه‌های فراوان را بررسی می‌کنند، الگوها را می‌آموزند و بر اساس آموخته‌های خود پاسخ یا پیش‌بینی تولید می‌کنند.</p>
-<ul>
-<li>داده: اطلاعاتی که سیستم از آن‌ها یاد می‌گیرد.</li>
-<li>آموزش: فرایند یادگیری الگوها از داده‌ها.</li>
-<li>مدل: سامانه‌ای که پس از آموزش می‌تواند وظایف مشخصی انجام دهد.</li>
-<li>خروجی: پاسخ، تصویر، متن یا نتیجه‌ای که سیستم تولید می‌کند.</li>
-</ul>
-
-<h2>فصل سوم: کاربردهای هوش مصنوعی</h2>
-<ul>
-<li>آموزش: توضیح درس‌ها و کمک به یادگیری.</li>
-<li>پزشکی: کمک به تحلیل تصاویر و اطلاعات پزشکی.</li>
-<li>خودرو: کمک به تشخیص برخی خطاها و سامانه‌های رانندگی.</li>
-<li>کسب‌وکار: تحلیل اطلاعات و پشتیبانی مشتریان.</li>
-<li>ترجمه: کمک به ترجمه زبان‌های مختلف.</li>
-<li>تولید محتوا: کمک به نوشتن، طراحی و ایده‌پردازی.</li>
-</ul>
-
-<h2>فصل چهارم: آشنایی با ChatGPT</h2>
-<p>ChatGPT یک دستیار هوش مصنوعی است که می‌تواند به پرسش‌ها پاسخ دهد، متن بنویسد، مفاهیم را توضیح دهد، در یادگیری زبان کمک کند و ایده‌های جدید پیشنهاد دهد.</p>
-<p>برای دریافت پاسخ بهتر، سؤال خود را روشن و دقیق مطرح کنید.</p>
-<div class="tip">
-<strong>نمونه درخواست مناسب:</strong>
-<p>«هوش مصنوعی را برای یک فرد مبتدی با سه مثال ساده توضیح بده.»</p>
+<div class="section-title" id="lessons">
+<h2 data-fa="مسیر یادگیری هوش مصنوعی" data-en="Your AI Learning Path">مسیر یادگیری هوش مصنوعی</h2>
+<p data-fa="هفت فصل برای شروع یک سفر تازه در دنیای فناوری" data-en="Seven chapters to begin your journey into technology">هفت فصل برای شروع یک سفر تازه در دنیای فناوری</p>
+<div class="gold-line"></div>
 </div>
 
-<h2>فصل پنجم: هوش مصنوعی در کسب‌وکار</h2>
-<p>کسب‌وکارها می‌توانند از هوش مصنوعی برای موارد زیر کمک بگیرند:</p>
-<ul>
-<li>تهیه پیش‌نویس تبلیغات و معرفی محصولات.</li>
-<li>پاسخ‌گویی اولیه به پرسش مشتریان.</li>
-<li>تحلیل اطلاعات فروش.</li>
-<li>برنامه‌ریزی و مدیریت وظایف.</li>
-<li>ایده‌پردازی برای توسعه خدمات.</li>
-</ul>
-<p>البته تصمیم‌های مهم مالی، حقوقی و تجاری باید با بررسی انسانی انجام شوند.</p>
+<div class="learning-layout">
 
-<h2>فصل ششم: مزایا و محدودیت‌ها</h2>
-<strong>مزایا:</strong>
-<ul>
-<li>صرفه‌جویی در زمان.</li>
-<li>کمک به یادگیری سریع‌تر.</li>
-<li>افزایش خلاقیت و ایده‌پردازی.</li>
-<li>کمک به تحلیل حجم زیادی از اطلاعات.</li>
-</ul>
-<strong>محدودیت‌ها:</strong>
-<ul>
-<li>ممکن است اطلاعات نادرست تولید کند.</li>
-<li>همیشه مفهوم سؤال را درست درک نمی‌کند.</li>
-<li>نباید اطلاعات محرمانه را بدون بررسی سیاست‌های حریم خصوصی در اختیار آن گذاشت.</li>
-<li>جایگزین قضاوت و تخصص انسانی نیست.</li>
-</ul>
+<aside class="sidebar">
+<h3 data-fa="فهرست آموزش‌ها" data-en="Learning Contents">فهرست آموزش‌ها</h3>
+<div class="sidebar-list">
+<a class="chapter-link" href="#chapter1" data-fa="۱. هوش مصنوعی چیست؟" data-en="1. What is AI?">۱. هوش مصنوعی چیست؟</a>
+<a class="chapter-link" href="#chapter2" data-fa="۲. نحوه کار AI" data-en="2. How AI Works">۲. نحوه کار AI</a>
+<a class="chapter-link" href="#chapter3" data-fa="۳. کاربردهای AI" data-en="3. AI Applications">۳. کاربردهای AI</a>
+<a class="chapter-link" href="#chapter4" data-fa="۴. آشنایی با ChatGPT" data-en="4. About ChatGPT">۴. آشنایی با ChatGPT</a>
+<a class="chapter-link" href="#chapter5" data-fa="۵. AI در کسب‌وکار" data-en="5. AI in Business">۵. AI در کسب‌وکار</a>
+<a class="chapter-link" href="#chapter6" data-fa="۶. مزایا و محدودیت‌ها" data-en="6. Benefits and Limits">۶. مزایا و محدودیت‌ها</a>
+<a class="chapter-link" href="#chapter7" data-fa="۷. تمرین عملی" data-en="7. Practical Exercises">۷. تمرین عملی</a>
+</div>
+</aside>
 
-<h2>فصل هفتم: تمرین عملی</h2>
-<p>برای شروع یادگیری، این سه درخواست را در یک ابزار هوش مصنوعی امتحان کنید:</p>
-<ol>
-<li>«برای من یک برنامه هفتگی مطالعه طراحی کن.»</li>
-<li>«یک مفهوم علمی دشوار را با مثال ساده توضیح بده.»</li>
-<li>«برای یک کسب‌وکار کوچک پنج ایده تبلیغاتی پیشنهاد بده.»</li>
-</ol>
+<div class="lesson-area">
 
-<h2>آزمون کوتاه پایان آموزش</h2>
-<p>هوش مصنوعی چیست؟</p>
-<form id="quiz">
-<label><input type="radio" name="answer" value="a"> یک نوع تلفن همراه</label><br>
-<label><input type="radio" name="answer" value="b"> فناوری انجام وظایف هوشمندانه با کمک رایانه</label><br>
-<label><input type="radio" name="answer" value="c"> فقط یک موتور جست‌وجو</label><br><br>
-<button type="button" onclick="checkAnswer()">بررسی پاسخ</button>
-<p id="result"></p>
+<article class="lesson" id="chapter1" data-search="هوش مصنوعی artificial intelligence ai تعریف">
+<span class="number" data-fa="فصل اول" data-en="CHAPTER ONE">فصل اول</span>
+<h2 data-fa="هوش مصنوعی چیست؟" data-en="What Is Artificial Intelligence?">هوش مصنوعی چیست؟</h2>
+<p data-fa="هوش مصنوعی یا Artificial Intelligence شاخه‌ای از فناوری است که به رایانه‌ها امکان می‌دهد وظایفی مانند یادگیری، تحلیل، تشخیص الگو و تولید محتوا را انجام دهند." data-en="Artificial Intelligence is a field of technology that enables computers to perform tasks such as learning, analysis, pattern recognition and content generation.">هوش مصنوعی یا Artificial Intelligence شاخه‌ای از فناوری است که به رایانه‌ها امکان می‌دهد وظایفی مانند یادگیری، تحلیل، تشخیص الگو و تولید محتوا را انجام دهند.</p>
+<div class="tip"><strong data-fa="مثال ساده:" data-en="Simple example:">مثال ساده:</strong><span data-fa=" وقتی تلفن همراه چهره شما را تشخیص می‌دهد یا یک برنامه مسیر مناسب پیشنهاد می‌کند، ممکن است از هوش مصنوعی استفاده کند." data-en=" When your phone recognizes your face or an app suggests a route, it may be using AI."> وقتی تلفن همراه چهره شما را تشخیص می‌دهد یا یک برنامه مسیر مناسب پیشنهاد می‌کند، ممکن است از هوش مصنوعی استفاده کند.</span></div>
+<h3 data-fa="آیا AI مثل انسان فکر می‌کند؟" data-en="Does AI think like a human?">آیا AI مثل انسان فکر می‌کند؟</h3>
+<p data-fa="خیر. سیستم‌های هوش مصنوعی بر اساس داده‌ها و الگوهای آموخته‌شده خروجی تولید می‌کنند. توانایی‌ها و محدودیت‌های آن‌ها با ذهن و تجربه انسانی یکسان نیست." data-en="No. AI systems generate outputs based on data and learned patterns. Their abilities and limitations are not the same as human thought and experience.">خیر. سیستم‌های هوش مصنوعی بر اساس داده‌ها و الگوهای آموخته‌شده خروجی تولید می‌کنند. توانایی‌ها و محدودیت‌های آن‌ها با ذهن و تجربه انسانی یکسان نیست.</p>
+</article>
+
+<article class="lesson" id="chapter2" data-search="یادگیری ماشین machine learning داده مدل آموزش">
+<span class="number" data-fa="فصل دوم" data-en="CHAPTER TWO">فصل دوم</span>
+<h2 data-fa="هوش مصنوعی چگونه کار می‌کند؟" data-en="How Does AI Work?">هوش مصنوعی چگونه کار می‌کند؟</h2>
+<p data-fa="بسیاری از سیستم‌های AI با بررسی داده‌ها و یادگیری الگوها آموزش می‌بینند. سپس از مدل آموزش‌دیده برای انجام وظایف مشخص استفاده می‌شود." data-en="Many AI systems are trained by analyzing data and learning patterns. The trained model is then used to perform specific tasks.">بسیاری از سیستم‌های AI با بررسی داده‌ها و یادگیری الگوها آموزش می‌بینند. سپس از مدل آموزش‌دیده برای انجام وظایف مشخص استفاده می‌شود.</p>
+<ul>
+<li data-fa="داده: اطلاعات مورد استفاده برای آموزش." data-en="Data: Information used for training.">داده: اطلاعات مورد استفاده برای آموزش.</li>
+<li data-fa="آموزش: فرایند یادگیری الگوها." data-en="Training: The process of learning patterns.">آموزش: فرایند یادگیری الگوها.</li>
+<li data-fa="مدل: سامانه آموزش‌دیده." data-en="Model: The trained system.">مدل: سامانه آموزش‌دیده.</li>
+<li data-fa="خروجی: پاسخ یا محتوای تولیدشده." data-en="Output: The generated answer or content.">خروجی: پاسخ یا محتوای تولیدشده.</li>
+</ul>
+<div class="tip" data-fa="یادگیری ماشین یکی از شاخه‌های هوش مصنوعی است که در آن سیستم از داده‌ها الگو یاد می‌گیرد." data-en="Machine learning is a branch of AI in which systems learn patterns from data.">یادگیری ماشین یکی از شاخه‌های هوش مصنوعی است که در آن سیستم از داده‌ها الگو یاد می‌گیرد.</div>
+</article>
+
+<article class="lesson" id="chapter3" data-search="کاربرد پزشکی آموزش خودرو کسب و کار ترجمه">
+<span class="number" data-fa="فصل سوم" data-en="CHAPTER THREE">فصل سوم</span>
+<h2 data-fa="کاربردهای هوش مصنوعی" data-en="AI Applications">کاربردهای هوش مصنوعی</h2>
+<ul>
+<li data-fa="آموزش: توضیح مفاهیم و کمک به یادگیری." data-en="Education: Explaining concepts and supporting learning.">آموزش: توضیح مفاهیم و کمک به یادگیری.</li>
+<li data-fa="پزشکی: کمک به تحلیل تصاویر و اطلاعات پزشکی." data-en="Healthcare: Assisting with medical image and data analysis.">پزشکی: کمک به تحلیل تصاویر و اطلاعات پزشکی.</li>
+<li data-fa="خودرو: کمک به تشخیص برخی خطاها و سامانه‌های رانندگی." data-en="Automotive: Assisting with fault detection and driving systems.">خودرو: کمک به تشخیص برخی خطاها و سامانه‌های رانندگی.</li>
+<li data-fa="کسب‌وکار: تحلیل اطلاعات و پشتیبانی مشتریان." data-en="Business: Data analysis and customer support.">کسب‌وکار: تحلیل اطلاعات و پشتیبانی مشتریان.</li>
+<li data-fa="ترجمه: کمک به ترجمه زبان‌های گوناگون." data-en="Translation: Supporting multiple languages.">ترجمه: کمک به ترجمه زبان‌های گوناگون.</li>
+<li data-fa="تولید محتوا: کمک به نوشتن، طراحی و ایده‌پردازی." data-en="Content creation: Assisting with writing, design and ideas.">تولید محتوا: کمک به نوشتن، طراحی و ایده‌پردازی.</li>
+</ul>
+</article>
+
+<article class="lesson" id="chapter4" data-search="chatgpt چت جی پی تی دستیار هوش مصنوعی">
+<span class="number" data-fa="فصل چهارم" data-en="CHAPTER FOUR">فصل چهارم</span>
+<h2 data-fa="آشنایی با ChatGPT" data-en="Getting to Know ChatGPT">آشنایی با ChatGPT</h2>
+<p data-fa="ChatGPT یک دستیار هوش مصنوعی است که می‌تواند به پرسش‌ها پاسخ دهد، متن بنویسد، مفاهیم را توضیح دهد و در یادگیری کمک کند." data-en="ChatGPT is an AI assistant that can answer questions, write text, explain concepts and support learning.">ChatGPT یک دستیار هوش مصنوعی است که می‌تواند به پرسش‌ها پاسخ دهد، متن بنویسد، مفاهیم را توضیح دهد و در یادگیری کمک کند.</p>
+<h3 data-fa="چگونه سؤال بهتری بپرسیم؟" data-en="How to Ask Better Questions">چگونه سؤال بهتری بپرسیم؟</h3>
+<ul>
+<li data-fa="موضوع را روشن بیان کنید." data-en="Clearly state the topic.">موضوع را روشن بیان کنید.</li>
+<li data-fa="سطح دانش خود را مشخص کنید." data-en="Specify your knowledge level.">سطح دانش خود را مشخص کنید.</li>
+<li data-fa="نوع پاسخ مورد نیاز را توضیح دهید." data-en="Describe the type of answer you need.">نوع پاسخ مورد نیاز را توضیح دهید.</li>
+</ul>
+<div class="example" data-fa="نمونه: «هوش مصنوعی را برای یک فرد مبتدی با سه مثال روزمره توضیح بده.»" data-en="Example: Explain artificial intelligence to a beginner using three everyday examples.">نمونه: «هوش مصنوعی را برای یک فرد مبتدی با سه مثال روزمره توضیح بده.»</div>
+</article>
+
+<article class="lesson" id="chapter5" data-search="کسب و کار بازاریابی فروش تبلیغات مدیریت">
+<span class="number" data-fa="فصل پنجم" data-en="CHAPTER FIVE">فصل پنجم</span>
+<h2 data-fa="هوش مصنوعی در کسب‌وکار" data-en="AI in Business">هوش مصنوعی در کسب‌وکار</h2>
+<p data-fa="هوش مصنوعی می‌تواند در بهبود بهره‌وری و انجام برخی فعالیت‌های روزانه کسب‌وکارها کمک‌کننده باشد." data-en="AI can help improve productivity and support some daily business activities.">هوش مصنوعی می‌تواند در بهبود بهره‌وری و انجام برخی فعالیت‌های روزانه کسب‌وکارها کمک‌کننده باشد.</p>
+<ul>
+<li data-fa="تهیه پیش‌نویس تبلیغات و معرفی محصولات." data-en="Drafting advertisements and product descriptions.">تهیه پیش‌نویس تبلیغات و معرفی محصولات.</li>
+<li data-fa="پاسخ‌گویی اولیه به مشتریان." data-en="Initial customer support.">پاسخ‌گویی اولیه به مشتریان.</li>
+<li data-fa="تحلیل اطلاعات فروش." data-en="Analyzing sales information.">تحلیل اطلاعات فروش.</li>
+<li data-fa="برنامه‌ریزی و مدیریت وظایف." data-en="Planning and task management.">برنامه‌ریزی و مدیریت وظایف.</li>
+<li data-fa="ایده‌پردازی برای توسعه خدمات." data-en="Generating ideas for service development.">ایده‌پردازی برای توسعه خدمات.</li>
+</ul>
+<div class="warning" data-fa="خروجی هوش مصنوعی را پیش از تصمیم‌های مهم مالی، حقوقی یا تجاری بررسی کنید." data-en="Always review AI output before making important financial, legal or business decisions.">خروجی هوش مصنوعی را پیش از تصمیم‌های مهم مالی، حقوقی یا تجاری بررسی کنید.</div>
+</article>
+
+<article class="lesson" id="chapter6" data-search="مزایا محدودیت خطا حریم خصوصی">
+<span class="number" data-fa="فصل ششم" data-en="CHAPTER SIX">فصل ششم</span>
+<h2 data-fa="مزایا و محدودیت‌های هوش مصنوعی" data-en="Benefits and Limitations of AI">مزایا و محدودیت‌های هوش مصنوعی</h2>
+<h3 data-fa="مزایا" data-en="Benefits">مزایا</h3>
+<ul>
+<li data-fa="صرفه‌جویی در زمان." data-en="Saving time.">صرفه‌جویی در زمان.</li>
+<li data-fa="کمک به یادگیری سریع‌تر." data-en="Supporting faster learning.">کمک به یادگیری سریع‌تر.</li>
+<li data-fa="افزایش خلاقیت و ایده‌پردازی." data-en="Encouraging creativity and idea generation.">افزایش خلاقیت و ایده‌پردازی.</li>
+<li data-fa="کمک به تحلیل حجم زیادی از اطلاعات." data-en="Helping analyze large amounts of information.">کمک به تحلیل حجم زیادی از اطلاعات.</li>
+</ul>
+<h3 data-fa="محدودیت‌ها" data-en="Limitations">محدودیت‌ها</h3>
+<ul>
+<li data-fa="ممکن است اطلاعات نادرست تولید کند." data-en="It may generate inaccurate information.">ممکن است اطلاعات نادرست تولید کند.</li>
+<li data-fa="همیشه منظور سؤال را درست درک نمی‌کند." data-en="It may misunderstand a question.">همیشه منظور سؤال را درست درک نمی‌کند.</li>
+<li data-fa="نباید اطلاعات محرمانه را بدون بررسی سیاست‌های حریم خصوصی وارد کرد." data-en="Do not submit confidential information without reviewing privacy policies.">نباید اطلاعات محرمانه را بدون بررسی سیاست‌های حریم خصوصی وارد کرد.</li>
+<li data-fa="جایگزین تخصص و قضاوت انسانی نیست." data-en="It does not replace human expertise and judgment.">جایگزین تخصص و قضاوت انسانی نیست.</li>
+</ul>
+</article>
+
+<article class="lesson" id="chapter7" data-search="تمرین عملی پرامپت درخواست برنامه">
+<span class="number" data-fa="فصل هفتم" data-en="CHAPTER SEVEN">فصل هفتم</span>
+<h2 data-fa="تمرین عملی با هوش مصنوعی" data-en="Practical AI Exercises">تمرین عملی با هوش مصنوعی</h2>
+<p data-fa="برای شروع، درخواست‌های زیر را در یک ابزار هوش مصنوعی امتحان کنید." data-en="To get started, try the following prompts in an AI tool.">برای شروع، درخواست‌های زیر را در یک ابزار هوش مصنوعی امتحان کنید.</p>
+
+<div class="practice">
+<h3 data-fa="تمرین اول: برنامه‌ریزی" data-en="Exercise 1: Planning">تمرین اول: برنامه‌ریزی</h3>
+<p data-fa="برای من یک برنامه هفتگی مطالعه طراحی کن که روزانه یک ساعت زمان نیاز داشته باشد." data-en="Create a weekly study plan for me that requires one hour each day.">برای من یک برنامه هفتگی مطالعه طراحی کن که روزانه یک ساعت زمان نیاز داشته باشد.</p>
+<button class="copy-btn" onclick="copyPrompt(this)" data-fa="کپی درخواست" data-en="Copy Prompt">کپی درخواست</button>
+</div>
+
+<div class="practice">
+<h3 data-fa="تمرین دوم: یادگیری" data-en="Exercise 2: Learning">تمرین دوم: یادگیری</h3>
+<p data-fa="یک مفهوم علمی دشوار را با زبان ساده و سه مثال روزمره توضیح بده." data-en="Explain a difficult scientific concept in simple language with three everyday examples.">یک مفهوم علمی دشوار را با زبان ساده و سه مثال روزمره توضیح بده.</p>
+<button class="copy-btn" onclick="copyPrompt(this)" data-fa="کپی درخواست" data-en="Copy Prompt">کپی درخواست</button>
+</div>
+
+<div class="practice">
+<h3 data-fa="تمرین سوم: کسب‌وکار" data-en="Exercise 3: Business">تمرین سوم: کسب‌وکار</h3>
+<p data-fa="برای یک کسب‌وکار کوچک پنج ایده تبلیغاتی کم‌هزینه پیشنهاد بده." data-en="Suggest five low-cost marketing ideas for a small business.">برای یک کسب‌وکار کوچک پنج ایده تبلیغاتی کم‌هزینه پیشنهاد بده.</p>
+<button class="copy-btn" onclick="copyPrompt(this)" data-fa="کپی درخواست" data-en="Copy Prompt">کپی درخواست</button>
+</div>
+</article>
+
+</div>
+</div>
+
+<section class="quiz" id="quiz">
+<h2 data-fa="آزمون پایان دوره" data-en="Final Learning Quiz">آزمون پایان دوره</h2>
+<p data-fa="دانسته‌های خود را با این سه سؤال بررسی کنید." data-en="Test your knowledge with these three questions.">دانسته‌های خود را با این سه سؤال بررسی کنید.</p>
+
+<form id="quizForm">
+<div class="question">
+<p data-fa="۱. هوش مصنوعی چیست؟" data-en="1. What is Artificial Intelligence?">۱. هوش مصنوعی چیست؟</p>
+<label><input type="radio" name="q1" value="a"> <span data-fa="یک نوع تلفن همراه" data-en="A type of mobile phone">یک نوع تلفن همراه</span></label>
+<label><input type="radio" name="q1" value="b"> <span data-fa="فناوری انجام وظایف هوشمندانه با کمک رایانه" data-en="Technology enabling computers to perform intelligent tasks">فناوری انجام وظایف هوشمندانه با کمک رایانه</span></label>
+<label><input type="radio" name="q1" value="c"> <span data-fa="فقط یک موتور جست‌وجو" data-en="Only a search engine">فقط یک موتور جست‌وجو</span></label>
+</div>
+
+<div class="question">
+<p data-fa="۲. یادگیری ماشین به چه معناست؟" data-en="2. What does machine learning mean?">۲. یادگیری ماشین به چه معناست؟</p>
+<label><input type="radio" name="q2" value="a"> <span data-fa="یادگیری الگوها از داده‌ها" data-en="Learning patterns from data">یادگیری الگوها از داده‌ها</span></label>
+<label><input type="radio" name="q2" value="b"> <span data-fa="ساخت تلفن همراه" data-en="Building mobile phones">ساخت تلفن همراه</span></label>
+<label><input type="radio" name="q2" value="c"> <span data-fa="حذف اطلاعات" data-en="Deleting information">حذف اطلاعات</span></label>
+</div>
+
+<div class="question">
+<p data-fa="۳. آیا پاسخ هوش مصنوعی همیشه درست است؟" data-en="3. Is AI output always correct?">۳. Is AI output always correct?</p>
+<label><input type="radio" name="q3" value="a"> <span data-fa="بله، همیشه" data-en="Yes, always">بله، همیشه</span></label>
+<label><input type="radio" name="q3" value="b"> <span data-fa="خیر، باید بررسی شود" data-en="No, it should be checked">خیر، باید بررسی شود</span></label>
+<label><input type="radio" name="q3" value="c"> <span data-fa="فقط در بازی‌ها" data-en="Only in games">فقط در بازی‌ها</span></label>
+</div>
+
+<button type="button" class="primary-btn" onclick="checkQuiz()" data-fa="ثبت پاسخ‌ها و مشاهده نتیجه" data-en="Submit and View Results">ثبت پاسخ‌ها و مشاهده نتیجه</button>
+<button type="reset" class="primary-btn" onclick="resetQuiz()" data-fa="شروع دوباره" data-en="Try Again">شروع دوباره</button>
+<div class="result" id="quizResult" aria-live="polite"></div>
 </form>
+</section>
 
-<script>
-function checkAnswer(){
-const selected=document.querySelector('input[name="answer"]:checked');
-const result=document.getElementById("result");
-if(!selected){result.textContent="لطفاً یک پاسخ انتخاب کنید.";return;}
-result.textContent=selected.value==="b"?"آفرین! پاسخ شما صحیح است.":"پاسخ درست گزینه دوم است. دوباره مطالب فصل اول را بخوانید.";
-}
-</script>
-
-<div class="tip">
-<strong>پیام EHSAN BOOKS</strong>
-<p>یادگیری هوش مصنوعی فقط یادگیری یک فناوری نیست؛ فرصتی برای بهتر فکر کردن، خلاقیت بیشتر و ساختن آینده‌ای بهتر است.</p>
+<div class="tip" style="margin-top:25px">
+<strong data-fa="پیام EHSAN BOOKS" data-en="A Message from EHSAN BOOKS">پیام EHSAN BOOKS</strong>
+<p data-fa="یادگیری هوش مصنوعی فقط یادگیری یک فناوری نیست؛ فرصتی برای بهتر فکر کردن، خلاقیت بیشتر و ساختن آینده‌ای بهتر است." data-en="Learning AI is more than learning technology; it is an opportunity to think better, become more creative and build a better future.">یادگیری هوش مصنوعی فقط یادگیری یک فناوری نیست؛ فرصتی برای بهتر فکر کردن، خلاقیت بیشتر و ساختن آینده‌ای بهتر است.</p>
 </div>
-
-<p><strong>این آموزش رایگان متعلق به مجموعه محتوای آموزشی EHSAN BOOKS است.</strong></p>
-<a href="index.html">بازگشت به صفحه اصلی</a>
-<br>
-<a href="about.html">درباره ما</a>
-<br>
-<a href="contact.html">تماس با ما</a>
 
 </main>
+
+<footer>
+<h3>EHSAN BOOKS</h3>
+<p>Knowledge for a Better World</p>
+<a href="index.html" data-fa="بازگشت به کتابخانه اصلی" data-en="Back to Main Library">بازگشت به کتابخانه اصلی</a>
+<p>© 2026 EHSAN BOOKS. All Rights Reserved.</p>
+</footer>
+
+<script>
+let currentLanguage="fa";
+
+function changeLanguage(){
+currentLanguage=currentLanguage==="fa"?"en":"fa";
+document.documentElement.lang=currentLanguage;
+document.documentElement.dir=currentLanguage==="fa"?"rtl":"ltr";
+
+document.querySelectorAll("[data-fa][data-en]").forEach(el=>{
+const value=el.getAttribute("data-"+currentLanguage);
+if(el.tagName==="H1"){
+el.innerHTML=value;
+}else{
+el.textContent=value;
+}
+});
+
+document.getElementById("langButton").textContent=
+currentLanguage==="fa"?"English":"فارسی";
+
+document.getElementById("lessonSearch").placeholder=
+currentLanguage==="fa"?"جست‌وجو در آموزش‌ها...":"Search lessons...";
+
+}
+
+function searchLessons(){
+const query=document.getElementById("lessonSearch").value.trim().toLowerCase();
+const lessons=document.querySelectorAll(".lesson");
+let count=0;
+
+lessons.forEach(lesson=>{
+const text=(lesson.innerText+" "+lesson.dataset.search).toLowerCase();
+const match=text.includes(query);
+lesson.hidden=!match;
+if(match)count++;
+});
+
+document.getElementById("lessons").scrollIntoView({behavior:"smooth"});
+}
+
+function copyPrompt(button){
+const prompt=button.parentElement.querySelector("p").textContent;
+if(navigator.clipboard && window.isSecureContext){
+navigator.clipboard.writeText(prompt).then(()=>{
+button.textContent=currentLanguage==="fa"?"کپی شد ✓":"Copied ✓";
+}).catch(()=>{
+window.prompt("Copy this prompt:",prompt);
+});
+}else{
+window.prompt("Copy this prompt:",prompt);
+}
+}
+
+function checkQuiz(){
+const answers={q1:"b",q2:"a",q3:"b"};
+let score=0;
+let answered=0;
+
+Object.keys(answers).forEach(key=>{
+const selected=document.querySelector('input[name="'+key+'"]:checked');
+if(selected){
+answered++;
+if(selected.value===answers[key])score++;
+}
+});
+
+const result=document.getElementById("quizResult");
+result.style.display="block";
+
+if(answered!==3){
+result.textContent=currentLanguage==="fa"?
+"لطفاً به هر سه سؤال پاسخ دهید.":
+"Please answer all three questions.";
+return;
+}
+
+const message=currentLanguage==="fa"?
+"نتیجه شما: "+score+" از 3 پاسخ صحیح. "+(score===3?"تبریک! عالی بود.":score===2?"خوب بود! کمی بیشتر تمرین کنید.":"مطالب را دوباره مرور کنید."):
+"Your score: "+score+" out of 3. "+(score===3?"Excellent!":score===2?"Good work! Keep practicing.":"Review the lessons and try again.");
+
+result.textContent=message;
+}
+
+function resetQuiz(){
+document.getElementById("quizResult").style.display="none";
+}
+
+</script>
 </body>
 </html>
