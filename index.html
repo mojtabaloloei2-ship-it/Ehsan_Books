@@ -191,22 +191,26 @@ section.content-section{padding:70px 0}
   gap:20px;
 }
 
-.book{
+
+  .book{
   background:white;
   border:1px solid #e7edf3;
-  border-radius:15px;
+  border-radius:18px;
   overflow:hidden;
   padding:15px;
-  transition:.25s;
+  transition:transform .25s, box-shadow .25s;
   display:flex;
   flex-direction:column;
   min-width:0;
   height:100%;
+  box-shadow:0 5px 16px rgba(11,24,48,.06);
 }
+
 .book:hover{
   transform:translateY(-5px);
-  box-shadow:0 15px 30px #0b18301a;
+  box-shadow:0 12px 28px rgba(11,24,48,.13);
 }
+
 .book-cover{
   height:210px;
   min-height:210px;
