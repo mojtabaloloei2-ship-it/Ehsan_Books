@@ -467,7 +467,9 @@ footer p{font-size:12px;color:#b6c6d6}
   height:auto;
 }
 </style>
-<header>
+</head>
+<body>
+  <header>
   <div class="container header-inner">
     <a class="logo-area" href="#home">
       <svg class="logo-icon" viewBox="0 0 100 100" fill="none">
@@ -495,35 +497,11 @@ footer p{font-size:12px;color:#b6c6d6}
   </div>
 </header>
 
-" viewBox="0 0 100 100" fill="none">
-        <circle cx="50" cy="50" r="46" stroke="#36c6bd" stroke-width="2.5"/>
-        <path d="M50 77V25" stroke="#d9b96e" stroke-width="5" stroke-linecap="round"/>
-        <path d="M50 28C40 19 29 21 22 26V68C33 63 42 65 50 74Z" stroke="#d9b96e" stroke-width="3" fill="#173454"/>
-        <path d="M50 28C60 19 71 21 78 26V68C67 63 58 65 50 74Z" stroke="#36c6bd" stroke-width="3" fill="#173454"/>
-        <path d="M29 37L43 41M29 49L43 53M57 41L71 37M57 53L71 49" stroke="white" stroke-width="2" stroke-linecap="round"/>
-        <circle cx="50" cy="84" r="3" fill="#d9b96e"/>
-      </svg>
-      <div>
-        <div class="logo-name">EHSAN <span>BOOKS</span></div>
-        <div class="logo-tagline">Knowledge for a Better World</div>
-      </div>
-    </a>
 
-        <div class="logo-name">EHSAN <span>BOOKS</span></div>
-        <div class="logo-tagline">Knowledge for a Better World</div>
-      </div>
-    </a>
 
-    <nav>
-      <a href="#home" data-fa="خانه" data-en="Home">خانه</a>
-      <a href="#categories" data-fa="دسته‌بندی‌ها" data-en="Categories">دسته‌بندی‌ها</a>
-      <a href="#books" data-fa="کتاب‌ها" data-en="Books">کتاب‌ها</a>
-      <a href="ai-guide.html" data-fa="راهنمای هوشمند" data-en="Smart Guide">راهنمای هوشمند</a>
-      <a href="about.html" data-fa="درباره ما" data-en="About Us">درباره ما</a>
-      <button class="lang-btn" id="langButton" onclick="changeLanguage()">English</button>
-    </nav>
-  </div>
-</header>
+        
+  
+      
 
 <main>
 <section class="hero" id="home">
@@ -544,7 +522,6 @@ footer p{font-size:12px;color:#b6c6d6}
   <img src="ehsan_books_hero_artwork_no_search-1.png"
        alt="EHSAN BOOKS - Books and Global Knowledge">
 </div>
-
 
 <div class="hero-note" data-fa="یادگیری امروز، سرمایه‌گذاری برای فرداست." data-en="Learning today is an investment in tomorrow.">یادگیری امروز، سرمایه‌گذاری برای فرداست.</div>
 </div>
@@ -777,82 +754,6 @@ function normalizeText(text){
     .toLowerCase()
     .replace(/ي/g,"ی")
     .replace(/ك/g,"ک")
-    .replace(/‌/g," ")
-    .replace(/\s+/g," ")
-    .trim();
-}
-
-function searchBooks(){
-  const input = document.getElementById("searchInput");
-  const query = normalizeText(input.value);
-  const books = document.querySelectorAll(".book");
-  let visibleCount = 0;
-
-  books.forEach(book => {
-    const searchText = normalizeText(
-      (book.dataset.search || "") + " " +
-      book.innerText
-    );
-
-    const match = searchText.includes(query);
-    book.style.display = match ? "flex" : "none";
-
-    if(match) visibleCount++;
-  });
-
-  document.getElementById("noResult").style.display =
-    visibleCount === 0 ? "block" : "none";
-}
-
-function filterCategory(category){
-  const books = document.querySelectorAll(".book");
-  let visibleCount = 0;
-
-  document.getElementById("searchInput").value = "";
-
-  books.forEach(book => {
-    const match = book.dataset.category === category;
-    book.style.display = match ? "flex" : "none";
-    if(match) visibleCount++;
-  });
-
-  document.getElementById("noResult").style.display =
-    visibleCount === 0 ? "block" : "none";
-
-  document.getElementById("books").scrollIntoView({
-    behavior:"smooth"
-  });
-}
-
-function changeLanguage(){
-  currentLanguage = currentLanguage === "fa" ? "en" : "fa";
-
-  document.documentElement.lang = currentLanguage;
-  document.documentElement.dir =
-    currentLanguage === "fa" ? "rtl" : "ltr";
-
-  document.querySelectorAll("[data-fa][data-en]").forEach(element => {
-    element.textContent =
-      element.getAttribute("data-" + currentLanguage);
-  });
-
-  const input = document.getElementById("searchInput");
-
-  input.placeholder = currentLanguage === "fa"
-    ? "نام کتاب یا موضوع مورد نظر را جست‌وجو کنید..."
-    : "Search for a book or topic...";
-
-  document.getElementById("langButton").textContent =
-    currentLanguage === "fa" ? "English" : "فارسی";
-
-  input.value = "";
-  document.querySelectorAll(".book").forEach(book => {
-    book.style.display = "flex";
-  });
-
-  document.getElementById("noResult").style.display = "none";
-}
 </script>
-
 </body>
 </html>
