@@ -747,6 +747,7 @@ footer p{font-size:12px;color:#b6c6d6}
 </footer>
 
 <script>
+
 let currentLanguage = "fa";
 
 function normalizeText(text){
@@ -754,6 +755,93 @@ function normalizeText(text){
     .toLowerCase()
     .replace(/ي/g,"ی")
     .replace(/ك/g,"ک")
+    .replace(/‌/g," ")
+    .replace(/\s+/g," ")
+    .trim();
+}
+
+function changeLanguage(){
+  currentLanguage = currentLanguage === "fa" ? "en" : "fa";
+
+  document.documentElement.lang = currentLanguage;
+  document.documentElement.dir = currentLanguage === "fa" ? "rtl" : "ltr";
+
+  document.querySelectorAll("[data-fa][data-en]").forEach(function(element){
+    element.textContent = currentLanguage === "fa"
+      ? element.getAttribute("data-fa")
+      : element.getAttribute("data-en");
+  });
+
+  const searchInput = document.getElementById("searchInput");
+
+  if(searchInput){
+    searchInput.placeholder = currentLanguage === "fa"
+      ? "نام کتاب یا موضوع مورد نظر را جست‌وجو کنید..."
+      : "Search for a book or topic...";
+  }
+
+  const langButton = document.getElementById("langButton");
+
+  if(langButton){
+    langButton.textContent = currentLanguage === "fa" ? "English" : "فارسی";
+  }
+
+  searchBooks();
+}
+
+function searchBooks(){
+  const input = document.getElementById("searchInput");
+  const query = normalizeText(input ? input.value : "");
+
+  const books = document.querySelectorAll("#bookList .book");
+  let visibleCount = 0;
+
+  books.forEach(function(book){
+    const content = normalizeText(
+      book.innerText + " " + (book.getAttribute("data-search") || "")
+    );
+
+    const matches = content.includes(query);
+
+    book.style.display = matches ? "" : "none";
+
+    if(matches) visibleCount++;
+  });
+
+  const noResult = document.getElementById("noResult");
+
+  if(noResult){
+    noResult.style.display = visibleCount === 0 ? "block" : "none";
+  }
+}
+
+function filterCategory(category){
+  const books = document.querySelectorAll("#bookList .book");
+  let visibleCount = 0;
+
+  books.forEach(function(book){
+    const matches = book.getAttribute("data-category") === category;
+
+    book.style.display = matches ? "" : "none";
+
+    if(matches) visibleCount++;
+  });
+
+  const noResult = document.getElementById("noResult");
+
+  if(noResult){
+    noResult.style.display = visibleCount === 0 ? "block" : "none";
+  }
+
+  const input = document.getElementById("searchInput");
+
+  if(input) input.value = "";
+
+  document.getElementById("books").scrollIntoView({
+    behavior: "smooth"
+  });
+}
 </script>
 </body>
-</html>
+  </html>
+  
