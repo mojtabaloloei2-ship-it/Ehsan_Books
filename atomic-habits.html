@@ -1,194 +1,239 @@
-
-<!DOCTYPE html >
+<!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0b1830">
+<meta name="description" content="خلاصه آموزشی کتاب عادت‌های اتمی، نوشته جیمز کلیر | EHSAN BOOKS">
 <title>عادت‌های اتمی | EHSAN BOOKS</title>
+
 <style>
+:root{
+  --navy:#0b1830;
+  --navy2:#173454;
+  --turquoise:#36c6bd;
+  --gold:#d9b96e;
+  --bg:#f4f7fb;
+  --text:#243247;
+  --muted:#718096;
+}
 *{box-sizing:border-box}
+html{scroll-behavior:smooth}
 body{
-margin:0;
-font-family:Tahoma,Arial,sans-serif;
-background:#f3f6fa;
-color:#243247;
-line-height:2
+  margin:0;
+  font-family:Tahoma,Arial,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  line-height:2;
 }
+a{text-decoration:none;color:inherit}
 header{
-background:#101d35;
-color:white;
-padding:20px;
-text-align:center
+  background:var(--navy);
+  color:white;
+  padding:15px 5%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:12px;
 }
-.logo{
-font-size:25px;
-font-weight:bold;
-color:white
+.logo{font-size:22px;font-weight:900;direction:ltr}
+.logo span{color:var(--turquoise)}
+.header-actions{display:flex;gap:10px;align-items:center}
+.btn{
+  border:0;
+  border-radius:9px;
+  padding:9px 15px;
+  font-family:inherit;
+  font-size:12px;
+  font-weight:bold;
+  cursor:pointer;
 }
-.logo span{color:#35c6b0}
-button{
-border:0;
-border-radius:9px;
-padding:10px 18px;
-cursor:pointer;
-font-size:14px;
-font-weight:bold
-}
-.lang{
-background:#35c6b0;
-color:#102139;
-margin-top:12px
-}
+.lang{background:var(--turquoise);color:var(--navy)}
+.back{background:transparent;border:1px solid var(--gold);color:var(--gold)}
 .hero{
-background:linear-gradient(135deg,#10203b,#174b61);
-color:white;
-text-align:center;
-padding:45px 18px
+  background:
+    radial-gradient(circle at 80% 20%,#236477 0,transparent 35%),
+    linear-gradient(130deg,#09162d,#173957);
+  color:white;
+  text-align:center;
+  padding:45px 18px 55px;
 }
 .cover{
-background:#173b4c;
-border:2px solid #35c6b0;
-border-radius:14px;
-padding:25px;
-width:190px;
-margin:15px auto;
-font-size:25px;
-font-weight:bold;
-line-height:1.5;
-box-shadow:0 8px 25px #0005
+  width:180px;
+  height:245px;
+  object-fit:contain;
+  background:white;
+  border-radius:12px;
+  padding:5px;
+  box-shadow:0 12px 30px #0005;
 }
-.hero h1{font-size:27px}
-.hero p{color:#d7e9ed}
-.container{
-max-width:850px;
-margin:auto;
-padding:20px
-}
-.card{
-background:white;
-padding:23px;
-margin:20px 0;
-border-radius:14px;
-box-shadow:0 4px 16px #152b4610
-}
-h2{color:#147d80;font-size:21px}
-h3{color:#173b58}
 .tag{
-display:inline-block;
-background:#e1f7f3;
-color:#087e73;
-padding:3px 12px;
-border-radius:20px;
-font-size:13px
+  display:inline-block;
+  margin-top:20px;
+  background:#e7f7f5;
+  color:#168c85;
+  padding:3px 14px;
+  border-radius:20px;
+  font-size:12px;
 }
-.highlight{
-background:#e9f7f5;
-border-right:4px solid #27b9a6;
-padding:12px;
-border-radius:8px
+.hero h1{font-size:30px;margin:8px 0}
+.hero p{color:#d1deeb;margin:4px}
+.container{max-width:850px;margin:auto;padding:20px}
+.card{
+  background:white;
+  padding:23px;
+  margin:20px 0;
+  border-radius:15px;
+  box-shadow:0 5px 18px #152b4610;
+  border:1px solid #e8edf3;
 }
+h2{color:var(--navy);font-size:21px;margin-top:0}
+h3{color:#147d80;font-size:16px}
 ul{padding-right:22px}
 li{margin:8px 0}
+.highlight{
+  background:#e9f7f5;
+  border-right:4px solid var(--turquoise);
+  padding:14px;
+  border-radius:8px;
+  margin:15px 0;
+}
 .exercise{
-background:#fff8e8;
-border-right:4px solid #e3ad42;
-padding:14px;
-border-radius:8px
+  background:#fff8e8;
+  border-right:4px solid var(--gold);
+  padding:15px;
+  border-radius:8px;
 }
+.tip{
+  background:#eef3fa;
+  border-right:4px solid var(--navy2);
+  padding:13px;
+  border-radius:8px;
+}
+.progress-item{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:9px 0;
+  border-bottom:1px solid #edf0f4;
+  font-size:14px;
+}
+.progress-item input{width:19px;height:19px;accent-color:#168c85}
+.progress-bar{
+  height:10px;
+  background:#e6edf3;
+  border-radius:20px;
+  overflow:hidden;
+  margin:12px 0;
+}
+.progress-fill{
+  width:0;
+  height:100%;
+  background:var(--turquoise);
+  transition:.3s;
+}
+.progress-text{font-size:12px;color:var(--muted)}
 footer{
-background:#101d35;
-color:#d8e4ec;
-text-align:center;
-padding:25px;
-margin-top:35px
+  background:var(--navy);
+  color:#d8e4ec;
+  text-align:center;
+  padding:28px 15px;
+  margin-top:35px;
 }
-a{color:#159b91}
-[dir="ltr"] ul{padding-right:0;padding-left:22px}
+footer p{font-size:12px;color:#b6c6d6}
 @media(max-width:600px){
-.hero h1{font-size:23px}
-.container{padding:12px}
-.card{padding:17px}
+  header{justify-content:center}
+  .hero h1{font-size:24px}
+  .container{padding:12px}
+  .card{padding:17px}
 }
 </style>
 </head>
+
 <body>
 
 <header>
-<div class="logo">EHSAN <span>BOOKS</span></div>
-<button class="lang" onclick="toggleLang()">English / فارسی</button>
+  <div class="logo">EHSAN <span>BOOKS</span></div>
+  <div class="header-actions">
+    <a class="btn back" href="index.html"
+       data-fa="بازگشت به کتابخانه"
+       data-en="Back to Library">بازگشت به کتابخانه</a>
+    <button class="btn lang" onclick="toggleLang()">English</button>
+  </div>
 </header>
 
-<div class="hero">
-<div class="cover">ATOMIC<br>HABITS</div>
-<span class="tag" data-fa="رشد فردی" data-en="Personal Growth">رشد فردی</span>
-<h1 data-fa="عادت‌های اتمی" data-en="Atomic Habits">عادت‌های اتمی</h1>
-<p data-fa="نویسنده: جیمز کلیر"
-data-en="Author: James Clear">نویسنده: جیمز کلیر</p>
-<p data-fa="تغییرات کوچک، نتایج بزرگ"
-data-en="Small Changes, Remarkable Results">تغییرات کوچک، نتایج بزرگ</p>
-</div>
+<section class="hero">
+  <img class="cover"
+       src="atomic-habits.clean.jpg"
+       alt="جلد کتاب عادت‌های اتمی">
+  <br>
+  <span class="tag" data-fa="رشد فردی" data-en="Personal Growth">رشد فردی</span>
+  <h1 data-fa="عادت‌های اتمی" data-en="Atomic Habits">عادت‌های اتمی</h1>
+  <p data-fa="نویسنده: جیمز کلیر" data-en="Author: James Clear">نویسنده: جیمز کلیر</p>
+  <p data-fa="تغییرات کوچک، نتایج بزرگ"
+     data-en="Small Changes, Remarkable Results">تغییرات کوچک، نتایج بزرگ</p>
+</section>
 
 <main class="container">
 
 <section class="card">
 <h2 data-fa="درباره کتاب" data-en="About the Book">درباره کتاب</h2>
-<p data-fa="کتاب عادت‌های اتمی درباره قدرت تغییرات کوچک و مستمر در زندگی است. جیمز کلیر توضیح می‌دهد که چگونه رفتارهای روزمره می‌توانند در طول زمان نتایج بزرگی ایجاد کنند."
-data-en="Atomic Habits explores the power of small, consistent changes. James Clear explains how daily behaviors can create remarkable results over time.">
-کتاب عادت‌های اتمی درباره قدرت تغییرات کوچک و مستمر در زندگی است. جیمز کلیر توضیح می‌دهد که چگونه رفتارهای روزمره می‌توانند در طول زمان نتایج بزرگی ایجاد کنند.
+<p data-fa="کتاب عادت‌های اتمی درباره قدرت تغییرات کوچک و مستمر در زندگی است. جیمز کلیر توضیح می‌دهد که چگونه رفتارهای روزانه، حتی اگر بسیار کوچک باشند، در طول زمان می‌توانند نتایج بزرگی ایجاد کنند."
+data-en="Atomic Habits explores the power of small, consistent changes. James Clear explains how daily behaviors, even tiny ones, can create remarkable results over time.">
+کتاب عادت‌های اتمی درباره قدرت تغییرات کوچک و مستمر در زندگی است. جیمز کلیر توضیح می‌دهد که چگونه رفتارهای روزانه، حتی اگر بسیار کوچک باشند، در طول زمان می‌توانند نتایج بزرگی ایجاد کنند.
 </p>
+<div class="highlight"
+data-fa="پیام اصلی: به جای انتظار برای تغییرات بزرگ، هر روز یک قدم کوچک و قابل تکرار بردار."
+data-en="Main message: Instead of waiting for major changes, take one small, repeatable step every day.">
+پیام اصلی: به جای انتظار برای تغییرات بزرگ، هر روز یک قدم کوچک و قابل تکرار بردار.
+</div>
 </section>
 
 <section class="card">
 <h2 data-fa="خلاصه فصل‌ها و ایده‌های اصلی"
-data-en="Chapter Themes and Main Ideas">خلاصه فصل‌ها و ایده‌های اصلی</h2>
+data-en="Main Ideas and Chapter Themes">خلاصه فصل‌ها و ایده‌های اصلی</h2>
 
-<h3 data-fa="۱. قدرت تغییرات کوچک"
-data-en="1. The Power of Tiny Changes">۱. قدرت تغییرات کوچک</h3>
-<p data-fa="پیشرفت‌های کوچک ممکن است در ابتدا ناچیز به نظر برسند، اما تکرار آن‌ها در طول زمان می‌تواند تفاوت بزرگی ایجاد کند."
-data-en="Small improvements may seem insignificant at first, but repeating them over time can create a major difference.">
-پیشرفت‌های کوچک ممکن است در ابتدا ناچیز به نظر برسند، اما تکرار آن‌ها در طول زمان می‌تواند تفاوت بزرگی ایجاد کند.
+<h3 data-fa="۱. قدرت تغییرات کوچک" data-en="1. The Power of Tiny Changes">۱. قدرت تغییرات کوچک</h3>
+<p data-fa="پیشرفت‌های کوچک ممکن است در ابتدا ناچیز به نظر برسند، اما تکرار آن‌ها در طول زمان می‌تواند تفاوت بزرگی ایجاد کند. استمرار از شدت تلاش مهم‌تر است."
+data-en="Small improvements may seem insignificant at first, but repeating them over time can create a major difference. Consistency matters more than intensity.">
+پیشرفت‌های کوچک ممکن است در ابتدا ناچیز به نظر برسند، اما تکرار آن‌ها در طول زمان می‌تواند تفاوت بزرگی ایجاد کند. استمرار از شدت تلاش مهم‌تر است.
 </p>
 
-<h3 data-fa="۲. هویت و عادت‌ها"
-data-en="2. Identity and Habits">۲. هویت و عادت‌ها</h3>
-<p data-fa="به جای تمرکز صرف بر نتیجه، روی تبدیل شدن به فردی تمرکز کن که رفتار موردنظرت را به طور منظم انجام می‌دهد."
-data-en="Instead of focusing only on outcomes, focus on becoming the kind of person who consistently performs the desired behavior.">
-به جای تمرکز صرف بر نتیجه، روی تبدیل شدن به فردی تمرکز کن که رفتار موردنظرت را به طور منظم انجام می‌دهد.
+<h3 data-fa="۲. هویت و عادت‌ها" data-en="2. Identity and Habits">۲. هویت و عادت‌ها</h3>
+<p data-fa="به جای تمرکز صرف بر نتیجه، روی تبدیل شدن به فردی تمرکز کن که رفتار موردنظرت را به طور منظم انجام می‌دهد. هر تکرار کوچک، رأیی به هویت دلخواه توست."
+data-en="Instead of focusing only on outcomes, focus on becoming the kind of person who consistently performs the desired behavior. Every small repetition is a vote for your desired identity.">
+به جای تمرکز صرف بر نتیجه، روی تبدیل شدن به فردی تمرکز کن که رفتار موردنظرت را به طور منظم انجام می‌دهد. هر تکرار کوچک، رأیی به هویت دلخواه توست.
 </p>
 
-<h3 data-fa="۳. چرخه شکل‌گیری عادت"
-data-en="3. The Habit Loop">۳. چرخه شکل‌گیری عادت</h3>
-<p data-fa="عادت‌ها با چهار مرحله نشانه، اشتیاق، پاسخ و پاداش شکل می‌گیرند. شناخت این چرخه به ساخت رفتارهای بهتر کمک می‌کند."
-data-en="Habits develop through four stages: cue, craving, response, and reward. Understanding this cycle helps build better behaviors.">
-عادت‌ها با چهار مرحله نشانه، اشتیاق، پاسخ و پاداش شکل می‌گیرند. شناخت این چرخه به ساخت رفتارهای بهتر کمک می‌کند.
+<h3 data-fa="۳. چرخه شکل‌گیری عادت" data-en="3. The Habit Loop">۳. چرخه شکل‌گیری عادت</h3>
+<p data-fa="عادت‌ها از چهار مرحله تشکیل می‌شوند: نشانه، اشتیاق، پاسخ و پاداش. شناخت این چرخه به ما کمک می‌کند رفتارهای مفید را بسازیم و رفتارهای نامطلوب را تغییر دهیم."
+data-en="Habits develop through four stages: cue, craving, response, and reward. Understanding this cycle helps us build beneficial behaviors and change unwanted ones.">
+عادت‌ها از چهار مرحله تشکیل می‌شوند: نشانه، اشتیاق، پاسخ و پاداش. شناخت این چرخه به ما کمک می‌کند رفتارهای مفید را بسازیم و رفتارهای نامطلوب را تغییر دهیم.
 </p>
 
-<h3 data-fa="۴. قانون اول: آن را آشکار کن"
-data-en="4. Law One: Make It Obvious">۴. قانون اول: آن را آشکار کن</h3>
-<p data-fa="نشانه‌های عادت خوب را در محیط اطراف خود واضح و قابل مشاهده قرار بده."
-data-en="Make the cues of good habits obvious and visible in your environment.">
-نشانه‌های عادت خوب را در محیط اطراف خود واضح و قابل مشاهده قرار بده.
+<h3 data-fa="۴. قانون اول: آن را آشکار کن" data-en="4. Law One: Make It Obvious">۴. قانون اول: آن را آشکار کن</h3>
+<p data-fa="نشانه‌های عادت خوب را در محیط اطراف خود واضح و قابل مشاهده قرار بده. برای مثال، کتاب را روی میز بگذار تا مطالعه را فراموش نکنی."
+data-en="Make the cues of good habits obvious and visible. For example, place a book on your desk so you remember to read.">
+نشانه‌های عادت خوب را در محیط اطراف خود واضح و قابل مشاهده قرار بده. برای مثال، کتاب را روی میز بگذار تا مطالعه را فراموش نکنی.
 </p>
 
-<h3 data-fa="۵. قانون دوم: آن را جذاب کن"
-data-en="5. Law Two: Make It Attractive">۵. قانون دوم: آن را جذاب کن</h3>
-<p data-fa="انجام عادت‌های مفید را با فعالیت‌هایی که دوست داری همراه کن تا انگیزه بیشتری داشته باشی."
+<h3 data-fa="۵. قانون دوم: آن را جذاب کن" data-en="5. Law Two: Make It Attractive">۵. قانون دوم: آن را جذاب کن</h3>
+<p data-fa="عادت‌های مفید را با فعالیت‌هایی که دوست داری همراه کن تا انجام آن‌ها برایت دلپذیرتر شود."
 data-en="Pair beneficial habits with activities you enjoy to make them more appealing.">
-انجام عادت‌های مفید را با فعالیت‌هایی که دوست داری همراه کن تا انگیزه بیشتری داشته باشی.
+عادت‌های مفید را با فعالیت‌هایی که دوست داری همراه کن تا انجام آن‌ها برایت دلپذیرتر شود.
 </p>
 
-<h3 data-fa="۶. قانون سوم: آن را آسان کن"
-data-en="6. Law Three: Make It Easy">۶. قانون سوم: آن را آسان کن</h3>
-<p data-fa="برای شروع، رفتار موردنظر را تا حد امکان ساده کن. حتی دو دقیقه تمرین می‌تواند نقطه شروع خوبی باشد."
-data-en="Make the desired behavior as simple as possible. Even two minutes of practice can be a good starting point.">
-برای شروع، رفتار موردنظر را تا حد امکان ساده کن. حتی دو دقیقه تمرین می‌تواند نقطه شروع خوبی باشد.
+<h3 data-fa="۶. قانون سوم: آن را آسان کن" data-en="6. Law Three: Make It Easy">۶. قانون سوم: آن را آسان کن</h3>
+<p data-fa="برای شروع، رفتار موردنظر را تا حد امکان ساده کن. اگر می‌خواهی مطالعه را آغاز کنی، ابتدا فقط دو صفحه بخوان."
+data-en="Make the desired behavior as simple as possible. If you want to start reading, begin with just two pages.">
+برای شروع، رفتار موردنظر را تا حد امکان ساده کن. اگر می‌خواهی مطالعه را آغاز کنی، ابتدا فقط دو صفحه بخوان.
 </p>
 
-<h3 data-fa="۷. قانون چهارم: آن را رضایت‌بخش کن"
-data-en="7. Law Four: Make It Satisfying">۷. قانون چهارم: آن را رضایت‌بخش کن</h3>
-<p data-fa="برای تکرار رفتارهای مثبت، پیشرفت خود را مشاهده و موفقیت‌های کوچک را ثبت کن."
-data-en="Track your progress and acknowledge small wins to encourage repetition of positive behaviors.">
-برای تکرار رفتارهای مثبت، پیشرفت خود را مشاهده و موفقیت‌های کوچک را ثبت کن.
+<h3 data-fa="۷. قانون چهارم: آن را رضایت‌بخش کن" data-en="7. Law Four: Make It Satisfying">۷. قانون چهارم: آن را رضایت‌بخش کن</h3>
+<p data-fa="برای تکرار رفتارهای مثبت، پیشرفت خود را مشاهده و موفقیت‌های کوچک را ثبت کن. دیدن نتیجه، انگیزه ادامه دادن را افزایش می‌دهد."
+data-en="Track your progress and acknowledge small wins. Seeing results can increase your motivation to continue.">
+برای تکرار رفتارهای مثبت، پیشرفت خود را مشاهده و موفقیت‌های کوچک را ثبت کن. دیدن نتیجه، انگیزه ادامه دادن را افزایش می‌دهد.
 </p>
 </section>
 
@@ -201,10 +246,28 @@ data-en="The Four Laws of Habit Building">چهار قانون طلایی ساخ�
 <li data-fa="آسان کردن شروع" data-en="Make it easy">آسان کردن شروع</li>
 <li data-fa="رضایت‌بخش کردن نتیجه" data-en="Make it satisfying">رضایت‌بخش کردن نتیجه</li>
 </ul>
-<div class="highlight" data-fa="برای ترک عادت بد، همین چهار قانون را برعکس کن: نامرئی، غیرجذاب، دشوار و غیررضایت‌بخش."
+<div class="highlight"
+data-fa="برای ترک عادت بد، این چهار قانون را برعکس کن: نامرئی، غیرجذاب، دشوار و غیررضایت‌بخش."
 data-en="To break a bad habit, reverse these laws: make it invisible, unattractive, difficult, and unsatisfying.">
-برای ترک عادت بد، همین چهار قانون را برعکس کن: نامرئی، غیرجذاب، دشوار و غیررضایت‌بخش.
+برای ترک عادت بد، این چهار قانون را برعکس کن: نامرئی، غیرجذاب، دشوار و غیررضایت‌بخش.
 </div>
+</section>
+
+<section class="card">
+<h2 data-fa="نکات کلیدی و کاربردی"
+data-en="Key Practical Lessons">نکات کلیدی و کاربردی</h2>
+<ul>
+<li data-fa="برای شروع منتظر انگیزه کامل نمان."
+data-en="Do not wait for perfect motivation to begin.">برای شروع منتظر انگیزه کامل نمان.</li>
+<li data-fa="محیط اطراف خود را برای رفتارهای مثبت آماده کن."
+data-en="Prepare your environment for positive behaviors.">محیط اطراف خود را برای رفتارهای مثبت آماده کن.</li>
+<li data-fa="عادت جدید را به یک رفتار روزانه موجود متصل کن."
+data-en="Attach a new habit to an existing daily routine.">عادت جدید را به یک رفتار روزانه موجود متصل کن.</li>
+<li data-fa="اگر یک روز از برنامه عقب افتادی، روز بعد دوباره شروع کن."
+data-en="If you miss one day, get back on track the next day.">اگر یک روز از برنامه عقب افتادی، روز بعد دوباره شروع کن.</li>
+<li data-fa="پیشرفت را با عملکرد گذشته خودت مقایسه کن، نه با دیگران."
+data-en="Compare your progress with your past performance, not with others.">پیشرفت را با عملکرد گذشته خودت مقایسه کن، نه با دیگران.</li>
+</ul>
 </section>
 
 <section class="card">
@@ -219,7 +282,7 @@ data-en="Choose one small habit, such as reading for 10 minutes every day.">
 <li data-fa="زمان مشخصی برای آن تعیین کن."
 data-en="Choose a specific time.">زمان مشخصی برای آن تعیین کن.</li>
 <li data-fa="محیط را برای انجام آن آماده کن."
-data-en="Prepare your environment.">محیط را برای doing it آماده کن.</li>
+data-en="Prepare your environment.">محیط را برای انجام آن آماده کن.</li>
 <li data-fa="هر روز انجام آن را ثبت کن."
 data-en="Track it every day.">هر روز انجام آن را ثبت کن.</li>
 <li data-fa="پس از انجام، موفقیت خود را جشن بگیر."
@@ -229,28 +292,61 @@ data-en="Celebrate your progress.">پس از انجام، موفقیت خود ر
 </section>
 
 <section class="card">
-<h2 data-fa="پیام اصلی کتاب"
-data-en="The Main Message">پیام اصلی کتاب</h2>
-<p data-fa="برای رسیدن به موفقیت، لازم نیست یک‌باره زندگی خود را تغییر دهی. از یک قدم کوچک شروع کن و آن را به یک رفتار مستمر تبدیل کن."
-data-en="You do not need to transform your life overnight. Start with one small step and turn it into a consistent behavior.">
-برای رسیدن به موفقیت، لازم نیست یک‌باره زندگی خود را تغییر دهی. از یک قدم کوچک شروع کن و آن را به یک رفتار مستمر تبدیل کن.
+<h2 data-fa="پیگیری عادت هفتگی"
+data-en="Weekly Habit Tracker">پیگیری عادت هفتگی</h2>
+<p data-fa="هر روز پس از انجام عادت انتخابی، مربع همان روز را علامت بزن."
+data-en="Check the box for each day after completing your chosen habit.">
+هر روز پس از انجام عادت انتخابی، مربع همان روز را علامت بزن.
+</p>
+
+<div id="tracker">
+<label class="progress-item"><input type="checkbox"> <span data-fa="روز اول" data-en="Day 1">روز اول</span></label>
+<label class="progress-item"><input type="checkbox"> <span data-fa="روز دوم" data-en="Day 2">روز دوم</span></label>
+<label class="progress-item"><input type="checkbox"> <span data-fa="روز سوم" data-en="Day 3">روز سوم</span></label>
+<label class="progress-item"><input type="checkbox"> <span data-fa="روز چهارم" data-en="Day 4">روز چهارم</span></label>
+<label class="progress-item"><input type="checkbox"> <span data-fa="روز پنجم" data-en="Day 5">روز پنجم</span></label>
+<label class="progress-item"><input type="checkbox"> <span data-fa="روز ششم" data-en="Day 6">روز ششم</span></label>
+<label class="progress-item"><input type="checkbox"> <span data-fa="روز هفتم" data-en="Day 7">روز هفتم</span></label>
+</div>
+
+<div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+<p class="progress-text" id="progressText">۰ از ۷ روز تکمیل شده است.</p>
+<button class="btn lang" onclick="resetTracker()"
+data-fa="شروع هفته جدید" data-en="Start a New Week">شروع هفته جدید</button>
+<p class="progress-text" data-fa="یادآوری: اطلاعات این تمرین فقط در همین مرورگر ذخیره می‌شود."
+data-en="Note: Your tracker is saved only in this browser.">
+یادآوری: اطلاعات این تمرین فقط در همین مرورگر ذخیره می‌شود.
 </p>
 </section>
 
 <section class="card">
-<h2 data-fa="درباره EHSAN BOOKS"
-data-en="About EHSAN BOOKS">درباره EHSAN BOOKS</h2>
-<p data-fa="هدف ما فراهم کردن دسترسی آسان به دانش، ایده‌ها و خلاصه‌های کاربردی کتاب‌های ارزشمند برای مخاطبان سراسر جهان است."
-data-en="Our mission is to make knowledge, ideas, and practical book summaries accessible to readers around the world.">
-هدف ما فراهم کردن دسترسی آسان به دانش، ایده‌ها و خلاصه‌های کاربردی کتاب‌های ارزشمند برای مخاطبان سراسر جهان است.
+<h2 data-fa="پیام اصلی کتاب" data-en="The Main Message">پیام اصلی کتاب</h2>
+<p data-fa="برای رسیدن به موفقیت، لازم نیست یک‌باره زندگی خود را تغییر دهی. از یک قدم کوچک شروع کن و آن را به یک رفتار مستمر تبدیل کن. تغییر واقعی نتیجه انتخاب‌های کوچک و تکرارشونده است."
+data-en="You do not need to transform your life overnight. Start with one small step and turn it into a consistent behavior. Real change comes from small, repeated choices.">
+برای رسیدن به موفقیت، لازم نیست یک‌باره زندگی خود را تغییر دهی. از یک قدم کوچک شروع کن و آن را به یک رفتار مستمر تبدیل کن. تغییر واقعی نتیجه انتخاب‌های کوچک و تکرارشونده است.
 </p>
+<div class="tip" data-fa="یک درصد بهتر شدن در هر روز، می‌تواند در بلندمدت تفاوت بزرگی بسازد."
+data-en="Getting one percent better each day can make a remarkable difference over time.">
+یک درصد بهتر شدن در هر روز، می‌تواند در بلندمدت تفاوت بزرگی بسازد.
+</div>
+</section>
+
+<section class="card">
+<h2 data-fa="درباره EHSAN BOOKS" data-en="About EHSAN BOOKS">درباره EHSAN BOOKS</h2>
+<p data-fa="هدف ما فراهم کردن دسترسی آسان به دانش، ایده‌ها و خلاصه‌های آموزشی و کاربردی کتاب‌های ارزشمند برای مخاطبان سراسر جهان است."
+data-en="Our mission is to make knowledge, ideas, and educational book summaries accessible to readers around the world.">
+هدف ما فراهم کردن دسترسی آسان به دانش، ایده‌ها و خلاصه‌های آموزشی و کاربردی کتاب‌های ارزشمند برای مخاطبان سراسر جهان است.
+</p>
+<a href="index.html" class="btn lang"
+data-fa="بازگشت به کتابخانه احسان"
+data-en="Return to EHSAN Library">بازگشت به کتابخانه احسان</a>
 </section>
 
 </main>
 
 <footer>
 <div class="logo">EHSAN <span>BOOKS</span></div>
-<p>© 2026 EHSAN BOOKS</p>
+<p>© 2026 EHSAN BOOKS. All Rights Reserved.</p>
 <p data-fa="دانش امروز، موفقیت فردا"
 data-en="Knowledge Today, Success Tomorrow">دانش امروز، موفقیت فردا</p>
 </footer>
@@ -259,14 +355,51 @@ data-en="Knowledge Today, Success Tomorrow">دانش امروز، موفقیت �
 let currentLang="fa";
 
 function toggleLang(){
-currentLang=currentLang==="fa"?"en":"fa";
-document.documentElement.lang=currentLang;
-document.documentElement.dir=currentLang==="fa"?"rtl":"ltr";
+  currentLang=currentLang==="fa"?"en":"fa";
+  document.documentElement.lang=currentLang;
+  document.documentElement.dir=currentLang==="fa"?"rtl":"ltr";
 
-document.querySelectorAll("[data-fa]").forEach(el=>{
-el.textContent=el.getAttribute("data-"+currentLang);
-});
+  document.querySelectorAll("[data-fa][data-en]").forEach(el=>{
+    el.textContent=el.getAttribute("data-"+currentLang);
+  });
+
+  document.querySelector(".lang").textContent=
+    currentLang==="fa"?"English":"فارسی";
+
+  updateProgress();
 }
+
+const tracker=document.querySelectorAll("#tracker input");
+const progressFill=document.getElementById("progressFill");
+const progressText=document.getElementById("progressText");
+
+function updateProgress(){
+  const done=[...tracker].filter(item=>item.checked).length;
+  progressFill.style.width=(done/7*100)+"%";
+
+  progressText.textContent=currentLang==="fa"
+    ? done+" از ۷ روز تکمیل شده است."
+    : done+" of 7 days completed.";
+}
+
+tracker.forEach((item,index)=>{
+  item.checked=localStorage.getItem("ehsan-habit-"+index)==="true";
+
+  item.addEventListener("change",()=>{
+    localStorage.setItem("ehsan-habit-"+index,item.checked);
+    updateProgress();
+  });
+});
+
+function resetTracker(){
+  tracker.forEach((item,index)=>{
+    item.checked=false;
+    localStorage.removeItem("ehsan-habit-"+index);
+  });
+  updateProgress();
+}
+
+updateProgress();
 </script>
 
 </body>
