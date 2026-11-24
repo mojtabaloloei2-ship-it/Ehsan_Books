@@ -147,6 +147,38 @@ color:#718096;
 <footer>
 EHSAN BOOKS | دانایی، مسیر پیشرفت
 </footer>
+<script>
+function loadFavorites(){
+  const favorites = JSON.parse(
+    localStorage.getItem("ehsanFavorites") || "[]"
+  );
 
+  const list = document.getElementById("favoriteList");
+  const count = document.getElementById("favorite");
+
+  count.textContent = favorites.length;
+
+  if(favorites.length === 0){
+    list.innerHTML =
+      '<p class="muted">هنوز کتابی به فهرست علاقه‌مندی‌ها اضافه نشده است.</p>';
+    return;
+  }
+
+  list.innerHTML = "";
+
+  favorites.forEach(function(title){
+    const item = document.createElement("div");
+    item.className = "book";
+
+    const heading = document.createElement("h3");
+    heading.textContent = "♥ " + title;
+
+    item.appendChild(heading);
+    list.appendChild(item);
+  });
+}
+
+loadFavorites();
+</script>
 </body>
 </html>
