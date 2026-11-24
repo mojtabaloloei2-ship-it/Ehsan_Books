@@ -685,6 +685,12 @@ footer p{font-size:12px;color:#b6c6d6}
         <h3 data-fa="هفت عادت مردمان مؤثر" data-en="The 7 Habits of Highly Effective People">هفت عادت مردمان مؤثر</h3>
         <p data-fa="هفت اصل برای زندگی مؤثرتر و هدفمندتر." data-en="Seven principles for a more effective and purposeful life.">هفت اصل برای زندگی مؤثرتر و هدفمندتر.</p>
         <a class="book-link" href="seven-habits.html" data-fa="مطالعه خلاصه" data-en="Read Summary">مطالعه خلاصه</a>
+     <button class="favorite-btn"
+        onclick="toggleFavorite(this)"
+        data-fa="♡ افزودن به علاقه‌مندی‌ها"
+        data-en="♡ Add to Favorites">
+  ♡ افزودن به علاقه‌مندی‌ها
+     </button>
       </article>
 
       <article class="book" data-category="finance" data-search="ثروت ملل wealth of nations">
@@ -883,6 +889,23 @@ function showAllBooks(){
   document.getElementById("books").scrollIntoView({
     behavior: "smooth"
   });
+}
+function toggleFavorite(button){
+  const book = button.closest(".book");
+  const title = book.querySelector("h3").textContent;
+  let favorites = JSON.parse(localStorage.getItem("ehsanFavorites") || "[]");
+
+  const index = favorites.indexOf(title);
+
+  if(index === -1){
+    favorites.push(title);
+    button.textContent = "♥ افزوده شد";
+  } else {
+    favorites.splice(index, 1);
+    button.textContent = "♡ افزودن به علاقه‌مندی‌ها";
+  }
+
+  localStorage.setItem("ehsanFavorites", JSON.stringify(favorites));
 }
 </script>
 </body>
