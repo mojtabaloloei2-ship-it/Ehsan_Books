@@ -1,0 +1,283 @@
+
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>عضویت | EHSAN BOOKS</title>
+
+<style>
+*{box-sizing:border-box}
+body{
+ margin:0;
+ font-family:Tahoma,Arial,sans-serif;
+ background:linear-gradient(135deg,#07182e,#102e46);
+ color:#fff;
+ min-height:100vh;
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ padding:20px;
+}
+.container{
+ width:100%;
+ max-width:440px;
+ background:#10283e;
+ padding:30px;
+ border-radius:20px;
+ border:1px solid #24536a;
+ box-shadow:0 15px 45px #0005;
+}
+.logo{
+ text-align:center;
+ font-size:32px;
+ font-weight:bold;
+ color:#20c7bd;
+ letter-spacing:2px;
+}
+.subtitle{
+ text-align:center;
+ color:#d5bd83;
+ margin:10px 0 25px;
+ font-size:14px;
+}
+.tabs{
+ display:flex;
+ gap:10px;
+ margin-bottom:25px;
+}
+.tabs button{
+ flex:1;
+ padding:12px;
+ border:1px solid #277b83;
+ border-radius:9px;
+ background:transparent;
+ color:white;
+ cursor:pointer;
+}
+.tabs button.active{
+ background:#17a9a5;
+ border-color:#17a9a5;
+}
+label{
+ display:block;
+ margin:15px 0 8px;
+ font-size:14px;
+}
+input{
+ width:100%;
+ padding:13px;
+ border:1px solid #31576b;
+ border-radius:9px;
+ background:#091d30;
+ color:white;
+ font-size:15px;
+ outline:none;
+}
+input:focus{border-color:#20c7bd}
+.main-btn{
+ width:100%;
+ padding:14px;
+ margin-top:22px;
+ border:0;
+ border-radius:9px;
+ background:#19aaa5;
+ color:white;
+ font-size:16px;
+ font-weight:bold;
+ cursor:pointer;
+}
+.main-btn:hover{background:#20c7bd}
+.extra{
+ text-align:center;
+ margin-top:18px;
+ font-size:13px;
+ color:#c7d3dd;
+}
+.extra a{
+ color:#e3c783;
+ text-decoration:none;
+}
+.language{
+ display:block;
+ margin:20px auto 0;
+ padding:8px 15px;
+ border:1px solid #d5bd83;
+ background:transparent;
+ color:#e3c783;
+ border-radius:8px;
+ cursor:pointer;
+}
+.hidden{display:none}
+.password-wrap{position:relative}
+.toggle{
+ position:absolute;
+ left:12px;
+ top:13px;
+ cursor:pointer;
+ color:#20c7bd;
+ font-size:12px;
+}
+.message{
+ text-align:center;
+ margin-top:14px;
+ font-size:13px;
+ color:#e3c783;
+ line-height:1.8;
+}
+.footer{
+ text-align:center;
+ margin-top:25px;
+ font-size:11px;
+ color:#91a6b5;
+}
+</style>
+</head>
+
+<body>
+<div class="container">
+
+<div class="logo">EHSAN BOOKS</div>
+<div class="subtitle" id="subtitle">
+دنیای دانش، مطالعه و موفقیت
+</div>
+
+<div class="tabs">
+<button class="active" id="loginTab" onclick="showForm('login')">
+ورود
+</button>
+<button id="registerTab" onclick="showForm('register')">
+ثبت‌نام
+</button>
+</div>
+
+<form id="loginForm">
+<label>ایمیل</label>
+<input type="email" id="loginEmail" placeholder="ایمیل خود را وارد کنید" required>
+
+<label>رمز عبور</label>
+<div class="password-wrap">
+<input type="password" id="loginPassword" placeholder="رمز عبور" required>
+<span class="toggle" onclick="togglePassword('loginPassword',this)">نمایش</span>
+</div>
+
+<button class="main-btn" type="submit">ورود به حساب</button>
+
+<div class="extra">
+<a href="#" onclick="forgotPassword(event)">فراموشی رمز عبور؟</a>
+</div>
+</form>
+
+<form id="registerForm" class="hidden">
+<label>نام و نام خانوادگی</label>
+<input type="text" id="fullName" placeholder="نام کامل" required>
+
+<label>ایمیل</label>
+<input type="email" id="registerEmail" placeholder="ایمیل شما" required>
+
+<label>رمز عبور</label>
+<div class="password-wrap">
+<input type="password" id="registerPassword" minlength="8" placeholder="حداقل ۸ کاراکتر" required>
+<span class="toggle" onclick="togglePassword('registerPassword',this)">نمایش</span>
+</div>
+
+<label>تکرار رمز عبور</label>
+<input type="password" id="confirmPassword" minlength="8" placeholder="تکرار رمز عبور" required>
+
+<button class="main-btn" type="submit">ایجاد حساب کاربری</button>
+</form>
+
+<div class="message" id="message"></div>
+
+<button class="language" onclick="changeLanguage()">
+English / فارسی
+</button>
+
+<div class="footer">
+© EHSAN BOOKS - All Rights Reserved
+</div>
+
+</div>
+
+<script>
+let english=false;
+let currentForm='login';
+
+function showForm(type){
+ currentForm=type;
+ document.getElementById('loginForm').classList.toggle('hidden',type!=='login');
+ document.getElementById('registerForm').classList.toggle('hidden',type!=='register');
+ document.getElementById('loginTab').classList.toggle('active',type==='login');
+ document.getElementById('registerTab').classList.toggle('active',type==='register');
+ document.getElementById('message').textContent='';
+}
+
+function togglePassword(id,element){
+ const input=document.getElementById(id);
+ input.type=input.type==='password'?'text':'password';
+ element.textContent=input.type==='password'?'نمایش':'مخفی';
+}
+
+function changeLanguage(){
+ english=!english;
+ document.documentElement.lang=english?'en':'fa';
+ document.documentElement.dir=english?'ltr':'rtl';
+
+ document.getElementById('subtitle').textContent=
+ english?'Knowledge, Reading and Success':'دنیای دانش، مطالعه و موفقیت';
+
+ document.getElementById('loginTab').textContent=english?'Login':'ورود';
+ document.getElementById('registerTab').textContent=english?'Sign Up':'ثبت‌نام';
+
+ document.querySelectorAll('label').forEach((label,i)=>{
+ const fa=['ایمیل','رمز عبور','نام و نام خانوادگی','ایمیل','رمز عبور','تکرار رمز عبور'];
+ const en=['Email','Password','Full Name','Email','Password','Confirm Password'];
+ label.textContent=english?en[i]:fa[i];
+ });
+
+ document.getElementById('loginEmail').placeholder=english?'Enter your email':'ایمیل خود را وارد کنید';
+ document.getElementById('loginPassword').placeholder=english?'Password':'رمز عبور';
+ document.getElementById('fullName').placeholder=english?'Full Name':'نام کامل';
+ document.getElementById('registerEmail').placeholder=english?'Your email':'ایمیل شما';
+ document.getElementById('registerPassword').placeholder=english?'At least 8 characters':'حداقل ۸ کاراکتر';
+ document.getElementById('confirmPassword').placeholder=english?'Repeat password':'تکرار رمز عبور';
+
+ document.querySelector('#loginForm .main-btn').textContent=english?'Login to Account':'ورود به حساب';
+ document.querySelector('#registerForm .main-btn').textContent=english?'Create Account':'ایجاد حساب کاربری';
+ document.querySelector('.extra a').textContent=english?'Forgot Password?':'فراموشی رمز عبور؟';
+ document.getElementById('message').textContent='';
+}
+
+function forgotPassword(event){
+ event.preventDefault();
+ document.getElementById('message').textContent=english?
+ 'Password recovery will be available after secure account setup.':
+ 'بازیابی رمز عبور پس از اتصال سیستم حساب کاربری فعال می‌شود.';
+}
+
+document.getElementById('loginForm').addEventListener('submit',function(e){
+ e.preventDefault();
+ document.getElementById('message').textContent=english?
+ 'Secure account connection is not configured yet.':
+ 'سیستم ورود واقعی هنوز به پایگاه کاربران متصل نشده است.';
+});
+
+document.getElementById('registerForm').addEventListener('submit',function(e){
+ e.preventDefault();
+
+ const password=document.getElementById('registerPassword').value;
+ const confirm=document.getElementById('confirmPassword').value;
+
+ if(password!==confirm){
+ document.getElementById('message').textContent=english?
+ 'Passwords do not match.':'رمزهای عبور یکسان نیستند.';
+ return;
+ }
+
+ document.getElementById('message').textContent=english?
+ 'Registration will be activated after secure account setup.':
+ 'ثبت‌نام واقعی پس از اتصال سیستم امن کاربران فعال می‌شود.';
+});
+</script>
+</body>
+</html>
