@@ -811,12 +811,19 @@ footer p{font-size:12px;color:#b6c6d6}
 
 let currentLanguage = "fa";
 
+
 function normalizeText(text){
   return (text || "")
     .toLowerCase()
     .replace(/ي/g,"ی")
     .replace(/ك/g,"ک")
     .replace(/‌/g," ")
+    .replace(/[۰-۹]/g, function(d){
+      return "۰۱۲۳۴۵۶۷۸۹".indexOf(d);
+    })
+    .replace(/[٠-٩]/g, function(d){
+      return "٠١٢٣٤٥٦٧٨٩".indexOf(d);
+    })
     .replace(/\s+/g," ")
     .trim();
 }
