@@ -921,9 +921,11 @@ function toggleFavorite(button){
     button.textContent = "♡ افزودن به علاقه‌مندی‌ها";
   }
 
-  localStorage.setItem("ehsanFavorites", JSON.stringify(favorites));
-alert("اطلاعات ذخیره‌شده: " + localStorage.getItem("ehsanFavorites"));
-}
+ localStorage.setItem("ehsanFavorites", JSON.stringify(favorites));
+
+showFavorites();
+
+} 
 
 function showFavorites() {
   const favorites = JSON.parse(
