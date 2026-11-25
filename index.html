@@ -952,37 +952,43 @@ function toggleFavorite(button) {
   showFavorites();
 }
 
+
 function showFavorites() {
   const favorites = JSON.parse(
     localStorage.getItem("ehsanFavorites") || "[]"
   );
 
   const container = document.getElementById("favoriteBooks");
-const count = document.getElementById("favoriteCount");
+  const count = document.getElementById("favoriteCount");
 
-if (count) {
-  count.textContent = "تعداد کتاب‌های ذخیره‌شده: " + favorites.length;
-}
+  if (!container) return;
+
+  if (count) {
+    count.textContent =
+      "تعداد کتاب‌های ذخیره‌شده: " + favorites.length;
+  }
+
+  document.querySelectorAll(".book").forEach(book => {
+    const title = book.querySelector("h3")?.textContent.trim();
+    const button = book.querySelector(".favorite-btn");
+
+    if (!button) return;
+
+    const saved = favorites.some(item =>
+      (typeof item === "string" ? item : item.title) === title
+    );
+
+    button.textContent = saved
+      ? "♥ افزوده شد"
+      : "♡ افزودن به علاقه‌مندی‌ها";
+  });
+
+  container.innerHTML = "";
+
   if (!favorites.length) {
-    container.innerHTML = "هنوز کتابی ذخیره نکرده‌اید.";
+    container.textContent = "هنوز کتابی ذخیره نکرده‌اید.";
     return;
   }
-document.querySelectorAll(".book").forEach(book => {
-  const title = book.querySelector("h3")?.textContent.trim();
-
-  const button = book.querySelector(".favorite-btn");
-
-  if (!button) return;
-
-  const saved = favorites.some(item =>
-    (typeof item === "string" ? item : item.title) === title
-  );
-
-  button.textContent = saved
-    ? "♥ افزوده شد"
-    : "♡ افزودن به علاقه‌مندی‌ها";
-});
-  container.innerHTML = "";
 
   favorites.forEach(book => {
     if (typeof book === "string") {
@@ -1023,12 +1029,13 @@ document.querySelectorAll(".book").forEach(book => {
 
     const read = document.createElement("a");
     read.textContent = "مطالعه کتاب";
-    read.href = book.link;
+    read.href = book.link || "#";
     read.style.display = "inline-block";
     read.style.margin = "8px";
 
     const remove = document.createElement("button");
     remove.textContent = "حذف از کتابخانه";
+
     remove.onclick = function () {
       let current = JSON.parse(
         localStorage.getItem("ehsanFavorites") || "[]"
@@ -1038,7 +1045,11 @@ document.querySelectorAll(".book").forEach(book => {
         (typeof entry === "string" ? entry : entry.title) !== book.title
       );
 
-      localStorage.setItem("ehsanFavorites", JSON.stringify(current));
+      localStorage.setItem(
+        "ehsanFavorites",
+        JSON.stringify(current)
+      );
+
       showFavorites();
     };
 
@@ -1052,27 +1063,97 @@ document.querySelectorAll(".book").forEach(book => {
   });
 }
 
+function showFavorites() {
+  const favorites = JSON.parse(
+    localStorage.getItem("ehsanFavorites") || "[]"
+  );
+
+  const container = document.getElementById("favoriteBooks");
+  const count = document.getElementById("favoriteCount");
+
+  if (!container) return;
+
+  if (count) {
+    count.textContent =
+      "تعداد کتاب‌های ذخیره‌شده: " + favorites.length;
+  }
+
+  document.querySelectorAll(".book").forEach(book => {
+    const title = book.querySelector("h3")?.textContent.trim();
+    const button = book.querySelector(".favorite-btn");
+
+    if (!button) return;
+
+    const saved = favorites.some(item =>
+      (typeof item === "string" ? item : item.title) === title
+    );
+
+    button.textContent = saved
+      ? "♥ افزوده شد"
+      : "♡ افزودن به علاقه‌مندی‌ها";
+  });
 
   container.innerHTML = "";
 
-  favorites.forEach(title => {
-    const item = document.createElement("div");
-    item.style.padding = "12px";
-    item.style.margin = "10px 0";
-    item.style.border = "1px solid #ccc";
-    item.style.borderRadius = "10px";
+  if (!favorites.length) {
+    container.textContent = "هنوز کتابی ذخیره نکرده‌اید.";
+    return;
+  }
 
-    const name = document.createElement("span");
-    name.textContent = "📖 " + title + " ";
+  favorites.forEach(book => {
+    if (typeof book === "string") {
+      book = {
+        title: book,
+        description: "این کتاب در کتابخانه شخصی شما ذخیره شده است.",
+        cover: "",
+        link: "#"
+      };
+    }
+
+    const item = document.createElement("div");
+    item.style.padding = "15px";
+    item.style.margin = "12px 0";
+    item.style.border = "1px solid #d6c9a5";
+    item.style.borderRadius = "12px";
+    item.style.display = "flex";
+    item.style.gap = "15px";
+    item.style.alignItems = "center";
+
+    if (book.cover) {
+      const img = document.createElement("img");
+      img.src = book.cover;
+      img.alt = "جلد " + book.title;
+      img.style.width = "85px";
+      img.style.height = "115px";
+      img.style.objectFit = "contain";
+      item.appendChild(img);
+    }
+
+    const details = document.createElement("div");
+
+    const name = document.createElement("h3");
+    name.textContent = book.title;
+
+    const description = document.createElement("p");
+    description.textContent = book.description;
+
+    const read = document.createElement("a");
+    read.textContent = "مطالعه کتاب";
+    read.href = book.link || "#";
+    read.style.display = "inline-block";
+    read.style.margin = "8px";
 
     const remove = document.createElement("button");
-    remove.textContent = "حذف کتاب";
+    remove.textContent = "حذف از کتابخانه";
+
     remove.onclick = function () {
       let current = JSON.parse(
         localStorage.getItem("ehsanFavorites") || "[]"
       );
 
-      current = current.filter(book => book !== title);
+      current = current.filter(entry =>
+        (typeof entry === "string" ? entry : entry.title) !== book.title
+      );
 
       localStorage.setItem(
         "ehsanFavorites",
@@ -1082,8 +1163,12 @@ document.querySelectorAll(".book").forEach(book => {
       showFavorites();
     };
 
-    item.appendChild(name);
-    item.appendChild(remove);
+    details.appendChild(name);
+    details.appendChild(description);
+    details.appendChild(read);
+    details.appendChild(remove);
+
+    item.appendChild(details);
     container.appendChild(item);
   });
 }
