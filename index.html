@@ -924,6 +924,56 @@ function toggleFavorite(button){
   localStorage.setItem("ehsanFavorites", JSON.stringify(favorites));
 alert("اطلاعات ذخیره‌شده: " + localStorage.getItem("ehsanFavorites"));
 }
+
+function showFavorites() {
+  const favorites = JSON.parse(
+    localStorage.getItem("ehsanFavorites") || "[]"
+  );
+
+  const container = document.getElementById("favoriteBooks");
+
+  if (!favorites.length) {
+    container.innerHTML = "هنوز کتابی ذخیره نکرده‌اید.";
+    return;
+  }
+
+  container.innerHTML = "";
+
+  favorites.forEach(title => {
+    const item = document.createElement("div");
+    item.style.padding = "12px";
+    item.style.margin = "10px 0";
+    item.style.border = "1px solid #ccc";
+    item.style.borderRadius = "10px";
+
+    const name = document.createElement("span");
+    name.textContent = "📖 " + title + " ";
+
+    const remove = document.createElement("button");
+    remove.textContent = "حذف کتاب";
+    remove.onclick = function () {
+      let current = JSON.parse(
+        localStorage.getItem("ehsanFavorites") || "[]"
+      );
+
+      current = current.filter(book => book !== title);
+
+      localStorage.setItem(
+        "ehsanFavorites",
+        JSON.stringify(current)
+      );
+
+      showFavorites();
+    };
+
+    item.appendChild(name);
+    item.appendChild(remove);
+    container.appendChild(item);
+  });
+}
+
+document.addEventListener("DOMContentLoaded", showFavorites);
+
 </script>
 
 <section id="myLibrary" class="section">
