@@ -943,22 +943,14 @@ function toggleFavorite(button) {
 
   if (index === -1) {
     favorites.push({ title, description, cover, link });
-    button.textContent = "♥ افزوده شد";
   } else {
     favorites.splice(index, 1);
-    button.textContent = "♡ افزودن به علاقه‌مندی‌ها";
   }
 
   localStorage.setItem("ehsanFavorites", JSON.stringify(favorites));
+
   showFavorites();
 }
-
- localStorage.setItem("ehsanFavorites", JSON.stringify(favorites));
-
-showFavorites();
-
-} 
-
 
 function showFavorites() {
   const favorites = JSON.parse(
