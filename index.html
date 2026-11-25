@@ -756,8 +756,15 @@ footer p{font-size:12px;color:#b6c6d6}
     </div>
   </div>
 </section>
+
+
 <section id="myLibrary" class="section">
   <h2>📚 کتابخانه شخصی من</h2>
+
+  <p id="favoriteCount">
+    تعداد کتاب‌های ذخیره‌شده: ۰
+  </p>
+
   <div id="favoriteBooks">
     هنوز کتابی ذخیره نکرده‌اید.
   </div>
@@ -916,20 +923,35 @@ function showAllBooks(){
     behavior: "smooth"
   });
 }
-function toggleFavorite(button){
+
+
+function toggleFavorite(button) {
   const book = button.closest(".book");
-  const title = book.querySelector("h3").textContent;
-  let favorites = JSON.parse(localStorage.getItem("ehsanFavorites") || "[]");
 
-  const index = favorites.indexOf(title);
+  const title = book.querySelector("h3").textContent.trim();
+  const description = book.querySelector("p").textContent.trim();
+  const cover = book.querySelector(".book-cover img")?.getAttribute("src") || "";
+  const link = book.querySelector(".book-link")?.getAttribute("href") || "";
 
-  if(index === -1){
-    favorites.push(title);
+  let favorites = JSON.parse(
+    localStorage.getItem("ehsanFavorites") || "[]"
+  );
+
+  const index = favorites.findIndex(item =>
+    (typeof item === "string" ? item : item.title) === title
+  );
+
+  if (index === -1) {
+    favorites.push({ title, description, cover, link });
     button.textContent = "♥ افزوده شد";
   } else {
     favorites.splice(index, 1);
     button.textContent = "♡ افزودن به علاقه‌مندی‌ها";
   }
+
+  localStorage.setItem("ehsanFavorites", JSON.stringify(favorites));
+  showFavorites();
+}
 
  localStorage.setItem("ehsanFavorites", JSON.stringify(favorites));
 
@@ -937,17 +959,107 @@ showFavorites();
 
 } 
 
+
 function showFavorites() {
   const favorites = JSON.parse(
     localStorage.getItem("ehsanFavorites") || "[]"
   );
 
   const container = document.getElementById("favoriteBooks");
+const count = document.getElementById("favoriteCount");
 
+if (count) {
+  count.textContent = "تعداد کتاب‌های ذخیره‌شده: " + favorites.length;
+}
   if (!favorites.length) {
     container.innerHTML = "هنوز کتابی ذخیره نکرده‌اید.";
     return;
   }
+document.querySelectorAll(".book").forEach(book => {
+  const title = book.querySelector("h3")?.textContent.trim();
+
+  const button = book.querySelector(".favorite-btn");
+
+  if (!button) return;
+
+  const saved = favorites.some(item =>
+    (typeof item === "string" ? item : item.title) === title
+  );
+
+  button.textContent = saved
+    ? "♥ افزوده شد"
+    : "♡ افزودن به علاقه‌مندی‌ها";
+});
+  container.innerHTML = "";
+
+  favorites.forEach(book => {
+    if (typeof book === "string") {
+      book = {
+        title: book,
+        description: "این کتاب در کتابخانه شخصی شما ذخیره شده است.",
+        cover: "",
+        link: "#"
+      };
+    }
+
+    const item = document.createElement("div");
+    item.style.padding = "15px";
+    item.style.margin = "12px 0";
+    item.style.border = "1px solid #d6c9a5";
+    item.style.borderRadius = "12px";
+    item.style.display = "flex";
+    item.style.gap = "15px";
+    item.style.alignItems = "center";
+
+    if (book.cover) {
+      const img = document.createElement("img");
+      img.src = book.cover;
+      img.alt = "جلد " + book.title;
+      img.style.width = "85px";
+      img.style.height = "115px";
+      img.style.objectFit = "contain";
+      item.appendChild(img);
+    }
+
+    const details = document.createElement("div");
+
+    const name = document.createElement("h3");
+    name.textContent = book.title;
+
+    const description = document.createElement("p");
+    description.textContent = book.description;
+
+    const read = document.createElement("a");
+    read.textContent = "مطالعه کتاب";
+    read.href = book.link;
+    read.style.display = "inline-block";
+    read.style.margin = "8px";
+
+    const remove = document.createElement("button");
+    remove.textContent = "حذف از کتابخانه";
+    remove.onclick = function () {
+      let current = JSON.parse(
+        localStorage.getItem("ehsanFavorites") || "[]"
+      );
+
+      current = current.filter(entry =>
+        (typeof entry === "string" ? entry : entry.title) !== book.title
+      );
+
+      localStorage.setItem("ehsanFavorites", JSON.stringify(current));
+      showFavorites();
+    };
+
+    details.appendChild(name);
+    details.appendChild(description);
+    details.appendChild(read);
+    details.appendChild(remove);
+
+    item.appendChild(details);
+    container.appendChild(item);
+  });
+}
+
 
   container.innerHTML = "";
 
