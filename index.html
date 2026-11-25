@@ -854,10 +854,30 @@ function changeLanguage(){
     langButton.textContent = currentLanguage === "fa" ? "English" : "فارسی";
   }
 
+let activeBookCategory = "all";
+
   searchBooks();
 }
 
+
 function searchBooks(){
+  applyBookFilters();
+}
+
+function filterCategory(category){
+  activeBookCategory = category;
+
+  const input = document.getElementById("searchInput");
+  if(input) input.value = "";
+
+  applyBookFilters();
+
+  document.getElementById("books").scrollIntoView({
+    behavior: "smooth"
+  });
+}
+
+function applyBookFilters(){
   const input = document.getElementById("searchInput");
   const query = normalizeText(input ? input.value : "");
 
@@ -866,22 +886,46 @@ function searchBooks(){
 
   books.forEach(function(book){
     const content = normalizeText(
-      book.innerText + " " + (book.getAttribute("data-search") || "")
+      book.innerText + " " +
+      (book.getAttribute("data-search") || "")
     );
 
-    const matches = content.includes(query);
+    const category = book.getAttribute("data-category");
 
-    book.style.display = matches ? "" : "none";
+    const matchesCategory =
+      activeBookCategory === "all" ||
+      category === activeBookCategory;
 
-    if(matches) visibleCount++;
+    const matchesSearch = content.includes(query);
+
+    const visible = matchesCategory && matchesSearch;
+
+    book.style.display = visible ? "" : "none";
+
+    if(visible) visibleCount++;
   });
 
   const noResult = document.getElementById("noResult");
 
   if(noResult){
-    noResult.style.display = visibleCount === 0 ? "block" : "none";
+    noResult.style.display =
+      visibleCount === 0 ? "block" : "none";
   }
 }
+
+function showAllBooks(){
+  activeBookCategory = "all";
+
+  const input = document.getElementById("searchInput");
+  if(input) input.value = "";
+
+  applyBookFilters();
+
+  document.getElementById("books").scrollIntoView({
+    behavior: "smooth"
+  });
+}
+
 
 function filterCategory(category){
   const books = document.querySelectorAll("#bookList .book");
