@@ -807,13 +807,15 @@ footer p{font-size:12px;color:#b6c6d6}
   </div>
 </footer>
 
-
 function filterCategory(category){
   const books = document.querySelectorAll("#bookList .book");
   let visibleCount = 0;
 
   books.forEach(function(book){
-    const matches = book.getAttribute("data-category") === category;
+    const bookCategory = book.getAttribute("data-category");
+
+    const matches = category === "all" ||
+                    bookCategory === category;
 
     book.style.display = matches ? "" : "none";
 
@@ -830,10 +832,16 @@ function filterCategory(category){
 
   if(input) input.value = "";
 
-  document.getElementById("books").scrollIntoView({
-    behavior: "smooth"
-  });
+  const booksSection = document.getElementById("books");
+
+  if(booksSection){
+    booksSection.scrollIntoView({
+      behavior: "smooth"
+    });
+  }
 }
+
+
 function showAllBooks(){
   const books = document.querySelectorAll("#bookList .book");
 
