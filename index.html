@@ -1217,33 +1217,6 @@ function applyBookFilters(){
   }
 }
 
-function toggleFavorite(button){
-  const book = button.closest(".book");
-
-  const title = book.querySelector("h3").textContent.trim();
-  const description = book.querySelector("p").textContent.trim();
-  const cover = book.querySelector(".book-cover img")?.getAttribute("src") || "";
-  const link = book.querySelector(".book-link")?.getAttribute("href") || "";
-
-  let favorites = JSON.parse(
-    localStorage.getItem("ehsanFavorites") || "[]"
-  );
-
-  const index = favorites.findIndex(item =>
-    (typeof item === "string" ? item : item.title) === title
-  );
-
-  if(index === -1){
-    favorites.push({title, description, cover, link});
-  }else{
-    favorites.splice(index, 1);
-  }
-
-  localStorage.setItem(
-    "ehsanFavorites",
-    JSON.stringify(favorites)
-  );
-
 
 
 <script>
