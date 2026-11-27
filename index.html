@@ -867,7 +867,7 @@ function showAllBooks(){
 
 function toggleFavorite(button) {
   const book = button.closest(".book");
-
+alert("دکمه علاقه‌مندی فعال شد");
   const title = book.querySelector("h3").textContent.trim();
   const description = book.querySelector("p")?.textContent.trim() || "";
   const cover = book.querySelector(".book-cover img")?.getAttribute("src") || "";
