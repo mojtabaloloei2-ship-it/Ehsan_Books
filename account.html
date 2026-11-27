@@ -1,189 +1,110 @@
-
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0b1830">
 <title>حساب کاربری | EHSAN BOOKS</title>
 <style>
 *{box-sizing:border-box}
 body{
 margin:0;
 font-family:Tahoma,Arial,sans-serif;
-background:#f1f5f9;
-color:#243247;
+background:#0b1830;
+color:#fff;
 min-height:100vh;
 display:flex;
 align-items:center;
 justify-content:center;
-padding:20px;
+padding:20px
 }
 .container{
-width:100%;
-max-width:440px;
-background:white;
-border-radius:20px;
-overflow:hidden;
-box-shadow:0 8px 30px #00000012;
+width:100%;max-width:430px;
+background:#132642;
+border:1px solid #244461;
+border-radius:18px;
+padding:28px;
+box-shadow:0 15px 40px #0005
 }
-header{
-background:#102a43;
-color:white;
-text-align:center;
-padding:30px 20px;
+.logo{text-align:center;color:#48d6c5;font-size:25px;font-weight:bold}
+.subtitle{text-align:center;color:#d9c58a;margin:12px 0 25px}
+.tabs{display:flex;gap:10px;margin-bottom:22px}
+.tabs button{
+flex:1;padding:12px;border:1px solid #426079;
+border-radius:9px;background:transparent;
+color:white;font-size:15px
 }
-header h1{color:#42d6c5;margin:0}
-header p{margin-bottom:0}
-.content{padding:25px}
-h2{color:#087f8c;text-align:center}
+.tabs button.active{background:#20b9ad;color:#092039}
+label{display:block;margin:14px 0 7px}
 input{
-width:100%;
-padding:14px;
-margin:10px 0;
-border:1px solid #d6dee8;
-border-radius:9px;
-font-size:15px;
+width:100%;padding:13px;border-radius:9px;
+border:1px solid #456078;background:#0b1830;
+color:white;font-size:15px
 }
-button{
-width:100%;
-padding:13px;
-background:#087f8c;
-color:white;
-border:0;
-border-radius:9px;
-font-size:16px;
-cursor:pointer;
-margin-top:12px;
+.submit{
+width:100%;padding:14px;margin-top:22px;
+border:0;border-radius:9px;
+background:#20b9ad;color:#062039;
+font-weight:bold;font-size:16px
 }
-button.secondary{
-background:#e8f4f5;
-color:#087f8c;
-}
-.note{
-font-size:12px;
-color:#718096;
-text-align:center;
-margin-top:20px;
-}
-.hidden{display:none}
-.lang{
-background:#42d6c5;
-color:#102a43;
-padding:8px 15px;
-border:0;
-border-radius:8px;
-width:auto;
-margin:15px auto 0;
-display:block;
-}
+.note{text-align:center;color:#b8c7d8;font-size:12px;line-height:2;margin-top:20px}
+a{color:#48d6c5;text-decoration:none}
 </style>
 </head>
 <body>
-
 <div class="container">
+<div class="logo">EHSAN BOOKS</div>
+<div class="subtitle">حساب کاربری | دانش برای جهانی بهتر</div>
 
-<header>
-<h1>EHSAN BOOKS</h1>
-<p class="fa">کتابخانه‌ای برای رشد و پیشرفت</p>
-<p class="en hidden">A Library for Growth and Progress</p>
-</header>
-
-<div class="content">
-
-<div id="login">
-<h2 class="fa">ورود به حساب کاربری</h2>
-<h2 class="en hidden">Login to Your Account</h2>
-
-<p class="fa">شماره موبایل خود را وارد کنید:</p>
-<p class="en hidden">Enter your mobile number:</p>
-
-<input id="phone" type="tel"
-placeholder="09xxxxxxxxx"
-maxlength="11"
-autocomplete="tel">
-
-<button onclick="continueLogin()">
-<span class="fa">ادامه</span>
-<span class="en hidden">Continue</span>
-</button>
-
-<button class="secondary" onclick="showRegister()">
-<span class="fa">ثبت‌نام کاربر جدید</span>
-<span class="en hidden">Create New Account</span>
-</button>
+<div class="tabs">
+<button id="registerTab" class="active" type="button" onclick="showForm('register')">ثبت‌نام</button>
+<button id="loginTab" type="button" onclick="showForm('login')">ورود</button>
 </div>
 
-<div id="register" class="hidden">
-<h2 class="fa">ثبت‌نام در EHSAN BOOKS</h2>
-<h2 class="en hidden">Create Your Account</h2>
-
-<input id="name" placeholder="نام و نام خانوادگی">
-<input id="newPhone" type="tel"
-placeholder="شماره موبایل"
-maxlength="11">
-
-<button onclick="registerUser()">
-<span class="fa">ثبت اطلاعات</span>
-<span class="en hidden">Register</span>
-</button>
-
-<button class="secondary" onclick="showLogin()">
-بازگشت به ورود
-</button>
+<form id="accountForm" onsubmit="demoSubmit(event)">
+<div id="nameField">
+<label>نام و نام خانوادگی</label>
+<input type="text" id="name" placeholder="نام کامل شما" required>
 </div>
+
+<label>ایمیل</label>
+<input type="email" id="email" placeholder="example@email.com" required>
+
+<label>رمز عبور</label>
+<input type="password" id="password" placeholder="حداقل ۸ کاراکتر" minlength="8" required>
+
+<button class="submit" id="submitButton" type="submit">ایجاد حساب کاربری</button>
+</form>
 
 <div id="message" class="note">
-این نسخه آزمایشی است؛ ورود واقعی پس از اتصال سیستم پیامکی فعال می‌شود.
+این صفحه در مرحله آزمایشی طراحی است.
 </div>
-
-<button class="lang" onclick="toggleLanguage()">
-فارسی / English
-</button>
-
+<div class="note">
+<a href="index.html">بازگشت به کتابخانه EHSAN BOOKS</a>
 </div>
 </div>
 
 <script>
-function continueLogin(){
-const phone=document.getElementById("phone").value.trim();
+let currentMode="register";
 
-if(!/^09\d{9}$/.test(phone)){
-alert("لطفاً شماره موبایل ۱۱ رقمی معتبر وارد کنید.");
-return;
+function showForm(mode){
+currentMode=mode;
+document.getElementById("nameField").style.display=
+mode==="register"?"block":"none";
+document.getElementById("name").required=mode==="register";
+document.getElementById("registerTab").classList.toggle("active",mode==="register");
+document.getElementById("loginTab").classList.toggle("active",mode==="login");
+document.getElementById("submitButton").textContent=
+mode==="register"?"ایجاد حساب کاربری":"ورود به حساب";
+document.getElementById("message").textContent=
+mode==="register"?"ثبت‌نام در مرحله آزمایشی است.":"ورود در مرحله آزمایشی است.";
 }
 
-alert("صفحه ورود آزمایشی است. سیستم پیامک در مرحله اتصال سرور فعال خواهد شد.");
-}
-
-function showRegister(){
-document.getElementById("login").classList.add("hidden");
-document.getElementById("register").classList.remove("hidden");
-}
-
-function showLogin(){
-document.getElementById("register").classList.add("hidden");
-document.getElementById("login").classList.remove("hidden");
-}
-
-function registerUser(){
-const name=document.getElementById("name").value.trim();
-const phone=document.getElementById("newPhone").value.trim();
-
-if(!name || !/^09\d{9}$/.test(phone)){
-alert("نام و شماره موبایل معتبر را وارد کنید.");
-return;
-}
-
-alert("فرم ثبت‌نام آزمایشی تکمیل شد. ثبت حساب واقعی پس از اتصال سرور انجام می‌شود.");
-}
-
-function toggleLanguage(){
-document.querySelectorAll(".fa,.en").forEach(el=>{
-el.classList.toggle("hidden");
-});
-document.body.dir=document.body.dir==="rtl"?"ltr":"rtl";
+function demoSubmit(event){
+event.preventDefault();
+document.getElementById("message").textContent=
+"این فرم هنوز به سیستم ثبت‌نام متصل نشده است. لطفاً منتظر تکمیل اتصال بمانید.";
 }
 </script>
-
 </body>
 </html>
