@@ -2,37 +2,29 @@
 <html lang="fa" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#0b1830">
 <title>حساب کاربری | EHSAN BOOKS</title>
 <style>
 *{box-sizing:border-box}
 body{
-margin:0;
+margin:0;padding:20px;min-height:100vh;
+display:flex;align-items:center;justify-content:center;
 font-family:Tahoma,Arial,sans-serif;
-background:#0b1830;
-color:#fff;
-min-height:100vh;
-display:flex;
-align-items:center;
-justify-content:center;
-padding:20px
+background:#0b1830;color:white
 }
 .container{
-width:100%;max-width:430px;
-background:#132642;
-border:1px solid #244461;
-border-radius:18px;
-padding:28px;
-box-shadow:0 15px 40px #0005
+width:100%;max-width:430px;padding:28px;
+background:#132642;border:1px solid #244461;
+border-radius:18px
 }
 .logo{text-align:center;color:#48d6c5;font-size:25px;font-weight:bold}
 .subtitle{text-align:center;color:#d9c58a;margin:12px 0 25px}
 .tabs{display:flex;gap:10px;margin-bottom:22px}
+button{cursor:pointer}
 .tabs button{
 flex:1;padding:12px;border:1px solid #426079;
-border-radius:9px;background:transparent;
-color:white;font-size:15px
+border-radius:9px;background:transparent;color:white
 }
 .tabs button.active{background:#20b9ad;color:#092039}
 label{display:block;margin:14px 0 7px}
@@ -43,68 +35,195 @@ color:white;font-size:15px
 }
 .submit{
 width:100%;padding:14px;margin-top:22px;
-border:0;border-radius:9px;
-background:#20b9ad;color:#062039;
-font-weight:bold;font-size:16px
+border:0;border-radius:9px;background:#20b9ad;
+color:#062039;font-weight:bold;font-size:16px
 }
-.note{text-align:center;color:#b8c7d8;font-size:12px;line-height:2;margin-top:20px}
+.note{text-align:center;color:#c2cfdd;font-size:13px;line-height:2;margin-top:18px}
 a{color:#48d6c5;text-decoration:none}
+#message{overflow-wrap:anywhere}
 </style>
 </head>
 <body>
 <div class="container">
 <div class="logo">EHSAN BOOKS</div>
-<div class="subtitle">حساب کاربری | دانش برای جهانی بهتر</div>
+<div class="subtitle">دانش برای جهانی بهتر</div>
 
 <div class="tabs">
-<button id="registerTab" class="active" type="button" onclick="showForm('register')">ثبت‌نام</button>
-<button id="loginTab" type="button" onclick="showForm('login')">ورود</button>
+<button id="registerTab" class="active" type="button"
+onclick="showForm('register')">ثبت‌نام</button>
+<button id="loginTab" type="button"
+onclick="showForm('login')">ورود</button>
 </div>
 
-<form id="accountForm" onsubmit="demoSubmit(event)">
+<form id="accountForm">
 <div id="nameField">
 <label>نام و نام خانوادگی</label>
-<input type="text" id="name" placeholder="نام کامل شما" required>
+<input type="text" id="name" maxlength="80"
+placeholder="نام کامل شما" required>
 </div>
 
 <label>ایمیل</label>
-<input type="email" id="email" placeholder="example@email.com" required>
+<input type="email" id="email"
+placeholder="example@email.com" required>
 
 <label>رمز عبور</label>
-<input type="password" id="password" placeholder="حداقل ۸ کاراکتر" minlength="8" required>
+<input type="password" id="password"
+minlength="10" maxlength="128"
+placeholder="حداقل ۱۰ کاراکتر" required>
 
-<button class="submit" id="submitButton" type="submit">ایجاد حساب کاربری</button>
+<button class="submit" id="submitButton" type="submit">
+ایجاد حساب کاربری
+</button>
 </form>
 
-<div id="message" class="note">
-این صفحه در مرحله آزمایشی طراحی است.
+<div id="message" class="note" role="status">
+اتصال به سامانه حساب کاربری EHSAN BOOKS
 </div>
+
+<button id="logoutButton" class="submit"
+type="button" style="display:none;background:#d9c58a"
+onclick="logout()">خروج از حساب</button>
+
 <div class="note">
-<a href="index.html">بازگشت به کتابخانه EHSAN BOOKS</a>
+<a href="index.html">بازگشت به کتابخانه</a>
 </div>
 </div>
 
 <script>
-let currentMode="register";
+const API = "https://mokeehsan-books-api-294e.mojtabaloloei2.workers.dev";
 
-function showForm(mode){
-currentMode=mode;
-document.getElementById("nameField").style.display=
-mode==="register"?"block":"none";
-document.getElementById("name").required=mode==="register";
-document.getElementById("registerTab").classList.toggle("active",mode==="register");
-document.getElementById("loginTab").classList.toggle("active",mode==="login");
-document.getElementById("submitButton").textContent=
-mode==="register"?"ایجاد حساب کاربری":"ورود به حساب";
-document.getElementById("message").textContent=
-mode==="register"?"ثبت‌نام در مرحله آزمایشی است.":"ورود در مرحله آزمایشی است.";
+let mode = "register";
+
+const form = document.getElementById("accountForm");
+const message = document.getElementById("message");
+
+function showForm(value) {
+mode = value;
+
+document.getElementById("nameField").style.display =
+value === "register" ? "block" : "none";
+
+document.getElementById("name").required =
+value === "register";
+
+document.getElementById("registerTab").classList.toggle(
+"active", value === "register"
+);
+
+document.getElementById("loginTab").classList.toggle(
+"active", value === "login"
+);
+
+document.getElementById("submitButton").textContent =
+value === "register" ? "ایجاد حساب کاربری" : "ورود به حساب";
+
+message.textContent = "";
 }
 
-function demoSubmit(event){
+async function api(path, options = {}) {
+const response = await fetch(API + path, {
+...options,
+headers: {
+"Content-Type": "application/json",
+...(options.headers || {})
+}
+});
+
+const data = await response.json();
+
+if (!response.ok) {
+throw new Error(data.error || "خطا در ارتباط با سرور");
+}
+
+return data;
+}
+
+form.addEventListener("submit", async function(event) {
 event.preventDefault();
-document.getElementById("message").textContent=
-"این فرم هنوز به سیستم ثبت‌نام متصل نشده است. لطفاً منتظر تکمیل اتصال بمانید.";
+
+const button = document.getElementById("submitButton");
+button.disabled = true;
+button.textContent = "لطفاً صبر کنید...";
+message.textContent = "در حال ارتباط با سرور...";
+
+try {
+const body = {
+email: document.getElementById("email").value.trim(),
+password: document.getElementById("password").value
+};
+
+if (mode === "register") {
+body.name = document.getElementById("name").value.trim();
 }
+
+const result = await api(
+mode === "register" ? "/register" : "/login",
+{
+method: "POST",
+body: JSON.stringify(body)
+}
+);
+
+localStorage.setItem("ehsanBooksToken", result.token);
+
+message.textContent =
+"سلام " + result.user.name + "، ورود شما موفق بود.";
+
+form.style.display = "none";
+document.getElementById("logoutButton").style.display = "block";
+
+} catch (error) {
+message.textContent = error.message;
+} finally {
+button.disabled = false;
+button.textContent =
+mode === "register" ? "ایجاد حساب کاربری" : "ورود به حساب";
+}
+});
+
+async function checkAccount() {
+const token = localStorage.getItem("ehsanBooksToken");
+if (!token) return;
+
+try {
+const result = await api("/me", {
+headers: { "Authorization": "Bearer " + token }
+});
+
+form.style.display = "none";
+document.getElementById("logoutButton").style.display = "block";
+message.textContent = "خوش آمدید " + result.user.name;
+
+} catch (error) {
+localStorage.removeItem("ehsanBooksToken");
+message.textContent = "برای استفاده از حساب خود دوباره وارد شوید.";
+}
+}
+
+async function logout() {
+const token = localStorage.getItem("ehsanBooksToken");
+
+try {
+if (token) {
+await api("/logout", {
+method: "POST",
+headers: { "Authorization": "Bearer " + token }
+});
+}
+} catch (error) {
+message.textContent = "ارتباط با سرور برقرار نشد؛ دوباره تلاش کنید.";
+return;
+}
+
+localStorage.removeItem("ehsanBooksToken");
+form.reset();
+form.style.display = "block";
+document.getElementById("logoutButton").style.display = "none";
+showForm("login");
+message.textContent = "با موفقیت خارج شدید.";
+}
+
+checkAccount();
 </script>
 </body>
 </html>
