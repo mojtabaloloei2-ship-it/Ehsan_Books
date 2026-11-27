@@ -869,7 +869,7 @@ function toggleFavorite(button) {
   const book = button.closest(".book");
 
   const title = book.querySelector("h3").textContent.trim();
-  const description = book.querySelector("p").textContent.trim();
+  const description = book.querySelector("p")?.textContent.trim() || "";
   const cover = book.querySelector(".book-cover img")?.getAttribute("src") || "";
   const link = book.querySelector(".book-link")?.getAttribute("href") || "";
 
@@ -909,7 +909,7 @@ function showFavorites() {
   }
 
   document.querySelectorAll(".book").forEach(book => {
-    const title = book.querySelector("h3")?.textContent.trim();
+    const title = book.querySelector("h3")?.textContent.trim() || "بدون عنوان";
     const button = book.querySelector(".favorite-btn");
 
     if (!button) return;
