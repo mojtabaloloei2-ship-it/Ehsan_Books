@@ -1,3 +1,1223 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0b1830">
+<meta name="description" content="EHSAN BOOKS؛ کتابخانه‌ای برای یادگیری، رشد و ساختن آینده‌ای بهتر.">
+<title>EHSAN BOOKS | دانش برای جهانی بهتر</title>
+
+<style>
+:root{
+  --navy:#0b1830;
+  --navy2:#173454;
+  --turquoise:#36c6bd;
+  --gold:#d9b96e;
+  --bg:#f4f7fb;
+  --text:#17243a;
+  --muted:#718096;
+  --white:#fff;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:Tahoma,Arial,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.8;
+}
+a{text-decoration:none;color:inherit}
+button,input{font-family:inherit}
+.container{width:min(1160px,92%);margin:auto}
+
+/* HEADER */
+header{
+  background:var(--navy);
+  color:white;
+  position:sticky;
+  top:0;
+  z-index:100;
+  box-shadow:0 5px 25px #07122535;
+}
+.header-inner{
+  min-height:82px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+  flex-wrap:wrap;
+  padding:12px 0;
+}
+.logo-area{display:flex;align-items:center;gap:12px}
+.logo-icon{width:48px;height:48px;flex-shrink:0}
+.logo-name{
+  font-size:23px;
+  font-weight:900;
+  letter-spacing:1px;
+  color:white;
+  line-height:1.3;
+}
+.logo-name span{color:var(--turquoise)}
+.logo-tagline{font-size:10px;color:#c5d5e5;direction:ltr}
+nav{display:flex;align-items:center;gap:22px;flex-wrap:wrap}
+nav a{font-size:13px;color:#e4edf5;transition:.2s}
+nav a:hover{color:var(--turquoise)}
+.lang-btn{
+  border:1px solid var(--gold);
+  color:var(--gold);
+  background:transparent;
+  padding:8px 15px;
+  border-radius:20px;
+  cursor:pointer;
+  font-size:12px;
+}
+
+/* HERO */
+.hero{
+  background:
+    radial-gradient(circle at 80% 30%,#1c5266 0,transparent 32%),
+    linear-gradient(125deg,#09162d,#173957 65%,#0d293e);
+  color:white;
+  overflow:hidden;
+  position:relative;
+  padding:85px 0 95px;
+}
+.hero-inner{
+  display:grid;
+  grid-template-columns:1.1fr .9fr;
+  align-items:center;
+  gap:45px;
+}
+.hero-label{
+  display:inline-block;
+  color:var(--gold);
+  border:1px solid #d9b96e65;
+  border-radius:30px;
+  padding:5px 15px;
+  font-size:12px;
+  margin-bottom:15px;
+}
+.hero h1{
+  font-size:clamp(30px,5vw,51px);
+  line-height:1.5;
+  margin:0 0 16px;
+}
+.hero h1 span{color:var(--turquoise)}
+.hero p{
+  color:#d1deeb;
+  font-size:15px;
+  max-width:570px;
+  margin:0 0 25px;
+}
+.search-box{
+  display:flex;
+  background:white;
+  padding:6px;
+  border-radius:12px;
+  max-width:520px;
+  box-shadow:0 12px 35px #0003;
+}
+.search-box input{
+  min-width:0;
+  flex:1;
+  border:0;
+  outline:0;
+  padding:12px;
+  font-size:13px;
+  color:var(--text);
+  background:transparent;
+}
+.search-box button{
+  border:0;
+  border-radius:9px;
+  background:var(--turquoise);
+  color:var(--navy);
+  padding:10px 20px;
+  font-weight:bold;
+  cursor:pointer;
+}
+.hero-note{font-size:11px;color:#aebfd0;margin-top:15px}
+.hero-art{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+.hero-art svg{
+  width:min(100%,410px);
+  filter:drop-shadow(0 20px 30px #0004);
+}
+
+/* GENERAL SECTIONS */
+section.content-section{padding:70px 0}
+.section-heading{text-align:center;margin-bottom:35px}
+.section-heading h2{font-size:27px;margin:0 0 8px;color:var(--navy)}
+.section-heading p{color:var(--muted);font-size:13px;margin:0}
+.gold-line{
+  width:55px;height:3px;
+  background:var(--gold);
+  border-radius:5px;
+  margin:12px auto 0;
+}
+
+/* CATEGORIES */
+.categories{
+  display:grid;
+  grid-template-columns:repeat(6,1fr);
+  gap:14px;
+}
+.category{
+  background:white;
+  border:1px solid #e8edf3;
+  border-radius:15px;
+  text-align:center;
+  padding:22px 8px;
+  cursor:pointer;
+  transition:.25s;
+}
+.category:hover{
+  transform:translateY(-5px);
+  border-color:var(--turquoise);
+  box-shadow:0 12px 25px #17345412;
+}
+.category-icon{font-size:28px;display:block;margin-bottom:8px}
+.category strong{font-size:12px;color:var(--navy)}
+
+/* BOOKS */
+.books-section{background:#edf2f7}
+.books{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:20px;
+}
+
+
+  .book{
+  background:white;
+  border:1px solid #e7edf3;
+  border-radius:18px;
+  overflow:hidden;
+  padding:15px;
+  transition:transform .25s, box-shadow .25s;
+  display:flex;
+  flex-direction:column;
+  min-width:0;
+  height:100%;
+  box-shadow:0 5px 16px rgba(11,24,48,.06);
+}
+
+.book:hover{
+  transform:translateY(-5px);
+  box-shadow:0 12px 28px rgba(11,24,48,.13);
+}
+
+.book-cover{
+  height:210px;
+  min-height:210px;
+  border-radius:10px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:15px;
+  color:white;
+  background:linear-gradient(145deg,#173454,#0b1830);
+  font-weight:900;
+  font-size:19px;
+  line-height:1.7;
+  direction:ltr;
+  position:relative;
+  overflow:hidden;
+}
+.book-cover:before{
+  content:"";
+  position:absolute;
+  width:150px;
+  height:150px;
+  border:1px solid #ffffff35;
+  border-radius:50%;
+  top:-70px;
+  right:-40px;
+}
+.book-cover:after{
+  content:"EHSAN BOOKS";
+  position:absolute;
+  bottom:10px;
+  font-size:9px;
+  letter-spacing:2px;
+  color:#ffffffa0;
+}
+.book:nth-child(3n+2) .book-cover{
+  background:linear-gradient(145deg,#176b70,#103c50);
+}
+.book:nth-child(3n) .book-cover{
+  background:linear-gradient(145deg,#9a7740,#493b2c);
+}
+.tag{
+  display:inline-block;
+  align-self:flex-start;
+  background:#e7f7f5;
+  color:#168c85;
+  padding:3px 10px;
+  border-radius:20px;
+  font-size:10px;
+  margin-top:13px;
+}
+.book h3{
+  font-size:15px;
+  margin:8px 0;
+  color:var(--navy);
+}
+.book p{
+  font-size:11px;
+  color:var(--muted);
+  margin:0 0 8px;
+  flex:0;
+}
+.book-link{
+  display:block;
+  margin-top:auto;
+  text-align:center;
+  padding:11px;
+  border-radius:8px;
+  background:var(--navy);
+  color:white;
+  font-size:12px;
+  text-decoration:none;
+  transition:.2s;
+}
+.book-link:hover{
+  background:var(--turquoise);
+  color:var(--navy);
+}
+.books{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:20px;
+  width:100%;
+}
+
+@media(max-width:700px){
+  .books{
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:12px;
+  }
+
+  .book{
+    padding:10px;
+  }
+
+  .book-cover{
+    height:145px;
+    min-height:145px;
+    font-size:15px;
+    margin-bottom:8px;
+  }
+  
+
+
+
+.no-result{
+  display:none;
+  text-align:center;
+  color:var(--muted);
+  padding:30px;
+  grid-column:1/-1;
+}
+
+/* EHSAN BOOKS HERO BANNER */
+.hero-banner{
+  width:100%;
+  max-width:950px;
+  margin:20px auto;
+  text-align:center;
+  overflow:hidden;
+  border-radius:18px;
+}
+.hero-banner img{
+  display:block;
+  width:100%;
+  height:auto;
+  object-fit:contain;
+  border-radius:18px;
+}
+@media(max-width:650px){
+  .hero-banner{
+    width:100%;
+    margin:16px auto;
+    border-radius:12px;
+  }
+}
+
+.book-cover img{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  display:block;
+}
+</style>
+
+<style>
+/* FEATURES */
+.features{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:20px;
+}
+.feature{
+  background:white;
+  border-radius:16px;
+  padding:25px;
+  border:1px solid #e8edf3;
+  display:flex;
+  gap:18px;
+  align-items:flex-start;
+}
+.feature-icon{
+  width:52px;height:52px;
+  border-radius:13px;
+  background:#e5f7f5;
+  display:grid;
+  place-items:center;
+  font-size:25px;
+  flex-shrink:0;
+}
+.feature h3{margin:0 0 7px;color:var(--navy);font-size:16px}
+.feature p{margin:0 0 12px;color:var(--muted);font-size:12px}
+.feature a{font-size:12px;color:#168c85;font-weight:bold}
+
+/* FOOTER */
+footer{
+  background:var(--navy);
+  color:#d3deea;
+  padding:45px 0 18px;
+}
+.footer-grid{
+  display:grid;
+  grid-template-columns:1.5fr 1fr 1fr;
+  gap:35px;
+}
+footer h3,footer h4{color:white;margin-top:0}
+footer p{font-size:12px;color:#b6c6d6}
+.footer-links{display:grid;gap:8px}
+.footer-links a{font-size:12px;color:#c6d3df}
+.footer-links a:hover{color:var(--turquoise)}
+.copyright{
+  border-top:1px solid #ffffff20;
+  text-align:center;
+  margin-top:30px;
+  padding-top:15px;
+  font-size:11px;
+  color:#91a5ba;
+}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .categories{grid-template-columns:repeat(3,1fr)}
+  .books{grid-template-columns:repeat(3,1fr)}
+  .hero-inner{gap:20px}
+}
+@media(max-width:650px){
+  .header-inner{justify-content:center}
+  nav{justify-content:center;gap:13px}
+  nav a{font-size:11px}
+  .hero{padding:55px 0 65px}
+  .hero-inner{grid-template-columns:1fr;text-align:center}
+  .hero p{margin-left:auto;margin-right:auto}
+  .search-box{margin:auto}
+  .hero-art svg{max-width:260px}
+  section.content-section{padding:50px 0}
+  .categories{grid-template-columns:repeat(2,1fr)}
+  .books{grid-template-columns:repeat(2,1fr);gap:12px}
+  .book{padding:10px}
+  .book-cover{height:145px;font-size:15px}
+  .book h3{font-size:13px}
+  .features{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr;gap:20px}
+}
+@media(max-width:360px){
+.books{grid-template-columns:repeat(2,minmax(0,1fr))}  
+}
+
+/* EHSAN BOOKS LOGO UNDER SEARCH */
+.hero-logo{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  margin:22px auto 12px;
+  text-align:center;
+  color:var(--navy);
+  font-size:17px;
+  font-weight:bold;
+  letter-spacing:2px;
+}
+.hero-logo svg{
+  display:block;
+  max-width:180px;
+  height:auto;
+}
+.favorite-btn {
+  background: #102a43;
+  color: #ffffff;
+  border: 1px solid #d4af37;
+  border-radius: 8px;
+  padding: 10px 14px;
+  margin-top: 10px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: 0.3s;
+}
+
+.favorite-btn:hover {
+  background: #102a43;
+  color: #ffffff;
+}
+</style>
+</head>
+<body>
+  <header>
+  <div class="container header-inner">
+    <a class="logo-area" href="#home">
+      <svg class="logo-icon" viewBox="0 0 100 100" fill="none">
+        <circle cx="50" cy="50" r="46" stroke="#36c6bd" stroke-width="2.5"/>
+        <path d="M50 77V25" stroke="#d9b96e" stroke-width="5" stroke-linecap="round"/>
+        <path d="M50 28C40 19 29 21 22 26V68C33 63 42 65 50 74Z" stroke="#d9b96e" stroke-width="3" fill="#173454"/>
+        <path d="M50 28C60 19 71 21 78 26V68C67 63 58 65 50 74Z" stroke="#36c6bd" stroke-width="3" fill="#173454"/>
+        <path d="M29 37L43 41M29 49L43 53M57 41L71 37M57 53L71 49" stroke="white" stroke-width="2" stroke-linecap="round"/>
+        <circle cx="50" cy="84" r="3" fill="#d9b96e"/>
+      </svg>
+      <div>
+        <div class="logo-name">EHSAN <span>BOOKS</span></div>
+        <div class="logo-tagline">Knowledge for a Better World</div>
+      </div>
+    </a>
+
+    <nav>
+      <a href="#home" data-fa="خانه" data-en="Home">خانه</a>
+      <a href="#categories" data-fa="دسته‌بندی‌ها" data-en="Categories">دسته‌بندی‌ها</a>
+    
+      <a href="#books" data-fa="کتاب‌ها" data-en="Books">کتاب‌ها</a>
+   
+<a href="#myLibrary" data-fa="کتابخانه من" data-en="My Library">کتابخانه من</a>
+
+      <a href="ai-guide.html" data-fa="راهنمای هوشمند" data-en="Smart Guide">راهنمای هوشمند</a>
+      <a href="about.html" data-fa="درباره ما" data-en="About Us">درباره ما</a>
+      <button class="lang-btn" id="langButton" onclick="changeLanguage()">English</button>
+    </nav>
+  </div>
+</header>
+
+
+
+        
+  
+      
+
+<main>
+<section class="hero" id="home">
+  <div class="container hero-inner">
+    <div class="hero-content">
+      <span class="hero-label" data-fa="به کتابخانه جهانی احسان خوش آمدید" data-en="Welcome to Ehsan Digital Library">به کتابخانه جهانی احسان خوش آمدید</span>
+      <h1 data-fa="دانش، پلی به سوی آینده" data-en="Knowledge is the Bridge to the Future">دانش، پلی به سوی آینده</h1>
+      <p data-fa="اینجا دنیایی از کتاب‌ها، ایده‌ها و آموخته‌ها در انتظار شماست. یاد بگیرید، رشد کنید و آینده‌ای بهتر بسازید." data-en="Discover a world of books, ideas and knowledge. Learn, grow and build a better future.">اینجا دنیایی از کتاب‌ها، ایده‌ها و آموخته‌ها در انتظار شماست. یاد بگیرید، رشد کنید و آینده‌ای بهتر بسازید.</p>
+
+      
+<div class="search-box">
+  <input id="searchInput" type="search" placeholder="نام کتاب یا موضوع مورد نظر را جست‌وجو کنید..." oninput="searchBooks()">
+  <button onclick="searchBooks()" data-fa="جست‌وجو" data-en="Search">جست‌وجو</button>
+</div>
+
+
+<div class="hero-banner">
+  <img src="ehsan_books_hero_artwork_no_search-1.png"
+       alt="EHSAN BOOKS - Books and Global Knowledge">
+</div>
+
+<div class="hero-note" data-fa="یادگیری امروز، سرمایه‌گذاری برای فرداست." data-en="Learning today is an investment in tomorrow.">یادگیری امروز، سرمایه‌گذاری برای فرداست.</div>
+</div>
+    
+  </div>
+</section>
+
+<section class="content-section" id="categories">
+  <div class="container">
+    <div class="section-heading">
+      <h2 data-fa="دسته‌بندی کتاب‌ها" data-en="Book Categories">دسته‌بندی کتاب‌ها</h2>
+      <p data-fa="دانش مورد علاقه خود را آسان‌تر پیدا کنید." data-en="Find the knowledge you are looking for.">دانش مورد علاقه خود را آسان‌تر پیدا کنید.</p>
+      <div class="gold-line"></div>
+    </div>
+
+    <div class="categories">
+    <div class="category" onclick="showAllBooks()">
+  <span class="category-icon">📚</span>
+  <strong data-fa="همه کتاب‌ها" data-en="All Books">همه کتاب‌ها</strong>
+    </div>
+      <div class="category" onclick="filterCategory('business')"><span class="category-icon">💼</span><strong data-fa="کسب‌وکار" data-en="Business">کسب‌وکار</strong></div>
+      <div class="category" onclick="filterCategory('success')"><span class="category-icon">🚀</span><strong data-fa="موفقیت" data-en="Success">موفقیت</strong></div>
+      <div class="category" onclick="filterCategory('psychology')"><span class="category-icon">🧠</span><strong data-fa="روان‌شناسی" data-en="Psychology">روان‌شناسی</strong></div>
+      <div class="category" onclick="filterCategory('finance')"><span class="category-icon">💰</span><strong data-fa="مالی" data-en="Finance">مالی</strong></div>
+      <div class="category" onclick="filterCategory('technology')"><span class="category-icon">💻</span><strong data-fa="فناوری" data-en="Technology">فناوری</strong></div>
+      <div class="category" onclick="filterCategory('science')"><span class="category-icon">🔬</span><strong data-fa="علوم" data-en="Science">علوم</strong></div>
+    </div>
+  </div>
+</section>
+
+<section class="content-section books-section" id="books">
+  <div class="container">
+    <div class="section-heading">
+      <h2 data-fa="کتابخانه منتخب احسان" data-en="Ehsan Featured Library">کتابخانه منتخب احسان</h2>
+      <p data-fa="کتاب‌هایی برای الهام گرفتن، یادگیری و پیشرفت." data-en="Books to inspire learning and progress.">کتاب‌هایی برای الهام گرفتن، یادگیری و پیشرفت.</p>
+      <div class="gold-line"></div>
+    </div>
+
+    <div class="books" id="bookList">
+ 
+<article class="book" data-category="psychology" data-search="تفکر سریع و کند thinking fast and slow">
+  <div class="book-cover">
+  <img src="thinking-fast-and-slow-clean.jpg" alt="جلد تفکر سریع و کند" style="width:100%;height:100%;object-fit:contain;">
+  </div>
+  <span class="tag" data-fa="روان‌شناسی" data-en="Psychology">روان‌شناسی</span>
+  <h3 data-fa="تفکر سریع و کند" data-en="Thinking, Fast and Slow">تفکر سریع و کند</h3>
+  <p data-fa="نگاهی به دو شیوه متفاوت تفکر و تصمیم‌گیری انسان." data-en="A look at two systems of human thought and decision-making.">نگاهی به دو شیوه متفاوت تفکر و تصمیم‌گیری انسان.</p>
+  <a class="book-link" href="thinking-fast-and-slow.html" data-fa="مطالعه خلاصه" data-en="Read Summary">مطالعه خلاصه</a>
+</article>
+
+
+     <article class="book" data-category="finance" data-search="پدر پولدار پدر بی پول rich dad poor dad">
+  <div class="book-cover">
+  <img src="rich-dad-poor-dad-clean.jpg" alt="جلد پدر پولدار پدر بی‌پول" style="width:100%;height:100%;object-fit:contain;">
+  </div>
+  <span class="tag" data-fa="مالی" data-en="Finance">مالی</span>
+  <h3 data-fa="پدر پولدار پدر بی‌پول" data-en="Rich Dad Poor Dad">پدر پولدار پدر بی‌پول</h3>
+  <p data-fa="آشنایی با تفاوت نگرش‌ها درباره پول، دارایی و استقلال مالی." data-en="Explore different perspectives on money, assets and financial independence.">آشنایی با تفاوت نگرش‌ها درباره پول، دارایی و استقلال مالی.</p>
+  <a class="book-link" href="rich-dad-poor-dad.html" data-fa="مطالعه خلاصه" data-en="Read Summary">مطالعه خلاصه</a>
+     </article>
+        
+      
+
+      <article class="book" data-category="success" data-search="عادت های اتمی atomic habits">
+        <div class="book-cover">
+  <img src="atomic-habits-clean.jpg" alt="جلد عادت‌های اتمی" style="width:100%;height:100%;object-fit:contain;">
+        </div>
+        <span class="tag" data-fa="رشد فردی" data-en="Personal Growth">رشد فردی</span>
+        <h3 data-fa="عادت‌های اتمی" data-en="Atomic Habits">عادت‌های اتمی</h3>
+        <p data-fa="چگونه تغییرات کوچک می‌توانند نتایج بزرگ ایجاد کنند." data-en="How small changes can lead to remarkable results.">چگونه تغییرات کوچک می‌توانند نتایج بزرگ ایجاد کنند.</p>
+        <a class="book-link" href="atomic-habits.html" data-fa="مطالعه خلاصه" data-en="Read Summary">مطالعه خلاصه</a>
+      </article>
+
+
+<article class="book" data-category="business" data-search="کار عمیق deep work">
+  <div class="book-cover">
+    <img src="deep-work-clean.png" alt="جلد کتاب کار عمیق" style="width:100%;height:100%;object-fit:contain;">
+  </div>
+  <span class="tag" data-fa="مدیریت" data-en="Management">مدیریت</span>
+  <h3 data-fa="کار عمیق" data-en="Deep Work">کار عمیق</h3>
+  <p data-fa="هنر تمرکز بدون حواس‌پرتی برای دستیابی به نتایج ارزشمند." data-en="The art of focused work in a distracted world.">هنر تمرکز بدون حواس‌پرتی برای دستیابی به نتایج ارزشمند.</p>
+  <a class="book-link" href="deep-work.html" data-fa="مطالعه خلاصه" data-en="Read Summary">مطالعه خلاصه</a>
+</article>
+      <article class="book" data-category="finance" data-search="روان شناسی پول psychology of money">
+        
+<div class="book-cover">
+  <img src="psychology-of-money-clean.jpg" alt="جلد روان‌شناسی پول" style="width:100%;height:100%;object-fit:contain;">
+</div>
+          
+        <span class="tag" data-fa="مالی" data-en="Finance">مالی</span>
+        <h3 data-fa="روان‌شناسی پول" data-en="The Psychology of Money">روان‌شناسی پول</h3>
+        <p data-fa="شناخت رفتار انسان در تصمیم‌های مالی و اقتصادی." data-en="Understanding human behavior in financial decisions.">شناخت رفتار انسان در تصمیم‌های مالی و اقتصادی.</p>
+        <a class="book-link" href="psychology-of-money.html" data-fa="مطالعه خلاصه" data-en="Read Summary">مطالعه خلاصه</a>
+      </article>
+
+      
+
+      <article class="book" data-category="business" data-search="از خوب به عالی good to great">
+        <div class="book-cover">
+  <img src="good-to-great-cover.jpg" alt="جلد کتاب از خوب به عالی" style="width:100%;height:100%;object-fit:contain;">
+        </div>
+        <span class="tag" data-fa="مدیریت" data-en="Management">مدیریت</span>
+        <h3 data-fa="از خوب به عالی" data-en="Good to Great">از خوب به عالی</h3>
+        <p data-fa="اصول تبدیل سازمان‌ها و کسب‌وکارهای خوب به عالی." data-en="Principles for turning good companies into great ones.">اصول تبدیل سازمان‌ها و کسب‌وکارهای خوب به عالی.</p>
+        <a class="book-link" href="good-to-great.html" data-fa="مطالعه خلاصه" data-en="Read Summary">مطالعه خلاصه</a>
+      </article>
+
+      <article class="book" data-category="success" data-search="بیندیشید و ثروتمند شوید think and grow rich">
+        <div class="book-cover">
+  <img src="think-and-grow-rich-cover.jpg" alt="جلد کتاب بیندیشید و ثروتمند شوید" style="width:100%;height:100%;object-fit:contain;">
+        </div>
+        <span class="tag" data-fa="موفقیت" data-en="Success">موفقیت</span>
+        <h3 data-fa="بیندیشید و ثروتمند شوید" data-en="Think and Grow Rich">بیندیشید و ثروتمند شوید</h3>
+        <p data-fa="نگاهی به نقش هدف، باور و پشتکار در موفقیت." data-en="The role of goals, belief and persistence in success.">نگاهی به نقش هدف، باور و پشتکار در موفقیت.</p>
+        <a class="book-link" href="think-and-grow-rich.html" data-fa="مطالعه خلاصه" data-en="Read Summary">مطالعه خلاصه</a>
+      </article>
+    
+      <article class="book" data-category="success" data-search="اثر مرکب the compound effect">
+        
+<div class="book-cover">
+  <img src="compound-effect-cover.jpg" alt="جلد کتاب اثر مرکب" style="width:100%;height:100%;object-fit:contain;">
+</div>
+<span class="tag" data-fa="رشد فردی" data-en="Personal Growth">رشد فردی</span>
+<h3 data-fa="اثر مرکب" data-en="The Compound Effect">اثر مرکب</h3>
+<p data-fa="قدرت انتخاب‌ها و اقدامات کوچک و مداوم." data-en="The power of small, consistent actions and choices.">قدرت انتخاب‌ها و اقدامات کوچک و مداوم.</p>
+<a class="book-link" href="the-compound-effect.html" data-fa="مطالعه خلاصه" data-en="Read Summary">مطالعه خلاصه</a>
+</article>
+
+    <article class="book" data-category="finance" data-search="ثروتمندترین مرد بابل richest man in babylon">
+        <div class="book-cover">
+  <img src="richest-man-in-babylon-cover.jpg" alt="جلد کتاب ثروتمندترین مرد بابل" style="width:100%;height:100%;object-fit:contain;">
+        </div>
+        <span class="tag" data-fa="مالی" data-en="Finance">مالی</span>
+        <h3 data-fa="ثروتمندترین مرد بابل" data-en="The Richest Man in Babylon">ثروتمندترین مرد بابل</h3>
+        <p data-fa="درس‌های ساده و ماندگار درباره پس‌انداز و ثروت." data-en="Timeless lessons about saving and building wealth.">درس‌های ساده و ماندگار درباره پس‌انداز و ثروت.</p>
+        <a class="book-link" href="richest-man-in-babylon.html" data-fa="مطالعه خلاصه" data-en="Read Summary">مطالعه خلاصه</a>
+      </article>
+
+      <article class="book" data-category="success" data-search="چه کسی پنیر مرا جابه جا کرد who moved my cheese">
+        <div class="book-cover">
+  <img src="who-moved-my-cheese-cover.jpg" alt="جلد کتاب چه کسی پنیر مرا جابه‌جا کرد" style="width:100%;height:100%;object-fit:contain;">
+        </div>
+        <span class="tag" data-fa="موفقیت" data-en="Success">موفقیت</span>
+        <h3 data-fa="چه کسی پنیر مرا جابه‌جا کرد؟" data-en="Who Moved My Cheese?">چه کسی پنیر مرا جابه‌جا کرد؟</h3>
+        <p data-fa="چگونه با تغییرات زندگی و کار بهتر کنار بیاییم." data-en="How to adapt to change in life and work.">چگونه با تغییرات زندگی و کار بهتر کنار بیاییم.</p>
+        <a class="book-link" href="who-moved-my-cheese.html" data-fa="مطالعه خلاصه" data-en="Read Summary">مطالعه خلاصه</a>
+      </article>
+
+      <article class="book" data-category="psychology" data-search="قدرت عادت power of habit">
+        <div class="book-cover">
+  <img src="power-of-habit-cover.jpg" alt="جلد کتاب قدرت عادت" style="width:100%;height:100%;object-fit:contain;">
+        </div>
+        <span class="tag" data-fa="روان‌شناسی" data-en="Psychology">روان‌شناسی</span>
+        <h3 data-fa="قدرت عادت" data-en="The Power of Habit">قدرت عادت</h3>
+        <p data-fa="شناخت چرخه عادت و روش تغییر رفتارهای روزمره." data-en="Understand the habit loop and how to change behavior.">شناخت چرخه عادت و روش تغییر رفتارهای روزمره.</p>
+        <a class="book-link" href="power-of-habit.html" data-fa="مطالعه خلاصه" data-en="Read Summary">مطالعه خلاصه</a>
+      </article>
+
+      <article class="book" data-category="business" data-search="هفت عادت مردمان موثر seven habits">
+       
+<div class="book-cover">
+  <img src="seven-habits-cover.jpg"
+       alt="جلد کتاب هفت عادت مردمان مؤثر"
+       style="width:100%;height:100%;object-fit:contain;">
+</div>
+ 
+        <span class="tag" data-fa="موفقیت" data-en="Success">موفقیت</span>
+        <h3 data-fa="هفت عادت مردمان مؤثر" data-en="The 7 Habits of Highly Effective People">هفت عادت مردمان مؤثر</h3>
+        <p data-fa="هفت اصل برای زندگی مؤثرتر و هدفمندتر." data-en="Seven principles for a more effective and purposeful life.">هفت اصل برای زندگی مؤثرتر و هدفمندتر.</p>
+        <a class="book-link" href="seven-habits.html" data-fa="مطالعه خلاصه" data-en="Read Summary">مطالعه خلاصه</a>
+     <button class="favorite-btn"
+        onclick="toggleFavorite(this)"
+        data-fa="♡ افزودن به علاقه‌مندی‌ها"
+        data-en="♡ Add to Favorites">
+  ♡ افزودن به علاقه‌مندی‌ها
+     </button>
+      </article>
+
+      <article class="book" data-category="finance" data-search="ثروت ملل wealth of nations">
+        <div class="book-cover">
+  <img src="wealth-of-nations-cover.jpg" alt="جلد کتاب ثروت ملل" style="width:100%;height:100%;object-fit:contain;">
+        </div>
+        <span class="tag" data-fa="اقتصاد" data-en="Economics">اقتصاد</span>
+        <h3 data-fa="ثروت ملل" data-en="The Wealth of Nations">ثروت ملل</h3>
+        <p data-fa="آشنایی با اندیشه‌های بنیادین اقتصاد و بازار." data-en="Explore foundational ideas about economics and markets.">آشنایی با اندیشه‌های بنیادین اقتصاد و بازار.</p>
+        <a class="book-link" href="wealth-of-nations.html" data-fa="مطالعه خلاصه" data-en="Read Summary">مطالعه خلاصه</a>
+      </article>
+
+      <div class="no-result" id="noResult" data-fa="کتابی با این مشخصات پیدا نشد." data-en="No books found.">کتابی با این مشخصات پیدا نشد.</div>
+    </div>
+  </div>
+</section>
+<section class="content-section">
+  <div class="container">
+    <div class="section-heading">
+      <h2 data-fa="تجربه‌ای فراتر از مطالعه" data-en="More Than Reading">تجربه‌ای فراتر از مطالعه</h2>
+      <p data-fa="امکانات هوشمند برای یادگیری بهتر و دسترسی آسان‌تر به دانش." data-en="Smart features for better learning and easier access to knowledge.">امکانات هوشمند برای یادگیری بهتر و دسترسی آسان‌تر به دانش.</p>
+      <div class="gold-line"></div>
+    </div>
+
+    <div class="features">
+      <div class="feature">
+        <div class="feature-icon">🤖</div>
+        <div>
+          <h3 data-fa="راهنمای هوشمند کتاب" data-en="EHSAN Smart Book Guide">راهنمای هوشمند کتاب</h3>
+          <p data-fa="برای پیدا کردن کتاب مناسب و آشنایی با موضوعات مورد علاقه‌تان از راهنمای احسان کمک بگیرید." data-en="Discover books and topics that match your interests with EHSAN guidance.">برای پیدا کردن کتاب مناسب و آشنایی با موضوعات مورد علاقه‌تان از راهنمای احسان کمک بگیرید.</p>
+          <a href="ai-guide.html" data-fa="ورود به راهنمای هوشمند ←" data-en="Open Smart Guide →">ورود به راهنمای هوشمند ←</a>
+        </div>
+      </div>
+
+      <div class="feature">
+        <div class="feature-icon">📚</div>
+        <div>
+          <h3 data-fa="دانش و دسترسی قانونی" data-en="Knowledge and Legal Access">دانش و دسترسی قانونی</h3>
+          <p data-fa="خلاصه‌های آموزشی رایگان و معرفی راه‌های قانونی تهیه نسخه کامل کتاب‌ها." data-en="Free educational summaries and information about lawful access to full books.">خلاصه‌های آموزشی رایگان و معرفی راه‌های قانونی تهیه نسخه کامل کتاب‌ها.</p>
+          <a href="publishers.html" data-fa="اطلاعات بیشتر ←" data-en="Learn More →">اطلاعات بیشتر ←</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section id="myLibrary" class="section">
+  <h2>📚 کتابخانه شخصی من</h2>
+
+  <p id="favoriteCount">
+    تعداد کتاب‌های ذخیره‌شده: ۰
+  </p>
+
+  <div id="favoriteBooks">
+    هنوز کتابی ذخیره نکرده‌اید.
+  </div>
+</section>
+
+</main>
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <h3>EHSAN BOOKS</h3>
+        <p data-fa="دانش، الهام و فرصتی برای ساختن آینده‌ای بهتر. هدف ما فراهم کردن تجربه‌ای ارزشمند برای علاقه‌مندان به یادگیری در سراسر جهان است." data-en="Knowledge, inspiration and an opportunity to build a better future. Our goal is to create a valuable learning experience for people around the world.">دانش، الهام و فرصتی برای ساختن آینده‌ای بهتر. هدف ما فراهم کردن تجربه‌ای ارزشمند برای علاقه‌مندان به یادگیری در سراسر جهان است.</p>
+        <p>Knowledge for a Better World</p>
+      </div>
+
+      <div>
+        <h4 data-fa="دسترسی سریع" data-en="Quick Links">دسترسی سریع</h4>
+        <div class="footer-links">
+          <a href="#home" data-fa="صفحه اصلی" data-en="Home">صفحه اصلی</a>
+          <a href="#books" data-fa="کتابخانه" data-en="Library">کتابخانه</a>
+          <a href="about.html" data-fa="درباره ما" data-en="About Us">درباره ما</a>
+          <a href="contact.html" data-fa="تماس با ما" data-en="Contact Us">تماس با ما</a>
+        </div>
+      </div>
+
+      <div>
+        <h4 data-fa="قوانین و خدمات" data-en="Policies and Services">قوانین و خدمات</h4>
+        <div class="footer-links">
+          <a href="ai-guide.html" data-fa="راهنمای هوشمند" data-en="Smart Guide">راهنمای هوشمند</a>
+          <a href="publishers.html" data-fa="ناشران و حقوق کتاب‌ها" data-en="Publishers and Rights">ناشران و حقوق کتاب‌ها</a>
+          <a href="copyright.html" data-fa="حقوق نشر" data-en="Copyright">حقوق نشر</a>
+          <a href="terms.html" data-fa="شرایط استفاده" data-en="Terms of Use">شرایط استفاده</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="copyright">
+      © 2026 EHSAN BOOKS. All Rights Reserved.
+    </div>
+  </div>
+</footer>
+<script>
+function filterCategory(category){
+  const books = document.querySelectorAll("#bookList .book");
+  let visibleCount = 0;
+
+  books.forEach(function(book){
+    const bookCategory = book.getAttribute("data-category");
+
+    const matches = category === "all" ||
+                    bookCategory === category;
+
+    book.style.display = matches ? "" : "none";
+
+    if(matches) visibleCount++;
+  });
+
+  const noResult = document.getElementById("noResult");
+
+  if(noResult){
+    noResult.style.display = visibleCount === 0 ? "block" : "none";
+  }
+
+  const input = document.getElementById("searchInput");
+
+  if(input) input.value = "";
+
+  const booksSection = document.getElementById("books");
+
+  if(booksSection){
+    booksSection.scrollIntoView({
+      behavior: "smooth"
+    });
+  }
+}
+
+
+function showAllBooks(){
+  const books = document.querySelectorAll("#bookList .book");
+
+  books.forEach(function(book){
+    book.style.display = "";
+  });
+
+  const noResult = document.getElementById("noResult");
+
+  if(noResult){
+    noResult.style.display = "none";
+  }
+
+  const input = document.getElementById("searchInput");
+
+  if(input) input.value = "";
+
+  document.getElementById("books").scrollIntoView({
+    behavior: "smooth"
+  });
+}
+
+
+function toggleFavorite(button) {
+  const book = button.closest(".book");
+alert("دکمه علاقه‌مندی فعال شد");
+  const title = book.querySelector("h3").textContent.trim();
+  const description = book.querySelector("p")?.textContent.trim() || "";
+  const cover = book.querySelector(".book-cover img")?.getAttribute("src") || "";
+  const link = book.querySelector(".book-link")?.getAttribute("href") || "";
+
+  let favorites = JSON.parse(
+    localStorage.getItem("ehsanFavorites") || "[]"
+  );
+
+  const index = favorites.findIndex(item =>
+    (typeof item === "string" ? item : item.title) === title
+  );
+
+  if (index === -1) {
+    favorites.push({ title, description, cover, link });
+  } else {
+    favorites.splice(index, 1);
+  }
+
+  localStorage.setItem("ehsanFavorites", JSON.stringify(favorites));
+
+  showFavorites();
+}
+
+
+function showFavorites() {
+  const favorites = JSON.parse(
+    localStorage.getItem("ehsanFavorites") || "[]"
+  );
+
+  const container = document.getElementById("favoriteBooks");
+  const count = document.getElementById("favoriteCount");
+
+  if (!container) return;
+
+  if (count) {
+    count.textContent =
+      "تعداد کتاب‌های ذخیره‌شده: " + favorites.length;
+  }
+
+  document.querySelectorAll(".book").forEach(book => {
+    const title = book.querySelector("h3")?.textContent.trim() || "بدون عنوان";
+    const button = book.querySelector(".favorite-btn");
+
+    if (!button) return;
+
+    const saved = favorites.some(item =>
+      (typeof item === "string" ? item : item.title) === title
+    );
+
+    button.textContent = saved
+      ? "♥ افزوده شد"
+      : "♡ افزودن به علاقه‌مندی‌ها";
+  });
+
+  container.innerHTML = "";
+
+  if (!favorites.length) {
+    container.textContent = "هنوز کتابی ذخیره نکرده‌اید.";
+    return;
+  }
+
+  favorites.forEach(book => {
+    if (typeof book === "string") {
+      book = {
+        title: book,
+        description: "این کتاب در کتابخانه شخصی شما ذخیره شده است.",
+        cover: "",
+        link: "#"
+      };
+    }
+
+    const item = document.createElement("div");
+    item.style.padding = "15px";
+    item.style.margin = "12px 0";
+    item.style.border = "1px solid #d6c9a5";
+    item.style.borderRadius = "12px";
+    item.style.display = "flex";
+    item.style.gap = "15px";
+    item.style.alignItems = "center";
+
+    if (book.cover) {
+      const img = document.createElement("img");
+      img.src = book.cover;
+      img.alt = "جلد " + book.title;
+      img.style.width = "85px";
+      img.style.height = "115px";
+      img.style.objectFit = "contain";
+      item.appendChild(img);
+    }
+
+    const details = document.createElement("div");
+
+    const name = document.createElement("h3");
+    name.textContent = book.title;
+
+    const description = document.createElement("p");
+    description.textContent = book.description;
+
+    const read = document.createElement("a");
+    read.textContent = "مطالعه کتاب";
+    read.href = book.link || "#";
+    read.style.display = "inline-block";
+    read.style.margin = "8px";
+
+    const remove = document.createElement("button");
+    remove.textContent = "حذف از کتابخانه";
+
+    remove.onclick = function () {
+      let current = JSON.parse(
+        localStorage.getItem("ehsanFavorites") || "[]"
+      );
+
+      current = current.filter(entry =>
+        (typeof entry === "string" ? entry : entry.title) !== book.title
+      );
+
+      localStorage.setItem(
+        "ehsanFavorites",
+        JSON.stringify(current)
+      );
+
+      showFavorites();
+    };
+
+    details.appendChild(name);
+    details.appendChild(description);
+    details.appendChild(read);
+    details.appendChild(remove);
+
+    item.appendChild(details);
+    container.appendChild(item);
+  });
+}
+
+function showFavorites() {
+  const favorites = JSON.parse(
+    localStorage.getItem("ehsanFavorites") || "[]"
+  );
+
+  const container = document.getElementById("favoriteBooks");
+  const count = document.getElementById("favoriteCount");
+
+  if (!container) return;
+
+  if (count) {
+    count.textContent =
+      "تعداد کتاب‌های ذخیره‌شده: " + favorites.length;
+  }
+
+  document.querySelectorAll(".book").forEach(book => {
+    const title = book.querySelector("h3")?.textContent.trim();
+    const button = book.querySelector(".favorite-btn");
+
+    if (!button) return;
+
+    const saved = favorites.some(item =>
+      (typeof item === "string" ? item : item.title) === title
+    );
+
+    button.textContent = saved
+      ? "♥ افزوده شد"
+      : "♡ افزودن به علاقه‌مندی‌ها";
+  });
+
+  container.innerHTML = "";
+
+  if (!favorites.length) {
+    container.textContent = "هنوز کتابی ذخیره نکرده‌اید.";
+    return;
+  }
+
+  favorites.forEach(book => {
+    if (typeof book === "string") {
+      book = {
+        title: book,
+        description: "این کتاب در کتابخانه شخصی شما ذخیره شده است.",
+        cover: "",
+        link: "#"
+      };
+    }
+
+    const item = document.createElement("div");
+    item.style.padding = "15px";
+    item.style.margin = "12px 0";
+    item.style.border = "1px solid #d6c9a5";
+    item.style.borderRadius = "12px";
+    item.style.display = "flex";
+    item.style.gap = "15px";
+    item.style.alignItems = "center";
+
+    if (book.cover) {
+      const img = document.createElement("img");
+      img.src = book.cover;
+      img.alt = "جلد " + book.title;
+      img.style.width = "85px";
+      img.style.height = "115px";
+      img.style.objectFit = "contain";
+      item.appendChild(img);
+    }
+
+    const details = document.createElement("div");
+
+    const name = document.createElement("h3");
+    name.textContent = book.title;
+
+    const description = document.createElement("p");
+    description.textContent = book.description;
+
+    const read = document.createElement("a");
+    read.textContent = "مطالعه کتاب";
+    read.href = book.link || "#";
+    read.style.display = "inline-block";
+    read.style.margin = "8px";
+
+    const remove = document.createElement("button");
+    remove.textContent = "حذف از کتابخانه";
+
+    remove.onclick = function () {
+      let current = JSON.parse(
+        localStorage.getItem("ehsanFavorites") || "[]"
+      );
+
+      current = current.filter(entry =>
+        (typeof entry === "string" ? entry : entry.title) !== book.title
+      );
+
+      localStorage.setItem(
+        "ehsanFavorites",
+        JSON.stringify(current)
+      );
+
+      showFavorites();
+    };
+<script/> 
+let currentLanguage = "fa";
+let activeBookCategory = "all";
+
+function normalizeText(text){
+  return (text || "")
+    .toLowerCase()
+    .replace(/ي/g,"ی")
+    .replace(/ك/g,"ک")
+    .replace(/‌/g," ")
+    .replace(/[۰-۹]/g, function(d){
+      return "۰۱۲۳۴۵۶۷۸۹".indexOf(d);
+    })
+    .replace(/[٠-٩]/g, function(d){
+      return "٠١٢٣٤٥٦٧٨٩".indexOf(d);
+    })
+    .replace(/\s+/g," ")
+    .trim();
+}
+
+function changeLanguage(){
+  currentLanguage = currentLanguage === "fa" ? "en" : "fa";
+
+  document.documentElement.lang = currentLanguage;
+  document.documentElement.dir =
+    currentLanguage === "fa" ? "rtl" : "ltr";
+
+  document.querySelectorAll("[data-fa][data-en]").forEach(function(element){
+    element.textContent = currentLanguage === "fa"
+      ? element.getAttribute("data-fa")
+      : element.getAttribute("data-en");
+  });
+
+  const input = document.getElementById("searchInput");
+
+  if(input){
+    input.placeholder = currentLanguage === "fa"
+      ? "نام کتاب یا موضوع مورد نظر را جست‌وجو کنید..."
+      : "Search for a book or topic...";
+  }
+
+  const button = document.getElementById("langButton");
+
+  if(button){
+    button.textContent =
+      currentLanguage === "fa" ? "English" : "فارسی";
+  }
+}
+
+function searchBooks(){
+  applyBookFilters();
+}
+
+function filterCategory(category){
+  activeBookCategory = category;
+
+  const input = document.getElementById("searchInput");
+  if(input) input.value = "";
+
+  applyBookFilters();
+
+  document.getElementById("books").scrollIntoView({
+    behavior: "smooth"
+  });
+}
+
+function showAllBooks(){
+  activeBookCategory = "all";
+
+  const input = document.getElementById("searchInput");
+  if(input) input.value = "";
+
+  applyBookFilters();
+
+  document.getElementById("books").scrollIntoView({
+    behavior: "smooth"
+  });
+}
+
+function applyBookFilters(){
+  const input = document.getElementById("searchInput");
+  const query = normalizeText(input ? input.value : "");
+
+  const books = document.querySelectorAll("#bookList .book");
+  let visibleCount = 0;
+
+  books.forEach(function(book){
+    const content = normalizeText(
+      book.innerText + " " +
+      (book.getAttribute("data-search") || "")
+    );
+
+    const category = book.getAttribute("data-category");
+
+    const matchesCategory =
+      activeBookCategory === "all" ||
+      category === activeBookCategory;
+
+    const matchesSearch = content.includes(query);
+
+    const visible = matchesCategory && matchesSearch;
+
+    book.style.display = visible ? "" : "none";
+
+    if(visible) visibleCount++;
+  });
+
+  const noResult = document.getElementById("noResult");
+
+  if(noResult){
+    noResult.style.display =
+      visibleCount === 0 ? "block" : "none";
+  }
+}
+
+
 
 <script>
 let currentLanguage = "fa";
@@ -20,13 +1240,15 @@ function changeLanguage() {
   document.documentElement.dir =
     currentLanguage === "fa" ? "rtl" : "ltr";
 
-  document.querySelectorAll("[data-fa][data-en]").forEach(el => {
-    el.textContent = currentLanguage === "fa"
-      ? el.getAttribute("data-fa")
-      : el.getAttribute("data-en");
+  document.querySelectorAll("[data-fa][data-en]").forEach(function(element) {
+    element.textContent =
+      currentLanguage === "fa"
+        ? element.getAttribute("data-fa")
+        : element.getAttribute("data-en");
   });
 
   const input = document.getElementById("searchInput");
+
   if (input) {
     input.placeholder = currentLanguage === "fa"
       ? "نام کتاب یا موضوع مورد نظر را جست‌وجو کنید..."
@@ -34,6 +1256,7 @@ function changeLanguage() {
   }
 
   const button = document.getElementById("langButton");
+
   if (button) {
     button.textContent =
       currentLanguage === "fa" ? "English" : "فارسی";
@@ -46,8 +1269,12 @@ function searchBooks() {
 
 function filterCategory(category) {
   activeBookCategory = category;
-  document.getElementById("searchInput").value = "";
+
+  const input = document.getElementById("searchInput");
+  if (input) input.value = "";
+
   applyBookFilters();
+
   document.getElementById("books").scrollIntoView({
     behavior: "smooth"
   });
@@ -55,8 +1282,12 @@ function filterCategory(category) {
 
 function showAllBooks() {
   activeBookCategory = "all";
-  document.getElementById("searchInput").value = "";
+
+  const input = document.getElementById("searchInput");
+  if (input) input.value = "";
+
   applyBookFilters();
+
   document.getElementById("books").scrollIntoView({
     behavior: "smooth"
   });
@@ -69,7 +1300,7 @@ function applyBookFilters() {
   const books = document.querySelectorAll("#bookList .book");
   let visibleCount = 0;
 
-  books.forEach(book => {
+  books.forEach(function(book) {
     const content = normalizeText(
       book.innerText + " " +
       (book.getAttribute("data-search") || "")
@@ -77,16 +1308,20 @@ function applyBookFilters() {
 
     const category = book.getAttribute("data-category");
 
-    const visible =
-      (activeBookCategory === "all" ||
-       category === activeBookCategory) &&
-      content.includes(query);
+    const matchesCategory =
+      activeBookCategory === "all" ||
+      category === activeBookCategory;
+
+    const matchesSearch = content.includes(query);
+    const visible = matchesCategory && matchesSearch;
 
     book.style.display = visible ? "" : "none";
+
     if (visible) visibleCount++;
   });
 
   const noResult = document.getElementById("noResult");
+
   if (noResult) {
     noResult.style.display =
       visibleCount === 0 ? "block" : "none";
@@ -95,17 +1330,11 @@ function applyBookFilters() {
 
 function toggleFavorite(button) {
   const book = button.closest(".book");
-  if (!book) return;
 
   const title = book.querySelector("h3").textContent.trim();
-  const description =
-    book.querySelector("p")?.textContent.trim() || "";
-
-  const cover =
-    book.querySelector(".book-cover img")?.getAttribute("src") || "";
-
-  const link =
-    book.querySelector(".book-link")?.getAttribute("href") || "";
+  const description = book.querySelector("p").textContent.trim();
+  const cover = book.querySelector(".book-cover img")?.getAttribute("src") || "";
+  const link = book.querySelector(".book-link")?.getAttribute("href") || "";
 
   let favorites = JSON.parse(
     localStorage.getItem("ehsanFavorites") || "[]"
@@ -166,26 +1395,32 @@ function showFavorites() {
     return;
   }
 
-  favorites.forEach(savedBook => {
-    const book = typeof savedBook === "string"
-      ? {
-          title: savedBook,
-          description: "",
-          cover: "",
-          link: "#"
-        }
-      : savedBook;
+  favorites.forEach(book => {
+    if (typeof book === "string") {
+      book = {
+        title: book,
+        description: "این کتاب در کتابخانه شخصی شما ذخیره شده است.",
+        cover: "",
+        link: "#"
+      };
+    }
 
     const item = document.createElement("div");
-    item.style.cssText =
-      "padding:15px;margin:12px 0;border:1px solid #d6c9a5;border-radius:12px;display:flex;gap:15px;align-items:center;";
+    item.style.padding = "15px";
+    item.style.margin = "12px 0";
+    item.style.border = "1px solid #d6c9a5";
+    item.style.borderRadius = "12px";
+    item.style.display = "flex";
+    item.style.gap = "15px";
+    item.style.alignItems = "center";
 
     if (book.cover) {
       const img = document.createElement("img");
       img.src = book.cover;
-      img.alt = book.title;
-      img.style.cssText =
-        "width:85px;height:115px;object-fit:contain;";
+      img.alt = "جلد " + book.title;
+      img.style.width = "85px";
+      img.style.height = "115px";
+      img.style.objectFit = "contain";
       item.appendChild(img);
     }
 
@@ -195,11 +1430,13 @@ function showFavorites() {
     name.textContent = book.title;
 
     const description = document.createElement("p");
-    description.textContent = book.description || "";
+    description.textContent = book.description;
 
     const read = document.createElement("a");
     read.textContent = "مطالعه کتاب";
     read.href = book.link || "#";
+    read.style.display = "inline-block";
+    read.style.margin = "8px";
 
     const remove = document.createElement("button");
     remove.textContent = "حذف از کتابخانه";
@@ -210,8 +1447,7 @@ function showFavorites() {
       );
 
       current = current.filter(entry =>
-        (typeof entry === "string" ? entry : entry.title)
-        !== book.title
+        (typeof entry === "string" ? entry : entry.title) !== book.title
       );
 
       localStorage.setItem(
@@ -222,34 +1458,18 @@ function showFavorites() {
       showFavorites();
     };
 
-    details.append(name, description, read, remove);
+    details.appendChild(name);
+    details.appendChild(description);
+    details.appendChild(read);
+    details.appendChild(remove);
+
     item.appendChild(details);
     container.appendChild(item);
   });
 }
 
-document.addEventListener("DOMContentLoaded", function() {
-
-  document.querySelectorAll("#bookList .book").forEach(book => {
-
-    if (!book.querySelector(".favorite-btn")) {
-      const button = document.createElement("button");
-
-      button.className = "favorite-btn";
-      button.type = "button";
-      button.textContent = "♡ افزودن به علاقه‌مندی‌ها";
-
-      button.onclick = function() {
-        toggleFavorite(button);
-      };
-
-      book.appendChild(button);
-    }
-
-  });
-
-  showFavorites();
-});
+document.addEventListener("DOMContentLoaded", showFavorites);
 </script>
+
 </body>
 </html>
