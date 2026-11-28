@@ -806,124 +806,6 @@ footer p{font-size:12px;color:#b6c6d6}
     </div>
   </div>
 </footer>
-<script>
-function filterCategory(category){
-  const books = document.querySelectorAll("#bookList .book");
-  let visibleCount = 0;
-
-  books.forEach(function(book){
-    const bookCategory = book.getAttribute("data-category");
-
-    const matches = category === "all" ||
-                    bookCategory === category;
-
-    book.style.display = matches ? "" : "none";
-
-    if(matches) visibleCount++;
-  });
-
-  const noResult = document.getElementById("noResult");
-
-  if(noResult){
-    noResult.style.display = visibleCount === 0 ? "block" : "none";
-  }
-
-  const input = document.getElementById("searchInput");
-
-  if(input) input.value = "";
-
-  const booksSection = document.getElementById("books");
-
-  if(booksSection){
-    booksSection.scrollIntoView({
-      behavior: "smooth"
-    });
-  }
-}
-
-
-function showAllBooks(){
-  const books = document.querySelectorAll("#bookList .book");
-
-  books.forEach(function(book){
-    book.style.display = "";
-  });
-
-  const noResult = document.getElementById("noResult");
-
-  if(noResult){
-    noResult.style.display = "none";
-  }
-
-  const input = document.getElementById("searchInput");
-
-  if(input) input.value = "";
-
-  document.getElementById("books").scrollIntoView({
-    behavior: "smooth"
-  });
-}
-
-
-function toggleFavorite(button) {
-  const book = button.closest(".book");
-alert("دکمه علاقه‌مندی فعال شد");
-  const title = book.querySelector("h3").textContent.trim();
-  const description = book.querySelector("p")?.textContent.trim() || "";
-  const cover = book.querySelector(".book-cover img")?.getAttribute("src") || "";
-  const link = book.querySelector(".book-link")?.getAttribute("href") || "";
-
-  let favorites = JSON.parse(
-    localStorage.getItem("ehsanFavorites") || "[]"
-  );
-
-  const index = favorites.findIndex(item =>
-    (typeof item === "string" ? item : item.title) === title
-  );
-
-  if (index === -1) {
-    favorites.push({ title, description, cover, link });
-  } else {
-    favorites.splice(index, 1);
-  }
-
-  localStorage.setItem("ehsanFavorites", JSON.stringify(favorites));
-
-  showFavorites();
-}
-
-
-function showFavorites() {
-  const favorites = JSON.parse(
-    localStorage.getItem("ehsanFavorites") || "[]"
-  );
-
-  const container = document.getElementById("favoriteBooks");
-  const count = document.getElementById("favoriteCount");
-
-  if (!container) return;
-
-  if (count) {
-    count.textContent =
-      "تعداد کتاب‌های ذخیره‌شده: " + favorites.length;
-  }
-
-  document.querySelectorAll(".book").forEach(book => {
-    const title = book.querySelector("h3")?.textContent.trim() || "بدون عنوان";
-    const button = book.querySelector(".favorite-btn");
-
-    if (!button) return;
-
-    const saved = favorites.some(item =>
-      (typeof item === "string" ? item : item.title) === title
-    );
-
-    button.textContent = saved
-      ? "♥ افزوده شد"
-      : "♡ افزودن به علاقه‌مندی‌ها";
-  });
-
-  container.innerHTML = "";
 
   if (!favorites.length) {
     container.textContent = "هنوز کتابی ذخیره نکرده‌اید.";
@@ -1348,45 +1230,162 @@ function toggleFavorite(button) {
     favorites.push({ title, description, cover, link });
   } else {
     favorites.splice(index, 1);
+
+
+<script>
+let currentLanguage = "fa";
+let activeBookCategory = "all";
+
+function normalizeText(text) {
+  return (text || "")
+    .toLowerCase()
+    .replace(/ي/g, "ی")
+    .replace(/ك/g, "ک")
+    .replace(/‌/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function changeLanguage() {
+  currentLanguage = currentLanguage === "fa" ? "en" : "fa";
+
+  document.documentElement.lang = currentLanguage;
+  document.documentElement.dir = currentLanguage === "fa" ? "rtl" : "ltr";
+
+  document.querySelectorAll("[data-fa][data-en]").forEach(function(el) {
+    el.textContent = currentLanguage === "fa"
+      ? el.getAttribute("data-fa")
+      : el.getAttribute("data-en");
+  });
+
+  const input = document.getElementById("searchInput");
+  if (input) {
+    input.placeholder = currentLanguage === "fa"
+      ? "نام کتاب یا موضوع مورد نظر را جست‌وجو کنید..."
+      : "Search for a book or topic...";
   }
 
-  localStorage.setItem(
-    "ehsanFavorites",
-    JSON.stringify(favorites)
-  );
+  const button = document.getElementById("langButton");
+  if (button) {
+    button.textContent = currentLanguage === "fa" ? "English" : "فارسی";
+  }
+}
 
+function searchBooks() {
+  applyBookFilters();
+}
+
+function filterCategory(category) {
+  activeBookCategory = category;
+
+  const input = document.getElementById("searchInput");
+  if (input) input.value = "";
+
+  applyBookFilters();
+
+  const section = document.getElementById("books");
+  if (section) section.scrollIntoView({ behavior: "smooth" });
+}
+
+function showAllBooks() {
+  filterCategory("all");
+}
+
+function applyBookFilters() {
+  const input = document.getElementById("searchInput");
+  const query = normalizeText(input ? input.value : "");
+
+  const books = document.querySelectorAll("#bookList .book");
+  let visibleCount = 0;
+
+  books.forEach(function(book) {
+    const content = normalizeText(
+      book.innerText + " " + (book.getAttribute("data-search") || "")
+    );
+
+    const category = book.getAttribute("data-category");
+
+    const visible =
+      (activeBookCategory === "all" || category === activeBookCategory) &&
+      content.includes(query);
+
+    book.style.display = visible ? "" : "none";
+
+    if (visible) visibleCount++;
+  });
+
+  const noResult = document.getElementById("noResult");
+  if (noResult) {
+    noResult.style.display = visibleCount === 0 ? "block" : "none";
+  }
+}
+
+function toggleFavorite(button) {
+  const book = button.closest(".book");
+  if (!book) return;
+
+  const titleEl = book.querySelector("h3");
+  const descEl = book.querySelector("p");
+  const img = book.querySelector(".book-cover img") || book.querySelector("img");
+  const linkEl = book.querySelector(".book-link") || book.querySelector("a[href]");
+
+  const title = titleEl ? titleEl.textContent.trim() : "کتاب";
+  const description = descEl ? descEl.textContent.trim() : "";
+  const cover = img ? img.getAttribute("src") : "";
+  const link = linkEl ? linkEl.getAttribute("href") : "";
+
+  let favorites = [];
+
+  try {
+    favorites = JSON.parse(localStorage.getItem("ehsanFavorites") || "[]");
+  } catch (e) {}
+
+  const index = favorites.findIndex(function(item) {
+    return (typeof item === "string" ? item : item.title) === title;
+  });
+
+  if (index < 0) {
+    favorites.push({ title, description, cover, link });
+  } else {
+    favorites.splice(index, 1);
+  }
+
+  localStorage.setItem("ehsanFavorites", JSON.stringify(favorites));
   showFavorites();
 }
 
 function showFavorites() {
-  const favorites = JSON.parse(
-    localStorage.getItem("ehsanFavorites") || "[]"
-  );
+  let favorites = [];
+
+  try {
+    favorites = JSON.parse(localStorage.getItem("ehsanFavorites") || "[]");
+  } catch (e) {}
 
   const container = document.getElementById("favoriteBooks");
   const count = document.getElementById("favoriteCount");
 
-  if (!container) return;
-
   if (count) {
-    count.textContent =
-      "تعداد کتاب‌های ذخیره‌شده: " + favorites.length;
+    count.textContent = "تعداد کتاب‌های ذخیره‌شده: " + favorites.length;
   }
 
-  document.querySelectorAll("#bookList .book").forEach(book => {
-    const title = book.querySelector("h3")?.textContent.trim();
+  document.querySelectorAll("#bookList .book").forEach(function(book) {
+    const titleEl = book.querySelector("h3");
     const button = book.querySelector(".favorite-btn");
 
-    if (!button) return;
+    if (!titleEl || !button) return;
 
-    const saved = favorites.some(item =>
-      (typeof item === "string" ? item : item.title) === title
-    );
+    const title = titleEl.textContent.trim();
+
+    const saved = favorites.some(function(item) {
+      return (typeof item === "string" ? item : item.title) === title;
+    });
 
     button.textContent = saved
       ? "♥ افزوده شد"
       : "♡ افزودن به علاقه‌مندی‌ها";
   });
+
+  if (!container) return;
 
   container.innerHTML = "";
 
@@ -1395,32 +1394,20 @@ function showFavorites() {
     return;
   }
 
-  favorites.forEach(book => {
-    if (typeof book === "string") {
-      book = {
-        title: book,
-        description: "این کتاب در کتابخانه شخصی شما ذخیره شده است.",
-        cover: "",
-        link: "#"
-      };
-    }
+  favorites.forEach(function(entry) {
+    const book = typeof entry === "string"
+      ? { title: entry, description: "", cover: "", link: "#" }
+      : entry;
 
     const item = document.createElement("div");
-    item.style.padding = "15px";
-    item.style.margin = "12px 0";
-    item.style.border = "1px solid #d6c9a5";
-    item.style.borderRadius = "12px";
-    item.style.display = "flex";
-    item.style.gap = "15px";
-    item.style.alignItems = "center";
+    item.style.cssText =
+      "padding:15px;margin:12px 0;border:1px solid #d6c9a5;border-radius:12px;display:flex;gap:15px;align-items:center";
 
     if (book.cover) {
       const img = document.createElement("img");
       img.src = book.cover;
       img.alt = "جلد " + book.title;
-      img.style.width = "85px";
-      img.style.height = "115px";
-      img.style.objectFit = "contain";
+      img.style.cssText = "width:85px;height:115px;object-fit:contain";
       item.appendChild(img);
     }
 
@@ -1429,46 +1416,42 @@ function showFavorites() {
     const name = document.createElement("h3");
     name.textContent = book.title;
 
-    const description = document.createElement("p");
-    description.textContent = book.description;
+    const desc = document.createElement("p");
+    desc.textContent = book.description || "";
 
     const read = document.createElement("a");
     read.textContent = "مطالعه کتاب";
     read.href = book.link || "#";
-    read.style.display = "inline-block";
-    read.style.margin = "8px";
+    read.style.cssText = "display:inline-block;margin:8px";
 
     const remove = document.createElement("button");
     remove.textContent = "حذف از کتابخانه";
 
     remove.onclick = function() {
-      let current = JSON.parse(
-        localStorage.getItem("ehsanFavorites") || "[]"
-      );
+      let current = [];
 
-      current = current.filter(entry =>
-        (typeof entry === "string" ? entry : entry.title) !== book.title
-      );
+      try {
+        current = JSON.parse(localStorage.getItem("ehsanFavorites") || "[]");
+      } catch (e) {}
 
-      localStorage.setItem(
-        "ehsanFavorites",
-        JSON.stringify(current)
-      );
+      current = current.filter(function(x) {
+        return (typeof x === "string" ? x : x.title) !== book.title;
+      });
 
+      localStorage.setItem("ehsanFavorites", JSON.stringify(current));
       showFavorites();
     };
 
-    details.appendChild(name);
-    details.appendChild(description);
-    details.appendChild(read);
-    details.appendChild(remove);
-
+    details.append(name, desc, read, remove);
     item.appendChild(details);
     container.appendChild(item);
   });
 }
 
-document.addEventListener("DOMContentLoaded", showFavorites);
+document.addEventListener("DOMContentLoaded", function() {
+  showFavorites();
+  applyBookFilters();
+});
 </script>
 
 </body>
